@@ -7,5 +7,8 @@
   "main": "index.js",
   "repository": "git@github.com:tuqulore/vue-3-practices.git",
   "author": "Kimiaki Kuno <knokmki612@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  }
 }
