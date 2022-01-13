@@ -1,5 +1,5 @@
 {
-  "name": "vue-3-practices-template",
+  "name": "vue-3-practices-vite-template",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

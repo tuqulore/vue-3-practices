@@ -2,7 +2,7 @@
   "name": "vue-3-practices",
   "private": true,
   "packageManager": "npm@8.3.0",
-  "workspaces": ["template"],
+  "workspaces": ["*-template", "practice*"],
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:tuqulore/vue-3-practices.git",
