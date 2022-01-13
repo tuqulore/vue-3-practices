@@ -1,6 +1,7 @@
 {
   "name": "vue-3-practices",
   "private": true,
+  "packageManager": "npm@8.3.0",
   "workspaces": ["template"],
   "version": "1.0.0",
   "main": "index.js",

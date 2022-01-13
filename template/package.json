@@ -1,7 +1,6 @@
 {
   "name": "vue-3-practices-template",
   "version": "0.0.0",
-  "packageManager": "yarn@1.22.15",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
