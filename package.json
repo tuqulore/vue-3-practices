@@ -1,14 +1,28 @@
 {
   "name": "vue-3-practices",
-  "private": true,
-  "packageManager": "npm@8.3.0",
-  "workspaces": ["*-template", "practice*"],
+  "description": "Vue 3 / Nuxt 3の演習問題集",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:tuqulore/vue-3-practices.git",
-  "author": "Kimiaki Kuno <knokmki612@gmail.com>",
-  "license": "MIT",
+  "author": "tuqulore Inc.",
+  "bugs": {
+    "url": "https://github.com/tuqulore/vue-3-practices/issues"
+  },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
+  "keywords": [
+    "nuxt3",
+    "vue3"
+  ],
+  "license": "MIT",
+  "main": "",
+  "packageManager": "npm@8.3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuqulore/vue-3-practices.git"
+  },
+  "workspaces": [
+    "*-template",
+    "practice*"
+  ]
 }
