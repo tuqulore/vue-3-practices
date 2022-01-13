@@ -21,5 +21,8 @@
       "eslint:recommended",
       "plugin:vue/vue3-recommended"
     ]
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
