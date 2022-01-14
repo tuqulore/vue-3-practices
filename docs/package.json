@@ -1,0 +1,17 @@
+{
+  "name": "vue-3-practices-docs",
+  "description": "Vue 3 / Nuxt 3の演習資料",
+  "version": "1.0.0",
+  "dependencies": {
+    "@slidev/cli": "^0.28.1",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*"
+  },
+  "main": "",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  }
+}
