@@ -26,6 +26,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "dev:codesandbox": "CODESANDBOX=true vite",
     "preview": "vite preview"
   }
 }
