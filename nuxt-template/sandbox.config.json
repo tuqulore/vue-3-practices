@@ -4,7 +4,6 @@
   "template": "nuxt",
   "container": {
     "port": 3000,
-    "startScript": "dev:codesandbox",
     "node": "16"
   }
 }
