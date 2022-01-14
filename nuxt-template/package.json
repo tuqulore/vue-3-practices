@@ -1,0 +1,28 @@
+{
+  "name": "vue-3-practices-nuxt-template",
+  "description": "Nuxt 3の演習問題用テンプレート",
+  "version": "1.0.0",
+  "author": "tuqulore Inc.",
+  "bugs": {
+    "url": "https://github.com/tuqulore/vue-3-practices/issues"
+  },
+  "devDependencies": {
+    "nuxt3": "latest"
+  },
+  "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
+  "keywords": [
+    "nuxt3"
+  ],
+  "license": "MIT",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuqulore/vue-3-practices.git"
+  },
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "dev:codesandbox": "CODESANDBOX=true nuxi dev",
+    "start": "node .output/server/index.mjs"
+  }
+}
