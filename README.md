@@ -6,7 +6,7 @@ Vue 3 / Nuxt 3の演習問題集
 
 ### CodeSandbox
 
-1. `https://codesandbox.io/s/github.com/tuqulore/vue-3-practices/<演習のディレクトリ>` にアクセス
+1. `https://codesandbox.io/s/github.com/tuqulore/vue-3-practices/tree/main/<演習のディレクトリ>` にアクセス
 
 ### StackBlitz
 
