@@ -3,16 +3,16 @@
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
-  data() {
-    return {
-      counter: 0,
-    };
-  },
-  mounted() {
+  setup() {
+    const counter = ref(10);
     setInterval(() => {
-      this.counter++;
+      counter.value += 1;
     }, 1000);
+    return {
+      counter,
+    };
   },
 };
 </script>

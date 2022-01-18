@@ -4,10 +4,13 @@
 
 <script>
 export default {
-  methods: {
-    clickHandler() {
+  setup() {
+    const clickHandler = () => {
       alert("clicked");
-    },
+    };
+    return {
+      clickHandler,
+    };
   },
 };
 </script>
