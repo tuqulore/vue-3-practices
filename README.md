@@ -8,18 +8,12 @@ Vue 3 / Nuxt 3 を学習するための
 
 を用意したリポジトリです。
 
-## 使い方
-
-### 資料
-
-- [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/docs?file=/slides.md) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/docs?file=slides.md&terminal=dev)
-
-### ハンズオン
+## ハンズオン
 
 - Vue 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=/src/App.vue) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev)
 - Nuxt 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=/app.vue)(非推奨) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=app.vue&terminal=dev)
 
-### 演習
+## 演習
 
 TODO: 演習の追加
 
