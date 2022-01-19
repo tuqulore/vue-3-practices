@@ -9,6 +9,7 @@ Vue 3 / Nuxt 3の演習問題集
 #### 単体の演習へのアクセス
 
 - [Vue 3 演習用テンプレート](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-template)
+- [Vue 3 演習用空白テンプレート](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template)
 - [Nuxt 3 演習用テンプレート](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-template)
 
 ### StackBlitz
@@ -16,6 +17,7 @@ Vue 3 / Nuxt 3の演習問題集
 #### 単体の演習へのアクセス
 
 - [Vue 3 演習用テンプレート](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-template?terminal=dev)
+- [Vue 3 演習用空白テンプレート](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?terminal=dev)
 - [Nuxt 3 演習用テンプレート](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-template?terminal=dev)
 
 #### 全体の演習へのアクセス
