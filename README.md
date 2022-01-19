@@ -1,30 +1,21 @@
 # vue-3-practices
 
-Vue 3 / Nuxt 3の演習問題集
+Vue 3 / Nuxt 3 を学習するための
 
-## 使い方
+- 資料
+- ハンズオン
+- 演習
 
-### CodeSandbox
+を用意したリポジトリです。
 
-#### 単体の演習へのアクセス
+## ハンズオン
 
-- [Vue 3 演習用テンプレート](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-template)
-- [Vue 3 演習用空白テンプレート](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template)
-- [Nuxt 3 演習用テンプレート](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-template)
+- Vue 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=/src/App.vue) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev)
+- Nuxt 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=/app.vue)(非推奨) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=app.vue&terminal=dev)
 
-### StackBlitz
+## 演習
 
-#### 単体の演習へのアクセス
-
-- [Vue 3 演習用テンプレート](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-template?terminal=dev)
-- [Vue 3 演習用空白テンプレート](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?terminal=dev)
-- [Nuxt 3 演習用テンプレート](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-template?terminal=dev)
-
-#### 全体の演習へのアクセス
-
-1. https://stackblitz.com/github/tuqulore/vue-3-practices にアクセス
-2. ターミナルウィンドウで `yarn install` を実行
-3. `yarn --cwd <演習のディレクトリ> dev` を実行
+TODO: 演習の追加
 
 ## 注意点
 
