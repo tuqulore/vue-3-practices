@@ -1,0 +1,26 @@
+<script>
+export default {
+  setup() {
+    /**
+     * v-ifディレクティブから参照される値を変更すると、
+     * レンダリング結果が変化します。
+     */
+    const isVisible = false
+    return {isVisible}
+  }
+}
+</script>
+
+<template>
+  <p>テンプレートを変更することなく、次の箇所を消してください</p>
+  <!--
+    v-ifディレクティブが使用されています。
+    v-if ディレクティブは、ブロックを条件に応じてレンダリングしたい場合に使用されます。
+    ブロックは、ディレクティブの式が真を返す場合のみレンダリングされます。
+    引用: https://v3.ja.vuejs.org/guide/conditional.html#v-if
+  -->
+  <p v-if="isVisible">ここが消えます</p>
+</template>
+
+<style>
+</style>
