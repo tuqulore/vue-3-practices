@@ -21,9 +21,28 @@ drawings:
   persist: false
 ---
 
+<div class="text-center">
+<img src="/logo.svg" alt="Vue" style="width: 100px;" class="inline" />
+</div>
+
 # Vue.js
 
-Web アプリケーションにおけるユーザーインターフェイスを構築するための、オープンソースの JavaScript フレームワーク
+---
+
+# アジェンダ
+
+- はじめに
+- リアクティブの探求
+- テンプレート構文の説明
+- （未作成）ライフサイクル
+- （未作成）算出プロパティとウォッチ
+- コンポーネント
+
+---
+
+# はじめに
+
+Web アプリケーションにおけるユーザーインターフェイスを構築するための、オープンソースの JavaScript フレームワーク。
 
 <div class="pt-4 text-sm">
 
@@ -34,7 +53,28 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 ---
 
-# 前提のお話
+# 準備
+
+本講座におけるハンズオンは以下によって行えます。
+
+- Vue 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=/src/App.vue) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev)
+- Nuxt 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=/app.vue)(非推奨) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=app.vue&terminal=dev)
+
+## 注意点
+
+### CodeSandbox
+
+現状 Nuxt を用いた演習に対しては Hot Module Replacement(HMR)が機能しないため、非推奨です [#12](https://github.com/tuqulore/vue-3-practices/issues/12)。
+
+代わりに StackBlitz で演習をおこなってください。
+
+### StackBlitz
+
+一部のブラウザでは動作に設定が必要です。詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
+
+---
+
+# 2 つの代表的な API と注意点
 
 <div class="flex gap-8">
 
@@ -92,7 +132,7 @@ export default {
 
 ---
 
-# まずは書いてみましょう
+# まずは書いてみる
 
 <div class="flex gap-8">
 
@@ -229,6 +269,96 @@ export default {
 ```
 
 <ReactiveSample />
+
+</div>
+
+---
+
+# リアクティブの探求（Vue での reactive によるリアクティブな変数）
+
+<div class="flex gap-8">
+
+```vue
+<template>
+  <div>
+    <input type="text" v-model="user.name" />
+    {{ user.name }}
+  </div>
+</template>
+<script>
+import { reactive } from "vue";
+
+export default {
+  setup() {
+    const user = reactive({
+      name: "",
+    });
+    return {
+      user,
+    };
+  },
+};
+</script>
+```
+
+</div>
+
+---
+
+# リアクティブの探求（Vue での toRefs を使った分割代入）
+
+<div class="flex gap-8">
+
+```vue
+<template>
+  <div>{{ name }}さんは{{ old }}歳になりました</div>
+</template>
+<script>
+import { reactive, toRefs } from "vue";
+
+export default {
+  setup() {
+    const user = reactive({
+      name: "taro",
+      old: 16,
+    });
+    const { name, old } = toRefs(user);
+    return {
+      name,
+      old,
+    };
+  },
+};
+</script>
+```
+
+</div>
+
+---
+
+# リアクティブの探求（Vue での reactive に対して読み込み専用にする）
+
+<div class="flex gap-8">
+
+```vue
+<script>
+import { reactive, readonly } from "vue";
+
+export default {
+  setup() {
+    const original = reactive({ count: 0 });
+    const copy = readonly(original);
+    original.count++;
+    // copy を変更しようとすると失敗し、警告が表示されます
+    copy.count++; // warning: "Set operation on key 'count' failed: target is readonly."
+    return {
+      original,
+      copy,
+    };
+  },
+};
+</script>
+```
 
 </div>
 
