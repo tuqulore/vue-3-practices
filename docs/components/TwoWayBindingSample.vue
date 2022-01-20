@@ -6,10 +6,12 @@
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
-  data() {
+  setup() {
+    const message = ref("Hello Vue!");
     return {
-      message: "Hello Vue!",
+      message,
     };
   },
 };
