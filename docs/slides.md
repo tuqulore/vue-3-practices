@@ -796,7 +796,7 @@ export default {
 
 # ライフサイクル
 
-(https://v3.vuejs.org/guide/instance.html#lifecycle-diagram)[公式]
+(https://v3.ja.vuejs.org/guide/instance.html#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%82%BF%E3%82%99%E3%82%A4%E3%82%A2%E3%82%AF%E3%82%99%E3%83%A9%E3%83%A0)[公式]
 
 <img src="/lifecycle.svg" alt="ライフサイクル ダイアグラム" class="block h-full">
 
