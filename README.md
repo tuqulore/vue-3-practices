@@ -10,12 +10,12 @@ Vue 3 / Nuxt 3 を学習するための
 
 ## スケジュール
 
-自習時間を除き、全16時間を想定しています。
+自習時間を除き、全 16 時間を想定しています。
 
-1. Vue 3 のハンズオン (8時間)
-2. Vue 3 周辺ライブラリのハンズオン (2時間)
-3. Vue 3 サンプルアプリケーションのハンズオン (2時間)
-4. Nuxt 3 のハンズオン (4時間)
+1. Vue 3 のハンズオン (8 時間)
+2. Vue 3 周辺ライブラリのハンズオン (2 時間)
+3. Vue 3 サンプルアプリケーションのハンズオン (2 時間)
+4. Nuxt 3 のハンズオン (4 時間)
 
 ## ハンズオン
 
@@ -24,25 +24,25 @@ Vue 3 / Nuxt 3 を学習するための
 
 ## 演習
 
-| キーワード | 演習 | 解答 |
-| :- | :- | :- |
-| `style` | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-style?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-style?file=/src/App.vue)--> | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-style-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-style-answer?file=/src/App.vue)--> |
-| `scoped css` `component` | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component?file=/src/App.vue)--> | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component-answer?file=/src/App.vue)--> |
-| `mustache` `setup` | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup?file=/src/App.vue)--> | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup-answer?file=/src/App.vue)--> |
+| キーワード                                  | 演習                                                                                                                                                                                                                                                                                                                  | 解答                                                                                                                                                                                                                                                                                                                                |
+| :------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `style`                                     | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-style?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-style?file=/src/App.vue)-->                                                                 | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-style-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-style-answer?file=/src/App.vue)-->                                                                 |
+| `scoped css` `component`                    | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component?file=/src/App.vue)-->                                   | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component-answer?file=/src/App.vue)-->                                   |
+| `mustache` `setup`                          | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup?file=/src/App.vue)-->                                               | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup-answer?file=/src/App.vue)-->                                               |
 | `reactive` `class binding` `event handling` | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-reactive-class-binding-event-handling?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-reactive-class-binding-event-handling?file=/src/App.vue)--> | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-reactive-class-binding-event-handling-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-reactive-class-binding-event-handling-answer?file=/src/App.vue)--> |
-| `v-if` | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-if?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-if?file=/src/App.vue)--> | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-if-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-if-answer?file=/src/App.vue)--> |
-| `v-for` | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-for?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-for?file=/src/App.vue)--> | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-for-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-for-answer?file=/src/App.vue)--> |
-| `v-model` | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-model?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-model?file=/src/App.vue)--> | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-model-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-model-answer?file=/src/App.vue)--> |
+| `v-if`                                      | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-if?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-if?file=/src/App.vue)-->                                                                   | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-if-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-if-answer?file=/src/App.vue)-->                                                                   |
+| `v-for`                                     | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-for?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-for?file=/src/App.vue)-->                                                                 | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-for-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-for-answer?file=/src/App.vue)-->                                                                 |
+| `v-model`                                   | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-model?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-model?file=/src/App.vue)-->                                                             | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-model-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-model-answer?file=/src/App.vue)-->                                                             |
 
 ## 注意点
 
 ### StackBlitz
 
-Chromium系ブラウザ以外は動作に設定が必要もしくは動作不可能です。詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
+Chromium 系ブラウザ以外は動作に設定が必要もしくは動作不可能です。詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
 
 ### CodeSandbox
 
-現状以下の問題が存在します。代わりにStackBlitzを利用してください。
+現状以下の問題が存在します。代わりに StackBlitz を利用してください。
 
-- Nuxtを用いた演習に対してはHot Module Replacement(HMR)が機能しない [#12](https://github.com/tuqulore/vue-3-practices/issues/12)
+- Nuxt を用いた演習に対しては Hot Module Replacement(HMR)が機能しない [#12](https://github.com/tuqulore/vue-3-practices/issues/12)
 - 文字化けする [#38](https://github.com/tuqulore/vue-3-practices/issues/38)
