@@ -29,7 +29,7 @@ Vue 3 / Nuxt 3 を学習するための
 
 ### StackBlitz
 
-Chromium系ブラウザ以外では動作に設定が必要もしくは動作不可能です。詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
+Chromium系ブラウザ以外は動作に設定が必要もしくは動作不可能です。詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
 
 ### CodeSandbox
 
