@@ -32,11 +32,17 @@ drawings:
 # アジェンダ
 
 - はじめに
+  - Composition API, 学習環境など
 - リアクティブの探求
+  - ref, reactive, toRefs, readonly など
 - テンプレート構文の説明
+  - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model, イベント, 省略記法
 - （未作成）ライフサイクル
+  - onMounted, onUpdated, onUnmounted など
 - （未作成）算出プロパティとウォッチ
+  - computed, watch など
 - コンポーネント
+  - props, emit, slot など
 
 ---
 
@@ -109,7 +115,7 @@ export default {
   setup() {
     const count = ref(0);
     const increment = () => {
-      count += 1;
+      count.value += 1;
     };
     return {
       count,
@@ -235,6 +241,9 @@ console.log(sum); // 3.
 
 # リアクティブの探求（Vue での ref によるリアクティブな変数）
 
+ref を使ったデータを操作する場合、setup 内では value にアクセスする。
+ただし、template 内では変数（定数）そのものを参照するだけで value を得られる。
+
 <div class="flex gap-8">
 
 ```vue
@@ -276,6 +285,8 @@ export default {
 
 # リアクティブの探求（Vue での reactive によるリアクティブな変数）
 
+リアクティブにしたいデータがオブジェクトの場合、reactive が便利
+
 <div class="flex gap-8">
 
 ```vue
@@ -306,6 +317,8 @@ export default {
 ---
 
 # リアクティブの探求（Vue での toRefs を使った分割代入）
+
+前項の reactive だと、オブジェクトの分割代入ができず、その場合、Vue では toRefs を使うことで可能になる。
 
 <div class="flex gap-8">
 
@@ -778,6 +791,14 @@ export default {
 </div>
 
 </div>
+
+---
+
+# ライフサイクル
+
+---
+
+# 算出プロパティとウォッチ
 
 ---
 
