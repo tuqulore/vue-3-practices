@@ -796,6 +796,10 @@ export default {
 
 # ライフサイクル
 
+(https://v3.vuejs.org/guide/instance.html#lifecycle-diagram)[公式]
+
+<img src="/lifecycle.svg" alt="ライフサイクル ダイアグラム" class="block h-full">
+
 ---
 
 # 算出プロパティとウォッチ
