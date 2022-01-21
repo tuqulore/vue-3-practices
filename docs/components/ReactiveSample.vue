@@ -21,6 +21,6 @@ export default {
   <div>
     <p>val1: <input type="number" v-model="val1" /></p>
     <p>val2: <input type="number" v-model="val2" /></p>
-    <p>sam: {{ sum }}</p>
+    <p>sum: {{ sum }}</p>
   </div>
 </template>

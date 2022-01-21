@@ -61,7 +61,7 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 # 準備
 
-本講座におけるハンズオンは以下によって行えます。
+本講座におけるハンズオンは以下によって行えます。基本は本スライドにあるサンプルコードを試しつつ、余力があれば [こちら](https://github.com/tuqulore/vue-3-practices#%E6%BC%94%E7%BF%92)の演習に挑戦してみてください。
 
 - Vue 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=/src/App.vue) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev)
 - Nuxt 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=/app.vue)(非推奨) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=app.vue&terminal=dev)
@@ -272,7 +272,7 @@ export default {
   <div>
     <p>val1: <input type="number" v-model="val1" /></p>
     <p>val2: <input type="number" v-model="val2" /></p>
-    <p>sam: {{ sum }}</p>
+    <p>sum: {{ sum }}</p>
   </div>
 </template>
 ```
