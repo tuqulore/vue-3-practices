@@ -8,6 +8,15 @@ Vue 3 / Nuxt 3 を学習するための
 
 を用意したリポジトリです。
 
+## スケジュール
+
+自習時間を除き、全16時間を想定しています。
+
+1. Vue 3 のハンズオン (8時間)
+2. Vue 3 周辺ライブラリのハンズオン (2時間)
+3. Vue 3 サンプルアプリケーションのハンズオン (2時間)
+4. Nuxt 3 のハンズオン (4時間)
+
 ## ハンズオン
 
 - Vue 3 [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev) [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=/src/App.vue)
