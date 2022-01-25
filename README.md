@@ -2,7 +2,7 @@
 
 Vue 3 / Nuxt 3 を学習するための
 
-- 資料
+- 学習資料
 - ハンズオン
 - 演習
 
@@ -16,6 +16,10 @@ Vue 3 / Nuxt 3 を学習するための
 2. Vue 3 周辺ライブラリのハンズオン (2 時間)
 3. Vue 3 サンプルアプリケーションのハンズオン (2 時間)
 4. Nuxt 3 のハンズオン (4 時間)
+
+## 学習資料
+
+- [ドキュメント](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md)
 
 ## ハンズオン
 
