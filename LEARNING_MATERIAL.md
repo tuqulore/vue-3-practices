@@ -108,6 +108,8 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 意訳：`v-bind` によってオブジェクト構文や配列構文で動的にクラスとスタイルを付与することができる。
 
+演習：[イベントハンドリングのセクション](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md#%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0)を参照
+
 
 ### [条件付きレンダリング](https://v3.ja.vuejs.org/guide/conditional.html)
 
