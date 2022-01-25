@@ -78,14 +78,14 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 意訳：HTML、CSS、JavaScriptを一つのファイルで書くことができる。
 
-演習：[#22](https://github.com/tuqulore/vue-3-practices/issues/22)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-style?file=src/App.vue&terminal=dev
 
 
 ### [SFC スタイルの機能](https://v3.ja.vuejs.org/api/sfc-style.html)
 
 意訳： `scoped` 属性をもつとコンポーネント内に対してのみスタイルが適用されスタイルをカプセル化できる。 `modules` 属性をもつとCSS Modulesとしてコンパイルされてテンプレートで使用できる。scopedと同じようにスタイルをカプセル化できる。
 
-演習：[#23](https://github.com/tuqulore/vue-3-practices/issues/23)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component?file=src/App.vue&terminal=dev
 
 
 
@@ -96,7 +96,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 意訳：Mustache構文でテキスト展開できる。JavaScript式を使用することもできる
 
-演習：[#16](https://github.com/tuqulore/vue-3-practices/issues/16)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-mustache-setup?file=src/App.vue&terminal=dev
 
 
 ### [ディレクティブ](https://v3.ja.vuejs.org/guide/template-syntax.html#%E3%83%86%E3%82%99%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99)
@@ -108,35 +108,33 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 意訳：`v-bind` によってオブジェクト構文や配列構文で動的にクラスとスタイルを付与することができる。
 
-演習：[#19](https://github.com/tuqulore/vue-3-practices/issues/19)
-
 
 ### [条件付きレンダリング](https://v3.ja.vuejs.org/guide/conditional.html)
 
 意訳： `v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `template` 要素に対して使うことでグルーピングすることもできる。 `v-if v-else v-else-if` でレンダリングの条件分岐ができる。 `v-show` は見た目上非表示にするが `v-if` はDOM要素も取り除く。
 
-演習：[#14](https://github.com/tuqulore/vue-3-practices/issues/14)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-if?file=src/App.vue&terminal=dev
 
 
 ### [リストレンダリング](https://v3.ja.vuejs.org/guide/list.html)
 
 意訳：配列あるいはオブジェクトをもとに反復した要素の表示ができる。要素の再利用と並び替えができるように一意な `key` 属性を渡す必要がある。
 
-演習：[#21](https://github.com/tuqulore/vue-3-practices/issues/21)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-for?file=src/App.vue&terminal=dev
 
 
 ### [イベントハンドリング](https://v3.ja.vuejs.org/guide/events.html)
 
 意訳：　`v-on` によってDOMイベントの購読、イベント発火時のJavaScriptの実行ができるようになる。
 
-演習：[#19](https://github.com/tuqulore/vue-3-practices/issues/19)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-reactive-class-binding-event-handling?file=src/App.vue&terminal=dev
 
 
 ### [フォーム入力バインディング](https://v3.ja.vuejs.org/guide/forms.html)
 
 意訳： `v-model` によってformのinput要素やtextarea要素、select要素の入力イベントに応じてデータを更新できるようになる。
 
-演習：[#18](https://github.com/tuqulore/vue-3-practices/issues/18)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-model?file=src/App.vue&terminal=dev
 
 
 
