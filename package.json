@@ -25,7 +25,7 @@
   "workspaces": [
     "docs",
     "*-template",
-    "*-app",
-    "practice*"
+    "practice*",
+    "sample*"
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "name": "vue-3-practices-vite-sample-app",
-  "description": "Vue 3 のサンプルアプリ",
+  "name": "sample-fetch-router",
+  "description": "サンプル fetch router",
   "version": "1.0.0",
   "author": "tuqulore Inc.",
   "bugs": {
