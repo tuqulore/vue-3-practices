@@ -1445,3 +1445,176 @@ HTML 要素のように、コンポーネントに要素を渡す際は子コン
 </div>
 
 ---
+
+# Provide / Inject
+
+<img src="https://v3.ja.vuejs.org/images/components_provide.png" alt="Provide / Inject" class="h-full" />
+
+---
+
+# Provide / Inject
+
+コンポーネント階層の深さに関係なく、親コンポーネントは、そのすべての子階層へ依存関係を提供するプロバイダとして機能することができる
+
+<div class="flex gap-8">
+
+<div class="flex-shrink">
+
+<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+
+```vue
+<script>
+import { provide } from "vue";
+import ChildComponent from "./components/ChildComponent.vue";
+export default {
+  setup() {
+    provide("location", "Tokyo");
+  },
+  components: { ChildComponent },
+};
+</script>
+<template>
+  <ChildComponent />
+</template>
+```
+
+</div>
+
+<div class="flex-shrink">
+
+<p class="text-xs">子（孫）コンポーネント - ChildComponent.vue</p>
+
+```vue
+<script>
+import { inject } from "vue";
+export default {
+  setup() {
+    const loc = inject("location");
+    return { loc };
+  },
+};
+</script>
+<template>
+  {{ loc }}
+</template>
+```
+
+</div>
+</div>
+
+---
+
+子や孫コンポーネントから Provide の値を変更したい場合、リアクティブなデータを変更できるメソッドを提供することが推奨されている
+
+<div class="flex gap-8">
+
+<div class="flex-shrink">
+
+```vue
+<script>
+import { provide, ref } from "vue";
+import ChildComponent from "./components/ChildComponent.vue";
+export default {
+  setup() {
+    const locName = ref("Tokyo");
+    provide("location", locName);
+    const updateLocation = () => {
+      locName.value = "Fukuoka";
+    };
+    provide("updateLocation", updateLocation);
+    return {
+      locName,
+    };
+  },
+  components: { ChildComponent },
+};
+</script>
+
+<template>
+  <input type="text" v-model="locName" /><br />
+  <ChildComponent />
+</template>
+```
+
+</div>
+
+<div class="flex-shrink">
+
+```vue
+<script>
+import { inject } from "vue";
+export default {
+  setup() {
+    const loc = inject("location");
+    const updateUserlocation = inject("updateLocation");
+    return { loc, updateUserlocation };
+  },
+};
+</script>
+
+<template>
+  {{ loc }}
+  <button @click="updateUserlocation">change Fukuoka</button>
+</template>
+```
+
+</div>
+</div>
+
+---
+
+補足: throttle をつかったリアルタイムなテキスト検索結果
+
+<div class="flex gap-8">
+
+<div class="flex-shrink">
+
+```vue
+<script>
+import _ from "lodash";
+import { ref } from "vue";
+export default {
+  setup() {
+    const message = ref("");
+    const originalFruits = [
+      "orange",
+      "banana",
+      "strawberry",
+      "grape",
+      "watermelon",
+    ];
+    const fruits = ref(originalFruits);
+    const updateText = _.throttle(() => {
+      fruits.value = originalFruits.filter(
+        (fruit) => fruit.indexOf(message.value) >= 0
+      );
+    }, 1000);
+    return {
+      updateText,
+      fruits,
+      message,
+    };
+  },
+};
+</script>
+```
+
+</div>
+
+<div class="flex-shrink">
+
+```vue
+<template>
+  <input type="text" v-model="message" @input="updateText" />
+  <ul>
+    <li v-for="(fruit, index) in fruits" :key="index">
+      {{ fruit }}
+    </li>
+  </ul>
+</template>
+```
+
+</div>
+</div>
+
+---
