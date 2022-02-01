@@ -18,7 +18,7 @@ jobs:
           node-version: '16'
           cache: 'yarn'
       - run: yarn install --check-files --frozen-lockfile --non-interactive
-      - run: yarn --cwd docs build
+      - run: yarn --cwd docs build --base /vue-3-practices
       - uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
