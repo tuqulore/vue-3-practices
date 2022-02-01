@@ -38,6 +38,12 @@ Vue 3 / Nuxt 3 を学習するための
 | `v-for`                                     | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-for?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-for?file=/src/App.vue)-->                                                                 | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-for-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-for-answer?file=/src/App.vue)-->                                                                 |
 | `v-model`                                   | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-model?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-model?file=/src/App.vue)-->                                                             | [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-model-answer?file=src/App.vue&terminal=dev) <!--[CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/practice-v-model-answer?file=/src/App.vue)-->                                                             |
 
+## サンプル
+
+- [グリッドコンポーネント](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/sample-grid-component?file=src/App.vue&terminal=dev)
+- [Markdown エディタ](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/sample-markdown-editor?file=src/App.vue&terminal=dev)
+- [データフェッチとルーティングを使ったもの](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/sample-fetch-router?file=src/App.vue&terminal=dev)
+
 ## 注意点
 
 ### StackBlitz
