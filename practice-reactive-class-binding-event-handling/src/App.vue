@@ -3,7 +3,9 @@ import {ref} from "vue";
 export default {
   setup() {
     const isRed = ref(false);
-    const handleClick = () => {};
+    const handleClick = () => {
+      isRed.value = false
+    };
     return {isRed, handleClick};
   },
 };
