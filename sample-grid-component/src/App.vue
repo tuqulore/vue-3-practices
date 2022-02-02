@@ -8,12 +8,12 @@ export default {
   },
   setup() {
     const searchQuery = ref('')
-    const gridColumns = ref(['name', 'power'])
+    const gridColumns = ref(['名前', '戦闘力'])
     const gridData = ref([
-      {name: 'Chuck Norris', power: Infinity},
-      {name: 'Bruce Lee', power: 9000},
-      {name: 'Jackie Chan', power: 7000},
-      {name: 'Jet Li', power: 8000}
+      {名前: 'チャック・ノリス', 戦闘力: Infinity},
+      {名前: 'ブルース・リー', 戦闘力: 9000},
+      {名前: 'ジャッキー・チェン', 戦闘力: 7000},
+      {名前: 'ジェット・リー', 戦闘力: 8000}
     ])
     return {
       searchQuery,
@@ -26,7 +26,7 @@ export default {
 
 <template>
   <form id="search">
-    Search
+    検索
     <input name="query" v-model="searchQuery" />
   </form>
   <DemoGrid :heroes="gridData" :columns="gridColumns" :filter-key="searchQuery" />
