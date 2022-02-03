@@ -25,7 +25,7 @@ Vue 3 / Nuxt 3 を学習するための
 ## ハンズオン
 
 - Vue 3 [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev) [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=/src/App.vue)
-- Nuxt 3 [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=app.vue&terminal=dev)<!-- [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=/app.vue)-->
+- Nuxt 3 [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-handson-template?file=app.vue&terminal=dev)<!-- [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-handson-template?file=/app.vue)-->
 
 ## 演習
 
