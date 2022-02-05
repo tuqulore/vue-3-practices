@@ -12,6 +12,11 @@ export default {
 </script>
 
 <template>
+  <!--
+    RouterViewコンポーネントによって
+    ルーティングに対応したコンポーネントが表示されます
+    参考: https://next.router.vuejs.org/guide/#router-view
+  -->
   <RouterView />
 </template>
 

@@ -3,14 +3,18 @@ import {ref, reactive, computed} from "vue"
 
 export default {
   props: {
+    // Appコンポーネントから渡されるプロパティはこの箇所のプロパティの定義と対応しています
     heroes: Array,
     columns: Array,
     filterKey: String
   },
   setup(props) {
+    // カラムごとに並べ替えの降順昇順を判定するための配列を作成しています
     const sortOrders = reactive(Object.fromEntries(props.columns.map((key) => [key, 1])))
+    // 並べ替え対象のカラムを指定するためのリアクティブな値の参照を作成しています
     const sortKey = ref('')
 
+    // ヒーローを絞り込みする関数を定義しています
     const filterHeroes = (heroes, filterKey) => {
       if (!filterKey) return heroes
       filterKey = filterKey.toLowerCase()
@@ -19,6 +23,7 @@ export default {
           String(row[key]).toLowerCase().indexOf(filterKey) > -1))
     }
 
+    // ヒーローを並べ替えする関数を定義しています
     const sortHeroes = (heroes, sortKey) => {
       if (!sortKey) return heroes
       const order = sortOrders[sortKey]
@@ -28,8 +33,12 @@ export default {
         return (a === b ? 0 : a > b ? 1 : -1) * order
       })
     }
+
+    // ヒーローを絞り込みしたのち並べ替えした算出プロパティを作成しています
     const filteredHeroes = computed(() => sortHeroes(filterHeroes(props.heroes, props.filterKey), sortKey.value))
+    // テンプレートのテキスト展開で使用する文字列操作(頭文字を大文字にする)関数を定義しています
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+    // テーブルヘッダのClickイベントのハンドリング(並べ替え対象のカラムを更新し並び替えの降順昇順を判定する値を符号反転する)関数を定義しています
     const sortBy = (key) => {
       sortKey.value = key
       sortOrders[key] = sortOrders[key] * -1
@@ -49,6 +58,8 @@ export default {
   <table>
     <thead>
       <tr>
+        <!-- リストレンダリングによってテーブルヘッダ、テーブルボディの要素を列挙しています -->
+        <!-- クラスバインディングによって並べ替え対象のカラム(列)がアクティブ(活性)である見た目を動的に反映しています -->
         <th v-for="key in columns" @click="sortBy(key)" :class="{active: sortKey == key}">
           {{capitalize(key)}}
           <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
