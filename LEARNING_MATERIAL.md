@@ -242,7 +242,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 キーポイント： `props` を使って子コンポーネントへデータを渡すことができる。
 
-演習：[#24](https://github.com/tuqulore/vue-3-practices/issues/24)
+演習：[単方向データフローのセクション](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md#%E5%8D%98%E6%96%B9%E5%90%91%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AD%E3%83%BC)を参照
 
 
 ### [子コンポーネントのイベントを購読する](https://v3.ja.vuejs.org/guide/component-basics.html#%E5%AD%90%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%98%E3%82%99%E3%83%B3%E3%83%88%E3%82%92%E8%B3%BC%E8%AA%AD%E3%81%99%E3%82%8B)
@@ -261,7 +261,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 キーポイント： `props` とイベントの購読で入力の制御をするときは `v-model` を使うことで簡潔に書くことができる。
 
-演習：[#18](https://github.com/tuqulore/vue-3-practices/issues/18)
+演習：[単方向データフローのセクション](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md#%E5%8D%98%E6%96%B9%E5%90%91%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AD%E3%83%BC)を参照
 
 *DOM要素の `v-model` とVueコンポーネントの `v-model` で用いられるプロパティ名とイベント名が異なることに注意。また、実は[複数のv-modelをバインディング](https://v3.ja.vuejs.org/guide/component-custom-events.html#%E8%A4%87%E6%95%B0%E3%81%AE-v-model-%E3%81%AE%E3%83%8F%E3%82%99%E3%82%A4%E3%83%B3%E3%83%86%E3%82%99%E3%82%A3%E3%83%B3%E3%82%AF%E3%82%99)することもできる。コンポーネントを呼び出す際に記述量が少なくなるので活用したい。*
 
@@ -273,18 +273,20 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 *[名前付きスロット](https://v3.ja.vuejs.org/guide/component-slots.html#%E5%90%8D%E5%89%8D%E4%BB%98%E3%81%8D%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88)を使うことで複雑なレイアウトを含んだコンポーネントにテンプレートを渡しやすくすることもできる。*
 
 
-### [単方向データフロー](https://v3.ja.vuejs.org/guide/component-props.html#%E5%8D%98%E6%96%B9%E5%90%91%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AD%E3%83%BC)
-
-キーポイント：`props` は親→子へデータが更新されることはあっても子→親へデータが更新されてはならない（することができない）。 `props` の値を変更したい場合は `props` の値を初期値としたリアクティブな参照を別に作成する。`props` の値を保持したい場合は `computed` などを使用する。
-
-演習：[#24](https://github.com/tuqulore/vue-3-practices/issues/24)
-
-
 ### [プロパティのバリデーション](https://v3.ja.vuejs.org/guide/component-props.html#%E3%83%95%E3%82%9A%E3%83%AD%E3%83%8F%E3%82%9A%E3%83%86%E3%82%A3%E3%81%AE%E3%83%8F%E3%82%99%E3%83%AA%E3%83%86%E3%82%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)
 
 キーポイント： `props` はどんな値を受け取るか制約を設けることができる。
 
 *もしプロパティのバリデーションを設定しなければ、自身でバリデーション処理を書く必要がある。どんなプロパティを受け付けたいか表明することにもなるので積極的に設定したい。*
+
+演習：[単方向データフローのセクション](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md#%E5%8D%98%E6%96%B9%E5%90%91%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AD%E3%83%BC)を参照
+
+
+### [単方向データフロー](https://v3.ja.vuejs.org/guide/component-props.html#%E5%8D%98%E6%96%B9%E5%90%91%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AD%E3%83%BC)
+
+キーポイント：`props` は親→子へデータが更新されることはあっても子→親へデータが更新されてはならない（することができない）。 `props` の値を変更したい場合は `props` の値を初期値としたリアクティブな参照を別に作成する。`props` の値を保持したい場合は `computed` などを使用する。
+
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-reactive-props-component-v-model?file=src/App.vue&terminal=dev
 
 
 
