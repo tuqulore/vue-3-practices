@@ -87,7 +87,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 - `createApp に渡されたオプションは、ルートコンポーネント の設定に使われます。` ～
 - ～ `とりあえず、 ルートコンポーネントは他のコンポーネントとはなにも違いはないことを認識しておいてください。設定オプションは同じで、対応するコンポーネントインスタンスの振る舞いも同じです。`
 
-キーポイント：すべてのVueアプリケーションは `createApp` でアプリケーションインスタンスを作成する。アプリケーションはルートコンポーネントを持っており、それをマウントすることでDOM上にVueで管理されたビューが表示されるようになる。各コンポーネントもインスタンスを持っている。それぞれのインスタンスはライフサイクルを持っている。
+キーポイント：すべてのVueアプリケーションは `createApp` でアプリケーションインスタンスを作成する。アプリケーションはルートコンポーネントを持っており、それをマウントすることでDOM上にVueで管理されたビューが表示されるようになる。
 
 *ルートコンポーネントがあることを知っておくと、自分でVueアプリケーション開発のための環境構築をするときに戸惑わなくてすむ。*
 
@@ -117,7 +117,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 - 発展：`<style module> タグは CSS Modules (opens new window)としてコンパイルされ、結果として得られる CSS クラスを $style というキーの下にオブジェクトとしてコンポーネントに公開します:` ～
 - 発展：～ `この結果として得られるクラスは、衝突を避けるためにハッシュ化され、CSS を現在のコンポーネントだけにスコープするのと同じ効果を実現します。`
 
-キーポイント： `scoped` 属性をもつとコンポーネント内に対してのみスタイルが適用されスタイルをカプセル化できる。 `modules` 属性をもつとCSS Modulesとしてコンパイルされてテンプレートで使用できる。scopedと同じようにスタイルをカプセル化できる。
+キーポイント： `scoped` 属性をもつとコンポーネント内に対してのみスタイルが適用されスタイルをカプセル化できる。
 
 演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component?file=src/App.vue&terminal=dev
 
@@ -192,7 +192,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 - `v-if は、イベントリスナと子コンポーネント内部の条件ブロックが適切に破棄され、そして切り替えられるまでの間再作成されるため、”リアル”な条件レンダリングです。` ～
 - ～ `とても頻繁に何かを切り替える必要があれば v-show を選び、条件が実行時に変更することがほとんどない場合は、v-if を選びます。`
 
-キーポイント： `v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `template` 要素に対して使うことでグルーピングすることもできる。 `v-if v-else v-else-if` でレンダリングの条件分岐ができる。 `v-show` は見た目上非表示にするが `v-if` はDOM要素も取り除く。
+キーポイント： `v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `v-show` は見た目上非表示にするが `v-if` はDOM要素も取り除く。
 
 演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-if?file=src/App.vue&terminal=dev
 
@@ -221,7 +221,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 - `多くのイベントハンドラのロジックはより複雑になっていくので、v-on 属性の値に JavaScript 式を記述し続けるのは現実的ではありません。` ～
 - `メソッド名を直接指定する代わりに、インライン JavaScript 式でメソッドを指定することもできます:` ～
 
-キーポイント：　`v-on` によってDOMイベントの購読、イベント発火時のJavaScriptの実行ができるようになる。
+キーポイント： `v-on` によってDOMイベントの購読、イベント発火時のJavaScriptの実行ができるようになる。
 
 演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-reactive-class-binding-event-handling?file=src/App.vue&terminal=dev
 
@@ -320,7 +320,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 ### [watch で変化に反応する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#watch-%E3%81%A6%E3%82%99%E5%A4%89%E5%8C%96%E3%81%AB%E5%8F%8D%E5%BF%9C%E3%81%99%E3%82%8B)
 
-キーポイント：リアクティブな参照に対して値に変化が生じたときに必要な処理を `watch` 関数によって書くことができる。 `props` をリアクティブな参照にするには `toRefs` を使用する。
+キーポイント：リアクティブな参照に対して値に変化が生じたときに必要な処理を `watch` 関数によって書くことができる。 
 
 
 ### [スタンドアロンな computed プロパティ](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%88%E3%82%99%E3%82%A2%E3%83%AD%E3%83%B3%E3%81%AA-computed-%E3%83%95%E3%82%9A%E3%83%AD%E3%83%8F%E3%82%9A%E3%83%86%E3%82%A3)
@@ -419,19 +419,19 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 ### [セキュリティ](https://v3.ja.vuejs.org/guide/security.html)
 
-キーポイント：テンプレートは適切にエスケープ処理されたりしている。セキュリティ上注意すべき点がかかれている
+キーポイント：テンプレートは適切にエスケープ処理されたりしている。セキュリティ上注意すべき点が書かれている
 
 
 ### データフェッチ
 
-[Fetch API](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API)などを使用してリアクティブな値に格納する。
+キーポイント：[Fetch API](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API)などを使用してリアクティブな値に格納する。
 
 演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-fetch?file=src/App.vue&terminal=dev
 
 
 ### パフォーマンスチューニング
 
-[lodash/debounce](https://lodash.com/docs/#debounce)などのライブラリを使用して入力イベントなど高頻度のイベント発火を間引くことで再描画の頻度をへらし、描画負荷を軽減することができる。
+キーポイント：[debounce](https://lodash.com/docs/#debounce)などのライブラリを使用して入力イベントなど高頻度のイベント発火を間引くことで再描画の頻度をへらし、描画負荷を軽減することができる。
 
 演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-debounce?file=src/App.vue&terminal=dev
 
