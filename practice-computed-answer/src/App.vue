@@ -7,6 +7,10 @@ export default {
      * computedを使うことでリアクティブな値に連動した値を用意することができます
      * 参考: https://v3.ja.vuejs.org/guide/reactivity-computed-watchers.html#%E7%AE%97%E5%87%BA%E3%83%95%E3%82%9A%E3%83%AD%E3%83%8F%E3%82%9A%E3%83%86%E3%82%A3
      */
+    /**
+     * 剰余演算子を使うことで割り切れるかかどうか判定することができます
+     * 参考: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Remainder
+     */
     const fizz = computed(() => count.value % 3 === 0 ? "Fizz" : "")
     const buzz = computed(() => count.value % 5 === 0 ? "Buzz" : "")
     return {
