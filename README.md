@@ -21,6 +21,7 @@ Vue 3 / Nuxt 3 を学習するための
 
 - [ドキュメント](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md)
 - [スライド](https://tuqulore.github.io/vue-3-practices/)
+- [用語集](https://github.com/tuqulore/vue-3-practices/blob/main/TERM.md)
 
 ## ハンズオン
 
