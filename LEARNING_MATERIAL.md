@@ -254,7 +254,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 キーポイント：子コンポーネントから発火されたイベントを購読することで子コンポーネントからデータを受け取ることができる。
 
-演習：[#25](https://github.com/tuqulore/vue-3-practices/issues/25)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-emit-event-handling?file=src/App.vue&terminal=dev
 
 
 ### [コンポーネントで v-model を使う](https://v3.ja.vuejs.org/guide/component-basics.html#%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%81%A6%E3%82%99-v-model-%E3%82%92%E4%BD%BF%E3%81%86)
@@ -271,6 +271,8 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 キーポイント： `slots` によってコンポーネントの子階層に直接テンプレートを渡すことができる
 
 *[名前付きスロット](https://v3.ja.vuejs.org/guide/component-slots.html#%E5%90%8D%E5%89%8D%E4%BB%98%E3%81%8D%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88)を使うことで複雑なレイアウトを含んだコンポーネントにテンプレートを渡しやすくすることもできる。*
+
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-slot?file=src/App.vue&terminal=dev
 
 
 ### [プロパティのバリデーション](https://v3.ja.vuejs.org/guide/component-props.html#%E3%83%95%E3%82%9A%E3%83%AD%E3%83%8F%E3%82%9A%E3%83%86%E3%82%A3%E3%81%AE%E3%83%8F%E3%82%99%E3%83%AA%E3%83%86%E3%82%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)
@@ -309,7 +311,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 キーポイント：コンポーネントの各ライフサイクルによって必要な処理をライフサイクルフックによって書くことができる。
 
-演習：[#17](https://github.com/tuqulore/vue-3-practices/issues/17)
+演習：[ライフサイクルフックのセクション](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%83%95%E3%83%83%E3%82%AF)を参照
 
 
 ### [watch で変化に反応する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#watch-%E3%81%A6%E3%82%99%E5%A4%89%E5%8C%96%E3%81%AB%E5%8F%8D%E5%BF%9C%E3%81%99%E3%82%8B)
@@ -321,7 +323,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 キーポイント：リアクティブな参照をもとに読み取り専用の計算済みの値を `computed` 関数によって生成することができる。
 
-演習： [#20](https://github.com/tuqulore/vue-3-practices/issues/20)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-computed?file=src/App.vue&terminal=dev
 
 *自分でリアクティブな参照に対して再計算する処理をおこなうと、処理の呼び出しごとに再計算される。 `computed` 関数を使うことで計算に必要な値が変化するごとに再計算される。パフォーマンスの観点では後者の方が効率がよい。*
 
@@ -344,21 +346,17 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 キーポイント： `computed` はgetterとsetterを定義することもできる。リアクティブな値をトリガーとした副作用のある処理は `watchEffect` で書くこともできる。
 
-演習： [#20](https://github.com/tuqulore/vue-3-practices/issues/20)
-
 
 ### [セットアップ](https://v3.ja.vuejs.org/guide/composition-api-setup.html)
 
 キーポイント： `props` はリアクティブだけど `context` はリアクティブではない。 `setup` 関数でreturnした値、関数などがテンプレートで使用可能。
-
-演習：[#16](https://github.com/tuqulore/vue-3-practices/issues/16)
 
 
 ### [ライフサイクルフック](https://v3.ja.vuejs.org/guide/composition-api-lifecycle-hooks.html)
 
 キーポイント：ライフサイクルフックの一覧、Options APIとの比較
 
-演習：[#17](https://github.com/tuqulore/vue-3-practices/issues/17)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-mounted?file=src/App.vue&terminal=dev
 
 
 
@@ -412,12 +410,26 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 キーポイント：vue-routerを使うことで画面遷移処理を書くことができる。
 
-演習：[#27](https://github.com/tuqulore/vue-3-practices/issues/27)
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-vue-router?file=src/App.vue&terminal=dev
 
 
 ### [セキュリティ](https://v3.ja.vuejs.org/guide/security.html)
 
 キーポイント：テンプレートは適切にエスケープ処理されたりしている。セキュリティ上注意すべき点がかかれている
+
+
+### データフェッチ
+
+[Fetch API](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API)などを使用してリアクティブな値に格納する。
+
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-fetch?file=src/App.vue&terminal=dev
+
+
+### パフォーマンスチューニング
+
+[lodash/debounce](https://lodash.com/docs/#debounce)などのライブラリを使用して入力イベントなど高頻度のイベント発火を間引くことで再描画の頻度をへらし、描画負荷を軽減することができる。
+
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-debounce?file=src/App.vue&terminal=dev
 
 
 
@@ -477,18 +489,5 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 ## その他
 
-
-### データフェッチ
-
-[ky](https://github.com/sindresorhus/ky)などのライブラリを使用してリアクティブな値に格納する。
-
-演習：[#28](https://github.com/tuqulore/vue-3-practices/issues/28)
-
-
-### パフォーマンスチューニング
-
-[lodash/debounce](https://lodash.com/docs/#debounce)などのライブラリを使用して入力イベントなど高頻度のイベント発火を間引くことで再描画の頻度をへらし、描画負荷を軽減することができる。
-
-演習：[#15](https://github.com/tuqulore/vue-3-practices/issues/15)
 
 ### [2.x からの破壊的変更の一覧](https://v3.ja.vuejs.org/guide/migration/introduction.html#%E7%A0%B4%E5%A3%8A%E7%9A%84%E5%A4%89%E6%9B%B4)
