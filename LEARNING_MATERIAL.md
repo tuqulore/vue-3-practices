@@ -123,6 +123,22 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 
 
+## 系統学習に必要なComposition APIでの書き方の説明
+
+
+### [setup コンポーネントオプション](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#setup-%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%82%AA%E3%83%95%E3%82%9A%E3%82%B7%E3%83%A7%E3%83%B3)
+
+キーポイント：`props` と `context` を引数にとる。コンポーネント作成前に `props` をリアクティブに参照可能な状態で処理を書くことができる。
+
+
+### [ref によるリアクティブな変数](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#ref-%E3%81%AB%E3%82%88%E3%82%8B%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%AA%E5%A4%89%E6%95%B0)
+
+キーポイント： `ref` によってリアクティブな参照を作成できる。
+
+*後述でリアクティブな参照のさまざまな作り方を学ぶが、まずは `ref` を使えば問題ないと思ってもらってよい。*
+
+
+
 ## テンプレート構文の説明
 
 
@@ -295,18 +311,6 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 ## Composition APIでの書き方の概要
 
 
-### [setup コンポーネントオプション](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#setup-%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%82%AA%E3%83%95%E3%82%9A%E3%82%B7%E3%83%A7%E3%83%B3)
-
-キーポイント：`props` と `context` を引数にとる。コンポーネント作成前に `props` をリアクティブに参照可能な状態で処理を書くことができる。
-
-
-### [ref によるリアクティブな変数](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#ref-%E3%81%AB%E3%82%88%E3%82%8B%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%AA%E5%A4%89%E6%95%B0)
-
-キーポイント： `ref` によってリアクティブな参照を作成できる。
-
-*後述でリアクティブな参照のさまざまな作り方を学ぶが、まずは `ref` を使えば問題ないと思ってもらってよい。*
-
-
 ### [ ライフサイクルフックを setup の中に登録する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#ref-%E3%81%AB%E3%82%88%E3%82%8B%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%AA%E5%A4%89%E6%95%B0)
 
 キーポイント：コンポーネントの各ライフサイクルによって必要な処理をライフサイクルフックによって書くことができる。
@@ -329,7 +333,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 
 
-## Composition APIでの書き方の詳細
+## Composition APIでの書き方の詳細 *(Optional)*
 
 
 ### [リアクティブの基礎](https://v3.ja.vuejs.org/guide/reactivity-fundamentals.html)
