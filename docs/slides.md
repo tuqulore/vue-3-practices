@@ -1618,3 +1618,171 @@ export default {
 </div>
 
 ---
+
+# Nuxt 3
+
+Vue 3 でさらにシンプルな開発を行えるフレームワーク
+
+- モジュール等の import を省略できる
+- pages ディレクトリに.vue ファイルを作成するだけでサイト構成ができる（Vue Router の自動生成）
+- Node.js によるサーバー環境が準備されている（server ディレクトリ、API エンドポイントの作成）
+- Vue ライブラリは CDN 等で配布されており既存サイトに追加導入できるが、Nuxt は開発環境としては独立したフレームワーク
+- Nuxt 3 は 2022 年 2 月現在、ベータ版である
+
+---
+
+# Nuxt 3
+
+- pages
+- NuxtLink
+- layouts
+- Data Fetching / server ディレクトリ
+- Suspense
+- composables
+
+---
+
+# pages
+
+app.vue を削除する。  
+pages ディレクトリに.vue ファイルを配置し、複数ページを構成する。
+まずは `pages/index.vue`, `pages/about.vue` を作成する。
+
+---
+
+# NuxtLink
+
+コンポーネントで Nav.vue を作成、index と about のリンクナビゲーションを作成する。
+
+---
+
+# layouts
+
+`layouts/default.vue`を作成し、共通ナビゲーションを表示させる。
+
+---
+
+# Data Fetching / server ディレクトリ
+
+`server/api`ディレクトリにある`users.js`を確認、`components/userList.vue`に以下を記述する。
+
+```vue
+<template>
+  <div>
+    <ul>
+      <li v-for="user in users">
+        {{ user.name }}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  async setup() {
+    const { data: users } = await useFetch("/api/users");
+    return { users };
+  },
+};
+</script>
+```
+
+---
+
+# Suspense
+
+コンポーネントのトップレベルで`async`を使った場合、Promise が解決すると同時に表示する仕組みを学ぶ。
+非同期で処理されるコンポーネントをローディング表示からコンポーネント表示に切り替える機能。  
+まずはコンポーネント`SuspenseTest.vue`を作成。
+
+```vue
+<script>
+export default {
+  async setup() {
+    const userList = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(["太郎", "花子", "次郎"]);
+        }, 1000);
+      });
+    };
+    const users = await userList();
+    return { users };
+  },
+};
+</script>
+```
+
+---
+
+# Suspense
+
+`v-if`を使わずとも、1 秒経ってローディング完了後コンポーネントを表示に切り替える
+
+```vue
+<template>
+  <div>
+    <Suspense>
+      <template #default>
+        <SuspenseTest />
+      </template>
+      <template #fallback> Loading... </template>
+    </Suspense>
+  </div>
+</template>
+```
+
+---
+
+# composables
+
+アプリ全体共通のデータを管理する。js ファイルではあるが、中身は vue の記述に近いことがわかる。 ここで状態を管理する。
+`composables/userCounter.js`を作成する。
+
+```js
+import { ref, readonly } from "vue";
+const count = ref(0);
+export default () => {
+  const increment = () => count.value++;
+
+  return {
+    count: readonly(count),
+    increment,
+  };
+};
+```
+
+---
+
+# composables
+
+```vue
+<template>
+  <div>
+    <p>カウント: {{ counter.count }}</p>
+    <p><button @click="increment">increment!</button></p>
+  </div>
+</template>
+
+<script>
+import useCounter from "~~/composables/useCounter";
+export default {
+  setup() {
+    const counter = useCounter();
+    const increment = () => {
+      counter.increment();
+    };
+    return {
+      counter,
+      increment,
+    };
+  },
+};
+</script>
+```
+
+---
+
+# 自由課題
+
+Nuxt3 環境を使ってアプリを自由につくってみよう。
