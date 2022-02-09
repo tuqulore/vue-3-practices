@@ -17,9 +17,13 @@ export default {
     // ヒーローを絞り込みする関数を定義しています
     const filterHeroes = (heroes, filterKey) => {
       if (!filterKey) return heroes
+      // 絞り込みする文字列を正規化しています
       filterKey = filterKey.toLowerCase()
+      // 条件をパスする要素で配列をフィルタリングします
       return heroes.filter((row) =>
+        // 行ごとのキー名(≒列名)で絞り込みの走査をします
         Object.keys(row).some((key) =>
+          // 行[列]の値に対して絞り込みする文字列で検索しています
           String(row[key]).toLowerCase().indexOf(filterKey) > -1))
     }
 
@@ -27,6 +31,7 @@ export default {
     const sortHeroes = (heroes, sortKey) => {
       if (!sortKey) return heroes
       const order = sortOrders[sortKey]
+      // 並び替えた新しい配列を返しています
       return heroes.slice().sort((a, b) => {
         a = a[sortKey]
         b = b[sortKey]
