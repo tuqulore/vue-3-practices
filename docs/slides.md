@@ -1648,17 +1648,67 @@ app.vue を削除する。
 pages ディレクトリに.vue ファイルを配置し、複数ページを構成する。
 まずは `pages/index.vue`, `pages/about.vue` を作成する。
 
+Vue 開発環境では App.vue ファイルをメインで開発していて、Nuxt でも同様の目的を app.vue にて行える。例えば app.vue は以下のように書いて、各ページの template 部分が`<NuxtPage />`に置き換わる。
+
+```vue
+<template>
+  <header>共通ヘッダ</header>
+  <NuxtPage />
+</template>
+```
+
+ただし、複数ページを構成するにあたっては pages 内で開発・管理することが一般的。
+その際、app.vue でこのようなことができるが、後述する layouts 機能を使ったほうがよい。
+
 ---
 
 # NuxtLink
 
-コンポーネントで Nav.vue を作成、index と about のリンクナビゲーションを作成する。
+コンポーネントで Nav.vue を作成、index と about のリンクナビゲーションを作成する。  
+Nuxt ではページを作成するだけで Vue Router による設定を自動に行ってくれる、つまり Vue 環境下のように手動でルーティング設定を生成する必要がない。
+
+そしてそのルートを移動する際は HTML の
+
+```html
+<a href="/about">ABOUT</a>
+```
+
+ではなく
+
+```vue
+<NuxtLink to="/about">ABOUT</NuxtLink>
+```
+
+と記述してリンクを作成する。  
+ルート外、例えば外部サイトのリンクを貼る場合は従来の`<a>`要素を使うことになる。
 
 ---
 
 # layouts
 
-`layouts/default.vue`を作成し、共通ナビゲーションを表示させる。
+`layouts/default.vue`を作成し、共通ナビゲーションを表示させる。  
+pages で解説したように例えば app.vue に共通ヘッダを持たせるのであれば、以下のような書き方で事足りるが、ページによってはヘッダが不要などといったことが出てくる。
+その際、ページそのもののテンプレートを複数用意し、各ページがそのテンプレートを必要に応じて選び変えることができる。
+
+`app.vue`の例
+
+```vue
+<template>
+  <header>共通ヘッダ</header>
+  <NuxtPage />
+</template>
+```
+
+`layouts/default.vue`の例
+
+```vue
+<template>
+  <div>
+    <header>共通ヘッダ</header>
+    <slot />
+  </div>
+</template>
+```
 
 ---
 
