@@ -312,7 +312,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 ## Composition APIでの書き方の概要
 
 
-### [ ライフサイクルフックを setup の中に登録する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#ref-%E3%81%AB%E3%82%88%E3%82%8B%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%AA%E5%A4%89%E6%95%B0)
+### [ ライフサイクルフックを setup の中に登録する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%83%95%E3%83%83%E3%82%AF%E3%82%92-setup-%E3%81%AE%E4%B8%AD%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B)
 
 キーポイント：コンポーネントの各ライフサイクルによって必要な処理をライフサイクルフックによって書くことができる。
 
