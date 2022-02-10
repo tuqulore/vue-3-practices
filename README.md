@@ -65,3 +65,9 @@ Chromium 系ブラウザ以外は動作に設定が必要もしくは動作不�
 
 - Nuxt を用いた演習に対しては Hot Module Replacement(HMR)が機能しない [#12](https://github.com/tuqulore/vue-3-practices/issues/12)
 - 文字化けする [#38](https://github.com/tuqulore/vue-3-practices/issues/38)
+
+## 講師を依頼したい方
+
+[株式会社ツクロア](https://tuqulore.com)では、この教材を使ったオンライン講習のご依頼を受け付けています。  ご検討の方はこちらのフォームにてまずはお問い合わせください。
+
+[Vue3, Nuxt3講師依頼フォーム](https://forms.gle/wDbs8YGnKZxM8DAf8)
