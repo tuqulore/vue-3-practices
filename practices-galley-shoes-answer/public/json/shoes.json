@@ -1,0 +1,100 @@
+{
+    "shoes": [
+        {
+            "name": "ビビッドランニングシューズ　防水性　軽量タイプ　グリーン",
+            "description": "足元から気持ちを明るく、をコンセプトにしたビビッドカラーシリーズ。防水・防風・撥水性あり、屋外向け。",
+            "price": 9560,
+            "commentsNum": 16,
+            "photoFileName": "shoes-01.jpg",
+            "rating": 4.5
+        },
+        {
+            "name": "カジュアルシューズ　防臭効果と通気性◎　ブルーグレー",
+            "description": "特殊加工した樹脂を使用し、通気性も抜群。特に汗をかきやすい夏の時期、普段使いに。",
+            "price": 5400,
+            "commentsNum": 47,
+            "photoFileName": "shoes-02.jpg",
+            "rating": 4.0
+        },
+        {
+            "name": "カジュアルランニングシューズ　ベージュ",
+            "description": "ランニングにはもちろん、ふんわりクッション性のあるソールは床に傷がつきにくく、屋内でも安心して使えます。",
+            "price": 6600,
+            "commentsNum": 13,
+            "photoFileName": "shoes-03.jpg",
+            "rating": 3.0
+        },
+        {
+            "name": "カジュアルシューズ　普段使いや通勤・通学にも！",
+            "description": "柔らかく丈夫な合皮を使用しており、通勤や通学にもぴったり。コーデの邪魔をしないシックなコンビカラーです。",
+            "price": 6900,
+            "commentsNum": 41,
+            "photoFileName": "shoes-04.jpg",
+            "rating": 3.5
+        },
+        {
+            "name": "ビビッドランニングシューズ　防滑性　ブルー",
+            "description": "足元から気持ちを明るく、をコンセプトにしたビビッドカラーシリーズ。通気性・防滑性あり、屋内向け。",
+            "price": 9800,
+            "commentsNum": 41,
+            "photoFileName": "shoes-05.jpg",
+            "rating": 3.5
+        },
+        {
+            "name": "ランニングシューズ　防水性　ダークグレー＆グリーン",
+            "description": "足元に蛍光色をオンして、ランニングも楽しく！防水メッシュ加工で、雨の日でも快適な履き心地です。",
+            "price": 7000,
+            "commentsNum": 14,
+            "photoFileName": "shoes-06.jpg",
+            "rating": 3.0
+        },
+        {
+            "name": "ランニングシューズ　防風性　ブラック＆ブルー",
+            "description": "完全防水・滑りにくいグリップで初心者から上級者まで、幅広いランナーに対応。風を通しにくく真冬のランでも安心。",
+            "price": 7000,
+            "commentsNum": 20,
+            "photoFileName": "shoes-07.jpg",
+            "rating": 4.5
+        },
+        {
+            "name": "ランニングシューズ　防滑性　ダークグレー＆レッド",
+            "description": "完全防水・滑りにくいグリップを採用。風を通しにくく真冬のランでも安心。こちらは軽量ゴム紐タイプで結ぶ手間ゼロ。",
+            "price": 8000,
+            "commentsNum": 11,
+            "photoFileName": "shoes-08.jpg",
+            "rating": 4.5
+        },
+        {
+            "name": "ビビッドランニングシューズ　クッション性　ピンク",
+            "description": "足元から気持ちを明るく、をコンセプトにしたビビッドカラーシリーズ。通気性・クッション性があり屋内屋外兼用。",
+            "price": 9980,
+            "commentsNum": 24,
+            "photoFileName": "shoes-09.jpg",
+            "rating": 4.5
+        },
+        {
+            "name": "ウォーキングシューズ　屈曲性超軽量タイプ　ホワイト",
+            "description": "超軽量薄型。踏み返しをしながら歩行ができる設計になっており、ウォーキングの際の足にかかるストレスを軽減。",
+            "price": 8000,
+            "commentsNum": 46,
+            "photoFileName": "shoes-10.jpg",
+            "rating": 3.5
+        },
+        {
+            "name": "バスケットシューズ　カジュアルメンズ　マルチカラー",
+            "description": "クッション性や反発力、耐久性などの機能性を網羅しており、足首から爪先までしっかりフィットします。",
+            "price": 9900,
+            "commentsNum": 52,
+            "photoFileName": "shoes-11.jpg",
+            "rating": 4.0
+        },
+        {
+            "name": "カジュアル　ウォーキングシューズ　大きいサイズあり",
+            "description": "男女兼用でサイズ展開も豊富！ビッグサイズも一部取扱いあり。ミッドソールはジェル素材で、膝への負担も軽減！",
+            "price": 7900,
+            "commentsNum": 59,
+            "photoFileName": "shoes-12.jpg",
+            "rating": 4.5
+        }
+    ]
+}
