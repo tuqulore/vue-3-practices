@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "2.3.3",
-    "throttle-debounce": "^4.0.1",
-    "vite": "^2.9.6"
+    "throttle-debounce": "4.0.1",
+    "vite": "2.9.6"
   },
   "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
   "keywords": [
