@@ -59,7 +59,7 @@ Vue 3 / Nuxt 3 を学習するための
 | `fetch`                                          | [演習](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-fetch?file=src/App.vue&terminal=dev) [解答](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-fetch-answer?file=src/App.vue&terminal=dev)                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `debounce`                                       | [演習](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-debounce?file=src/App.vue&terminal=dev) [解答](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-debounce-answer?file=src/App.vue&terminal=dev)                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-### StackBlitz の動作環境
+## StackBlitz の動作環境
 
 以下の環境で動作します。
 
