@@ -25,10 +25,10 @@ Vue 3 / Nuxt 3 を学習するための
 
 ## ハンズオン
 
-- Vue 3 [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev) [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=/src/App.vue)
+- Vue 3 [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev)
 - Nuxt 3 [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-handson-template?file=app.vue&terminal=dev)
 
-## 演習 (StackBlitz)
+## 演習
 
 | キーワード                                       | 演習                                                                                                                                                  | 解答                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | :----------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -54,18 +54,14 @@ Vue 3 / Nuxt 3 を学習するための
 - [Markdown エディタ](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/sample-markdown-editor?file=src/App.vue&terminal=dev)
 - [データフェッチとルーティングを使ったもの](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/sample-fetch-router?file=src/App.vue&terminal=dev)
 
-## 注意点
+### StackBlitz の動作環境
 
-### StackBlitz
+以下の環境で動作します。
 
-Chromium 系ブラウザ以外は動作に設定が必要もしくは動作不可能です。詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
+- Chromium 系ブラウザ (推奨)
+- Firefox (アルファサポート)
 
-### CodeSandbox
-
-現状以下の問題が存在します。代わりに StackBlitz を利用してください。
-
-- Nuxt を用いた演習に対しては Hot Module Replacement(HMR)が機能しない [#12](https://github.com/tuqulore/vue-3-practices/issues/12)
-- 文字化けする [#38](https://github.com/tuqulore/vue-3-practices/issues/38)
+詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
 
 ## 講師を依頼したい方
 
