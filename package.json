@@ -24,7 +24,7 @@
   },
   "workspaces": [
     "docs",
-    "*-template",
+    "handson*",
     "practice*",
     "sample*"
   ]
