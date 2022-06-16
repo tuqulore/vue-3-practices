@@ -16,7 +16,7 @@
   ],
   "license": "MIT",
   "main": "",
-  "packageManager": "yarn@1.22.18",
+  "packageManager": "yarn@1.22.19",
   "private": true,
   "repository": {
     "type": "git",
