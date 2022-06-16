@@ -1,6 +1,6 @@
 {
-  "name": "vue-3-practices-nuxt-handson-template",
-  "description": "Nuxt 3 のハンズオン用テンプレート",
+  "name": "vue-3-practices-handson-nuxt-playground",
+  "description": "ハンズオン nuxt playground",
   "version": "1.0.0",
   "author": "tuqulore Inc.",
   "bugs": {
