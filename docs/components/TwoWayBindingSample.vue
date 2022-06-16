@@ -1,7 +1,7 @@
 <template>
   <div id="two-way-binding">
     <p>{{ message }}</p>
-    <input v-model="message" />
+    <input class="text-black p-1" v-model="message" />
   </div>
 </template>
 

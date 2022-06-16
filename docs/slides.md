@@ -35,20 +35,22 @@ drawings:
   - Composition API, 学習環境など
 - リアクティブの探求
   - ref, reactive, toRefs, readonly など
-- テンプレート構文の説明
-  - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model, イベント, 省略記法
-- （未作成）ライフサイクル
-  - onMounted, onUpdated, onUnmounted など
 - 算出プロパティ（computed）
   - computed の基礎
 - ウォッチャ（watch）
   - watch の基礎
+- テンプレート構文の説明
+  - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model, イベント, 省略記法
+- （未作成）ライフサイクル
+  - onMounted, onUpdated, onUnmounted など
 - コンポーネント
   - props, emit, slot など
 
 ---
 
 # はじめに
+
+## Vue.js とは？
 
 Web アプリケーションにおけるユーザーインターフェイスを構築するための、オープンソースの JavaScript フレームワーク。
 
@@ -63,31 +65,22 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 # 準備
 
-本講座におけるハンズオンは以下によって行えます。基本は本スライドにあるサンプルコードを試しつつ、余力があれば [こちら](https://github.com/tuqulore/vue-3-practices#%E6%BC%94%E7%BF%92)の演習に挑戦してみてください。
-
-- Vue 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=/src/App.vue) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/vite-blank-template?file=src/App.vue&terminal=dev)
-- Nuxt 3 [CodeSandbox](https://codesandbox.io/s/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=/app.vue)(非推奨) [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/nuxt-template?file=app.vue&terminal=dev)
-
-## 注意点
-
-### CodeSandbox
-
-現状 Nuxt を用いた演習に対しては Hot Module Replacement(HMR)が機能しないため、非推奨です [#12](https://github.com/tuqulore/vue-3-practices/issues/12)。
-
-代わりに StackBlitz で演習をおこなってください。
-
 ### StackBlitz
 
-一部のブラウザでは動作に設定が必要です。詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
+本講座におけるハンズオン、演習、サンプルの閲覧は [StackBlitz](https://stackblitz.com/) でおこないます。
+
+StackBlitz はブラウザ上で動作するオンライン IDE（統合開発環境）です。
+
+動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認して https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセスしてみましょう。
 
 ---
 
-# 2 つの代表的な API と注意点
+# Vue には 2 つの書き方があります
 
 <div class="flex gap-8">
 
 <div>
-Vue2で主に使われていた「Options API」
+Vue2 で主に使われていた「Options API」
 
 ```vue
 <script>
@@ -108,7 +101,7 @@ export default {
 
 </div>
 <div>
-Vue3で主に使われるであろう「Composition API」
+Vue3 で主に使われるであろう「Composition API」
 
 ```vue
 <script>
@@ -183,13 +176,15 @@ export default {
 <div class="flex gap-4">
 
 <div>
-<video controls loop style="height: 40vh" src="https://v3.ja.vuejs.org/images/reactivity-spreadsheet.mp4"></video>
+<video controls loop style="height: 30vh" src="https://v3.ja.vuejs.org/images/reactivity-spreadsheet.mp4"></video>
 
 <a href="https://v3.ja.vuejs.org/guide/reactivity.html#%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B">参考</a>
 
 </div>
 
 <div>
+
+表計算ソフトと同じ手順をコードにすると
 
 ```js
 let val1 = 2;
@@ -215,9 +210,13 @@ console.log(sum); // 5のまま（期待は6）
 
 <div>
 
+表計算ソフトと同じようにやりたいこと
+
 1. 値が読み込まれたときに追跡する。 例: val1 + val2 は val1 と val2 の両方を読み込む。
 2. 値の変更を検知する。 例: val1 = 3 と入れるとき。
 3. 最初に値を読み込んだコードを再実行する。 例: sum = val1 + val2 を再度実行して、 sum の値を更新する。
+
+Vue には 1\. 2\. 3\. のためのしくみがあります！
 
 </div>
 
@@ -241,7 +240,7 @@ console.log(sum); // 3.
 
 ---
 
-# リアクティブの探求（Vue での ref によるリアクティブな変数）
+# リアクティブの探求（ref によるリアクティブな値の参照）
 
 ref を使ったデータを操作する場合、setup 内では value にアクセスする。
 ただし、template 内では変数（定数）そのものを参照するだけで value を得られる。
@@ -272,8 +271,14 @@ export default {
 ```vue
 <template>
   <div>
-    <p>val1: <input type="number" v-model="val1" /></p>
-    <p>val2: <input type="number" v-model="val2" /></p>
+    <p>
+      val1:
+      <input type="number" v-model="val1" />
+    </p>
+    <p>
+      val2:
+      <input type="number" v-model="val2" />
+    </p>
     <p>sum: {{ sum }}</p>
   </div>
 </template>
@@ -285,7 +290,7 @@ export default {
 
 ---
 
-# リアクティブの探求（Vue での reactive によるリアクティブな変数）
+# リアクティブの探求（リアクティブな値をオブジェクトにまとめる）
 
 リアクティブにしたいデータがオブジェクトの場合、reactive が便利
 
@@ -318,7 +323,7 @@ export default {
 
 ---
 
-# リアクティブの探求（Vue での toRefs を使った分割代入）
+# リアクティブの探求（オブジェクトにまとめたリアクティブな値を取り出す）
 
 前項の reactive だと、オブジェクトの分割代入ができず、その場合、Vue では toRefs を使うことで可能になる。
 
@@ -351,7 +356,7 @@ export default {
 
 ---
 
-# リアクティブの探求（Vue での reactive に対して読み込み専用にする）
+# リアクティブの探求（リアクティブな値を読み込み専用にする）
 
 <div class="flex gap-8">
 
@@ -376,6 +381,166 @@ export default {
 ```
 
 </div>
+
+---
+
+# 算出プロパティ（computed）
+
+あるデータを元に計算結果を返したい場合、`computed` 関数を利用する
+
+```vue
+<script>
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const count = ref(1);
+    const plusOne = computed(() => count.value + 1);
+
+    console.log(plusOne.value); // 2
+
+    plusOne.value++; // error
+    return {
+      count,
+      plusOne,
+    };
+  },
+};
+</script>
+```
+
+---
+
+# 算出プロパティ（computed）
+
+` get``set `関数を用意することで書込み可能なオブジェクトを作成することができる
+
+```vue
+<script>
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    const count = ref(1);
+    const plusOne = computed({
+      get: () => count.value + 1,
+      set: (val) => {
+        count.value = val - 1;
+      },
+    });
+
+    plusOne.value = 1;
+    console.log(count.value); // 0
+    return {
+      count,
+      plusOne,
+    };
+  },
+};
+</script>
+```
+
+---
+
+# computed と methods との違い
+
+`methods` は都度読み出される毎に実行するのに対し、`computed` 内で参照しているリアクティブなデータが変更されない限り、`computed` は一度キャッシュされた結果を返す。
+うまく使い分けるとパフォーマンスの向上に役立てる。
+
+<div class="flex gap-4">
+
+```vue
+<template>
+  <p>methodsを使った場合</p>
+  <ol class="use-methods">
+    <li>{{ randomMethods() }}</li>
+    <li>{{ randomMethods() }}</li>
+    <li>{{ randomMethods() }}</li>
+  </ol>
+  <p>computedを使った場合</p>
+  <ol class="use-computed">
+    <li>{{ randomComputed }}</li>
+    <li>{{ randomComputed }}</li>
+    <li>{{ randomComputed }}</li>
+  </ol>
+</template>
+```
+
+```vue
+<script>
+import { computed } from "vue";
+export default {
+  setup() {
+    const randomMethods = () => {
+      return Math.random();
+    };
+    const randomComputed = computed(() => {
+      return Math.random();
+    });
+    return {
+      randomMethods,
+      randomComputed,
+    };
+  },
+};
+</script>
+```
+
+<div>
+  <ComputedMethods />
+</div>
+
+</div>
+
+---
+
+# ウォッチャ（watch）
+
+特定のデータを監視し、変更があったときに処理を行える、引数として、新しい値とその前の値を取得できる。
+
+```vue
+<script>
+import { ref, watch } from "vue";
+export default {
+  setup() {
+    const count = ref(0);
+    watch(count, (newCount, prevCount) => {
+      /* ... */
+    });
+    return {
+      count,
+    };
+  },
+};
+</script>
+```
+
+---
+
+# ウォッチャ（watch）
+
+配列を監視する場合、複数のデータソースを同時に監視できる
+
+```vue
+<script>
+import { ref, watch } from "vue";
+export default {
+  setup() {
+    const firstName = ref("");
+    const lastName = ref("");
+
+    watch([firstName, lastName], (newValues, prevValues) => {
+      console.log(newValues, prevValues);
+    });
+
+    firstName.value = "John"; // logs: ["John", ""] ["", ""]
+    lastName.value = "Smith"; // logs: ["John", "Smith"] ["John", ""]
+    return {
+      firstName,
+      lastName,
+    };
+  },
+};
+</script>
+```
 
 ---
 
@@ -453,7 +618,15 @@ export default {
 
 # ディレクティブ
 
-ディレクティブは Vue によって提供される特別な属性。 v- から始まる。特定のディレクティブ(v-bind と v-on)は省略記法がある。
+- ディレクティブは Vue によって提供される特別な属性
+- v- から始まる
+- 特定のディレクティブ(v-bind と v-on)は省略記法がある。
+
+---
+
+# ディレクティブ
+
+<div>
 
 先程の「展開」を HTML 属性に反映させたい場合に使ってみます
 
@@ -475,6 +648,8 @@ export default {
 ```
 
 省略するとこのように書ける
+
+</div>
 
 ```html
 <a :href="url"> Vue.js公式サイト </a>
@@ -801,166 +976,6 @@ export default {
 (https://v3.ja.vuejs.org/guide/instance.html#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%82%BF%E3%82%99%E3%82%A4%E3%82%A2%E3%82%AF%E3%82%99%E3%83%A9%E3%83%A0)[公式]
 
 <img src="/lifecycle.svg" alt="ライフサイクル ダイアグラム" class="block h-full">
-
----
-
-# 算出プロパティ（computed）
-
-あるデータを元に計算式を返したい場合、`computed` 関数を利用するのが一般的。
-
-```vue
-<script>
-import { ref, computed } from "vue";
-export default {
-  setup() {
-    const count = ref(1);
-    const plusOne = computed(() => count.value + 1);
-
-    console.log(plusOne.value); // 2
-
-    plusOne.value++; // error
-    return {
-      count,
-      plusOne,
-    };
-  },
-};
-</script>
-```
-
----
-
-# 算出プロパティ（computed）
-
-` get``set `関数を用意することで書込み可能なオブジェクトを作成することができる
-
-```vue
-<script>
-import { ref, computed } from "vue";
-export default {
-  setup() {
-    const count = ref(1);
-    const plusOne = computed({
-      get: () => count.value + 1,
-      set: (val) => {
-        count.value = val - 1;
-      },
-    });
-
-    plusOne.value = 1;
-    console.log(count.value); // 0
-    return {
-      count,
-      plusOne,
-    };
-  },
-};
-</script>
-```
-
----
-
-# computed と methods との違い
-
-`methods` は都度読み出される毎に実行するのに対し、`computed` 内で参照しているリアクティブなデータが変更されない限り、`computed` は一度キャッシュされた結果を返す。
-うまく使い分けるとパフォーマンスの向上に役立てる。
-
-<div class="flex gap-4">
-
-```vue
-<template>
-  <p>methodsを使った場合</p>
-  <ol class="use-methods">
-    <li>{{ randomMethods() }}</li>
-    <li>{{ randomMethods() }}</li>
-    <li>{{ randomMethods() }}</li>
-  </ol>
-  <p>computedを使った場合</p>
-  <ol class="use-computed">
-    <li>{{ randomComputed }}</li>
-    <li>{{ randomComputed }}</li>
-    <li>{{ randomComputed }}</li>
-  </ol>
-</template>
-```
-
-```vue
-<script>
-import { computed } from "vue";
-export default {
-  setup() {
-    const randomMethods = () => {
-      return Math.random();
-    };
-    const randomComputed = computed(() => {
-      return Math.random();
-    });
-    return {
-      randomMethods,
-      randomComputed,
-    };
-  },
-};
-</script>
-```
-
-<div>
-  <ComputedMethods />
-</div>
-
-</div>
-
----
-
-# ウォッチャ（watch）
-
-特定のデータを監視し、変更があったときに処理を行える、引数として、新しい値とその前の値を取得できる。
-
-```vue
-<script>
-import { ref, watch } from "vue";
-export default {
-  setup() {
-    const count = ref(0);
-    watch(count, (newCount, prevCount) => {
-      /* ... */
-    });
-    return {
-      count,
-    };
-  },
-};
-</script>
-```
-
----
-
-# ウォッチャ（watch）
-
-配列を監視する場合、複数のデータソースを同時に監視できる
-
-```vue
-<script>
-import { ref, watch } from "vue";
-export default {
-  setup() {
-    const firstName = ref("");
-    const lastName = ref("");
-
-    watch([firstName, lastName], (newValues, prevValues) => {
-      console.log(newValues, prevValues);
-    });
-
-    firstName.value = "John"; // logs: ["John", ""] ["", ""]
-    lastName.value = "Smith"; // logs: ["John", "Smith"] ["John", ""]
-    return {
-      firstName,
-      lastName,
-    };
-  },
-};
-</script>
-```
 
 ---
 
