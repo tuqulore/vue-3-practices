@@ -43,6 +43,8 @@ drawings:
   - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model, イベント, 省略記法
 - コンポーネント
   - props, emit, slot など
+- Vue アプリケーション開発に必要な周辺ライブラリ
+  - debounce-throttle, fetch, Vue Router など
 
 ---
 
@@ -1277,9 +1279,9 @@ export default {
 
 ---
 
-# 子コンポーネントのイベントを購読する
+# イベント購読を用いた親コンポーネントへのデータの受け渡し
 
-子コンポーネントでイベントを発火させて親コンポーネントに知らせ、親側で処理するなどに使える方法
+子コンポーネントでイベントを発火させることによって可能
 
 <div class="flex gap-8">
 
@@ -1419,7 +1421,7 @@ export default {
 
 # スロットによるコンテンツ配信
 
-HTML 要素のように、コンポーネントに要素を渡す際は子コンポーネントは slot で受けるのが基本
+slot を使うと、HTML 要素のようにコンポーネントに子要素を渡すことができる
 
 <div class="flex gap-8">
 
@@ -1576,7 +1578,19 @@ export default {
 
 ---
 
-補足: throttle をつかったリアルタイムなテキスト検索結果
+# Vue アプリケーション開発に必要な周辺ライブラリ
+
+アプリケーションに必要な機能は他のライブラリと組み合わせて実装する
+
+- debounce-throttle
+- fetch
+- Vue Router
+
+---
+
+# debounce-throttle
+
+debounce, throttle を使うとイベントハンドリング関数の呼び出し頻度を間引くことができる
 
 <div class="flex gap-8">
 
@@ -1584,7 +1598,7 @@ export default {
 
 ```vue
 <script>
-import _ from "lodash";
+import { debounce } from "debounce-throttle";
 import { ref } from "vue";
 export default {
   setup() {
@@ -1597,11 +1611,11 @@ export default {
       "watermelon",
     ];
     const fruits = ref(originalFruits);
-    const updateText = _.throttle(() => {
+    const updateText = debounce(1000, () => {
       fruits.value = originalFruits.filter(
         (fruit) => fruit.indexOf(message.value) >= 0
       );
-    }, 1000);
+    });
     return {
       updateText,
       fruits,
@@ -1632,15 +1646,33 @@ export default {
 
 ---
 
+# fetch
+
+サーバーとの通信をおこなうためのブラウザの標準 API
+
+---
+
+# Vue Router
+
+URL ごとに表示する画面を制御するためのライブラリ
+
+---
+
+# fetch / Vue Router を使ったサンプル
+
+https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/sample-fetch-router?file=src/App.vue&terminal=dev
+
+---
+
 # Nuxt 3
 
-Vue 3 でさらにシンプルな開発を行えるフレームワーク
+効率的に Vue 3 アプリケーション開発をおこなうためのフレームワーク
 
-- モジュール等の import を省略できる
-- pages ディレクトリに.vue ファイルを作成するだけでサイト構成ができる（Vue Router の自動生成）
-- Node.js によるサーバー環境が準備されている（server ディレクトリ、API エンドポイントの作成）
-- Vue ライブラリは CDN 等で配布されており既存サイトに追加導入できるが、Nuxt は開発環境としては独立したフレームワーク
-- Nuxt 3 は 2022 年 2 月現在、ベータ版である
+- Vue.js が導入済み（Nuxt を導入すれば Vue.js の導入が不要）
+- Vue コンポーネント等の import を省略できる
+- pages ディレクトリに .vue ファイルを作成するだけで HTML ページができる（ルーティングの自動生成）
+- server ディレクトリにサーバー側の処理が書ける（API エンドポイントの生成）
+- Nuxt 3 は 2022 年 6 月現在、リリース候補版が公開されている
 
 ---
 
