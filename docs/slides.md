@@ -41,8 +41,6 @@ drawings:
   - watch の基礎
 - テンプレート構文の説明
   - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model, イベント, 省略記法
-- （未作成）ライフサイクル
-  - onMounted, onUpdated, onUnmounted など
 - コンポーネント
   - props, emit, slot など
 
@@ -101,7 +99,7 @@ export default {
 
 </div>
 <div>
-Vue3 で主に使われるであろう「Composition API」
+Vue3 で主に使われている「Composition API」
 
 ```vue
 <script>
@@ -124,12 +122,15 @@ export default {
 </div>
 </div>
 
-現状、Vue 関連の記事は Options API で解説されているほうが大多数であり、初学者の方は混乱されるかもしれません。  
-ちなみに Vue2, 3 どちらでも両 API は使えます、ただし、今後将来に向けて多くのプログラマーにとってメリットを感じられている Composition API が人気があり、本講座でも Composition API を取り扱うことにします。
+現状、Vue 関連の記事は Options API で解説されているほうが大多数であり、初学者の方は混乱されるかもしれません。Vue2, 3 どちらでも両 API は使えますが、本講座では今後主流となる Composition API を取り扱います。
 
 ---
 
-<img src="/apis.png" alt="Composition APIのメリット" style="height: 100%" />
+# Composition API のメリット
+
+Vue の機能ではなく、論理的な関心事でコードをまとめることができる
+
+<img src="/apis.png" class="h-5/6" />
 
 ---
 
@@ -216,7 +217,7 @@ console.log(sum); // 5のまま（期待は6）
 2. 値の変更を検知する。 例: val1 = 3 と入れるとき。
 3. 最初に値を読み込んだコードを再実行する。 例: sum = val1 + val2 を再度実行して、 sum の値を更新する。
 
-Vue には 1\. 2\. 3\. のためのしくみがあります！
+Vue には 1\. 2\. 3\. のためのしくみがある
 
 </div>
 
@@ -242,8 +243,8 @@ console.log(sum); // 3.
 
 # リアクティブの探求（ref によるリアクティブな値の参照）
 
-ref を使ったデータを操作する場合、setup 内では value にアクセスする。
-ただし、template 内では変数（定数）そのものを参照するだけで value を得られる。
+`ref` を使った値を操作する場合、`setup` 関数内では `value` プロパティにアクセスする。
+`template` 内では変数（定数）そのものを参照するだけで値を得られる。
 
 <div class="flex gap-8">
 
@@ -292,7 +293,7 @@ export default {
 
 # リアクティブの探求（リアクティブな値をオブジェクトにまとめる）
 
-リアクティブにしたいデータがオブジェクトの場合、reactive が便利
+リアクティブにしたいデータがオブジェクトの場合、`reactive` を使う
 
 <div class="flex gap-8">
 
@@ -325,7 +326,7 @@ export default {
 
 # リアクティブの探求（オブジェクトにまとめたリアクティブな値を取り出す）
 
-前項の reactive だと、オブジェクトの分割代入ができず、その場合、Vue では toRefs を使うことで可能になる。
+前項の `reactive` だと、オブジェクトの分割代入ができない。Vue では `toRefs` を使うことで可能になる。
 
 <div class="flex gap-8">
 
@@ -386,7 +387,7 @@ export default {
 
 # 算出プロパティ（computed）
 
-あるデータを元に計算結果を返したい場合、`computed` 関数を利用する
+あるリアクティブな値を元に計算結果を返したい場合、`computed` 関数を利用する
 
 ```vue
 <script>
@@ -412,7 +413,7 @@ export default {
 
 # 算出プロパティ（computed）
 
-` get``set `関数を用意することで書込み可能なオブジェクトを作成することができる
+`get` `set` 関数を用意することで書込み可能なオブジェクトを作成することができる
 
 ```vue
 <script>
@@ -544,7 +545,7 @@ export default {
 
 ---
 
-# テンプレート構文の説明
+# テンプレート構文
 
 - 展開
 - ディレクティブ
@@ -585,7 +586,7 @@ Message: Hello!
 
 ---
 
-# 展開
+# 展開（リアクティブな値を使うと）
 
 <p class="text-sm">
 counterを1秒ごとに増やしていく
@@ -620,15 +621,16 @@ export default {
 
 - ディレクティブは Vue によって提供される特別な属性
 - v- から始まる
-- 特定のディレクティブ(v-bind と v-on)は省略記法がある。
+- 特定のディレクティブ(v-bind と v-on)は省略記法がある
+- 特定のディレクティブは引数を渡すことができる(例: `v-on:click`)
 
 ---
 
-# ディレクティブ
+# ディレクティブ（バインディング）
+
+「展開」と同じようにリアクティブな値を HTML 属性に反映させる場合、 `v-bind` ディレクティブを使う
 
 <div>
-
-先程の「展開」を HTML 属性に反映させたい場合に使ってみます
 
 ```vue
 <template>
@@ -657,9 +659,9 @@ export default {
 
 ---
 
-# ディレクティブ
+# ディレクティブ（イベントハンドリング）
 
-v-on ディレクティブはイベントに使われ、:の後の引数でイベントの種類を指定できる
+`v-on` ディレクティブは HTML 要素などの[イベント](https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/Events)操作に使われる。`:`の後の引数でイベントの種類を指定できる
 
 ```vue
 <template>
@@ -791,7 +793,7 @@ export default {
 
 # リストレンダリング
 
-配列あるいはオブジェクトをもとに反復した要素の表示ができる。要素の再利用と並び替えができるように一意な `key` 属性を渡す必要がある。
+配列あるいはオブジェクトをもとに反復した要素の表示ができる。
 
 <div class="flex gap-8">
 
@@ -836,7 +838,9 @@ export default {
 
 ---
 
-`key` 属性を v-for から得られる第 2 引数から一意の index を紐付ける
+# リストレンダリング
+
+要素の再利用と並び替えを考慮する場合、一意な値を `key` 属性に渡す必要がある。
 
 <div class="flex gap-8">
 
@@ -844,7 +848,7 @@ export default {
 <template>
   <div id="list-rendering">
     <ol>
-      <li v-for="(todo, index) in todos" :key="index">
+      <li v-for="todo in todos" :key="todo.id">
         {{ todo.text }}
       </li>
     </ol>
@@ -855,9 +859,9 @@ export default {
 export default {
   setup() {
     const todos = [
-      { text: "Learn JavaScript" },
-      { text: "Learn Vue" },
-      { text: "Build something awesome" },
+      { text: "Learn JavaScript", id: 1 },
+      { text: "Learn Vue", id: 2 },
+      { text: "Build something awesome", id: 3 },
     ];
     return {
       todos,
@@ -971,14 +975,6 @@ export default {
 
 ---
 
-# ライフサイクル
-
-(https://v3.ja.vuejs.org/guide/instance.html#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%82%BF%E3%82%99%E3%82%A4%E3%82%A2%E3%82%AF%E3%82%99%E3%83%A9%E3%83%A0)[公式]
-
-<img src="/lifecycle.svg" alt="ライフサイクル ダイアグラム" class="block h-full">
-
----
-
 # コンポーネント
 
 - コンポーネントの基本と構成
@@ -990,6 +986,8 @@ export default {
 ---
 
 # コンポーネントの基本と構成
+
+親コンポーネントから子コンポーネントが参照されツリー構造になる
 
 <img src="/components.png" alt="コンポーネントの基本と構成" style="height: 80%; width: auto" />
 
