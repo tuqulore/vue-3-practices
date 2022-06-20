@@ -10,8 +10,6 @@
 - 自習時にキーポイントが分からなければ公式ドキュメントを参照しましょう
 - 逆に言えば公式ドキュメントは詳細に立ち入った説明がありますがキーポイントが分かれば十分です
 - 注釈は *斜体* で表記します
-- 演習があるセクションは10分の演習時間を設けます
-- セクションの変わり目にはサポーターからの補足と質問タイムを設けます
 - 慣れない用語があれば[用語集](https://github.com/tuqulore/vue-3-practices/blob/main/TERM.md)を参照しましょう
 
 
@@ -21,15 +19,24 @@
 
 ### [Vue.js とは？](https://v3.ja.vuejs.org/guide/introduction.html#vue-js-%E3%81%A8%E3%81%AF)
 
-- `Vue (発音は /vju:/、view と同様) は、ユーザーインターフェイスを構築するためのプログレッシブフレームワークです。` ～
-- `公式ガイドは、HTML、CSS そして JavaScript に関する中級レベルの知識を前提としています。` ～
-- `Vue.js を試すには、Hello World の例 (opens new window)が最も簡単です。気軽に別のタブで開いて、基本的な例を試してみましょう。`
-- `Vue.js のコアは、単純なテンプレート構文を使って宣言的にデータを DOM にレンダリングすることを可能にするシステムです:` ～
-- ～ `以下の例で、counter プロパティが 1 秒ごとにインクリメントされたとき、レンダリングされた DOM がどのように変化するかを見てみましょう:`
-
 キーポイント: ユーザーインターフェイスを構築するためのプログレッシブ（漸進的）フレームワーク。HTMLページ上で `script` タグで読み込みVueを使うこともできるし、後述のSFC形式でWebpack、ViteなどによってVueアプリケーションをビルドすることもできる。
 
 *Vueでのアプリケーション開発は、後者の形式でおこなうことがほとんど。前者はフロントエンド部分を既に異なるウェブアプリケーションフレームワークで実装しており、補助的にVueを導入したいケースなどで使われることがある。本資料ではSFCによるVueコンポーネントの記述を前提として説明していく。*
+
+
+
+## Vueの書き方の説明
+
+
+### [なぜ Composition API なのか？](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#%E3%81%AA%E3%81%9B%E3%82%99-composition-api-%E3%81%AA%E3%81%AE%E3%81%8B)
+
+キーポイント：Options APIだとオブジェクトプロパティとして各処理を書いたり値を初期化したりする。Composition APIは所定の関数を呼び出すことによって各処理を書いたり値を初期化したりする。これにより、再利用可能な処理の分離がしやすくなる。
+
+[mixinsは3でも利用可能](https://v3.ja.vuejs.org/api/options-composition.html#mixins)だが、以下の注釈がある。
+
+> Vue 2 では、コンポーネントロジックの再利用可能なチャンクを作成するための主要なメカニズムがミックスインでした。Vue 3 では、引き続きミックスインがサポートされていますが、コンポーネント間でコードの再利用するには Composition API が推奨されています。
+
+*今はVue 2からVue 3への移行期で、[リアクティブの探求](https://v3.ja.vuejs.org/guide/reactivity.html#%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%AE%E6%8E%A2%E6%B1%82)がそうであるようにOptions APIでのドキュメンテーションとTipsが多々ある。本資料以外で自習する場合は `Composition API` というキーワードを含めて検索するなど工夫が必要。*
 
 
 
@@ -37,11 +44,6 @@
 
 
 ### [リアクティブの探求](https://v3.ja.vuejs.org/guide/reactivity.html#%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%AE%E6%8E%A2%E6%B1%82)
-
-- `さらに深く見ていきましょう！Vue の最大の特徴の 1 つは、控えめなリアクティブシステムです。モデルはプロキシされた JavaScript オブジェクトです。` ～
-- `この言葉はここ最近のプログラミングで頻繁に目にしますが、それについて言及される時どういう意味で使われているでしょうか？` ～
-- ～ `前の例のコードを使って直接これを行うことはできません`
-- 発展：[Vue が変更をどのように追跡するのか](https://v3.ja.vuejs.org/guide/reactivity.html#vue-%E3%81%8B%E3%82%99%E5%A4%89%E6%9B%B4%E3%82%92%E3%81%A8%E3%82%99%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E8%BF%BD%E8%B7%A1%E3%81%99%E3%82%8B%E3%81%AE%E3%81%8B) 全体
 
 キーポイント：
 
@@ -61,70 +63,7 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 
 
-## Vueの書き方の説明
-
-
-### [なぜ Composition API なのか？](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#%E3%81%AA%E3%81%9B%E3%82%99-composition-api-%E3%81%AA%E3%81%AE%E3%81%8B)
-
-- `Vue コンポーネントを作成するとその機能と結合されたインターフェースの繰り返し可能な部分を再利用可能なコードとして抽出することができます。` ～
-- `このコンポーネントには複数の責務が存在します:` ～
-- ～ `同じ論理的な関心事に関連するコードを並べることができれば、より良くなるでしょう。そして、これはまさに Composition API が可能にします。`
-
-キーポイント：Options APIだとオブジェクトプロパティとして各処理を書いたり値を初期化したりする。Composition APIは所定の関数を呼び出すことによって各処理を書いたり値を初期化したりする。これにより、再利用可能な処理の分離がしやすくなる。
-
-[mixinsは3でも利用可能](https://v3.ja.vuejs.org/api/options-composition.html#mixins)だが、以下の注釈がある。
-
-> Vue 2 では、コンポーネントロジックの再利用可能なチャンクを作成するための主要なメカニズムがミックスインでした。Vue 3 では、引き続きミックスインがサポートされていますが、コンポーネント間でコードの再利用するには Composition API が推奨されています。
-
-*今はVue 2からVue 3への移行期で、[リアクティブの探求](https://v3.ja.vuejs.org/guide/reactivity.html#%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%AE%E6%8E%A2%E6%B1%82)がそうであるようにOptions APIでのドキュメンテーションとTipsが多々ある。本資料以外で自習する場合は `Composition API` というキーワードを含めて検索するなど工夫が必要。*
-
-
-## インスタンスの説明
-
-
-### [アプリケーションとコンポーネントのインスタンス](https://v3.ja.vuejs.org/guide/instance.html#)
-
-- `全ての Vue アプリケーションは createApp 関数で新しい アプリケーションインスタンス (application instance) を作成するところから始まります:` ～
-- `createApp に渡されたオプションは、ルートコンポーネント の設定に使われます。` ～
-- ～ `とりあえず、 ルートコンポーネントは他のコンポーネントとはなにも違いはないことを認識しておいてください。設定オプションは同じで、対応するコンポーネントインスタンスの振る舞いも同じです。`
-
-キーポイント：すべてのVueアプリケーションは `createApp` でアプリケーションインスタンスを作成する。アプリケーションはルートコンポーネントを持っており、それをマウントすることでDOM上にVueで管理されたビューが表示されるようになる。
-
-*ルートコンポーネントがあることを知っておくと、自分でVueアプリケーション開発のための環境構築をするときに戸惑わなくてすむ。*
-
-
-
-## 単一ファイルコンポーネントの説明
-
-
-### [単一ファイルコンポーネント](https://v3.ja.vuejs.org/guide/single-file-component.html)
-
-- `Vue 単一ファイルコンポーネント（別名 *.vue ファイル、 SFC と省略）は、Vue コンポーネントのテンプレート、ロジック、そして スタイル を 1 つのファイルにまとめることができる特別なファイル形式です。` ～
-- 発展：`Vue SFC はフレームワーク固有のファイル形式で、@vue/compiler-sfc (opens new window)によって標準的な JavaScript と CSS にプリコンパイルする必要があります。` ～
-- 発展：`SFC ビルドのステップが必要ですが、その代わりに多くの利点があります:` ～
-- 発展：`従来のウェブ開発のバックグラウンドを持つユーザの中には、SFC は HTML/CSS/JS が分離するはずだった異なる関心を同じ場所で混ぜ合わせているのでは、と懸念する人もいるかもしれません。` ～
-
-キーポイント：HTML、CSS、JavaScriptを一つのファイルで書くことができる。
-
-演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-style?file=src/App.vue&terminal=dev
-
-
-### [SFC スタイルの機能](https://v3.ja.vuejs.org/api/sfc-style.html)
-
-- `<style> タグが scoped 属性を持つとき、その CSS は現在のコンポーネントの要素にだけ適用されます。` ～
-- `scoped を使うと、親コンポーネントのスタイルは子コンポーネントに漏れません。しかし、子コンポーネントのルートノードは、親スコープの CSS と子スコープの CSS の両方が影響を受けます。` ～
-- `スコープ付きとスコープなしのスタイルの両方を同じコンポーネントに含めることもできます:` ～
-- 発展：`スコープ付きスタイルでもクラスが不要になるわけではないです。` ～
-- 発展：`<style module> タグは CSS Modules (opens new window)としてコンパイルされ、結果として得られる CSS クラスを $style というキーの下にオブジェクトとしてコンポーネントに公開します:` ～
-- 発展：～ `この結果として得られるクラスは、衝突を避けるためにハッシュ化され、CSS を現在のコンポーネントだけにスコープするのと同じ効果を実現します。`
-
-キーポイント： `scoped` 属性をもつとコンポーネント内に対してのみスタイルが適用されスタイルをカプセル化できる。
-
-演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component?file=src/App.vue&terminal=dev
-
-
-
-## 系統学習に必要なComposition APIでの書き方の説明
+## Composition APIでの書き方の説明
 
 
 ### [setup コンポーネントオプション](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#setup-%E3%82%B3%E3%83%B3%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%82%AA%E3%83%95%E3%82%9A%E3%82%B7%E3%83%A7%E3%83%B3)
@@ -139,19 +78,25 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 *後述でリアクティブな参照のさまざまな作り方を学ぶが、まずは `ref` を使えば問題ないと思ってもらってよい。*
 
 
+### [スタンドアロンな computed プロパティ](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%88%E3%82%99%E3%82%A2%E3%83%AD%E3%83%B3%E3%81%AA-computed-%E3%83%95%E3%82%9A%E3%83%AD%E3%83%8F%E3%82%9A%E3%83%86%E3%82%A3)
+
+キーポイント：リアクティブな参照をもとに読み取り専用の計算済みの値を `computed` 関数によって生成することができる。
+
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-computed?file=src/App.vue&terminal=dev
+
+*自分でリアクティブな参照に対して再計算する処理をおこなうと、処理の呼び出しごとに再計算される。 `computed` 関数を使うことで計算に必要な値が変化するごとに再計算される。パフォーマンスの観点では後者の方が効率がよい。*
+
+
+### [watch で変化に反応する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#watch-%E3%81%A6%E3%82%99%E5%A4%89%E5%8C%96%E3%81%AB%E5%8F%8D%E5%BF%9C%E3%81%99%E3%82%8B)
+
+キーポイント：リアクティブな参照に対して値に変化が生じたときに必要な処理を `watch` 関数によって書くことができる。 
+
+
 
 ## テンプレート構文の説明
 
 
 ### [展開](https://v3.ja.vuejs.org/guide/template-syntax.html#%E5%B1%95%E9%96%8B)
-
-- `データバインディングのもっとも基本的な形は、"Mustache" 構文(二重中括弧)を利用したテキスト展開です:` ～
-- `2 重中括弧の mustaches は、データを HTML ではなく、プレーンなテキストとして扱います。実際の HTML として出力するためには、v-html ディレクティブを使用する必要があります:` ～
-- `XSS 脆弱性 (opens new window)を容易に引き起こすので、ウェブサイトで動的に任意の HTML をレンダリングすることは、非常に危険です。` ～
-- `Mustache は、HTML 属性の内部で使用することはできません。代わりに、v-bind ディレクティブを使用してください:` ～
-- `属性が単に存在していることを true と示すといった真偽値属性の場合、v-bind は少し異なった働きをします。例えば:` ～
-- `これまで、テンプレートに単純なキーをバインディングしてきました。実際には Vue.js は全てのデータバインディング内部で JavaScript 式を完全にサポートします:` ～
-- ～ `制限として、それぞれのバインディングは、単一の式だけ含むことができるというものです。なので、以下は動作しません:`
 
 キーポイント：Mustache構文でテキスト展開できる。JavaScript式を使用することもできる
 
@@ -160,23 +105,10 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 ### [ディレクティブ](https://v3.ja.vuejs.org/guide/template-syntax.html#%E3%83%86%E3%82%99%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99)
 
-- `ディレクティブは v- から始まる特別な属性です。ディレクティブ属性値は、単一の JavaScript 式を期待します` ～
-- `ディレクティブの中には "引数" を取るものもあります。` ～
-- ～ `ここでの引数は受け取りたいイベント名です。イベントハンドリングの詳細については後ほど説明します。`
-- `v- 接頭辞は、テンプレート内の Vue 独自の属性を識別するための目印となっています。` ～
-- ～ `省略記法の構文の利用は完全に任意ですが、後でその使用方法について詳しく学んだ時に便利と感じることでしょう。`
-
 キーポイント：ディレクティブはVueによって提供される特別な属性。 `v-` から始まる。特定のディレクティブ(v-bindとv-on)は省略記法がある。
 
 
 ### [クラスとスタイルのバインディング](https://v3.ja.vuejs.org/guide/class-and-style.html)
-
-- `データバインディングに一般に求められることの 1 つは、要素のクラスリストとインラインスタイルを操作することです。` ～
-- `:class (v-bind:class の略) にオブジェクトを渡すことでクラスを動的に切り替えることができます:` ～
-- `束縛されるオブジェクトはインラインでなくてもかまいません:` ～
-- 発展：`:class に配列を渡してクラスのリストを適用することができます:` ～
-- `:style 向けのオブジェクト構文は非常に簡単です。JavaScript オブジェクトということを除けば、ほとんど CSS のように見えます。` ～
-- 発展：`:style 向けの配列構文は、同じ要素に複数のスタイルオブジェクトを適用することができます:` ～
 
 キーポイント：`v-bind` によってオブジェクト構文や配列構文で動的にクラスとスタイルを付与することができる。
 
@@ -185,29 +117,12 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 ### [条件付きレンダリング](https://v3.ja.vuejs.org/guide/conditional.html)
 
-- `v-if ディレクティブは、ブロックを条件に応じてレンダリングしたい場合に使用されます。` ～
-- `v-if はディレクティブなので、単一の要素に付加する必要があります。しかし、1 要素よりも多くの要素と切り替えたい場合はどうでしょうか？` ～
-- `v-if に対して "else block" を示すために、v-else ディレクティブを使用できます:` ～
-- `v-else-if は、名前が示唆するように、v-if の "else if block" として機能します。また、複数回連結することもできます:` ～
-- `条件的に要素を表示するための別のオプションは v-show です。使用方法はほとんど同じです:` ～
-- `v-if は、イベントリスナと子コンポーネント内部の条件ブロックが適切に破棄され、そして切り替えられるまでの間再作成されるため、”リアル”な条件レンダリングです。` ～
-- ～ `とても頻繁に何かを切り替える必要があれば v-show を選び、条件が実行時に変更することがほとんどない場合は、v-if を選びます。`
-
 キーポイント： `v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `v-show` は見た目上非表示にするが `v-if` はDOM要素も取り除く。
 
 演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-if?file=src/App.vue&terminal=dev
 
 
 ### [リストレンダリング](https://v3.ja.vuejs.org/guide/list.html)
-
-- `配列に基づいて、アイテムのリストをレンダリングするために、v-for ディレクティブを使用することができます。 ` ～
-- `v-for ブロック内では、親スコープのプロパティへの完全なアクセスを持っています。` ～
-- `オブジェクトのプロパティに対して、v-for を使って反復処理することもできます。` ～
-- `Vue が v-for でレンダリングされた要素のリストを更新する際、デフォルトでは “その場でパッチを適用する” (in-place patch) 戦略が用いられます。` ～
-- `Vue は画面の更新もトリガするために、監視された配列の変更メソッドをラップします。` ～
-- ～ `重複するオブジェクトを含んでいる別の配列で元の配列を置き換えることは、とても効率的な操作です。`
-- `v-for は整数値を取ることもできます。` ～
-- `テンプレート v-if と同様に、複数の要素のブロックをレンダリングするために、 v-for で <template> タグを使うこともできます。` ～
 
 キーポイント：配列あるいはオブジェクトをもとに反復した要素の表示ができる。要素の再利用と並び替えができるように一意な `key` 属性を渡す必要がある。
 
@@ -218,10 +133,6 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 ### [イベントハンドリング](https://v3.ja.vuejs.org/guide/events.html)
 
-- `v-on ディレクティブを使うことで、DOM イベントの購読、イベント発火時の JavaScript の実行が可能になります。` ～
-- `多くのイベントハンドラのロジックはより複雑になっていくので、v-on 属性の値に JavaScript 式を記述し続けるのは現実的ではありません。` ～
-- `メソッド名を直接指定する代わりに、インライン JavaScript 式でメソッドを指定することもできます:` ～
-
 キーポイント： `v-on` によってDOMイベントの購読、イベント発火時のJavaScriptの実行ができるようになる。
 
 演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-reactive-class-binding-event-handling?file=src/App.vue&terminal=dev
@@ -229,14 +140,37 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 ### [フォーム入力バインディング](https://v3.ja.vuejs.org/guide/forms.html)
 
-- `form の input 要素や textarea 要素、 select 要素に双方向データバインディングを付与するためには、v-model を使用することができます。` ～
-- `ラジオやチェックボックス、セレクトの option において、v-model でバインディングされる値は通常は静的な文字列（チェックボックスの場合は boolean も）です:` ～
-- 発展：`デフォルトでは v-model は各 input イベント後に入力値とデータを同期します（上述の IME 入力の例外はあります）。lazy 修飾子を加えることで、change イベント後に同期するよう変更できます。` ～
-- 発展：～ `ユーザ入力から空白を自動で取り除きたい場合は、v-model で管理している input に trim 修飾子を加えることができます。`
-
 キーポイント： `v-model` によってformのinput要素やtextarea要素、select要素の入力イベントに応じてデータを更新できるようになる。
 
 演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-v-model?file=src/App.vue&terminal=dev
+
+
+## 単一ファイルコンポーネントの説明 *(Optional)*
+
+
+### [単一ファイルコンポーネント](https://v3.ja.vuejs.org/guide/single-file-component.html)
+
+キーポイント：HTML、CSS、JavaScriptを一つのファイルで書くことができる。
+
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-style?file=src/App.vue&terminal=dev
+
+
+### [SFC スタイルの機能](https://v3.ja.vuejs.org/api/sfc-style.html)
+
+キーポイント： `scoped` 属性をもつとコンポーネント内に対してのみスタイルが適用されスタイルをカプセル化できる。
+
+演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-scoped-css-component?file=src/App.vue&terminal=dev
+
+
+
+## インスタンスの説明 *(Optional)*
+
+
+### [アプリケーションとコンポーネントのインスタンス](https://v3.ja.vuejs.org/guide/instance.html#)
+
+キーポイント：すべてのVueアプリケーションは `createApp` でアプリケーションインスタンスを作成する。アプリケーションはルートコンポーネントを持っており、それをマウントすることでDOM上にVueで管理されたビューが表示されるようになる。
+
+*ルートコンポーネントがあることを知っておくと、自分でVueアプリケーション開発のための環境構築をするときに戸惑わなくてすむ。*
 
 
 
@@ -309,31 +243,6 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 
 
 
-## Composition APIでの書き方の概要
-
-
-### [ ライフサイクルフックを setup の中に登録する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%83%95%E3%83%83%E3%82%AF%E3%82%92-setup-%E3%81%AE%E4%B8%AD%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B)
-
-キーポイント：コンポーネントの各ライフサイクルによって必要な処理をライフサイクルフックによって書くことができる。
-
-演習：[ライフサイクルフックのセクション](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%83%95%E3%83%83%E3%82%AF)を参照
-
-
-### [watch で変化に反応する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#watch-%E3%81%A6%E3%82%99%E5%A4%89%E5%8C%96%E3%81%AB%E5%8F%8D%E5%BF%9C%E3%81%99%E3%82%8B)
-
-キーポイント：リアクティブな参照に対して値に変化が生じたときに必要な処理を `watch` 関数によって書くことができる。 
-
-
-### [スタンドアロンな computed プロパティ](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%88%E3%82%99%E3%82%A2%E3%83%AD%E3%83%B3%E3%81%AA-computed-%E3%83%95%E3%82%9A%E3%83%AD%E3%83%8F%E3%82%9A%E3%83%86%E3%82%A3)
-
-キーポイント：リアクティブな参照をもとに読み取り専用の計算済みの値を `computed` 関数によって生成することができる。
-
-演習：https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/practice-computed?file=src/App.vue&terminal=dev
-
-*自分でリアクティブな参照に対して再計算する処理をおこなうと、処理の呼び出しごとに再計算される。 `computed` 関数を使うことで計算に必要な値が変化するごとに再計算される。パフォーマンスの観点では後者の方が効率がよい。*
-
-
-
 ## Composition APIでの書き方の詳細 *(Optional)*
 
 
@@ -355,6 +264,13 @@ Vueでは 1\. 2\. 3\. を暗黙的に実行してくれる仕組みがあり、�
 ### [セットアップ](https://v3.ja.vuejs.org/guide/composition-api-setup.html)
 
 キーポイント： `props` はリアクティブだけど `context` はリアクティブではない。 `setup` 関数でreturnした値、関数などがテンプレートで使用可能。
+
+
+### [ ライフサイクルフックを setup の中に登録する](https://v3.ja.vuejs.org/guide/composition-api-introduction.html#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%83%95%E3%83%83%E3%82%AF%E3%82%92-setup-%E3%81%AE%E4%B8%AD%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B)
+
+キーポイント：コンポーネントの各ライフサイクルによって必要な処理をライフサイクルフックによって書くことができる。
+
+演習：[ライフサイクルフックのセクション](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%83%95%E3%83%83%E3%82%AF)を参照
 
 
 ### [ライフサイクルフック](https://v3.ja.vuejs.org/guide/composition-api-lifecycle-hooks.html)
