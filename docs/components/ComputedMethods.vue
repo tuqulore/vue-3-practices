@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <p>methodsを使った場合</p>
+  <p>関数呼び出しの場合</p>
   <ol class="use-methods">
     <li>{{ randomMethods() }}</li>
     <li>{{ randomMethods() }}</li>

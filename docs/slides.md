@@ -213,7 +213,7 @@ console.log(sum); // 5のまま（期待は6）
 
 <div>
 
-表計算ソフトと同じようにやりたいこと
+表計算ソフトと同じことをおこなうには
 
 1. 値が読み込まれたときに追跡する。 例: val1 + val2 は val1 と val2 の両方を読み込む。
 2. 値の変更を検知する。 例: val1 = 3 と入れるとき。
@@ -253,7 +253,6 @@ console.log(sum); // 3.
 ```vue
 <script>
 import { ref, computed } from "vue";
-
 export default {
   setup() {
     const val1 = ref(2);
@@ -308,7 +307,6 @@ export default {
 </template>
 <script>
 import { reactive } from "vue";
-
 export default {
   setup() {
     const user = reactive({
@@ -328,27 +326,29 @@ export default {
 
 # リアクティブの探求（オブジェクトにまとめたリアクティブな値を取り出す）
 
-前項の `reactive` だと、オブジェクトの分割代入ができない。Vue では `toRefs` を使うことで可能になる。
+前項の `reactive` だと、分割代入しても値が取り出せない。Vue では `toRefs` を使うことで可能になる。
 
 <div class="flex gap-8">
 
 ```vue
 <template>
-  <div>{{ name }}さんは{{ old }}歳になりました</div>
+  <div>
+    <input type="text" v-model="user.name" />
+    <p>user.name: {{ user.name }}</p>
+    <p>name: {{ name }}</p>
+  </div>
 </template>
 <script>
 import { reactive, toRefs } from "vue";
-
 export default {
   setup() {
     const user = reactive({
-      name: "taro",
-      old: 16,
+      name: "",
     });
-    const { name, old } = toRefs(user);
+    const { name } = toRefs(user);
     return {
+      user,
       name,
-      old,
     };
   },
 };
@@ -364,19 +364,27 @@ export default {
 <div class="flex gap-8">
 
 ```vue
+<template>
+  <div>
+    <!-- user.name を変更しようとすると失敗し、警告が表示されます -->
+    <input type="text" v-model="user.name" />
+    <p>user.name: {{ user.name }}</p>
+    <p>name: {{ name }}</p>
+  </div>
+</template>
 <script>
-import { reactive, readonly } from "vue";
-
+import { reactive, toRefs, readonly } from "vue";
 export default {
   setup() {
-    const original = reactive({ count: 0 });
-    const copy = readonly(original);
-    original.count++;
-    // copy を変更しようとすると失敗し、警告が表示されます
-    copy.count++; // warning: "Set operation on key 'count' failed: target is readonly."
+    ronst user = readonly(
+      reactive({
+        name: "",
+      })
+    );
+    const { name } = toRefs(user);
     return {
-      original,
-      copy,
+      user,
+      name
     };
   },
 };
@@ -392,16 +400,18 @@ export default {
 あるリアクティブな値を元に計算結果を返したい場合、`computed` 関数を利用する
 
 ```vue
+<template>
+  <div>
+    <input type="number" v-model="counter" />
+    {{ plusOne }}
+  </div>
+</template>
 <script>
 import { ref, computed } from "vue";
 export default {
   setup() {
     const count = ref(1);
     const plusOne = computed(() => count.value + 1);
-
-    console.log(plusOne.value); // 2
-
-    plusOne.value++; // error
     return {
       count,
       plusOne,
@@ -418,6 +428,13 @@ export default {
 `get` `set` 関数を用意することで書込み可能なオブジェクトを作成することができる
 
 ```vue
+<template>
+  <div>
+    <input type="number" v-model="count" />
+    <button @click="handleClick">リセット</button>
+    {{ plusOne }}
+  </div>
+</template>
 <script>
 import { ref, computed } from "vue";
 export default {
@@ -425,17 +442,14 @@ export default {
     const count = ref(1);
     const plusOne = computed({
       get: () => count.value + 1,
-      set: (val) => {
-        count.value = val - 1;
+      set: (value) => {
+        count.value = value;
       },
     });
-
-    plusOne.value = 1;
-    console.log(count.value); // 0
-    return {
-      count,
-      plusOne,
+    const handleClick = () => {
+      plusOne.value = 1;
     };
+    return { count, plusOne, handleClick };
   },
 };
 </script>
@@ -443,16 +457,16 @@ export default {
 
 ---
 
-# computed と methods との違い
+# computed と関数呼び出しの違い
 
-`methods` は都度読み出される毎に実行するのに対し、`computed` 内で参照しているリアクティブなデータが変更されない限り、`computed` は一度キャッシュされた結果を返す。
+関数呼び出しは都度呼び出される毎に実行するのに対し、`computed` 内で参照しているリアクティブな値が変更されない限り、`computed` は一度キャッシュされた結果を返す。
 うまく使い分けるとパフォーマンスの向上に役立てる。
 
 <div class="flex gap-4">
 
 ```vue
 <template>
-  <p>methodsを使った場合</p>
+  <p>関数呼び出しの場合</p>
   <ol class="use-methods">
     <li>{{ randomMethods() }}</li>
     <li>{{ randomMethods() }}</li>
@@ -500,17 +514,27 @@ export default {
 特定のデータを監視し、変更があったときに処理を行える、引数として、新しい値とその前の値を取得できる。
 
 ```vue
+<template>
+  <div>
+    <input type="number" v-model="count" />
+    {{ plusOne }}
+  </div>
+</template>
 <script>
-import { ref, watch } from "vue";
+import { ref, computed, watch } from "vue";
 export default {
   setup() {
-    const count = ref(0);
-    watch(count, (newCount, prevCount) => {
-      /* ... */
+    const count = ref(1);
+    const plusOne = computed({
+      get: () => count.value + 1,
+      set: (value) => {
+        count.value = value;
+      },
     });
-    return {
-      count,
-    };
+    watch(count, (current, prev) => {
+      console.log(current, prev);
+    });
+    return { count, plusOne };
   },
 };
 </script>
@@ -523,23 +547,27 @@ export default {
 配列を監視する場合、複数のデータソースを同時に監視できる
 
 ```vue
+<template>
+  <div>
+    <input type="number" v-model="count" />
+    {{ plusOne }}
+  </div>
+</template>
 <script>
-import { ref, watch } from "vue";
+import { ref, computed, watch } from "vue";
 export default {
   setup() {
-    const firstName = ref("");
-    const lastName = ref("");
-
-    watch([firstName, lastName], (newValues, prevValues) => {
-      console.log(newValues, prevValues);
+    const count = ref(1);
+    const plusOne = computed({
+      get: () => count.value + 1,
+      set: (value) => {
+        count.value = value;
+      },
     });
-
-    firstName.value = "John"; // logs: ["John", ""] ["", ""]
-    lastName.value = "Smith"; // logs: ["John", "Smith"] ["John", ""]
-    return {
-      firstName,
-      lastName,
-    };
+    watch([count, plusOne], (current, prev) => {
+      console.log(current, prev);
+    });
+    return { count, plusOne };
   },
 };
 </script>
