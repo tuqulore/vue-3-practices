@@ -71,7 +71,7 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 StackBlitz はブラウザ上で動作するオンライン IDE（統合開発環境）です。
 
-動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認して https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセスしてみましょう。
+動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認して https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセスしてみましょう。
 
 ---
 
@@ -1017,7 +1017,7 @@ export default {
 
 # コンポーネントの基本と構成
 
-親コンポーネントから子コンポーネントが参照されツリー構造になる
+親コンポーネントから子コンポーネントが参照されツリー構造になる。最上位はルートコンポーネント（App.vue）
 
 <img src="/components.png" alt="コンポーネントの基本と構成" style="height: 80%; width: auto" />
 
