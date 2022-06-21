@@ -1,3 +1,6 @@
+<template>
+</template>
+
 <script>
 export default {
   setup() {
@@ -5,9 +8,6 @@ export default {
   }
 }
 </script>
-
-<template>
-</template>
 
 <style>
 </style>
