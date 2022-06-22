@@ -402,7 +402,7 @@ export default {
 ```vue
 <template>
   <div>
-    <input type="number" v-model="counter" />
+    <input type="number" v-model="count" />
     {{ plusOne }}
   </div>
 </template>
