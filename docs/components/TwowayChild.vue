@@ -1,15 +1,20 @@
 <template>
-  <input type="text" v-model="title" @input="changeTitle" />
+  <input v-model="title" />
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed } from "vue";
 export default {
   props: {
     modelValue: String,
   },
   setup(props, context) {
-    const title = ref(props.modelValue);
+    const title = computed({
+      get: () => props.modelValue,
+      set: (value) => {
+        context.emit("update:modelValue", value);
+      },
+    });
     const changeTitle = () => {
       context.emit("update:modelValue", title.value);
     };

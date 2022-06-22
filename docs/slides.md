@@ -1009,7 +1009,9 @@ export default {
 
 - コンポーネントの基本と構成
 - プロパティを用いた子コンポーネントへのデータの受け渡し
-- 子コンポーネントのイベントを購読する
+- イベント購読を用いた親コンポーネントへのデータの受け渡し
+- v-model を用いた親子間コンポーネントのデータの受け渡し
+- v-model を用いない親子間コンポーネントのデータの受け渡し
 - コンポーネントで v-model を使う
 - スロットによるコンテンツ配信
 
@@ -1373,7 +1375,7 @@ export default {
 
 ---
 
-# コンポーネントで`v-model`を使う
+# v-model を用いた親子間コンポーネントのデータの受け渡し
 
 親子で同じ値になるようにバインディングする（コンポーネント間の双方向バインディング）
 
@@ -1411,24 +1413,24 @@ export default {
 
 ```vue
 <template>
-  <input type="text" v-model="title" @input="changeTitle" />
+  <input v-model="title" />
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed } from "vue";
+
 export default {
   props: {
     modelValue: String,
   },
   setup(props, context) {
-    const title = ref(props.modelValue);
-    const changeTitle = () => {
-      context.emit("update:modelValue", title.value);
-    };
-    return {
-      title,
-      changeTitle,
-    };
+    const title = computed({
+      get: () => props.modelValue,
+      set: (value) => {
+        context.emit("update:modelValue", value);
+      },
+    });
+    return { title };
   },
 };
 </script>
@@ -1442,6 +1444,47 @@ export default {
 <TwowayParent />
 
 </div>
+
+</div>
+
+---
+
+# v-model を用いない親子間コンポーネントのデータの受け渡し
+
+親子で同じ値になるようにバインディングする（コンポーネント間の双方向バインディング）
+
+<div class="flex gap-8">
+
+<div class="flex-shrink">
+
+<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+
+```vue
+<template>
+  <ChildComponent @update:modelValue="title = $event" :modelValue="title" />
+  <p>{{ title }}</p>
+</template>
+<script>
+import { ref } from "vue";
+import ChildComponent from ... // 中略;
+export default {
+  components: { ChildComponent },
+  setup() {
+    const title = ref("Hello !");
+    return {
+      title,
+    };
+  },
+};
+</script>
+```
+
+</div>
+
+- v-model がおこなっていることは v-model を使わなくても実現可能（糖衣構文）
+- 親 → 子：プロパティ
+- 子 → 親：イベント
+- このような状態が双方向バインディング（値を束縛しあっている）
 
 </div>
 
