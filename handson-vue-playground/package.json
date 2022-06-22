@@ -1,0 +1,33 @@
+{
+  "name": "vue-3-practices-handson-vue-playground",
+  "description": "ハンズオン vue playground",
+  "version": "1.0.0",
+  "author": "tuqulore Inc.",
+  "bugs": {
+    "url": "https://github.com/tuqulore/vue-3-practices/issues"
+  },
+  "dependencies": {
+    "debounce-throttle": "^1.0.4",
+    "vue": "^3.2.33",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "2.3.3",
+    "vite": "2.9.12"
+  },
+  "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
+  "keywords": [
+    "vue3"
+  ],
+  "license": "MIT",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuqulore/vue-3-practices.git"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  }
+}
