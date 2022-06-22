@@ -73,6 +73,8 @@ StackBlitz はブラウザ上で動作するオンライン IDE（統合開発�
 
 動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認して https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセスしてみましょう。
 
+講師は適宜あたらしいハンズオン環境をつくっていきますが、受講者の皆さんは作成したハンズオン環境を（全消しするなど）使いまわしてもらって大丈夫です。
+
 ---
 
 # Vue には 2 つの書き方があります
