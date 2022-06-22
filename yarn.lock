@@ -2226,11 +2226,6 @@ data-uri-to-buffer@^4.0.0:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-4.0.0.tgz#b5db46aea50f6176428ac05b73be39a57701a64b"
   integrity sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==
 
-debounce-throttle@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/debounce-throttle/-/debounce-throttle-1.0.4.tgz#1a89befeb05302bf2edd67f739ae92de1fe6c945"
-  integrity sha512-dg3ImASYct9Kymx8Wm+uC9luq2BkbTrULrS/CzAVTYvVJibhYgXznKVytlqhMC8plSl6U5Fxy5bfWu+JhYI7ww==
-
 debug@2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -5311,7 +5306,7 @@ theme-vitesse@^0.1.12:
   resolved "https://registry.yarnpkg.com/theme-vitesse/-/theme-vitesse-0.1.14.tgz#e239d44fb0e61b3d0471fc86784b22e8b632dc96"
   integrity sha512-b5s+Zpfaw5+djoCJ9AEbcTbpiTlLsOvGM9oblDmmWRGWNqg9oXtEYO/uwubwx77novHBI6zNuwZRHKNlAIBo4A==
 
-throttle-debounce@5.0.0:
+throttle-debounce@5.0.0, throttle-debounce@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-5.0.0.tgz#a17a4039e82a2ed38a5e7268e4132d6960d41933"
   integrity sha512-2iQTSgkkc1Zyk0MeVrt/3BvuOXYPl/R8Z0U2xxo9rjwNciaHDG3R+Lm6dh4EeUci49DanvBnuqI6jshoQQRGEg==
