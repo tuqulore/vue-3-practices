@@ -376,7 +376,7 @@ export default {
 import { reactive, toRefs, readonly } from "vue";
 export default {
   setup() {
-    ronst user = readonly(
+    const user = readonly(
       reactive({
         name: "",
       })
