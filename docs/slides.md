@@ -44,7 +44,7 @@ drawings:
 - コンポーネント
   - props, emit, slot など
 - Vue アプリケーション開発に必要な周辺ライブラリ
-  - debounce-throttle, fetch, Vue Router など
+  - throttle-debounce, fetch, Vue Router など
 
 ---
 
@@ -1653,15 +1653,15 @@ export default {
 
 アプリケーションに必要な機能は他のライブラリと組み合わせて実装する
 
-- debounce-throttle
+- throttle-debounce
 - fetch
 - Vue Router
 
 ---
 
-# debounce-throttle
+# throttle, debounce
 
-debounce, throttle を使うとイベントハンドリング関数の呼び出し頻度を間引くことができる
+throttle, debounce を使うとイベントハンドリング関数の呼び出し頻度を間引くことができる
 
 <div class="flex gap-8">
 
@@ -1669,7 +1669,7 @@ debounce, throttle を使うとイベントハンドリング関数の呼び出�
 
 ```vue
 <script>
-import { debounce } from "debounce-throttle";
+import { debounce } from "throttle-debounce";
 import { ref } from "vue";
 export default {
   setup() {
