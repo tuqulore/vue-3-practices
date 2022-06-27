@@ -1112,7 +1112,7 @@ export default {
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1167,7 +1167,7 @@ export default {
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue {all|2|all}
 <template>
@@ -1226,7 +1226,7 @@ export default {
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue {all|2|all}
 <template>
@@ -1287,7 +1287,7 @@ props はデフォルト値を設定することもできる
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1349,7 +1349,7 @@ export default {
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1404,7 +1404,7 @@ export default {
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1470,7 +1470,7 @@ export default {
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1548,7 +1548,7 @@ export default {
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1589,7 +1589,7 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1637,7 +1637,7 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <script>
