@@ -36,11 +36,11 @@ drawings:
 - リアクティブの探求
   - ref, reactive, toRefs, readonly など
 - 算出プロパティ（computed）
-  - computed の基礎
+  - computed
 - ウォッチャ（watch）
-  - watch の基礎
+  - watch
 - テンプレート構文の説明
-  - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model, イベント, 省略記法
+  - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model など
 - コンポーネント
   - props, emit, slot など
 - Vue アプリケーション開発に必要な周辺ライブラリ
@@ -63,15 +63,30 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 ---
 
+# 本講座のすすめかた
+
+どのような形式で進行するのかの確認
+
+ハンズオン ≒ コードを書いて動かすこと（1 回 10 分程度）をメインに取り組みます。
+
+適宜説明を挟みますが、動かない、分からないとき、その他なんでも（大抵は他の受講者も同じことを考えています！）質問をお願いします。
+
+---
+
 # 準備
 
-### StackBlitz
+使用するツールの確認とセットアップ
 
 本講座におけるハンズオン、演習、サンプルの閲覧は [StackBlitz](https://stackblitz.com/) でおこないます。
 
 StackBlitz はブラウザ上で動作するオンライン IDE（統合開発環境）です。
 
-動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認して https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセスしてみましょう。
+以下をやってみましょう
+
+1. 動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認してブラウザを用意
+2. 用意したブラウザで https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセス
+3. `<template>Hello World!</template>` と書いてみる
+4. 右カラムに `Hello World!` と表示されることを確認
 
 講師は適宜あたらしいハンズオン環境をつくっていきますが、受講者の皆さんは作成したハンズオン環境を（全消しするなど）使いまわしてもらって大丈夫です。
 
@@ -597,10 +612,10 @@ export default {
 
 - 展開
 - ディレクティブ
-- クラスとスタイルのバインディング
+- バインディング
+- イベントハンドリング
 - 条件付きレンダリング
 - リストレンダリング
-- イベントハンドリング
 - フォーム入力バインディング
 
 ---
@@ -669,12 +684,14 @@ export default {
 
 - ディレクティブは Vue によって提供される特別な属性
 - v- から始まる
-- 特定のディレクティブ(v-bind と v-on)は省略記法がある
-- 特定のディレクティブは引数を渡すことができる(例: `v-on:click`)
+- 特定のディレクティブ（v-bind と v-on）は省略記法がある（例：`:href` `@click`）
+- 特定のディレクティブは引数を渡すことができる（例：`v-on:click`）
+
+ディレクティブが使われている箇所は Vue の機能と関係していると気づけるとよい
 
 ---
 
-# ディレクティブ（バインディング）
+# バインディング
 
 「展開」と同じようにリアクティブな値を HTML 属性に反映させる場合、 `v-bind` ディレクティブを使う
 
@@ -707,54 +724,128 @@ export default {
 
 ---
 
-# ディレクティブ（イベントハンドリング）
+# バインディング（クラスとスタイル）
 
-`v-on` ディレクティブは HTML 要素などの[イベント](https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/Events)操作に使われる。`:`の後の引数でイベントの種類を指定できる
+クラス属性とスタイル属性のバインディングにはオブジェクト構文と配列構文がある
+
+<div class="flex gap-6">
+
+<div>
+
+<p class="text-xs">オブジェクト構文</p>
 
 ```vue
 <template>
-  <button v-on:click="clickHandler">Click</button>
+  <span :class="{ red: red }">Hello World!</span>
+</template>
+<script>
+import { ref } from "vue";
+export default {
+  setup() {
+    const red = ref(true);
+    return {
+      red,
+    };
+  },
+};
+</script>
+<style>
+.red {
+  color: red;
+}
+</style>
+```
+
+</div>
+
+<div>
+
+<p class="text-xs">配列構文はこのように書ける</p>
+
+```html
+<span :class="[red]">Hello World!</span>
+```
+
+<p class="text-xs">組み合わせることもできる</p>
+
+```html
+<span :class="[red, { red }]">Hello World!</span>
+```
+
+<p class="text-xs">スタイル属性にもオブジェクト構文と配列構文がある</p>
+
+```vue
+<template>
+  <span :style="{ color: 'red' }">Hello World!</span>
+</template>
+```
+
+</div>
+
+</div>
+
+---
+
+# イベントハンドリング
+
+`v-on` ディレクティブは HTML 要素などの[イベント](https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/Events)操作に使われる。`:`の後の引数でイベントの種類を指定できる
+
+<div class="h-60 mb-6 overflow-y-auto">
+
+```vue
+<template>
+  <div>
+    <button v-on:click="counter += 1">Add 1</button>
+    <p>clicked {{ counter }} times.</p>
+  </div>
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   setup() {
-    const clickHandler = () => {
-      alert("clicked");
-    };
+    const counter = ref(0);
     return {
-      clickHandler,
+      counter,
     };
   },
 };
 </script>
 ```
 
-<div class="mt-6">
-  <ClickSample />
 </div>
+
+省略するとこのようにかける
+
+```html
+<button @click="counter += 1">Add 1</button>
+```
 
 ---
 
-`v-on:click`は`@click`と省略可能
+# イベントハンドリング（関数名を属性値として使う）
+
+関数を渡すと複雑な処理が書きやすい
 
 ```vue
 <template>
-  <div id="event-handling">
-    <p>{{ message }}</p>
-    <button @click="reverseMessage">Reverse Message</button>
+  <div>
+    <button @click="increment">Add 1</button>
+    <p>clicked {{ counter }} times.</p>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   setup() {
-    const message = "Hello Vue.js!";
-    const reverseMessage = () => {
-      message = message
-        .split("") // ['H', 'e', 'l', 'l', 'o', ' ', 'V', 'u', 'e', '.', 'j', 's', '!']
-        .reverse() // ['!', 's', '.j', '.', 'e', 'u', 'V', ',', ' ', 'o', 'l', 'l', 'e', 'H']
-        .join(""); // !sj.euV, olleH
+    const counter = ref(0);
+    const increment = () => {
+      counter.value += 1;
+    };
+    return {
+      counter,
+      increment,
     };
   },
 };
@@ -765,7 +856,7 @@ export default {
 
 # 条件付きレンダリング
 
-`v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `template` 要素に対して使うことでグルーピングすることもできる。 `v-if v-else v-else-if` でレンダリングの条件分岐ができる。 `v-show` は見た目上非表示にするが `v-if` は DOM 要素も取り除く。
+`v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `v-show` は見た目上非表示にするが `v-if` は DOM 要素も取り除く。
 
 ```vue {all|3|10|all}
 <template>
@@ -790,7 +881,25 @@ export default {
 
 ---
 
+# 条件付きレンダリング（v-if と v-show の使い分け）
+
+<div class="mb-6">
+
+|                | v-if | v-show |
+| :------------- | :--- | :----- |
+| 初期コスト     | 低い | 高い   |
+| 切り替えコスト | 高い | 低い   |
+
+</div>
+
+- コンポーネントをマウントしてからあまり変化しないケースであれば `v-if`を使う
+- コンポーネントをマウントしてから頻繁に変化するケースであれば `v-show`を使う
+
+---
+
 # 条件付きレンダリング
+
+`v-if v-else v-else-if` でレンダリングの条件分岐ができる。 `template` 要素に対して使うことでグルーピングすることもできる。
 
 <div class="flex gap-4">
 
@@ -940,62 +1049,6 @@ export default {
 
 ---
 
-# イベントハンドリング
-
-`v-on` によって DOM イベントの購読、イベント発火時の JavaScript の実行ができるようになる。
-
-<div class="flex gap-8">
-
-```vue
-<template>
-  <div>
-    <button @click="counter += 1">Add 1</button>
-    <p>clicked {{ counter }} times.</p>
-  </div>
-</template>
-
-<script>
-import { ref } from "vue";
-export default {
-  setup() {
-    const counter = ref(0);
-    return {
-      counter,
-    };
-  },
-};
-</script>
-```
-
-```vue
-<template>
-  <div>
-    <button @click="increment">Add 1</button>
-    <p>clicked {{ counter }} times.</p>
-  </div>
-</template>
-
-<script>
-import { ref } from "vue";
-export default {
-  setup() {
-    const counter = ref(0);
-    const increment = () => {
-      counter.value += 1;
-    };
-    return {
-      counter,
-      increment,
-    };
-  },
-};
-</script>
-```
-
-</div>
-
----
-
 # フォーム入力バインディング
 
 `v-model` によって form の input 要素や textarea 要素、select 要素の入力イベントに応じてデータを更新できるようになる。
@@ -1059,7 +1112,7 @@ export default {
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1114,7 +1167,7 @@ export default {
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue {all|2|all}
 <template>
@@ -1173,7 +1226,7 @@ export default {
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue {all|2|all}
 <template>
@@ -1234,7 +1287,7 @@ props はデフォルト値を設定することもできる
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1296,7 +1349,7 @@ export default {
 
 <div>
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1351,7 +1404,7 @@ export default {
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1417,7 +1470,7 @@ export default {
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1495,7 +1548,7 @@ export default {
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1536,7 +1589,7 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <template>
@@ -1584,7 +1637,7 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 <div class="flex-shrink">
 
-<p class="text-xs">親コンポーネント - ParentComponent.vue</p>
+<p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
 <script>
