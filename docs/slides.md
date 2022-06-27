@@ -63,15 +63,30 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 ---
 
+# 本講座のすすめかた
+
+どのような形式で進行するのかの確認
+
+ハンズオン ≒ コードを書いて動かすこと（1 回 10 分程度）をメインに取り組みます。
+
+適宜説明を挟みますが、動かない、分からないとき、その他なんでも（大抵は他の受講者も同じことを考えています！）質問をお願いします。
+
+---
+
 # 準備
 
-### StackBlitz
+使用するツールの確認とセットアップ
 
 本講座におけるハンズオン、演習、サンプルの閲覧は [StackBlitz](https://stackblitz.com/) でおこないます。
 
 StackBlitz はブラウザ上で動作するオンライン IDE（統合開発環境）です。
 
-動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認して https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセスしてみましょう。
+以下をやってみましょう
+
+1. 動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認してブラウザを用意
+2. 用意したブラウザで https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセス
+3. `<template>Hello World!</template>` と書いてみる
+4. 右カラムに `Hello World!` と表示されることを確認
 
 講師は適宜あたらしいハンズオン環境をつくっていきますが、受講者の皆さんは作成したハンズオン環境を（全消しするなど）使いまわしてもらって大丈夫です。
 
