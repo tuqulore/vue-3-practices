@@ -365,6 +365,8 @@ export default {
 
 <div class="flex gap-8">
 
+<div class="h-md overflow-y-auto">
+
 ```vue
 <template>
   <div>
@@ -386,12 +388,14 @@ export default {
     const { name } = toRefs(user);
     return {
       user,
-      name
+      name,
     };
   },
 };
 </script>
 ```
+
+</div>
 
 </div>
 
@@ -429,6 +433,8 @@ export default {
 
 `get` `set` 関数を用意することで書込み可能なオブジェクトを作成することができる
 
+<div class="h-sm overflow-y-auto">
+
 ```vue
 <template>
   <div>
@@ -456,6 +462,8 @@ export default {
 };
 </script>
 ```
+
+</div>
 
 ---
 
@@ -515,6 +523,8 @@ export default {
 
 特定のデータを監視し、変更があったときに処理を行える、引数として、新しい値とその前の値を取得できる。
 
+<div class="h-sm overflow-y-auto">
+
 ```vue
 <template>
   <div>
@@ -542,11 +552,15 @@ export default {
 </script>
 ```
 
+</div>
+
 ---
 
 # ウォッチャ（watch）
 
 配列を監視する場合、複数のデータソースを同時に監視できる
+
+<div class="h-sm overflow-y-auto">
 
 ```vue
 <template>
@@ -574,6 +588,8 @@ export default {
 };
 </script>
 ```
+
+</div>
 
 ---
 
@@ -829,6 +845,8 @@ export default {
 
 <div class="flex gap-8">
 
+<div class="h-sm overflow-y-auto">
+
 ```vue
 <template>
   <div id="list-rendering">
@@ -856,6 +874,8 @@ export default {
 </script>
 ```
 
+</div>
+
   <div class="flex-shrink">
     <p>結果</p>
     <ol>
@@ -875,6 +895,8 @@ export default {
 要素の再利用と並び替えを考慮する場合、一意な値を `key` 属性に渡す必要がある。
 
 <div class="flex gap-8">
+
+<div class="h-sm overflow-y-auto">
 
 ```vue
 <template>
@@ -902,6 +924,8 @@ export default {
 };
 </script>
 ```
+
+</div>
 
 <div class="flex-shrink">
   <p>結果</p>
@@ -1169,6 +1193,8 @@ export default {
 
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
+<div class="h-xs overflow-y-auto">
+
 ```vue
 <template>
   <p v-if="show">props'is-show'がtrueであれば見れます</p>
@@ -1189,6 +1215,8 @@ export default {
 };
 </script>
 ```
+
+</div>
 
 </div>
 
@@ -1226,6 +1254,8 @@ export default {
 
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
+<div class="h-xs overflow-y-auto">
+
 ```vue {all|9-12|all}
 <template>
   <p v-if="show">props'is-show'がtrueであれば見れます</p>
@@ -1249,6 +1279,8 @@ export default {
 };
 </script>
 ```
+
+</div>
 
 </div>
 
@@ -1413,6 +1445,8 @@ export default {
 
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
+<div class="h-xs overflow-y-auto">
+
 ```vue
 <template>
   <input v-model="title" />
@@ -1437,6 +1471,8 @@ export default {
 };
 </script>
 ```
+
+</div>
 
 </div>
 
@@ -1596,7 +1632,7 @@ export default {
 
 <div class="flex gap-8">
 
-<div class="flex-shrink">
+<div class="h-sm overflow-y-auto flex-shrink">
 
 ```vue
 <script>
@@ -1667,7 +1703,7 @@ throttle, debounce を使うとイベントハンドリング関数の呼び出�
 
 <div class="flex gap-8">
 
-<div class="flex-shrink">
+<div class="h-sm overflow-y-auto flex-shrink">
 
 ```vue
 <script>
