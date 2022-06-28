@@ -1635,6 +1635,8 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 ここまでは Vue.js を使うなら必ず知っている必要がある内容
 
+引き続き知らない機能がコードに出てくるかもしれないが、学んだことと関連していると感じられたらそれでよい
+
 学習の目安
 
 - 理解していること
@@ -1653,26 +1655,29 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
     - これまで学んだ内容を組み合わせた少し複雑な実装
   - Markdown エディター
     - throttle-debounce によるイベント処理の間引き
-  - 靴のギャラリー
-    - 画像の取得と表示
-    - あらかじめ用意されたスタイルの適用
   - ツクロアデザインラボの記事ビューアー
     - Fetch API による JSON データの取得
     - Vue Router による画面遷移
+  - 靴のギャラリー
+    - 画像の取得と表示
+    - あらかじめ用意されたスタイルの適用
+- Nuxt 3 を使う
+  - Vue.js 単体を使う場合との違い
+  - useFetch などの Nuxt 3 特有のヘルパー関数の使い方
 
 ---
 
-# Vue アプリケーション開発に必要な周辺ライブラリ
+# グリッドコンポーネント
 
-アプリケーションに必要な機能は他のライブラリと組み合わせて実装する
+https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-grid-component?file=src/App.vue&terminal=dev
 
-- throttle-debounce
-- fetch
-- Vue Router
+1. どんなアプリか：表にデータを流し込んでカラムで並べ替えできる
+2. コードの説明
+3. 行を追加できるようにしよう（20 分程度）
 
 ---
 
-# throttle, debounce
+# イベント処理の間引き
 
 throttle, debounce を使うとイベントハンドリング関数の呼び出し頻度を間引くことができる
 
@@ -1695,11 +1700,11 @@ export default {
       "watermelon",
     ];
     const fruits = ref(originalFruits);
-    const updateText = debounce(1000, () => {
+    const filterFruits = () => {
       fruits.value = originalFruits.filter(
         (fruit) => fruit.indexOf(message.value) >= 0
       );
-    });
+    };
     return {
       updateText,
       fruits,
@@ -1716,7 +1721,7 @@ export default {
 
 ```vue
 <template>
-  <input type="text" v-model="message" @input="updateText" />
+  <input type="text" v-model="message" @input="filterFruits" />
   <ul>
     <li v-for="(fruit, index) in fruits" :key="index">
       {{ fruit }}
@@ -1725,26 +1730,54 @@ export default {
 </template>
 ```
 
+次のように書き換えると…？
+
+```js
+const filterFruits = debounce(1000, () => {
+  fruits.value = originalFruits.filter(
+    (fruit) => fruit.indexOf(message.value) >= 0
+  );
+});
+```
+
 </div>
 </div>
 
 ---
 
-# fetch
+# Markdown エディター
 
-サーバーとの通信をおこなうためのブラウザの標準 API
+https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-markdown-editor?file=src/App.vue&terminal=dev
 
----
-
-# Vue Router
-
-URL ごとに表示する画面を制御するためのライブラリ
+1. どんなアプリか：左カラムに Markdown 記法でテキストを入力すると右カラムに対応する見た目が表示できる
+2. コードの説明
+3. 右カラムの見た目が変わる頻度を throttle-debounce で間引いてみよう（20 分程度）
 
 ---
 
-# fetch / Vue Router を使ったサンプル
+# デザインラボの記事ビューアー
 
-https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/sample-fetch-router?file=src/App.vue&terminal=dev
+https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router?file=src/App.vue&terminal=dev
+
+1. どんなアプリか：[デザインラボ](https://design-lab.tuqulore.com/)というサイトと同じ記事データ（JSON）を取得して一覧から選択表示できる
+2. コードの説明（App コンポーネント、PostList コンポーネント）
+3. Vue Router を導入しよう（20 分程度）
+   - Vue プラグインとして Vue アプリケーションインスタンスに登録
+   - 画面が切り替わるようコンポーネントへの差し替え
+   - 画面遷移を補足できるコンポーネントへの差し替え
+4. コードの説明（PostDetail コンポーネント）
+
+---
+
+# 靴のギャラリー
+
+https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes?file=src/App.vue&terminal=dev
+
+1. どんなアプリか：靴のデータ（JSON）を取得してショッピングサイトらしい見た目で一覧表示できる
+2. JSON から靴のデータを取得しよう（10 分程度）
+3. 取得した靴のデータをあらかじめ用意されたスタイルで表示しよう（20 分程度）
+
+<img class="pt-2" src="/handson-gallery-shoes-finish.png" width="400">
 
 ---
 
