@@ -1623,120 +1623,42 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 ---
 
-# Provide / Inject
+# Vue の基本的な書き方はこれで以上！
 
-<img src="https://v3.ja.vuejs.org/images/components_provide.png" alt="Provide / Inject" class="h-full" />
+おつかれさまでした
 
----
+以下を学んできた
 
-# Provide / Inject
+- リアクティブな値の作り方
+- テンプレートの書き方
+- コンポーネントの作り方
 
-コンポーネント階層の深さに関係なく、親コンポーネントは、そのすべての子階層へ依存関係を提供するプロバイダとして機能することができる
+ここまでは Vue.js を使うなら必ず知っている必要がある内容
 
-<div class="flex gap-8">
+学習の目安
 
-<div class="flex-shrink">
+- 理解していること
+- 書けること
 
-<p class="text-xs">親コンポーネント - App.vue</p>
-
-```vue
-<script>
-import { provide } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
-export default {
-  setup() {
-    provide("location", "Tokyo");
-  },
-  components: { ChildComponent },
-};
-</script>
-<template>
-  <ChildComponent />
-</template>
-```
-
-</div>
-
-<div class="flex-shrink">
-
-<p class="text-xs">子（孫）コンポーネント - ChildComponent.vue</p>
-
-```vue
-<script>
-import { inject } from "vue";
-export default {
-  setup() {
-    const loc = inject("location");
-    return { loc };
-  },
-};
-</script>
-<template>
-  {{ loc }}
-</template>
-```
-
-</div>
-</div>
+自信がない箇所は復習・質問しましょう！
 
 ---
 
-子や孫コンポーネントから Provide の値を変更したい場合、リアクティブなデータを変更できるメソッドを提供することが推奨されている
+# 次のステップは？
 
-<div class="flex gap-8">
+これから学ぶ内容の確認
 
-<div class="h-sm overflow-y-auto flex-shrink">
-
-```vue
-<script>
-import { provide, ref } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
-export default {
-  setup() {
-    const locName = ref("Tokyo");
-    provide("location", locName);
-    const updateLocation = () => {
-      locName.value = "Fukuoka";
-    };
-    provide("updateLocation", updateLocation);
-    return {
-      locName,
-    };
-  },
-  components: { ChildComponent },
-};
-</script>
-
-<template>
-  <input type="text" v-model="locName" /><br />
-  <ChildComponent />
-</template>
-```
-
-</div>
-
-<div class="flex-shrink">
-
-```vue
-<script>
-import { inject } from "vue";
-export default {
-  setup() {
-    const loc = inject("location");
-    const updateUserlocation = inject("updateLocation");
-    return { loc, updateUserlocation };
-  },
-};
-</script>
-
-<template>
-  {{ loc }}
-  <button @click="updateUserlocation">change Fukuoka</button>
-</template>
-```
-
-</div>
-</div>
+- より具体的な題材でコードを読む・書く
+  - グリッドコンポーネント
+    - これまで学んだ内容を組み合わせた少し複雑な実装
+  - Markdown エディター
+    - throttle-debounce によるイベント処理の間引き
+  - 靴のギャラリー
+    - 画像の取得と表示
+    - あらかじめ用意されたスタイルの適用
+  - ツクロアデザインラボの記事ビューアー
+    - Fetch API による JSON データの取得
+    - Vue Router による画面遷移
 
 ---
 
