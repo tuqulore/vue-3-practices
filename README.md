@@ -34,6 +34,7 @@ Vue 3 / Nuxt 3 を学習するための
 | Nuxt 3                                            | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt?file=app.vue&terminal=dev)                                                                                                                                                  |
 | Nuxt 3 `suspense` `public` `composables` `server` | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev)                                                                                                                                       |
 | 靴のギャラリー                                    | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes?file=src/App.vue&terminal=dev) [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes-finish?file=src/App.vue&terminal=dev) |
+| 靴のギャラリーとショッピングカート                | [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes-cart-finish?file=src/App.vue&terminal=dev)                                                                                                                                    |
 
 ## サンプル
 
