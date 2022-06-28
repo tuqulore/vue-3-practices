@@ -8,14 +8,14 @@ import PostDetail from './components/PostDetail.vue'
  * クライアントのリクエストするパスと表示されるコンポーネントの
  * 対応関係(ルート)を
  * 定義しています
- * 参考: https://next.router.vuejs.org/guide/#javascript
+ * 参考: https://router.vuejs.org/guide/#javascript
  */
 const routes = [
   { path: '/', component: PostList },
   /**
    * 動的ルートマッチングによってパラメータをもとに
    * ルートをマップ(写像)して定義することができます
-   * 参考: https://next.router.vuejs.org/guide/essentials/dynamic-matching.html
+   * 参考: https://router.vuejs.org/guide/essentials/dynamic-matching.html
    */
   { name: 'post', path: '/post/:id', component: PostDetail }
 ]
