@@ -1,24 +1,23 @@
 <script>
-import {RouterView} from "vue-router";
+import { RouterView } from "vue-router";
 
 export default {
   components: {
-    RouterView
+    RouterView,
   },
   setup() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <template>
   <!--
     RouterViewコンポーネントによって
     ルーティングに対応したコンポーネントが表示されます
-    参考: https://next.router.vuejs.org/guide/#router-view
+    参考: https://router.vuejs.org/guide/#router-view
   -->
   <RouterView />
 </template>
 
-<style>
-</style>
+<style></style>

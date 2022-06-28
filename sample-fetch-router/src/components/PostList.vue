@@ -1,27 +1,27 @@
 <script>
-import {ref} from "vue";
-import {RouterLink} from "vue-router";
+import { ref } from "vue";
+import { RouterLink } from "vue-router";
 
 export default {
   components: {
-    RouterLink
+    RouterLink,
   },
   setup() {
-    const posts = ref(null)
+    const posts = ref(null);
     const load = async () => {
       /**
        * Fetch APIを使用することによってあらかじめ配置された
        * `/public/wp-json/wp/v2/posts.json` ファイルを取得しています
        */
-      const response = await fetch('/wp-json/wp/v2/posts.json')
-      posts.value = await response.json()
-    }
-    load()
+      const response = await fetch("/wp-json/wp/v2/posts.json");
+      posts.value = await response.json();
+    };
+    load();
     return {
-      posts
-    }
-  }
-}
+      posts,
+    };
+  },
+};
 </script>
 
 <template>
@@ -37,14 +37,15 @@ export default {
       <li v-for="post in posts" :key="post.id">
         <!--
           RouterLinkコンポーネントによってルート間の移動を捕捉します
-          参考: https://next.router.vuejs.org/guide/#router-link
+          参考: https://router.vuejs.org/guide/#router-link
         -->
-        <RouterLink :to="{name: 'post', params: {id: post.id}}">{{post.title.rendered}}</RouterLink>
+        <RouterLink :to="{ name: 'post', params: { id: post.id } }">{{
+          post.title.rendered
+        }}</RouterLink>
       </li>
     </ul>
   </template>
   <p v-else>loading...</p>
 </template>
 
-<style>
-</style>
+<style></style>
