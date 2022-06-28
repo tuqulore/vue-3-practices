@@ -1,29 +1,35 @@
 <script>
-import {ref} from "vue"
-import DemoGrid from "./components/DemoGrid.vue"
+import { ref, reactive } from "vue";
+import DemoGrid from "./components/DemoGrid.vue";
 
 export default {
   components: {
-    DemoGrid
+    DemoGrid,
   },
   setup() {
     // DemoGrindコンポーネントにプロパティとして渡すデータをリアクティブな値の参照として作成しています
-    const searchQuery = ref('')
-    const gridColumns = ref(['名前', '戦闘力'])
+    const searchQuery = ref("");
+    const gridColumns = ref(["名前", "戦闘力"]);
     const gridData = ref([
       // サンプルとして読みやすくするためにオブジェクトのプロパティ名を日本語にしていますが、一般的ではないので気をつけましょう
-      {名前: 'チャック・ノリス', 戦闘力: Infinity},
-      {名前: 'ブルース・リー', 戦闘力: 9000},
-      {名前: 'ジャッキー・チェン', 戦闘力: 7000},
-      {名前: 'ジェット・リー', 戦闘力: 8000}
-    ])
+      { 名前: "チャック・ノリス", 戦闘力: Infinity },
+      { 名前: "ブルース・リー", 戦闘力: 9000 },
+      { 名前: "ジャッキー・チェン", 戦闘力: 7000 },
+      { 名前: "ジェット・リー", 戦闘力: 8000 },
+    ]);
+    const newHero = reactive({ 名前: "新たなヒーロー", 戦闘力: 0 });
+    const addHero = () => {
+      gridData.value.push({ ...newHero });
+    };
     return {
       searchQuery,
       gridColumns,
-      gridData
-    }
-  }
-}
+      gridData,
+      newHero,
+      addHero,
+    };
+  },
+};
 </script>
 
 <template>
@@ -36,7 +42,20 @@ export default {
     -->
     <input name="query" v-model="searchQuery" />
   </form>
-  <DemoGrid :heroes="gridData" :columns="gridColumns" :filter-key="searchQuery" />
+  <label
+    >名前
+    <input v-model="newHero['名前']" />
+  </label>
+  <label
+    >戦闘力
+    <input type="number" v-model="newHero['戦闘力']" />
+  </label>
+  <button @click="addHero">追加</button>
+  <DemoGrid
+    :heroes="gridData"
+    :columns="gridColumns"
+    :filter-key="searchQuery"
+  />
 </template>
 
 <style>
