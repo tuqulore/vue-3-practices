@@ -1,6 +1,6 @@
 {
-  "name": "sample-fetch-router",
-  "description": "サンプル fetch router",
+  "name": "handson-grid-component-finish",
+  "description": "サンプル grid component 完成",
   "version": "1.0.0",
   "author": "tuqulore Inc.",
   "bugs": {
@@ -11,8 +11,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "2.3.3",
-    "vite": "2.9.12",
-    "vue-router": "4.0.16"
+    "vite": "2.9.12"
   },
   "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
   "keywords": [
