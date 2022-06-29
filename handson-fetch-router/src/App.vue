@@ -1,9 +1,10 @@
 <script>
 import { RouterView } from "vue-router";
+import PostList from "./components/PostList.vue";
 
 export default {
   components: {
-    RouterView,
+    PostList,
   },
   setup() {
     return {};
@@ -17,7 +18,7 @@ export default {
     ルーティングに対応したコンポーネントが表示されます
     参考: https://router.vuejs.org/guide/#router-view
   -->
-  <RouterView />
+  <PostList />
 </template>
 
 <style></style>
