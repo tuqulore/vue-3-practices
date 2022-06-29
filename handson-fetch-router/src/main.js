@@ -11,13 +11,13 @@ import PostDetail from './components/PostDetail.vue'
  * 参考: https://router.vuejs.org/guide/#javascript
  */
 const routes = [
-  { path: '/', component: PostList },
+  // { path: '/', component: PostList },
   /**
    * 動的ルートマッチングによってパラメータをもとに
    * ルートをマップ(写像)して定義することができます
    * 参考: https://router.vuejs.org/guide/essentials/dynamic-matching.html
    */
-  { name: 'post', path: '/post/:id', component: PostDetail }
+  // { name: 'post', path: '/post/:id', component: PostDetail }
 ]
 
 /**
@@ -32,5 +32,6 @@ const router = VueRouter.createRouter({
 /**
  * 作成したルーターのインスタンスをVueアプリケーションインスタンスに
  * プラグインとしてインストールしています
+ * 参考: https://v3.ja.vuejs.org/api/application-api.html#use
  */
-createApp(App).use(router).mount('#app')
+createApp(App).mount('#app')

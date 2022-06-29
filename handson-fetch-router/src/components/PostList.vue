@@ -39,9 +39,12 @@ export default {
           RouterLinkコンポーネントによってルート間の移動を捕捉します
           参考: https://router.vuejs.org/guide/#router-link
         -->
+        <!--
         <RouterLink :to="{ name: 'post', params: { id: post.id } }">{{
           post.title.rendered
         }}</RouterLink>
+        -->
+        {{ post.title.rendered }}
       </li>
     </ul>
   </template>
