@@ -1705,7 +1705,7 @@ export default {
       );
     };
     return {
-      updateText,
+      filterFruits,
       fruits,
       message,
     };
