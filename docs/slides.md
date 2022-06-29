@@ -1760,7 +1760,12 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-ma
 https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router?file=src/App.vue&terminal=dev
 
 1. どんなアプリか：[デザインラボ](https://design-lab.tuqulore.com/)というサイトと同じ記事データ（JSON）を取得して一覧から選択表示できる
-2. コードの説明
+2. コードの説明（App コンポーネント、PostList コンポーネント）
+3. Vue Router を導入しよう（20 分程度）
+   - Vue プラグインとして Vue アプリケーションインスタンスに登録
+   - 画面が切り替わるようコンポーネントへの差し替え
+   - 画面遷移を補足できるコンポーネントへの差し替え
+4. コードの説明（PostDetail コンポーネント）
 
 ---
 
@@ -1769,8 +1774,10 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fe
 https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes?file=src/App.vue&terminal=dev
 
 1. どんなアプリか：靴のデータ（JSON）を取得してショッピングサイトらしい見た目で一覧表示できる
-2. JSON から靴のデータを取得しよう（10 分）
-3. 取得した靴のデータをあらかじめ用意されたスタイルで表示しよう（20 分）
+2. JSON から靴のデータを取得しよう（10 分程度）
+3. 取得した靴のデータをあらかじめ用意されたスタイルで表示しよう（20 分程度）
+
+<img class="pt-2" src="/handson-gallery-shoes-finish.png" width="400">
 
 ---
 
