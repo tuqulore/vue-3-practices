@@ -1479,7 +1479,7 @@ export default {
 </template>
 <script>
 import { ref } from "vue";
-import ChildComponent from ... // 中略;
+import ChildComponent from "./ChildComponent.vue";
 export default {
   components: { ChildComponent },
   setup() {
@@ -1557,7 +1557,7 @@ export default {
 </template>
 <script>
 import { ref } from "vue";
-import ChildComponent from ... // 中略;
+import ChildComponent from "./ChildComponent.vue";
 export default {
   components: { ChildComponent },
   setup() {
@@ -1595,7 +1595,6 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 <template>
   <ChildComponent>Hello Component</ChildComponent>
 </template>
-// scriptは中略
 ```
 
 </div>
