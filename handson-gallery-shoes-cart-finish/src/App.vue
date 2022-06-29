@@ -51,6 +51,8 @@ export default {
   padding: 0 1rem;
   z-index: 2;
   box-sizing: border-box;
+  top: 0;
+  left: 0;
 }
 .shopping-header h1 {
   font-size: 1.4rem;
