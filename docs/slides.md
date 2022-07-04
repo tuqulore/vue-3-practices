@@ -1900,51 +1900,6 @@ export default {
 
 ---
 
-# Suspense
-
-コンポーネントのトップレベルで`async`を使った場合、Promise が解決すると同時に表示する仕組みを学ぶ。
-非同期で処理されるコンポーネントをローディング表示からコンポーネント表示に切り替える機能。  
-まずはコンポーネント`SuspenseTest.vue`を作成。
-
-```vue
-<script>
-export default {
-  async setup() {
-    const userList = () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(["太郎", "花子", "次郎"]);
-        }, 1000);
-      });
-    };
-    const users = await userList();
-    return { users };
-  },
-};
-</script>
-```
-
----
-
-# Suspense
-
-`v-if`を使わずとも、1 秒経ってローディング完了後コンポーネントを表示に切り替える
-
-```vue
-<template>
-  <div>
-    <Suspense>
-      <template #default>
-        <SuspenseTest />
-      </template>
-      <template #fallback> Loading... </template>
-    </Suspense>
-  </div>
-</template>
-```
-
----
-
 # composables
 
 アプリ全体共通のデータを管理する。js ファイルではあるが、中身は vue の記述に近いことがわかる。 ここで状態を管理する。
