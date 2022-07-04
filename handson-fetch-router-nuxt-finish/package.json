@@ -1,0 +1,27 @@
+{
+  "name": "vue-3-practices-handson-nuxt-finish",
+  "description": "ハンズオン fetch router nuxt 完成",
+  "version": "1.0.0",
+  "author": "tuqulore Inc.",
+  "bugs": {
+    "url": "https://github.com/tuqulore/vue-3-practices/issues"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.4"
+  },
+  "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
+  "keywords": [
+    "nuxt3"
+  ],
+  "license": "MIT",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuqulore/vue-3-practices.git"
+  },
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "start": "node .output/server/index.mjs"
+  }
+}
