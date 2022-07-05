@@ -1782,7 +1782,19 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-ga
 
 # Nuxt 3
 
-効率的に Vue 3 アプリケーション開発をおこなうためのフレームワーク
+https://v3.nuxtjs.org/guide/concepts/introduction#why-nuxt
+
+効率的にモダンなウェブアプリケーション開発に必要なライブラリがあらかじめ含まれている（Nuxt 3 を導入すれば自分で別途導入する必要がない）
+
+1. リアクティビティと Web コンポーネントの提供：[Vue.js](https://vuejs.org/)
+2. 開発環境での HMR（ページの再読み込みなしで ES モジュールを差し替えたりする）のサポート、本番環境でのコードのバンドリング：[webpack 5](https://webpack.js.org/) と [Vite](https://vitejs.dev/)
+3. レガシーなブラウザーをサポートしながら最新の JavaScript 文法が書ける：[esbuild](https://esbuild.github.io/)
+4. 開発サーバー、サーバーサイドレンダリング、API サーバーの提供：[h3](https://github.com/unjs/h3)
+5. ルーティング（画面遷移処理）：[vue-router](https://router.vuejs.org/)
+
+---
+
+# Nuxt 3
 
 - Vue.js が導入済み（Nuxt を導入すれば Vue.js の導入が不要）
 - Vue コンポーネント等の import を省略できる
@@ -1798,7 +1810,6 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-ga
 - NuxtLink
 - layouts
 - Data Fetching / server ディレクトリ
-- Suspense
 - composables
 
 ---
