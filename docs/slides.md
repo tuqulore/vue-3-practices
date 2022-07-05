@@ -1964,12 +1964,41 @@ export default {
 
 Vue 固有の記法についての公式なスタイルガイド
 
-課題制作をする前に理解する
+- スタイルガイドに書いてあることを守らなくても、動く Vue のコードを書くことはできる
+- スタイルガイドに書いてあることを守ると、事前に起こりうる問題に対処することができる
+- [eslint-plugin-vue](https://eslint.vuejs.org/)を使うとスタイルガイドに違反しているか静的にコードを解析・修正できる
 
 [スタイルガイド](https://v3.ja.vuejs.org/style-guide/)
 
 ---
 
-# 自由課題
+# 課題
 
-Nuxt3 環境を使ってアプリを自由につくってみよう。
+- レベル 1 ～ 3 の 3 つある
+- 1 から順番に取り組んでもらう
+- 16 時に解説する
+
+---
+
+# 課題（レベル 1）
+
+問題：https://stackblitz.com/edit/github-siucq8-4tkquf?file=app.vue
+
+1. useFetch を使って http://localhost:3000/data.json から果物のリストを取得してください
+2. 果物を順序なしリストで表示してください https://developer.mozilla.org/ja/docs/Web/HTML/Element/ul
+
+---
+
+# 課題（レベル 2）
+
+問題：https://stackblitz.com/edit/github-siucq8-ews4bu?file=app.vue
+
+コード上のコメントを読みながら、未完成のアプリを完成させてください
+
+---
+
+# 課題（レベル 3）
+
+問題：https://stackblitz.com/edit/nuxt-starter-qk1mbi?file=components%2FTreeItem.vue
+
+コード上のコメントを読みながら、未完成のアプリを完成させてください
