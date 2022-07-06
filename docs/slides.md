@@ -999,7 +999,7 @@ export default {
 
 ---
 
-# リストレンダリング
+# リストレンダリング（`key` 属性の付与）
 
 要素の再利用と並び替えを考慮する場合、一意な値を `key` 属性に渡す必要がある。
 
@@ -1043,6 +1043,59 @@ export default {
     <li>Learn Vue</li>
     <li>Build something awesome</li>
   </ol>
+</div>
+
+</div>
+
+---
+
+# リストレンダリング（添字による `key` 属性の付与）
+
+識別子を用意していない場合、添字が得られるので代用すると便利。
+
+<div class="flex gap-8">
+
+<div class="h-sm overflow-y-auto">
+
+```vue{all|4}
+<template>
+  <div id="list-rendering">
+    <ol>
+      <li v-for="(todo, index) in todos" :key="index">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+</template>
+
+<script>
+export default {
+  setup() {
+    const todos = [
+      { text: "Learn JavaScript" },
+      { text: "Learn Vue" },
+      { text: "Build something awesome" },
+    ];
+    return {
+      todos,
+    };
+  },
+};
+</script>
+```
+
+</div>
+
+<div class="flex-shrink w-110">
+  <p>結果</p>
+  <ol>
+    <li>Learn JavaScript</li>
+    <li>Learn Vue</li>
+    <li>Build something awesome</li>
+  </ol>
+
+ただし、並び替えることが想定される場合意図しない挙動になる（どこにリストアイテムが移動したのか検知できない）ので注意
+
 </div>
 
 </div>
