@@ -2021,7 +2021,7 @@ https://v3.nuxtjs.org/guide/directory-structure/pages
 
 > Pages **must have a single root element** to allow route transitions between pages. (HTML comments are considered elements as well.)
 
-Vue 3 はテンプレートの最上位に複数要素が書けるようになった。
+Vue 3 はテンプレートの最上位に複数要素が書けるようになった https://v3.ja.vuejs.org/guide/migration/fragments.html
 
 例：
 
