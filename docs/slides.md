@@ -2015,6 +2015,27 @@ pages/
 
 ---
 
+# Vue + Vue Router と Nuxt 3 の比較（ルーティング）
+
+https://v3.nuxtjs.org/guide/directory-structure/pages
+
+> Pages **must have a single root element** to allow route transitions between pages. (HTML comments are considered elements as well.)
+
+Vue 3 はテンプレートの最上位に複数要素が書けるようになった。
+
+例：
+
+```vue
+<template>
+  <div />
+  <p />
+</template>
+```
+
+しかし、Nuxt 3 の pages ディレクトリに配置する Vue コンポーネントに限っては、Nuxt 3 の制約としてテンプレートの最上位はひとつまでの要素しか書けない
+
+---
+
 # Vue + Vue Router と Nuxt 3 の比較（自動インポート）
 
 <div class="flex gap-8">
@@ -2175,6 +2196,29 @@ Vue 固有の記法についての公式なスタイルガイド
 - [eslint-plugin-vue](https://eslint.vuejs.org/)を使うとスタイルガイドに違反しているか静的にコードを解析・修正できる
 
 [スタイルガイド](https://v3.ja.vuejs.org/style-guide/)
+
+---
+
+# Vue 3 と Nuxt 3 の説明はこれで以上！
+
+おつかれさまでした
+
+以下を学んできた
+
+- Vue の基本的な書き方
+- Vue アプリケーションのコードを読む・書く
+- Nuxt アプリケーションのコードを読む・書く
+
+Nuxt 3 を使ってウェブアプリケーションをつくっていく準備ができた
+
+業務・趣味でウェブアプリケーションを開発していきましょう！
+
+学習の目安
+
+- 理解していること
+- 書けること
+
+自信がない箇所は復習・質問しましょう！
 
 ---
 
