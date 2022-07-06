@@ -2232,7 +2232,7 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
 
 # 課題（レベル 1）
 
-問題：https://stackblitz.com/edit/github-siucq8-4tkquf?file=app.vue
+問題：https://stackblitz.com/edit/github-siucq8-dvv8rq?file=app.vue
 
 1. useFetch を使って http://localhost:3000/data.json から果物のリストを取得してください
 2. 果物を順序なしリストで表示してください https://developer.mozilla.org/ja/docs/Web/HTML/Element/ul
