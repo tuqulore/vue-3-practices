@@ -1960,6 +1960,212 @@ export default {
 
 ---
 
+# Vue + Vue Router と Nuxt 3 の比較
+
+デザインラボの記事ビューアーを Nuxt 3 でつくりなおしたもの
+
+動作は Vue 3 のものと同じ
+
+Node.js がセットアップ済みの人はローカルで動かしてみよう
+
+1. https://github.com/tuqulore/vue-3-practices/ から ZIP をダウンロード
+2. 任意の場所に ZIP を展開
+3. handson-fetch-router-nuxt-finish ディレクトリに移動
+4. `npm install` で NPM パッケージをインストール
+5. `npm run dev` で Nuxt 3 の開発サーバーを起動
+
+---
+
+# Vue + Vue Router と Nuxt 3 の比較（ルーティング）
+
+<div class="flex gap-8">
+
+<div>
+
+<p class="text-xs">Vue 3</p>
+
+1. Vue Router をプラグインとしてインストール
+2. ルートを定義する
+3. RouterView コンポーネントを使う
+
+</div>
+
+<div>
+
+<p class="text-xs">Nuxt 3</p>
+
+<div class="h-xs overflow-y-auto">
+
+1. 導入済みなので設定不要
+2. ファイル・ディレクトリ構成で定義できる（ファイルベースルーティング）
+3. app.vue は NuxtPage コンポーネントが必要だが app.vue 自体存在しなければ設定不要 https://v3.nuxtjs.org/guide/directory-structure/app
+
+```
+pages/
+├── index.vue // この場合のパスは `/` となり index はパスから省略可能
+└── posts // ディレクトリがそのままURLのパスに含まれる
+    └── [id].vue // URLパラメーターは[]で囲む
+```
+
+</div>
+
+</div>
+
+</div>
+
+---
+
+# Vue + Vue Router と Nuxt 3 の比較（自動インポート）
+
+<div class="flex gap-8">
+
+<div>
+
+<p class="text-xs">Vue 3 - components/PostList.vue</p>
+
+```vue
+<script>
+import { ref } from "vue";
+import { RouterLink } from "vue-router";
+export default {
+  components: {
+    RouterLink,
+  },
+  setup() {
+    const posts = ref(null);
+（後略）
+```
+
+</div>
+
+<div>
+
+<p class="text-xs">Nuxt 3 - pages/index.vue</p>
+
+<div class="h-xs overflow-y-auto">
+
+```vue
+<script>
+export default {
+  async setup() {
+    const { data: posts, pending } = await useFetch(
+（後略）
+```
+
+インポート、コンポーネントを利用するためのコードが省略でき記述量が減らせる
+
+</div>
+
+</div>
+
+</div>
+
+---
+
+# Vue + Vue Router と Nuxt 3 の比較（自動インポート）
+
+https://v3.nuxtjs.org/guide/concepts/auto-imports
+
+以下はインポート不要
+
+- Nuxt 3 が提供する関数、コンポーネント（useFetch、$fetch、NuxtLink など）
+- 今まで使ってきた Composition API 関連の関数（ref、computed など）
+- components ディレクトリに配置された Vue コンポーネント
+- composables ディレクトリに配置されたコンポジション関数
+
+---
+
+# Vue + Vue Router と Nuxt 3 の比較（データ取得）
+
+<div class="flex gap-8">
+
+<div>
+
+<p class="text-xs">Vue 3 - components/PostList.vue</p>
+
+```vue
+<script>
+（中略）
+    const posts = ref(null);
+    const load = async () => {
+      const response = await fetch("/wp-json/wp/v2/posts.json");
+      posts.value = await response.json();
+    };
+    load();
+（後略）
+```
+
+</div>
+
+<div>
+
+<p class="text-xs">Nuxt 3 - pages/index.vue</p>
+
+<div class="h-xs overflow-y-auto">
+
+```vue
+<script>
+（中略）
+    const { data: posts, pending } = await useFetch(
+      `http://localhost:3000/wp-json/wp/v2/posts.json`
+    );
+（後略）
+```
+
+- リアクティブな値を別途用意する必要がない
+- [Response.json()](https://developer.mozilla.org/ja/docs/Web/API/Response/json)が暗黙的に実行されオブジェクトが得られる
+- データ再取得の関数、取得中の状態値などあると便利なものが用意されている https://v3.nuxtjs.org/api/composables/use-fetch
+
+</div>
+
+</div>
+
+</div>
+
+---
+
+# Vue + Vue Router と Nuxt 3 の比較（データ取得）
+
+https://v3.nuxtjs.org/guide/features/data-fetching
+
+useFetch 以外もある
+
+useLazyFetch: 非同期関数でない代わりにデータ取得前は `null` が入る
+
+```js
+const { pending, data: posts } = useLazyFetch("/api/posts");
+```
+
+useAsyncData: 例としては useFetch と同じことをやっている。（useFetch が使えないケースで）非同期処理によってデータを取得したい際に使う
+
+```js
+const { data } = await useAsyncData("count", () => $fetch("/api/count"));
+```
+
+useLazyAsyncData: useLazyFetch の useAsyncData 版
+
+```js
+const { pending, data: count } = useLazyAsyncData("count", () =>
+  $fetch("/api/count")
+);
+```
+
+---
+
+# Vue + Vue Router と Nuxt 3 の比較（データ取得）
+
+便利だが素朴に Fetch API を使う場合と意図しない挙動の際が生じる場合がある
+
+- 同一オリジン（例：`http://localhost:3000`）であっても、オリジンを含めた url で取得先を指定しなければいけない場合がある
+  - server ディレクトリで提供する API エンドポイントはオリジン省略可能
+  - 上記以外のケース、たとえばアセット（public ディレクトリで提供する静的ファイル）はオリジンが必要
+
+Nuxt 3 の useFetch、$fetch は純粋なクライアント処理でない（サーバー側で内部的に処理される）場合があることが原因 https://v3.nuxtjs.org/guide/features/data-fetching#isomorphic-fetch-and-fetch
+
+場合によっては（$fetch ではなく） fetch を使うことも検討すること
+
+---
+
 # スタイルガイド
 
 Vue 固有の記法についての公式なスタイルガイド
