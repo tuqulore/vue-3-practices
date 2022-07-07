@@ -13,7 +13,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "2.3.3",
     "throttle-debounce": "5.0.0",
-    "vite": "2.9.12"
+    "vite": "2.9.13"
   },
   "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
   "keywords": [
