@@ -1027,20 +1027,10 @@
     "@slidev/types" "0.38.2"
     js-yaml "^4.1.0"
 
-"@slidev/theme-default@*":
+"@slidev/theme-default@0.21.2":
   version "0.21.2"
   resolved "https://registry.yarnpkg.com/@slidev/theme-default/-/theme-default-0.21.2.tgz#28db9f074cd0b17d19ca6ccd1d4c75db7a24b026"
   integrity sha512-neUucFs2YrRZZd73QwvLTyRG/o1nerDFUR5t8YAmXVLTMzWfY71flQ6aAhjYf+WjsozYsOHcxi/pZtIzZ4VhTQ==
-  dependencies:
-    "@slidev/types" "^0.22.7"
-    codemirror-theme-vars "^0.1.1"
-    prism-theme-vars "^0.2.2"
-    theme-vitesse "^0.1.12"
-
-"@slidev/theme-seriph@*":
-  version "0.21.2"
-  resolved "https://registry.yarnpkg.com/@slidev/theme-seriph/-/theme-seriph-0.21.2.tgz#d8ac290b9df69ee9fe753921e3a8cc2475678e31"
-  integrity sha512-D3zhFYBmH1X37LX1LvTUPxAM1EEK6vMfy4hyxI9JIBXuugVq1WrfjcD+Lt9HnLpH1EqD3Mk+gS0lP/uC2TaVQw==
   dependencies:
     "@slidev/types" "^0.22.7"
     codemirror-theme-vars "^0.1.1"
@@ -5498,13 +5488,6 @@ rollup-pluginutils@^2.8.2:
   optionalDependencies:
     fsevents "~2.3.2"
 
-rollup@^2.59.0:
-  version "2.75.6"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.75.6.tgz#ac4dc8600f95942a0180f61c7c9d6200e374b439"
-  integrity sha512-OEf0TgpC9vU6WGROJIk1JA3LR5vk/yvqlzxqdrE2CzzXnqKXNzbAwlWUXis8RS3ZPe7LAq+YUxsRa0l3r27MLA==
-  optionalDependencies:
-    fsevents "~2.3.2"
-
 rollup@^2.79.1:
   version "2.79.1"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.79.1.tgz#bedee8faef7c9f93a2647ac0108748f497f081c7"
@@ -6294,7 +6277,7 @@ vite-plugin-vue-markdown@^0.22.1:
     "@types/markdown-it" "^12.2.3"
     markdown-it "^13.0.1"
 
-vite-plugin-vue-server-ref@^0.3.0:
+vite-plugin-vue-server-ref@0.3.0, vite-plugin-vue-server-ref@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/vite-plugin-vue-server-ref/-/vite-plugin-vue-server-ref-0.3.0.tgz#25c5ba6a0805b884e6c25f7e61d3cb9a94bd4f50"
   integrity sha512-Hkb0ad9gI+4NIUzhR3uYxZsCc7QsKGGdyC6I4EEfpD7SvNTXEyPbs7WiYIJXYFi1eoBDnDGdW+mt7QwELWN3XA==
