@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "dependencies": {
     "@slidev/cli": "0.38.2",
-    "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*"
+    "@slidev/theme-default": "0.21.2",
+    "vite-plugin-vue-server-ref": "0.3.0"
   },
   "main": "",
   "private": true,
