@@ -931,19 +931,19 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@slidev/cli@0.38.2":
-  version "0.38.2"
-  resolved "https://registry.yarnpkg.com/@slidev/cli/-/cli-0.38.2.tgz#e63f19cd15795ee2d28a212921e86b60af7ae0b7"
-  integrity sha512-4Sh2faeMqivgWiCFuGtWRfnbKIVJ/7dA9Wz/kTCIis1M2okF+AEQyWM1CuummwB/KS2diCeo7fC5C4oPqcKJgg==
+"@slidev/cli@0.38.1":
+  version "0.38.1"
+  resolved "https://registry.yarnpkg.com/@slidev/cli/-/cli-0.38.1.tgz#da355f63eb091c97942bad232546e4e57471f956"
+  integrity sha512-8i+qAZF1Bx1lXj0SvutU6ZSsQN+pAQnGx7o5mq9IHOB/Juqj4m1QEJlocuTC90pxACu7Er7/U0D9z2M7cDGy1A==
   dependencies:
     "@antfu/utils" "^0.7.2"
     "@hedgedoc/markdown-it-task-lists" "^2.0.1"
     "@iconify-json/carbon" "^1.1.11"
     "@iconify-json/ph" "^1.1.3"
     "@lillallol/outline-pdf" "^4.0.0"
-    "@slidev/client" "0.38.2"
-    "@slidev/parser" "0.38.2"
-    "@slidev/types" "0.38.2"
+    "@slidev/client" "0.38.1"
+    "@slidev/parser" "0.38.1"
+    "@slidev/types" "0.38.1"
     "@vitejs/plugin-vue" "^4.0.0"
     cli-progress "^3.11.2"
     codemirror "^5.65.5"
@@ -972,32 +972,32 @@
     resolve "^1.22.1"
     resolve-from "^5.0.0"
     resolve-global "^1.0.0"
-    shiki "^0.12.1"
+    shiki "^0.11.1"
     unocss "^0.47.6"
     unplugin-icons "^0.14.15"
     unplugin-vue-components "^0.22.12"
-    vite "^4.0.2"
-    vite-plugin-inspect "^0.7.11"
+    vite "^4.0.1"
+    vite-plugin-inspect "^0.7.10"
     vite-plugin-remote-assets "^0.3.0"
     vite-plugin-vue-markdown "^0.22.1"
     vite-plugin-vue-server-ref "^0.3.0"
-    vite-plugin-windicss "^1.8.10"
+    vite-plugin-windicss "^1.8.9"
     vue "^3.2.45"
     windicss "^3.5.6"
     yargs "^17.6.2"
 
-"@slidev/client@0.38.2":
-  version "0.38.2"
-  resolved "https://registry.yarnpkg.com/@slidev/client/-/client-0.38.2.tgz#b66fa9da93b49b5028bba7f8b7e80c2847c25a61"
-  integrity sha512-UERCOEjntnZmhwYEElWpOLc1yIbWynhhzgmiFFrCD6oDsQadvXdp2MvL+ydxQSXFI8tJPu0JG6nLk8p6dfq/Pw==
+"@slidev/client@0.38.1":
+  version "0.38.1"
+  resolved "https://registry.yarnpkg.com/@slidev/client/-/client-0.38.1.tgz#9704508139d64ff0551da3233c178cff445205b5"
+  integrity sha512-yeT8sfu3XXSXljZtXh/yVPuexssEMzs+m0PqIjPH1eMpDb+pdwyefzIiQ4FSpxLEVovYSSlJyxA8thFTAObLiA==
   dependencies:
     "@antfu/utils" "^0.7.2"
-    "@slidev/parser" "0.38.2"
-    "@slidev/types" "0.38.2"
+    "@slidev/parser" "0.38.1"
+    "@slidev/types" "0.38.1"
     "@unocss/reset" "^0.47.6"
-    "@vueuse/core" "^9.7.0"
+    "@vueuse/core" "^9.6.0"
     "@vueuse/head" "^1.0.22"
-    "@vueuse/math" "^9.7.0"
+    "@vueuse/math" "^9.6.0"
     "@vueuse/motion" "^2.0.0-beta.26"
     codemirror "^5.65.5"
     defu "^6.1.1"
@@ -1006,25 +1006,25 @@
     js-base64 "^3.7.3"
     js-yaml "^4.1.0"
     katex "^0.16.4"
-    mermaid "^9.3.0"
+    mermaid "^9.2.2"
     monaco-editor "^0.33.0"
     nanoid "^4.0.0"
     prettier "^2.8.1"
     recordrtc "^5.6.2"
     resolve "^1.22.1"
     unocss "^0.47.6"
-    vite-plugin-windicss "^1.8.10"
+    vite-plugin-windicss "^1.8.9"
     vue "^3.2.45"
     vue-router "^4.1.6"
     vue-starport "^0.3.0"
     windicss "^3.5.6"
 
-"@slidev/parser@0.38.2":
-  version "0.38.2"
-  resolved "https://registry.yarnpkg.com/@slidev/parser/-/parser-0.38.2.tgz#ebb800380f9d7efc9ba4b25ae0b2e25561b355e1"
-  integrity sha512-1IbZkHccZEU2gC8CdT3CU0kN+dDln6EVC0F13H+yhaf6lbiRH3L9iTmiejSrZdMXcJq0N6Qqe5OL4wnUsUEn6A==
+"@slidev/parser@0.38.1":
+  version "0.38.1"
+  resolved "https://registry.yarnpkg.com/@slidev/parser/-/parser-0.38.1.tgz#1b22b28ede7fa35de04539feaecf3891998e455b"
+  integrity sha512-Lp1DdYH0GdYXl+cnZwESNOBXd9c2M9+ndue3Fi58uipUOiHYbS3sScnXQEmpH4v+RtHS1tw0QmCbc/ZxUD2mvw==
   dependencies:
-    "@slidev/types" "0.38.2"
+    "@slidev/types" "0.38.1"
     js-yaml "^4.1.0"
 
 "@slidev/theme-default@0.21.2":
@@ -1037,10 +1037,10 @@
     prism-theme-vars "^0.2.2"
     theme-vitesse "^0.1.12"
 
-"@slidev/types@0.38.2":
-  version "0.38.2"
-  resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.38.2.tgz#46f74a2cd3e9e0f6505a1af0899ee8c5d71027f6"
-  integrity sha512-+YshvHUHHmuuJu6hxXV5+s7a+gQ2XpXVHLWL7kWhRpF24vcJ9jktpMxVfniFBLiz7YoTkQO7XJkIvyWz1Shz6A==
+"@slidev/types@0.38.1":
+  version "0.38.1"
+  resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.38.1.tgz#09a45c85af8e10f75a2d97283acb0b144070a283"
+  integrity sha512-EqakCrfPcK2Ic3NOhJsTyoWcD1ccybl+L9PfupzAvgN9Nim5QC8jT5m+OgkNSHFLAU1AQYuXbIp5sBKBrd5uUg==
 
 "@slidev/types@^0.22.7":
   version "0.22.7"
@@ -1579,7 +1579,7 @@
     "@vueuse/shared" "8.7.3"
     vue-demi "*"
 
-"@vueuse/core@^9.6.0", "@vueuse/core@^9.7.0":
+"@vueuse/core@^9.6.0":
   version "9.8.2"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-9.8.2.tgz#a142281bb33368c74668a180a813c7c8d91f89d8"
   integrity sha512-aWiCmcYIpPt7xjuqYiceODEMHchDYthrJ4AqI+FXPZrR23PZOqdiktbUVyQl2kGlR3H4i9UJ/uimQrwhz9UouQ==
@@ -1609,7 +1609,7 @@
     "@unhead/ssr" "^1.0.9"
     "@unhead/vue" "^1.0.9"
 
-"@vueuse/math@^9.7.0":
+"@vueuse/math@^9.6.0":
   version "9.8.2"
   resolved "https://registry.yarnpkg.com/@vueuse/math/-/math-9.8.2.tgz#a99ee58644827c84e196678c1eb11d101d89c19b"
   integrity sha512-uls1RC+qtl6+ssV7nJ/C2pRRwzrSWOJCbsVeyXamzu988KO0a/9lZVDvnmaDrHxORMbkDgRZKj438FwXWVcsHw==
@@ -4040,7 +4040,7 @@ json5@^2.2.1:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.1.tgz#655d50ed1e6f95ad1a3caababd2b0efda10b395c"
   integrity sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==
 
-jsonc-parser@^3.2.0:
+jsonc-parser@^3.0.0, jsonc-parser@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.2.0.tgz#31ff3f4c2b9793f89c67212627c51c6394f88e76"
   integrity sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==
@@ -4318,7 +4318,7 @@ merge2@^1.3.0, merge2@^1.4.1:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
-mermaid@^9.3.0:
+mermaid@^9.2.2:
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-9.3.0.tgz#8bd7c4a44b53e4e85c53a0a474442e9c273494ae"
   integrity sha512-mGl0BM19TD/HbU/LmlaZbjBi//tojelg8P/mxD6pPZTAYaI+VawcyBdqRsoUHSc7j71PrMdJ3HBadoQNdvP5cg==
@@ -5633,14 +5633,14 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shiki@^0.12.1:
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.12.1.tgz#26fce51da12d055f479a091a5307470786f300cd"
-  integrity sha512-aieaV1m349rZINEBkjxh2QbBvFFQOlgqYTNtCal82hHj4dDZ76oMlQIX+C7ryerBTDiga3e5NfH6smjdJ02BbQ==
+shiki@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.11.1.tgz#df0f719e7ab592c484d8b73ec10e215a503ab8cc"
+  integrity sha512-EugY9VASFuDqOexOgXR18ZV+TbFrQHeCpEYaXamO+SZlsnT/2LxuLBX25GGtIrwaEVFXUAbUQ601SWE2rMwWHA==
   dependencies:
-    jsonc-parser "^3.2.0"
-    vscode-oniguruma "^1.7.0"
-    vscode-textmate "^8.0.0"
+    jsonc-parser "^3.0.0"
+    vscode-oniguruma "^1.6.1"
+    vscode-textmate "^6.0.0"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   version "3.0.7"
@@ -6237,7 +6237,7 @@ vite-plugin-checker@^0.5.1:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
 
-vite-plugin-inspect@^0.7.11:
+vite-plugin-inspect@^0.7.10:
   version "0.7.11"
   resolved "https://registry.yarnpkg.com/vite-plugin-inspect/-/vite-plugin-inspect-0.7.11.tgz#336e30f99e9f0a60d8ae53962df014e7345f5497"
   integrity sha512-mpNsux1BBu0CoI5E0rFseaExHAfq8mtkuDJpQWnB5RBafyNT3bQMlRPWbVZrBXYZHJL7ruqApd4EFvxeXKZu7Q==
@@ -6280,7 +6280,7 @@ vite-plugin-vue-server-ref@0.3.0, vite-plugin-vue-server-ref@^0.3.0:
     debug "^4.3.4"
     ufo "^0.8.5"
 
-vite-plugin-windicss@^1.8.10:
+vite-plugin-windicss@^1.8.9:
   version "1.8.10"
   resolved "https://registry.yarnpkg.com/vite-plugin-windicss/-/vite-plugin-windicss-1.8.10.tgz#a0e022c5d3def185fb2458a0ba41fc140421ddcb"
   integrity sha512-scywsuzo46lcTBohspmF0WiwhWEte6p+OUVrX4yr7VMRvLHMHVfLtJReyD5pppjijG7YOwVsZn7XBWWZtF658Q==
@@ -6314,10 +6314,10 @@ vite@^3.0.0, vite@~3.2.4:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vite@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.0.2.tgz#909beb07995048fe5a83b35b5e827d79627457c4"
-  integrity sha512-QJaY3R+tFlTagH0exVqbgkkw45B+/bXVBzF2ZD1KB5Z8RiAoiKo60vSUf6/r4c2Vh9jfGBKM4oBI9b4/1ZJYng==
+vite@^4.0.1:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.0.3.tgz#de27ad3f263a03ae9419cdc8bc07721eadcba8b9"
+  integrity sha512-HvuNv1RdE7deIfQb8mPk51UKjqptO/4RXZ5yXSAvurd5xOckwS/gg8h9Tky3uSbnjYTgUm0hVCet1cyhKd73ZA==
   dependencies:
     esbuild "^0.16.3"
     postcss "^8.4.20"
@@ -6365,15 +6365,15 @@ vscode-languageserver@^7.0.0:
   dependencies:
     vscode-languageserver-protocol "3.16.0"
 
-vscode-oniguruma@^1.7.0:
+vscode-oniguruma@^1.6.1:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/vscode-oniguruma/-/vscode-oniguruma-1.7.0.tgz#439bfad8fe71abd7798338d1cd3dc53a8beea94b"
   integrity sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA==
 
-vscode-textmate@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-8.0.0.tgz#2c7a3b1163ef0441097e0b5d6389cd5504b59e5d"
-  integrity sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==
+vscode-textmate@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-6.0.0.tgz#a3777197235036814ac9a92451492f2748589210"
+  integrity sha512-gu73tuZfJgu+mvCSy4UZwd2JXykjK9zAZsfmDeut5dx/1a7FeTk0XwJsSuqQn+cuMCGVbIBfl+s53X4T19DnzQ==
 
 vscode-uri@^3.0.2:
   version "3.0.3"
