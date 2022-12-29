@@ -2,26 +2,17 @@
   <input v-model="title" />
 </template>
 
-<script>
-import { computed } from "vue";
-export default {
-  props: {
-    modelValue: String,
+<script setup>
+import {computed} from "vue";
+
+const props = defineProps({
+  modelValue: String,
+});
+const emit = defineEmits(["update:modelValue"]);
+const title = computed({
+  get: () => props.modelValue,
+  set: (value) => {
+    emit("update:modelValue", value);
   },
-  setup(props, context) {
-    const title = computed({
-      get: () => props.modelValue,
-      set: (value) => {
-        context.emit("update:modelValue", value);
-      },
-    });
-    const changeTitle = () => {
-      context.emit("update:modelValue", title.value);
-    };
-    return {
-      title,
-      changeTitle,
-    };
-  },
-};
+});
 </script>
