@@ -1,18 +1,12 @@
 <template>
-  <div id="counter">Counter: {{ counter }}</div>
+  <div>Counter: {{counter}}</div>
 </template>
 
-<script>
-import { ref } from "vue";
-export default {
-  setup() {
-    const counter = ref(10);
-    setInterval(() => {
-      counter.value += 1;
-    }, 1000);
-    return {
-      counter,
-    };
-  },
-};
+<script setup>
+import {ref} from "vue";
+
+const counter = ref(10);
+setInterval(() => {
+  counter.value += 1;
+}, 1000);
 </script>

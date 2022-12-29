@@ -92,12 +92,12 @@ StackBlitz はブラウザ上で動作するオンライン IDE（統合開発�
 
 ---
 
-# Vue には 2 つの書き方があります
+# Vue には 2 つの API があります
 
 <div class="flex gap-8">
 
 <div>
-Vue2 で主に使われていた「Options API」
+Options API
 
 ```vue
 <script>
@@ -118,7 +118,7 @@ export default {
 
 </div>
 <div>
-Vue3 で主に使われている「Composition API」
+Composition API
 
 ```vue
 <script>
@@ -153,18 +153,14 @@ Vue の機能ではなく、論理的な関心事でコードをまとめるこ�
 
 ---
 
-# まずは書いてみる
+# Vue には様々なシンタックスシュガー（糖衣構文）があります
 
 <div class="flex gap-8">
 
-```vue
-<template>
-  <div>
-    {{ count }}
-    <button @click="increment">+</button>
-  </div>
-</template>
+<div>
+script
 
+```vue
 <script>
 import { ref } from "vue";
 export default {
@@ -179,6 +175,50 @@ export default {
     };
   },
 };
+</script>
+```
+
+</div>
+<div>
+script setup
+
+```vue
+<script setup>
+import { ref } from "vue";
+
+const count = ref(0);
+function increment() {
+  count.value += 1;
+}
+</script>
+```
+
+</div>
+</div>
+
+現状 Vue では、簡潔なコードで表現するための支援機能として、シンタックスシュガー（糖衣構文）が提供されることがあります。HTML とも JS とも異なる構文への理解が求められる反面、記述量が減る、コードの複雑さが減るといったメリットがあるので、本講座では積極的に取り扱います。
+
+---
+
+# まずは書いてみる
+
+<div class="flex gap-8">
+
+```vue
+<template>
+  <div>
+    {{ count }}
+    <button @click="increment">+</button>
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const count = ref(0);
+function increment() {
+  count.value += 1;
+}
 </script>
 ```
 
@@ -268,22 +308,14 @@ console.log(sum); // 3.
 <div class="flex gap-8">
 
 ```vue
-<script>
+<script setup>
 import { ref, computed } from "vue";
-export default {
-  setup() {
-    const val1 = ref(2);
-    const val2 = ref(3);
-    const sum = computed(() => {
-      return val1.value + val2.value;
-    });
-    return {
-      val1,
-      val2,
-      sum,
-    };
-  },
-};
+
+const val1 = ref(2);
+const val2 = ref(3);
+const sum = computed(() => {
+  return val1.value + val2.value;
+});
 </script>
 ```
 
@@ -313,8 +345,6 @@ export default {
 
 リアクティブにしたいデータがオブジェクトの場合、`reactive` を使う
 
-<div class="flex gap-8">
-
 ```vue
 <template>
   <div>
@@ -322,30 +352,21 @@ export default {
     {{ user.name }}
   </div>
 </template>
-<script>
+
+<script setup>
 import { reactive } from "vue";
-export default {
-  setup() {
-    const user = reactive({
-      name: "",
-    });
-    return {
-      user,
-    };
-  },
-};
+
+const user = reactive({
+  name: "",
+});
 </script>
 ```
-
-</div>
 
 ---
 
 # リアクティブの探求（オブジェクトにまとめたリアクティブな値を取り出す）
 
 前項の `reactive` だと、分割代入しても値が取り出せない。Vue では `toRefs` を使うことで可能になる。
-
-<div class="flex gap-8">
 
 ```vue
 <template>
@@ -355,32 +376,20 @@ export default {
     <p>name: {{ name }}</p>
   </div>
 </template>
-<script>
+
+<script setup>
 import { reactive, toRefs } from "vue";
-export default {
-  setup() {
-    const user = reactive({
-      name: "",
-    });
-    const { name } = toRefs(user);
-    return {
-      user,
-      name,
-    };
-  },
-};
+
+const user = reactive({
+  name: "",
+});
+const { name } = toRefs(user);
 </script>
 ```
-
-</div>
 
 ---
 
 # リアクティブの探求（リアクティブな値を読み込み専用にする）
-
-<div class="flex gap-8">
-
-<div class="h-md overflow-y-auto">
 
 ```vue
 <template>
@@ -391,28 +400,18 @@ export default {
     <p>name: {{ name }}</p>
   </div>
 </template>
-<script>
+
+<script setup>
 import { reactive, toRefs, readonly } from "vue";
-export default {
-  setup() {
-    const user = readonly(
-      reactive({
-        name: "",
-      })
-    );
-    const { name } = toRefs(user);
-    return {
-      user,
-      name,
-    };
-  },
-};
+
+const user = readonly(
+  reactive({
+    name: "",
+  })
+);
+const { name } = toRefs(user);
 </script>
 ```
-
-</div>
-
-</div>
 
 ---
 
@@ -427,18 +426,12 @@ export default {
     {{ plusOne }}
   </div>
 </template>
-<script>
+
+<script setup>
 import { ref, computed } from "vue";
-export default {
-  setup() {
-    const count = ref(1);
-    const plusOne = computed(() => count.value + 1);
-    return {
-      count,
-      plusOne,
-    };
-  },
-};
+
+const count = ref(1);
+const plusOne = computed(() => count.value + 1);
 </script>
 ```
 
@@ -458,23 +451,20 @@ export default {
     {{ plusOne }}
   </div>
 </template>
-<script>
+
+<script setup>
 import { ref, computed } from "vue";
-export default {
-  setup() {
-    const count = ref(1);
-    const plusOne = computed({
-      get: () => count.value + 1,
-      set: (value) => {
-        count.value = value;
-      },
-    });
-    const handleClick = () => {
-      plusOne.value = 1;
-    };
-    return { count, plusOne, handleClick };
+
+const count = ref(1);
+const plusOne = computed({
+  get: () => count.value + 1,
+  set: (value) => {
+    count.value = value;
   },
-};
+});
+function handleClick() {
+  plusOne.value = 1;
+}
 </script>
 ```
 
@@ -507,22 +497,15 @@ export default {
 ```
 
 ```vue
-<script>
+<script setup>
 import { computed } from "vue";
-export default {
-  setup() {
-    const randomMethods = () => {
-      return Math.random();
-    };
-    const randomComputed = computed(() => {
-      return Math.random();
-    });
-    return {
-      randomMethods,
-      randomComputed,
-    };
-  },
+
+const randomMethods = () => {
+  return Math.random();
 };
+const randomComputed = computed(() => {
+  return Math.random();
+});
 </script>
 ```
 
@@ -547,23 +530,20 @@ export default {
     {{ plusOne }}
   </div>
 </template>
-<script>
+
+<script setup>
 import { ref, computed, watch } from "vue";
-export default {
-  setup() {
-    const count = ref(1);
-    const plusOne = computed({
-      get: () => count.value + 1,
-      set: (value) => {
-        count.value = value;
-      },
-    });
-    watch(count, (current, prev) => {
-      console.log(current, prev);
-    });
-    return { count, plusOne };
+
+const count = ref(1);
+const plusOne = computed({
+  get: () => count.value + 1,
+  set: (value) => {
+    count.value = value;
   },
-};
+});
+watch(count, (current, prev) => {
+  console.log(current, prev);
+});
 </script>
 ```
 
@@ -584,23 +564,20 @@ export default {
     {{ plusOne }}
   </div>
 </template>
-<script>
+
+<script setup>
 import { ref, computed, watch } from "vue";
-export default {
-  setup() {
-    const count = ref(1);
-    const plusOne = computed({
-      get: () => count.value + 1,
-      set: (value) => {
-        count.value = value;
-      },
-    });
-    watch([count, plusOne], (current, prev) => {
-      console.log(current, prev);
-    });
-    return { count, plusOne };
+
+const count = ref(1);
+const plusOne = computed({
+  get: () => count.value + 1,
+  set: (value) => {
+    count.value = value;
   },
-};
+});
+watch([count, plusOne], (current, prev) => {
+  console.log(current, prev);
+});
 </script>
 ```
 
@@ -629,15 +606,8 @@ Mustache 構文でテキスト展開できる。JavaScript 式を使用するこ
   <div>Message: {{ msg }}</div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const msg = "Hello!";
-    return {
-      msg,
-    };
-  },
-};
+<script setup>
+const msg = "Hello!";
 </script>
 ```
 
@@ -656,19 +626,17 @@ counterを1秒ごとに増やしていく
 </p>
 
 ```vue
+<template>
+  <div>Counter: {{ counter }}</div>
+</template>
+
 <script>
 import { ref } from "vue";
-export default {
-  setup() {
-    const counter = ref(10);
-    setInterval(() => {
-      counter.value += 1;
-    }, 1000);
-    return {
-      counter,
-    };
-  },
-};
+
+const counter = ref(10);
+setInterval(() => {
+  counter.value += 1;
+}, 1000);
 </script>
 ```
 
@@ -702,15 +670,8 @@ export default {
   <a v-bind:href="url"> Vue.js公式サイト </a>
 </template>
 
-<script>
-export default {
-  setup() {
-    const url = "https://v3.ja.vuejs.org/";
-    return {
-      url,
-    };
-  },
-};
+<script setup>
+const url = "https://v3.ja.vuejs.org/";
 </script>
 ```
 
@@ -738,17 +699,13 @@ export default {
 <template>
   <span :class="{ red: red }">Hello World!</span>
 </template>
-<script>
+
+<script setup>
 import { ref } from "vue";
-export default {
-  setup() {
-    const red = ref(true);
-    return {
-      red,
-    };
-  },
-};
+
+const red = ref(true);
 </script>
+
 <style>
 .red {
   color: red;
@@ -800,16 +757,10 @@ export default {
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  setup() {
-    const counter = ref(0);
-    return {
-      counter,
-    };
-  },
-};
+
+const counter = ref(0);
 </script>
 ```
 
@@ -835,20 +786,13 @@ export default {
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  setup() {
-    const counter = ref(0);
-    const increment = () => {
-      counter.value += 1;
-    };
-    return {
-      counter,
-      increment,
-    };
-  },
-};
+
+const counter = ref(0);
+function increment() {
+  counter.value += 1;
+}
 </script>
 ```
 
@@ -858,26 +802,19 @@ export default {
 
 `v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `v-show` は見た目上非表示にするが `v-if` は DOM 要素も取り除く。
 
-```vue {all|3|10|all}
+```vue {all|3|8|all}
 <template>
   <div id="conditional-rendering">
     <span v-if="seen">Now you see me</span>
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const seen = true;
-    return {
-      seen,
-    };
-  },
-};
+<script setup>
+const seen = true;
 </script>
 ```
 
-<arrow v-click="2" x1="400" y1="420" x2="230" y2="365" color="#564" width="3" arrowSize="1" />
+<arrow v-click="2" x1="350" y1="370" x2="190" y2="310" color="#564" width="3" arrowSize="1" />
 
 ---
 
@@ -911,15 +848,8 @@ export default {
   <div v-else>Not A/B/C</div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const type = "A";
-    return {
-      type,
-    };
-  },
-};
+<script setup>
+const type = "A";
 </script>
 ```
 
@@ -932,15 +862,8 @@ export default {
   </template>
 </template>
 
-<script>
-export default {
-  setup() {
-    const ok = true;
-    return {
-      ok,
-    };
-  },
-};
+<script setup>
+const ok = true;
 </script>
 ```
 
@@ -954,8 +877,6 @@ export default {
 
 <div class="flex gap-8">
 
-<div class="h-sm overflow-y-auto">
-
 ```vue
 <template>
   <div id="list-rendering">
@@ -967,23 +888,14 @@ export default {
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const todos = [
-      { text: "Learn JavaScript" },
-      { text: "Learn Vue" },
-      { text: "Build something awesome" },
-    ];
-    return {
-      todos,
-    };
-  },
-};
+<script setup>
+const todos = [
+  { text: "Learn JavaScript" },
+  { text: "Learn Vue" },
+  { text: "Build something awesome" },
+];
 </script>
 ```
-
-</div>
 
   <div class="flex-shrink">
     <p>結果</p>
@@ -1005,8 +917,6 @@ export default {
 
 <div class="flex gap-8">
 
-<div class="h-sm overflow-y-auto">
-
 ```vue
 <template>
   <div id="list-rendering">
@@ -1018,23 +928,14 @@ export default {
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const todos = [
-      { text: "Learn JavaScript", id: 1 },
-      { text: "Learn Vue", id: 2 },
-      { text: "Build something awesome", id: 3 },
-    ];
-    return {
-      todos,
-    };
-  },
-};
+<script setup>
+const todos = [
+  { text: "Learn JavaScript", id: 1 },
+  { text: "Learn Vue", id: 2 },
+  { text: "Build something awesome", id: 3 },
+];
 </script>
 ```
-
-</div>
 
 <div class="flex-shrink">
   <p>結果</p>
@@ -1055,8 +956,6 @@ export default {
 
 <div class="flex gap-8">
 
-<div class="h-sm overflow-y-auto">
-
 ```vue{all|4}
 <template>
   <div id="list-rendering">
@@ -1068,23 +967,14 @@ export default {
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const todos = [
-      { text: "Learn JavaScript" },
-      { text: "Learn Vue" },
-      { text: "Build something awesome" },
-    ];
-    return {
-      todos,
-    };
-  },
-};
+<script setup>
+const todos = [
+  { text: "Learn JavaScript" },
+  { text: "Learn Vue" },
+  { text: "Build something awesome" },
+];
 </script>
 ```
-
-</div>
 
 <div class="flex-shrink w-110">
   <p>結果</p>
@@ -1116,16 +1006,10 @@ export default {
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  setup() {
-    const message = ref("Hello Vue!");
-    return {
-      message,
-    };
-  },
-};
+
+const message = ref("Hello Vue!");
 </script>
 ```
 
@@ -1171,11 +1055,9 @@ export default {
 <template>
   <ChildComponent title="Hello!" />
 </template>
-<script>
+
+<script setup>
 import ChildComponent from "./components/ChildComponent.vue";
-export default {
-  components: { ChildComponent },
-};
 </script>
 ```
 
@@ -1190,19 +1072,13 @@ export default {
   <p>{{ message }}</p>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  props: {
-    title: String,
-  },
-  setup(props) {
-    const message = ref(props.title);
-    return {
-      message,
-    };
-  },
-};
+
+const props = defineProps({
+  title: String,
+});
+const message = ref(props.title);
 </script>
 ```
 
@@ -1226,11 +1102,9 @@ export default {
 <template>
   <ChildComponent :count="14" />
 </template>
-<script>
+
+<script setup>
 import ChildComponent from "./components/ChildComponent.vue";
-export default {
-  components: { ChildComponent },
-};
 </script>
 ```
 
@@ -1247,19 +1121,13 @@ export default {
   <p>{{ message }}</p>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  props: {
-    count: Number,
-  },
-  setup(props) {
-    const message = ref(props.count);
-    return {
-      message,
-    };
-  },
-};
+
+const props = defineProps({
+  count: Number,
+});
+const message = ref(props.count);
 </script>
 ```
 
@@ -1285,11 +1153,9 @@ export default {
 <template>
   <ChildComponent :is-show="false" />
 </template>
-<script>
+
+<script setup>
 import ChildComponent from "./components/ChildComponent.vue";
-export default {
-  components: { ChildComponent },
-};
 </script>
 ```
 
@@ -1299,30 +1165,20 @@ export default {
 
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
-<div class="h-xs overflow-y-auto">
-
 ```vue
 <template>
   <p v-if="show">props'is-show'がtrueであれば見れます</p>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  props: {
-    isShow: Boolean,
-  },
-  setup(props) {
-    const show = ref(props.isShow);
-    return {
-      show,
-    };
-  },
-};
+
+const props = defineProps({
+  isShow: Boolean,
+});
+const show = ref(props.isShow);
 </script>
 ```
-
-</div>
 
 </div>
 
@@ -1346,11 +1202,9 @@ props はデフォルト値を設定することもできる
 <template>
   <ChildComponent :is-show="false" />
 </template>
-<script>
+
+<script setup>
 import ChildComponent from "./components/ChildComponent.vue";
-export default {
-  components: { ChildComponent },
-};
 </script>
 ```
 
@@ -1360,33 +1214,23 @@ export default {
 
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
-<div class="h-xs overflow-y-auto">
-
 ```vue {all|9-12|all}
 <template>
   <p v-if="show">props'is-show'がtrueであれば見れます</p>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  props: {
-    isShow: {
-      type: Boolean,
-      default: true,
-    },
+
+const props = defineProps({
+  isShow: {
+    type: Boolean,
+    default: true,
   },
-  setup(props) {
-    const show = ref(props.isShow);
-    return {
-      show,
-    };
-  },
-};
+});
+const show = ref(props.isShow);
 </script>
 ```
-
-</div>
 
 </div>
 
@@ -1408,11 +1252,9 @@ export default {
 <template>
   <ChildComponent :student="{ name: 'taro', old: '16' }" />
 </template>
-<script>
+
+<script setup>
 import ChildComponent from "./components/ChildComponent.vue";
-export default {
-  components: { ChildComponent },
-};
 </script>
 ```
 
@@ -1427,19 +1269,13 @@ export default {
   <p>こんにちは、{{ user.name }}さん、{{ user.old }}歳になりましたね</p>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  props: {
-    student: Object,
-  },
-  setup(props) {
-    const user = ref(props.student);
-    return {
-      user,
-    };
-  },
-};
+
+const props = defineProps({
+  student: Object,
+});
+const user = ref(props.student);
 </script>
 ```
 
@@ -1463,19 +1299,13 @@ export default {
 <template>
   <ChildComponent @child-clicked="clicked" />
 </template>
-<script>
+
+<script setup>
 import ChildComponent from "./ChildComponent.vue";
-export default {
-  components: { ChildComponent },
-  setup() {
-    const clicked = (message) => {
-      alert(message);
-    };
-    return {
-      clicked,
-    };
-  },
-};
+
+function clicked(message) {
+  alert(message);
+}
 </script>
 ```
 
@@ -1490,17 +1320,11 @@ export default {
   <button @click="clickHandler">emit !</button>
 </template>
 
-<script>
-export default {
-  setup(props, context) {
-    const clickHandler = () => {
-      context.emit("child-clicked", "Hello!");
-    };
-    return {
-      clickHandler,
-    };
-  },
-};
+<script setup>
+const emit = defineEmits(["child-clicked"]);
+function clickHandler() {
+  emit("child-clicked", "Hello!");
+}
 </script>
 ```
 
@@ -1530,18 +1354,12 @@ export default {
   <ChildComponent v-model="title" />
   <p>{{ title }}</p>
 </template>
-<script>
+
+<script setup>
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
-export default {
-  components: { ChildComponent },
-  setup() {
-    const title = ref("Hello !");
-    return {
-      title,
-    };
-  },
-};
+
+const title = ref("Hello !");
 </script>
 ```
 
@@ -1558,23 +1376,19 @@ export default {
   <input v-model="title" />
 </template>
 
-<script>
+<script setup>
 import { computed } from "vue";
 
-export default {
-  props: {
-    modelValue: String,
+const props = defineProps({
+  modelValue: String,
+});
+const emit = defineEmits(["update:modelValue"]);
+const title = computed({
+  get: () => props.modelValue,
+  set: (value) => {
+    emit("update:modelValue", value);
   },
-  setup(props, context) {
-    const title = computed({
-      get: () => props.modelValue,
-      set: (value) => {
-        context.emit("update:modelValue", value);
-      },
-    });
-    return { title };
-  },
-};
+});
 </script>
 ```
 
@@ -1608,18 +1422,12 @@ export default {
   <ChildComponent @update:modelValue="title = $event" :modelValue="title" />
   <p>{{ title }}</p>
 </template>
-<script>
+
+<script setup>
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
-export default {
-  components: { ChildComponent },
-  setup() {
-    const title = ref("Hello !");
-    return {
-      title,
-    };
-  },
-};
+
+const title = ref("Hello !");
 </script>
 ```
 
@@ -1735,35 +1543,27 @@ throttle, debounce を使うとイベントハンドリング関数の呼び出�
 
 <div class="flex gap-8">
 
-<div class="h-sm overflow-y-auto flex-shrink">
+<div class="flex-shrink">
 
 ```vue
-<script>
+<script setup>
 import { debounce } from "throttle-debounce";
 import { ref } from "vue";
-export default {
-  setup() {
-    const message = ref("");
-    const originalFruits = [
-      "orange",
-      "banana",
-      "strawberry",
-      "grape",
-      "watermelon",
-    ];
-    const fruits = ref(originalFruits);
-    const filterFruits = () => {
-      fruits.value = originalFruits.filter(
-        (fruit) => fruit.indexOf(message.value) >= 0
-      );
-    };
-    return {
-      filterFruits,
-      fruits,
-      message,
-    };
-  },
-};
+
+const message = ref("");
+const originalFruits = [
+  "orange",
+  "banana",
+  "strawberry",
+  "grape",
+  "watermelon",
+];
+const fruits = ref(originalFruits);
+function filterFruits() {
+  fruits.value = originalFruits.filter(
+    (fruit) => fruit.indexOf(message.value) >= 0
+  );
+}
 </script>
 ```
 
@@ -1952,13 +1752,8 @@ pages で解説したように例えば app.vue に共通ヘッダを持たせ�
   </div>
 </template>
 
-<script>
-export default {
-  async setup() {
-    const { data: users } = await useFetch("/api/users");
-    return { users };
-  },
-};
+<script setup>
+const { data: users } = await useFetch("/api/users");
 </script>
 ```
 
@@ -1971,8 +1766,9 @@ export default {
 
 ```js
 import { ref, readonly } from "vue";
-const count = ref(0);
+
 export default () => {
+  const count = ref(0);
   const increment = () => count.value++;
 
   return {
@@ -1994,20 +1790,13 @@ export default () => {
   </div>
 </template>
 
-<script>
+<script setup>
 import useCounter from "~~/composables/useCounter";
-export default {
-  setup() {
-    const counter = useCounter();
-    const increment = () => {
-      counter.increment();
-    };
-    return {
-      counter,
-      increment,
-    };
-  },
-};
+
+const counter = useCounter();
+function increment() {
+  counter.increment();
+}
 </script>
 ```
 
@@ -2098,15 +1887,11 @@ Vue 3 はテンプレートの最上位に複数要素が書けるようにな�
 <p class="text-xs">Vue 3 - components/PostList.vue</p>
 
 ```vue
-<script>
+<script setup>
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
-export default {
-  components: {
-    RouterLink,
-  },
-  setup() {
-    const posts = ref(null);
+
+const posts = ref(null);
 （後略）
 ```
 
@@ -2116,19 +1901,13 @@ export default {
 
 <p class="text-xs">Nuxt 3 - pages/index.vue</p>
 
-<div class="h-xs overflow-y-auto">
-
 ```vue
-<script>
-export default {
-  async setup() {
-    const { data: posts, pending } = await useFetch(
+<script setup>
+const { data: posts, pending } = await useFetch(
 （後略）
 ```
 
 インポート、コンポーネントを利用するためのコードが省略でき記述量が減らせる
-
-</div>
 
 </div>
 
@@ -2158,14 +1937,11 @@ https://v3.nuxtjs.org/guide/concepts/auto-imports
 <p class="text-xs">Vue 3 - components/PostList.vue</p>
 
 ```vue
-<script>
+<script setup>
 （中略）
-    const posts = ref(null);
-    const load = async () => {
-      const response = await fetch("/wp-json/wp/v2/posts.json");
-      posts.value = await response.json();
-    };
-    load();
+const posts = ref(null);
+const response = await fetch("/wp-json/wp/v2/posts.json");
+posts.value = await response.json();
 （後略）
 ```
 
@@ -2178,11 +1954,11 @@ https://v3.nuxtjs.org/guide/concepts/auto-imports
 <div class="h-xs overflow-y-auto">
 
 ```vue
-<script>
+<script setup>
 （中略）
-    const { data: posts, pending } = await useFetch(
-      `http://localhost:3000/wp-json/wp/v2/posts.json`
-    );
+const { data: posts, pending } = await useFetch(
+  "http://localhost:3000/wp-json/wp/v2/posts.json"
+);
 （後略）
 ```
 

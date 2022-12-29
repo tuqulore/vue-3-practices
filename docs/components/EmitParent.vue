@@ -1,17 +1,10 @@
 <template>
   <ChildComponent @child-clicked="clicked" />
 </template>
-<script>
+<script setup>
 import ChildComponent from "./EmitChild.vue";
-export default {
-  components: { ChildComponent },
-  setup() {
-    const clicked = (message) => {
-      alert(message);
-    };
-    return {
-      clicked,
-    };
-  },
+
+function clicked(message) {
+  alert(message);
 };
 </script>
