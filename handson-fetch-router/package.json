@@ -1,6 +1,6 @@
 {
-  "name": "handson-fetch-router",
-  "description": "サンプル fetch router",
+  "name": "vue-3-practices-handson-fetch-router",
+  "description": "ハンズオン fetch router",
   "version": "1.0.0",
   "author": "tuqulore Inc.",
   "bugs": {

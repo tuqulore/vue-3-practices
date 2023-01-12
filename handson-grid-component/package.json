@@ -1,6 +1,6 @@
 {
-  "name": "handson-grid-component",
-  "description": "サンプル grid component",
+  "name": "vue-3-practices-handson-grid-component",
+  "description": "ハンズオン grid component",
   "version": "1.0.0",
   "author": "tuqulore Inc.",
   "bugs": {

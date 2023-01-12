@@ -1,6 +1,6 @@
 {
-  "name": "sample-markdown-editor",
-  "description": "サンプル markdown editor",
+  "name": "vue-3-practices-handson-markdown-editor",
+  "description": "ハンズオン markdown editor",
   "version": "1.0.0",
   "author": "tuqulore Inc.",
   "bugs": {
