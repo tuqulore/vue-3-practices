@@ -1,27 +1,19 @@
-<script>
-export default {
-  /**
-   * components プロパティによるコンポーネントの登録が省略可能です
-   * 参考: https://v3.nuxtjs.org/guide/concepts/auto-imports
-   */
-  async setup() {
-    /**
-     * Nuxtで提供されているuseFetch関数を使うとデータの取得が簡便におこなえます
-     * 参考: https://v3.nuxtjs.org/api/composables/use-fetch
-     */
-    /**
-     * 分割代入によって使用する値を取り出します
-     * 参考: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-     */
-    const { data: posts, pending } = await useFetch(
-      `http://localhost:3000/wp-json/wp/v2/posts.json`
-    );
-    return {
-      posts,
-      pending,
-    };
-  },
-};
+<script setup>
+/**
+ * components プロパティによるコンポーネントの登録が省略可能です
+ * 参考: https://v3.nuxtjs.org/guide/concepts/auto-imports
+ */
+/**
+ * Nuxtで提供されているuseFetch関数を使うとデータの取得が簡便におこなえます
+ * 参考: https://v3.nuxtjs.org/api/composables/use-fetch
+ */
+/**
+ * 分割代入によって使用する値を取り出します
+ * 参考: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+ */
+const { data: posts, pending } = await useFetch(
+  `http://localhost:3000/wp-json/wp/v2/posts.json`
+);
 </script>
 
 <template>
