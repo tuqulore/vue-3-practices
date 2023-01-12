@@ -1,14 +1,7 @@
-<script>
-export default {
-  setup() {
-    return {}
-  }
-}
-</script>
+<script setup></script>
 
 <template>
   <p>アナザーページ</p>
 </template>
 
-<style>
-</style>
+<style></style>

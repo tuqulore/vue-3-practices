@@ -1,26 +1,23 @@
-<script>
-import {ref} from "vue";
-export default {
-  setup() {
-    /*
-     * isRed変数はリアクティブな値になっています。
-     * 参考: https://v3.ja.vuejs.org/guide/reactivity-fundamentals.html
-     */
-    const isRed = ref(false);
-    const handleClick = () => {
-      /**
-       * 論理否定演算子によって、trueをfalseに、falseをtrueにできます。
-       * 参考: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_NOT
-       */
-      isRed.value = !isRed.value;
-    };
-    return {isRed, handleClick};
-  },
+<script setup>
+import { ref } from "vue";
+/*
+ * isRed変数はリアクティブな値になっています。
+ * 参考: https://v3.ja.vuejs.org/guide/reactivity-fundamentals.html
+ */
+const isRed = ref(false);
+const handleClick = () => {
+  /**
+   * 論理否定演算子によって、trueをfalseに、falseをtrueにできます。
+   * 参考: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_NOT
+   */
+  isRed.value = !isRed.value;
 };
 </script>
 
 <template>
-  <p>ボタンをクリックすると、線で囲われた領域が赤くなったり白くなったりするようにしてください</p>
+  <p>
+    ボタンをクリックすると、線で囲われた領域が赤くなったり白くなったりするようにしてください
+  </p>
   <!--
     handleClick関数によって、ボタンのclickイベントがハンドリングされています。
     参考: https://v3.ja.vuejs.org/guide/events.html
@@ -33,14 +30,17 @@ export default {
     余力があれば、配列構文に書き換えてみましょう。
     参考: https://v3.ja.vuejs.org/guide/class-and-style.html#%E9%85%8D%E5%88%97%E6%A7%8B%E6%96%87
   -->
-  <div class="colorful-box" :class="{'is-red': isRed}" />
+  <div class="colorful-box" :class="{ 'is-red': isRed }" />
   <!--
     インラインスタイルのバインディングによっても、動的にスタイルを付与することができます。
     参考: https://v3.ja.vuejs.org/guide/class-and-style.html#%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%81%AE%E3%83%8F%E3%82%99%E3%82%A4%E3%83%B3%E3%83%86%E3%82%99%E3%82%A3%E3%83%B3%E3%82%AF%E3%82%99
   -->
-  <div class="colorful-box" :style="{
-    backgroundColor: isRed ? 'red' : 'white'
-  }" />
+  <div
+    class="colorful-box"
+    :style="{
+      backgroundColor: isRed ? 'red' : 'white',
+    }"
+  />
 </template>
 
 <style>

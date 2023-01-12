@@ -1,18 +1,15 @@
-<script>
-import {ref} from "vue";
-export default {
-  setup() {
-    const isRed = ref(false);
-    const handleClick = () => {
-      isRed.value = false
-    };
-    return {isRed, handleClick};
-  },
+<script setup>
+import { ref } from "vue";
+const isRed = ref(false);
+const handleClick = () => {
+  isRed.value = false;
 };
 </script>
 
 <template>
-  <p>ボタンをクリックすると、線で囲われた領域が赤くなったり白くなったりするようにしてください</p>
+  <p>
+    ボタンをクリックすると、線で囲われた領域が赤くなったり白くなったりするようにしてください
+  </p>
   <button @click="handleClick">ボタン</button>
   <div class="colorful-box" />
 </template>

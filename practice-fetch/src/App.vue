@@ -1,15 +1,10 @@
-<script>
-import {ref} from "vue"
-export default {
-  setup() {
-    const data = ref(null)
-    const load = async () => {
-      // この実行環境ではfetchがグローバルメソッドとして提供されているので、インポートすることなく利用することができます
-    }
-    load()
-    return {data}
-  }
-}
+<script setup>
+import { ref } from "vue";
+const data = ref(null);
+const load = async () => {
+  // この実行環境ではfetchがグローバルメソッドとして提供されているので、インポートすることなく利用することができます
+};
+load();
 </script>
 
 <template>
@@ -17,9 +12,9 @@ export default {
     href="https://portal.data.metro.tokyo.lg.jp/opendata-api/"
     target="_blank"
     rel="noopener noreferrer"
-  >東京都のオープンデータAPI</a>にあるいずれかのAPIエンドポイントからデータを取得し、あらかじめ用意されたdataの値に格納して表示されるようにしてください
-  <p>データ: {{data}}</p>
+    >東京都のオープンデータAPI</a
+  >にあるいずれかのAPIエンドポイントからデータを取得し、あらかじめ用意されたdataの値に格納して表示されるようにしてください
+  <p>データ: {{ data }}</p>
 </template>
 
-<style>
-</style>
+<style></style>
