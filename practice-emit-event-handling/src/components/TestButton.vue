@@ -1,14 +1,7 @@
-<script>
-export default {
-  setup() {
-    return {}
-  }
-}
-</script>
+<script setup></script>
 
 <template>
   <button>テスト</button>
 </template>
 
-<style>
-</style>
+<style></style>

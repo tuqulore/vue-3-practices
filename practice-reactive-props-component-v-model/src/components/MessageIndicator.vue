@@ -1,17 +1,11 @@
-<script>
-export default {
-  props: {
-    message: String
-  },
-  setup() {
-    return {}
-  }
-}
+<script setup>
+const props = defineProps({
+  message: String,
+});
 </script>
 
 <template>
-  <p>MessageIndicator: {{message}}</p>
+  <p>MessageIndicator: {{ message }}</p>
 </template>
 
-<style>
-</style>
+<style></style>
