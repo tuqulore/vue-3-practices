@@ -1,18 +1,13 @@
-<script>
+<script setup>
 import { ref, onMounted } from "vue";
-export default {
-  setup() {
-    const shoes = ref([]);
-    onMounted(async () => {
-      const shoesJson = await fetch("/json/shoes.json");
-      shoes.value = await shoesJson.json();
-    });
-    const priceFormat = (num) => {
-      return num.toLocaleString();
-      // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#Browser_compatibility
-    };
-    return { shoes, priceFormat };
-  },
+const shoes = ref([]);
+onMounted(async () => {
+  const shoesJson = await fetch("/json/shoes.json");
+  shoes.value = await shoesJson.json();
+});
+const priceFormat = (num) => {
+  return num.toLocaleString();
+  // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#Browser_compatibility
 };
 </script>
 

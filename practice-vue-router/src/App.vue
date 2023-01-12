@@ -1,22 +1,20 @@
-<script>
-import {ref, onMounted} from "vue"
-import {RouterView} from "vue-router"
-export default {
-  setup() {
-    const location = ref(null)
-    onMounted(() => {
-      location.value = window.location
-    })
-    return {location}
-  }
-}
+<script setup>
+import { ref, onMounted } from "vue";
+import { RouterView } from "vue-router";
+const location = ref(null);
+onMounted(() => {
+  location.value = window.location;
+});
 </script>
 
 <template>
   <ol>
     <li>
-      <a href="/#/">{{location?.origin}}/#/</a>にアクセスするとTopPageコンポーネントが表示され、
-      <a href="/#/another-page">{{location?.origin}}/#/another-page</a>にアクセスするとAnotherPageコンポーネントが表示されるようにVue Routerを設定してください
+      <a href="/#/">{{ location?.origin }}/#/</a
+      >にアクセスするとTopPageコンポーネントが表示され、
+      <a href="/#/another-page">{{ location?.origin }}/#/another-page</a
+      >にアクセスするとAnotherPageコンポーネントが表示されるようにVue
+      Routerを設定してください
     </li>
   </ol>
   <!--
@@ -25,7 +23,4 @@ export default {
   -->
 </template>
 
-
-<style>
-</style>
-
+<style></style>

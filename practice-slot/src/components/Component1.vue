@@ -1,12 +1,5 @@
-<script>
-export default {
-  setup() {
-    return {}
-  }
-}
-</script>
+<script setup></script>
 
 <template></template>
 
-<style>
-</style>
+<style></style>

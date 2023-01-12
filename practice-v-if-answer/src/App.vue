@@ -1,14 +1,9 @@
 <script>
-export default {
-  setup() {
-    /**
-     * v-ifディレクティブから参照される値を変更すると、
-     * レンダリング結果が変化します。
-     */
-    const isVisible = false
-    return {isVisible}
-  }
-}
+/**
+ * v-ifディレクティブから参照される値を変更すると、
+ * レンダリング結果が変化します。
+ */
+const isVisible = false;
 </script>
 
 <template>
@@ -22,5 +17,4 @@ export default {
   <p v-if="isVisible">ここが消えます</p>
 </template>
 
-<style>
-</style>
+<style></style>

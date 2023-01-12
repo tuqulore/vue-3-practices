@@ -23,34 +23,29 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from "@vue/reactivity";
 import { ref } from "vue";
-export default {
-  props: { _items: Array },
-  setup(props) {
-    const items = ref(props._items);
-    const priceFormat = (num) => {
-      return num.toLocaleString();
-    };
-    const removeItem = (itemId) => {
-      items.value.splice(itemId, 1);
-    };
-    const subTotal = computed(() => {
-      //小計を出す
-      return items.value.reduce((sum, element) => sum + element.price, 0);
-    });
-    const tax = computed(() => {
-      // 小計から消費税額を算出して返す
-      return Math.floor(subTotal.value * 0.1);
-    });
-    const totalPrice = computed(() => {
-      // 合計金額を返す
-      return subTotal.value + tax.value;
-    });
-    return { items, priceFormat, removeItem, subTotal, tax, totalPrice };
-  },
+const props = defineProps({ _items: Array });
+const items = ref(props._items);
+const priceFormat = (num) => {
+  return num.toLocaleString();
 };
+const removeItem = (itemId) => {
+  items.value.splice(itemId, 1);
+};
+const subTotal = computed(() => {
+  //小計を出す
+  return items.value.reduce((sum, element) => sum + element.price, 0);
+});
+const tax = computed(() => {
+  // 小計から消費税額を算出して返す
+  return Math.floor(subTotal.value * 0.1);
+});
+const totalPrice = computed(() => {
+  // 合計金額を返す
+  return subTotal.value + tax.value;
+});
 </script>
 
 <style scoped>

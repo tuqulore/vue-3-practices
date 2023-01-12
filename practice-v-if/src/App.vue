@@ -1,10 +1,5 @@
-<script>
-export default {
-  setup() {
-    const isVisible = true
-    return {isVisible}
-  }
-}
+<script setup>
+const isVisible = true;
 </script>
 
 <template>
@@ -12,5 +7,4 @@ export default {
   <p v-if="isVisible">ここが消えます</p>
 </template>
 
-<style>
-</style>
+<style></style>

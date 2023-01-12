@@ -1,10 +1,4 @@
-<script>
-export default {
-  setup() {
-    return {}
-  }
-}
-</script>
+<script setup></script>
 
 <template>
   <h1>コンポーネント1の見出し</h1>

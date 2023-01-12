@@ -1,25 +1,20 @@
-<script>
+<script setup>
 import { ref, onMounted } from "vue";
 import ShoesCard from "./components/ShoesCard.vue";
 import ShoppingCart from "./components/ShoppingCart.vue";
 import CartIcon from "./components/CartIcon.vue";
 
-export default {
-  setup() {
-    const shoes = ref([]);
-    const cart = ref([]);
-    const showCart = ref(false);
-    const addCart = (item) => {
-      cart.value.push(item.value);
-    };
-    onMounted(async () => {
-      const shoesJson = await fetch("/json/shoes.json");
-      shoes.value = await shoesJson.json();
-    });
-    return { shoes, addCart, cart, showCart };
-  },
-  components: { ShoesCard, ShoppingCart, CartIcon },
+const shoes = ref([]);
+const cart = ref([]);
+const showCart = ref(false);
+const addCart = (item) => {
+  cart.value.push(item.value);
 };
+onMounted(async () => {
+  const shoesJson = await fetch("/json/shoes.json");
+  shoes.value = await shoesJson.json();
+});
+return { shoes, addCart, cart, showCart };
 </script>
 
 <template>

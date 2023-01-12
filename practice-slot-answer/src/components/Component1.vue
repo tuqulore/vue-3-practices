@@ -1,10 +1,4 @@
-<script>
-export default {
-  setup() {
-    return {}
-  }
-}
-</script>
+<script setup></script>
 
 <template>
   <!--
@@ -14,5 +8,4 @@ export default {
   <slot />
 </template>
 
-<style>
-</style>
+<style></style>
