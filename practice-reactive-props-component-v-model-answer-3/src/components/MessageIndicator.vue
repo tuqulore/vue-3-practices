@@ -2,15 +2,16 @@
 import { ref } from "vue";
 import ReverseButton from "./ReverseButton.vue";
 /**
- * コンポーネントをローカル登録することによって、登録したコンポーネントをテンプレートで使用できるようになります。
- * 参考: https://v3.ja.vuejs.org/guide/component-registration.html#%E3%83%A2%E3%82%B7%E3%82%99%E3%83%A5%E3%83%BC%E3%83%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E5%86%85%E3%81%AE%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E7%99%BB%E9%8C%B2
+ * `<script setup>`  を使用する場合、 `<script setup>` 内で宣言された
+ * トップレベルのバインディング（変数、関数宣言、インポートを含む）は、テンプレートで直接使用できます
+ * 引用:  https://ja.vuejs.org/api/sfc-script-setup.html#basic-syntax
  */
 const props = defineProps({
   message: String,
 });
 /**
- * setup関数は第1引数にpropsオブジェクトが渡されます。
- * 参考: https://v3.ja.vuejs.org/api/composition-api.html#setup
+ * 参照するプロパティをdefinePropsマクロによって定義することができます。
+ * 参考: https://ja.vuejs.org/api/sfc-script-setup.html#defineprops-defineemits
  */
 /**
  * プロパティの値を自身のコンポーネントで保持したい場合、プロパティの値を初期値としたリアクティブな値の参照を作成しましょう

@@ -4,8 +4,8 @@ const props = defineProps({
   message: String,
 });
 /**
- * setup関数は第1引数にpropsオブジェクトが渡されます。
- * 参考: https://v3.ja.vuejs.org/api/composition-api.html#setup
+ * 参照するプロパティをdefinePropsマクロによって定義することができます。
+ * 参考: https://ja.vuejs.org/api/sfc-script-setup.html#defineprops-defineemits
  */
 /**
  * プロパティの値を自身のコンポーネントで保持したい場合、プロパティの値を初期値としたリアクティブな値の参照を作成しましょう

@@ -1,7 +1,7 @@
 <script setup>
 /**
- * setup関数に渡される第2引数にイベントを発火する関数が含まれたオブジェクトが渡されます。
- * 参考: https://v3.ja.vuejs.org/guide/composition-api-setup.html#%E3%82%B3%E3%83%B3%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88
+ * 発火させるイベントをdefineEmitsマクロによって定義することができます。
+ * 参考: https://ja.vuejs.org/api/sfc-script-setup.html#defineprops-defineemits
  */
 const emits = defineEmits(["test-event"]);
 const handleClick = () => {
