@@ -1,11 +1,4 @@
-<script>
-export default {
-  setup() {
-    onMounted(async () => {});
-    return {};
-  },
-};
-</script>
+<script setup></script>
 
 <template></template>
 

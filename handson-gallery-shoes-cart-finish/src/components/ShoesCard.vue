@@ -14,28 +14,19 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
-export default {
-  props: {
-    shoesData: Object,
-  },
-  setup(props, context) {
-    // <- 第2引数を追加
-    const item = ref(props.shoesData);
-    const priceFormat = (num) => {
-      return num.toLocaleString();
-      // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#Browser_compatibility
-    };
-    const addCart = () => {
-      context.emit("added-cart", item);
-    };
-    return {
-      item,
-      priceFormat,
-      addCart, // <- ここも追加
-    };
-  },
+const props = defineProps({
+  shoesData: Object,
+});
+const emits = defineEmits(["added-cart"]);
+const item = ref(props.shoesData);
+const priceFormat = (num) => {
+  return num.toLocaleString();
+  // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#Browser_compatibility
+};
+const addCart = () => {
+  context.emit("added-cart", item);
 };
 </script>
 
