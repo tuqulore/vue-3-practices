@@ -1755,18 +1755,18 @@ layouts 配下にいくつかのレイアウトコンポーネントを用意し
 </div>
 <div>
 
-`layouts/custom.vue`に切り替える例
+`layouts/custom.vue`に別の共通レイアウトを組む例
 
 ```vue
 <template>
   <div>
-    <Nav />
+    <header>別の共通レイアウト</header>
     <slot />
   </div>
 </template>
 ```
 
-ページコンポーネントでレイアウトを参照する例
+ページコンポーネントで custom レイアウトを参照する例
 
 ```vue
 <template>
