@@ -36,9 +36,11 @@ Vue 3 / Nuxt 3 を学習するための
 | グリッドコンポーネント                  | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-grid-component?file=src/App.vue&terminal=dev) [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-grid-component-finish?file=src/App.vue&terminal=dev)   |
 | Markdown エディタ                       | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-markdown-editor?file=src/App.vue&terminal=dev) [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-markdown-editor-finish?file=src/App.vue&terminal=dev) |
 | デザインラボの記事ビューアー            | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router?file=src/App.vue&terminal=dev) [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router-finish?file=src/App.vue&terminal=dev)       |
-| デザインラボの記事ビューアー（Nuxt 版） | [完成](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router-nuxt-finish?file=src/App.vue&terminal=dev)                                                                                                                                    |
+| デザインラボの記事ビューアー（Nuxt 版） | 完成[^not-working-on-stackblitz]                                                                                                                                                                                                                                                |
 | 靴のギャラリー                          | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes?file=src/App.vue&terminal=dev) [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes-finish?file=src/App.vue&terminal=dev)     |
 | 靴のギャラリーとショッピングカート      | [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes-cart-finish?file=src/App.vue&terminal=dev)                                                                                                                                        |
+
+[^not-working-on-stackblitz]: 現状StackBlitzで動作しません。ローカル環境にて実行してください。詳しくは[#193](https://github.com/tuqulore/vue-3-practices/issues/193)を参照してください。
 
 ## 演習
 
