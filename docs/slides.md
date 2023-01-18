@@ -1653,12 +1653,13 @@ https://v3.nuxtjs.org/guide/concepts/introduction#why-nuxt
 - Vue コンポーネント等の import を省略できる
 - pages ディレクトリに .vue ファイルを作成するだけで HTML ページができる（ルーティングの自動生成）
 - server ディレクトリにサーバー側の処理が書ける（API エンドポイントの生成）
-- Nuxt 3 は 2022 年 6 月現在、リリース候補版が公開されている
+- Nuxt 3 は 2022 年 11 月に安定版がリリースされた
 
 ---
 
-# Nuxt 3
+# Nuxt 3 のハンズオン
 
+- app.vue
 - pages
 - NuxtLink
 - layouts
@@ -1667,30 +1668,41 @@ https://v3.nuxtjs.org/guide/concepts/introduction#why-nuxt
 
 ---
 
-# pages
+# app.vue
 
-app.vue を削除する。  
-pages ディレクトリに.vue ファイルを配置し、複数ページを構成する。
-まずは `pages/index.vue`, `pages/about.vue` を作成する。
+app.vue を開いて中身を確認する。  
+app.vue を削除する。
 
-Vue 開発環境では App.vue ファイルをメインで開発していて、Nuxt でも同様の目的を app.vue にて行える。例えば app.vue は以下のように書いて、各ページの template 部分が`<NuxtPage />`に置き換わる。
+Vue 開発環境では App.vue ファイルをルートコンポーネントとして取り扱うことが多いが、Nuxt では app.vue がルートコンポーネントと決められている。ルーティングをおこなう場合、`<NuxtPage />` コンポーネントを挿入する。（Vue Router 導入時に出てきた `<RouterView />` コンポーネントと同じ）
 
 ```vue
 <template>
-  <header>共通ヘッダ</header>
-  <NuxtPage />
+  <div>
+    <header>共通レイアウト</header>
+    <NuxtPage />
+  </div>
 </template>
 ```
 
-ただし、複数ページを構成するにあたっては pages 内で開発・管理することが一般的。
-その際、app.vue でこのようなことができるが、後述する layouts 機能を使ったほうがよい。
+`<NuxtPage />` コンポーネントの外側は共通レイアウト（画面遷移しても見た目が変わらない部分）になる。ページごとに共通レイアウトを切り替えたい場合は、後述する layouts を使う必要がある。
+
+そもそも共通レイアウトが不要なのであれば、 app.vue を削除することもできる。（この場合、ルートコンポーネントが消えるわけではなく、Nuxt 3によって隠蔽される。）
+
+---
+
+# pages
+
+pages ディレクトリに `pages/index.vue`, `pages/about.vue` ファイルを配置し、複数ページを構成する。
+
+Nuxt ではページを作成するだけでルートを定義することができる。つまり、 Vue Router を導入したときのように手動でルートを定義する必要がない。
+
+
 
 ---
 
 # NuxtLink
 
 コンポーネントで Nav.vue を作成、index と about のリンクナビゲーションを作成する。  
-Nuxt ではページを作成するだけで Vue Router による設定を自動に行ってくれる、つまり Vue 環境下のように手動でルーティング設定を生成する必要がない。
 
 そしてそのルートを移動する際は HTML の
 
@@ -1711,35 +1723,70 @@ Nuxt ではページを作成するだけで Vue Router による設定を自動
 
 # layouts
 
-`layouts/default.vue`を作成し、共通ナビゲーションを表示させる。  
-pages で解説したように例えば app.vue に共通ヘッダを持たせるのであれば、以下のような書き方で事足りるが、ページによってはヘッダが不要などといったことが出てくる。
-その際、ページそのもののテンプレートを複数用意し、各ページがそのテンプレートを必要に応じて選び変えることができる。
+`layouts/default.vue`を作成し、`<Nav />` を表示させる。  
+layouts 配下にいくつかのレイアウトコンポーネントを用意し、ページコンポーネントごとに切り替えることもできる。
 
-`app.vue`の例
+<div class="flex gap-8">
 
-```vue
-<template>
-  <header>共通ヘッダ</header>
-  <NuxtPage />
-</template>
-```
+<div>
 
-`layouts/default.vue`の例
+`app.vue`で共通レイアウトを組む例
 
 ```vue
 <template>
   <div>
-    <header>共通ヘッダ</header>
+    <Nav />
+    <NuxtPage />
+  </div>
+</template>
+```
+
+`layouts/default.vue`で共通レイアウトを組む例
+
+```vue
+<template>
+  <div>
+    <Nav />
     <slot />
   </div>
 </template>
 ```
 
+</div>
+<div>
+
+`layouts/custom.vue`に切り替える例
+
+```vue
+<template>
+  <div>
+    <Nav />
+    <slot />
+  </div>
+</template>
+```
+
+ページコンポーネントでレイアウトを参照する例
+
+```vue
+<template>
+  <div>
+    <NuxtLayout name="custom">
+      <!-- ページコンテンツ -->
+    </NuxtLayout>
+  </div>
+</template>
+```
+
+</div>
+
+</div>
+
 ---
 
 # Data Fetching / server ディレクトリ
 
-`server/api`ディレクトリにある`users.js`を確認、`components/userList.vue`に以下を記述する。
+`server/api`ディレクトリにある`users.js`を確認して、`components/userList.vue`に以下を記述する。
 
 ```vue
 <template>
@@ -1761,11 +1808,11 @@ const { data: users } = await useFetch("/api/users");
 
 # composables
 
-アプリ全体共通のデータを管理する。js ファイルではあるが、中身は vue の記述に近いことがわかる。 ここで状態を管理する。
-`composables/userCounter.js`を作成する。
+`composables/useCounter.js`を作成する。  
+アプリで再利用したいロジックを管理することができる。js ファイルではあるが、Vue コンポーネントで使ってきた関数を使用していることがわかる。
 
 ```js
-import { ref, readonly } from "vue";
+import { ref, readonly } from "#app";
 
 export default () => {
   const count = ref(0);
@@ -1782,6 +1829,8 @@ export default () => {
 
 # composables
 
+作成した useCounter コンポジション関数を使用する。
+
 ```vue
 <template>
   <div>
@@ -1791,14 +1840,14 @@ export default () => {
 </template>
 
 <script setup>
-import useCounter from "~~/composables/useCounter";
-
 const counter = useCounter();
 function increment() {
   counter.increment();
 }
 </script>
 ```
+
+<arrow v-click="1" x1="400" y1="400" x2="220" y2="300" color="#564" width="3" arrowSize="1" />
 
 ---
 
@@ -1859,10 +1908,6 @@ pages/
 
 # Vue + Vue Router と Nuxt 3 の比較（ルーティング）
 
-https://v3.nuxtjs.org/guide/directory-structure/pages
-
-> Pages **must have a single root element** to allow route transitions between pages. (HTML comments are considered elements as well.)
-
 Vue 3 はテンプレートの最上位に複数要素が書けるようになった https://v3.ja.vuejs.org/guide/migration/fragments.html
 
 例：
@@ -1875,6 +1920,10 @@ Vue 3 はテンプレートの最上位に複数要素が書けるようにな�
 ```
 
 しかし、Nuxt 3 の pages ディレクトリに配置する Vue コンポーネントに限っては、Nuxt 3 の制約としてテンプレートの最上位はひとつまでの要素しか書けない
+
+> Pages must have a single root element to allow route transitions between pages. (HTML comments are considered elements as well.)
+
+https://nuxt.com/docs/guide/directory-structure/pages
 
 ---
 
@@ -2014,6 +2063,16 @@ const { pending, data: count } = useLazyAsyncData("count", () =>
 Nuxt 3 の useFetch、$fetch は純粋なクライアント処理でない（サーバー側で内部的に処理される）場合があることが原因 https://v3.nuxtjs.org/guide/features/data-fetching#isomorphic-fetch-and-fetch
 
 場合によっては（$fetch ではなく） fetch を使うことも検討すること
+
+---
+
+# VueUse
+
+便利なコンポジション関数を提供しているライブラリ
+
+- スクラッチ（ゼロ）から処理を書くのは車輪の再発明かもしれない
+- 既製のライブラリを使用することで効率的に開発することができる
+- https://vueuse.org/functions.html をみてみよう
 
 ---
 
