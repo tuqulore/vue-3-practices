@@ -1940,8 +1940,9 @@ https://v3.nuxtjs.org/guide/concepts/auto-imports
 <script setup>
 （中略）
 const posts = ref(null);
-const response = await fetch("/wp-json/wp/v2/posts.json");
-posts.value = await response.json();
+const load = async () => {
+  const response = await fetch("/wp-json/wp/v2/posts.json");
+  posts.value = await response.json();
 （後略）
 ```
 
