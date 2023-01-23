@@ -3,7 +3,6 @@
 theme: "default"
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
 # apply any windi css classes to the current slide
 class: "text-center"
 # https://sli.dev/custom/highlighters.html
@@ -22,10 +21,11 @@ drawings:
 ---
 
 <div class="text-center">
-<img src="/logo.svg" alt="Vue" style="width: 100px;" class="inline" />
-</div>
+<img src="/logo.svg" alt="Vue" style="width: 100px;" class="inline mb-4" />
 
-# Vue.js
+<h1 class="!text-5xl">Vue3 Practices</h1>
+
+</div>
 
 ---
 
@@ -2111,33 +2111,111 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
 
 ---
 
-# 課題
+# 課題 - 付箋アプリをつくってみよう
 
-- レベル 1 ～ 3 の 3 つある
-- 1 から順番に取り組んでもらう
-- 16 時に解説する
+<div class="text-xs">
 
----
+マウスドラッグで付箋を動かし、文字を書き込み、色を変えるアプリです。さらに皆さんの追加したい機能を考えて自由につくり替えてみましょう。
 
-# 課題（レベル 1）
+<div class="grid grid-cols-2 items-center text-xs font-bold text-gray-500">
+  <figure>
+  <img src="sticky-handson.png" class="w-80 mb-4" alt />
+    <figcaption>どこからでも付箋の情報を扱える Composables を使う</figcaption>
+  </figure>
+  <figure>
+  <img src="fig-sticky-handson.png" class="w-80 border border-gray-200 mb-4" alt />
+    <figcaption>
+      <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-eqvxvb">簡単なサンプルを見てみましょう →</a>
+    </figcaption>
+  </figure>
+</div>
 
-問題：https://stackblitz.com/edit/github-siucq8-dvv8rq?file=app.vue
-
-1. useFetch を使って http://localhost:3000/data.json から果物のリストを取得してください
-2. 果物を順序なしリストで表示してください https://developer.mozilla.org/ja/docs/Web/HTML/Element/ul
-
----
-
-# 課題（レベル 2）
-
-問題：https://stackblitz.com/edit/github-siucq8-ews4bu?file=app.vue
-
-コード上のコメントを読みながら、未完成のアプリを完成させてください
+</div>
 
 ---
 
-# 課題（レベル 3）
+# VueUse を使って付箋のドラッグ移動を実現
 
-問題：https://stackblitz.com/edit/nuxt-starter-qk1mbi?file=components%2FTreeItem.vue
+<div class="text-xs h-11/12">
 
-コード上のコメントを読みながら、未完成のアプリを完成させてください
+<p>様々な Vue で使える便利なユーティリティがあります。</p>
+
+<img src="fig-vueuse.png" alt="VueUse" class="h-8/12" />
+
+<a target="_blank" rel="noopener noreferrer" href="https://vueuse.org/">https://vueuse.org/</a>
+
+<p>
+今回は <a target="_blank" rel="noopener noreferrer" href="https://vueuse.org/core/usedraggable/#usedraggable">useDraggable</a> を使います
+</p>
+</div>
+
+---
+
+# 構成を理解しよう
+
+```
+├── components/
+│ ├── Sticky.vue （付箋単体の情報を格納したコンポーネント）
+├── composables/
+│ ├── useStickies.vue （付箋全体の情報を一括で管理する Composables）
+├── pages/
+│ ├── index.vue （ページ）
+├── app.vue （ページをラップする雛形）
+├── package.json （今回はuseDraggableが含まれています）
+
+```
+
+<div class="text-xs leading-5 my-4">
+
+- `pages/index.vue` と `components/Sticky.vue` は同じ `composables/useStickies.vue` を参照していることがわかります
+- `composables/useStickies.vue` には現在、3 つの付箋の情報が配列で用意されています
+- `composables/useStickies.vue` には現在、`add()`と`update()`の関数が用意されていて、別々のコンポーネントから呼び出しが可能になっています
+
+これで付箋の情報を一元管理できることがわかります。
+
+</div>
+
+---
+
+# もっと便利で楽しい機能を
+
+<p class="text-xs">先程の簡単なサンプルから以下のサンプルコードを選んで、機能を追加していきましょう。<br />まずは書き写してみるだけでも勉強になります。</p>
+
+<div class="grid grid-cols-3 gap-6 text-xs">
+  <figure>
+    <img src="fig-sticky-remove.png" class="p-1 border mb-2" alt />
+    <figcaption>
+      <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-a1jojw">削除ボタンの追加 →</a>
+      </figcaption>
+  </figure>
+
+  <figure>
+    <img src="fig-sticky-photo.png" class="p-1 border mb-2" alt />
+    <figcaption>
+      <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-7qahec">付箋に画像を貼る →</a>
+      </figcaption>
+  </figure>
+
+  <figure>
+    <img src="fig-sticky-add.png" class="p-1 border mb-2" alt />
+    <figcaption>
+      <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-ryc4pc">付箋の追加ボタンを新規コンポーネントで作成 →</a>
+      </figcaption>
+  </figure>
+</div>
+
+---
+
+# 理解ができたら、次はあなたのアイデアで！
+
+例えば...
+
+- 重ね順を変更させたい
+- 文字の色、太さ、影など付けたい
+- 動画を貼りたい
+- カメラを起動させて撮影した写真を貼りたい
+- スタンプを貼りたい
+
+など、余裕ができたらあなたのアイデアを実現してみましょう。
+
+ちょっとハードルは上がるかもしれませんが、どう実装するべきかは講師にも相談してみてください。
