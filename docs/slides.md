@@ -1635,7 +1635,7 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-ga
 
 # Nuxt 3
 
-https://v3.nuxtjs.org/guide/concepts/introduction#why-nuxt
+https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 効率的にモダンなウェブアプリケーション開発に必要なライブラリがあらかじめ含まれている（Nuxt 3 を導入すれば自分で別途導入する必要がない）
 
@@ -1889,7 +1889,7 @@ Node.js がセットアップ済みの人はローカルで動かしてみよう
 
 1. 導入済みなので設定不要
 2. ファイル・ディレクトリ構成で定義できる（ファイルベースルーティング）
-3. app.vue は NuxtPage コンポーネントが必要だが app.vue 自体存在しなければ設定不要 https://v3.nuxtjs.org/guide/directory-structure/app
+3. app.vue は NuxtPage コンポーネントが必要だが app.vue 自体存在しなければ設定不要 https://nuxt.com/docs/guide/directory-structure/app
 
 ```
 pages/
@@ -1966,7 +1966,7 @@ const { data: posts, pending } = await useFetch(
 
 # Vue + Vue Router と Nuxt 3 の比較（自動インポート）
 
-https://v3.nuxtjs.org/guide/concepts/auto-imports
+https://nuxt.com/docs/guide/concepts/auto-imports
 
 以下はインポート不要
 
@@ -2014,7 +2014,7 @@ const { data: posts, pending } = await useFetch(
 
 - リアクティブな値を別途用意する必要がない
 - [Response.json()](https://developer.mozilla.org/ja/docs/Web/API/Response/json)が暗黙的に実行されオブジェクトが得られる
-- データ再取得の関数、取得中の状態値などあると便利なものが用意されている https://v3.nuxtjs.org/api/composables/use-fetch
+- データ再取得の関数、取得中の状態値などあると便利なものが用意されている https://nuxt.com/docs/getting-started/data-fetching
 
 </div>
 
@@ -2026,7 +2026,7 @@ const { data: posts, pending } = await useFetch(
 
 # Vue + Vue Router と Nuxt 3 の比較（データ取得）
 
-https://v3.nuxtjs.org/guide/features/data-fetching
+https://nuxt.com/docs/getting-started/data-fetching
 
 useFetch 以外もある
 
@@ -2060,7 +2060,7 @@ const { pending, data: count } = useLazyAsyncData("count", () =>
   - server ディレクトリで提供する API エンドポイントはオリジン省略可能
   - 上記以外のケース、たとえばアセット（public ディレクトリで提供する静的ファイル）はオリジンが必要
 
-Nuxt 3 の useFetch、$fetch は純粋なクライアント処理でない（サーバー側で内部的に処理される）場合があることが原因 https://v3.nuxtjs.org/guide/features/data-fetching#isomorphic-fetch-and-fetch
+Nuxt 3 の useFetch、$fetch は純粋なクライアント処理でない（サーバー側で内部的に処理される）場合があることが原因 https://nuxt.com/docs/getting-started/data-fetching#isomorphic-fetch-and-fetch
 
 場合によっては（$fetch ではなく） fetch を使うことも検討すること
 
