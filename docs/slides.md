@@ -33,7 +33,7 @@ drawings:
 
 - はじめに
   - Composition API, 学習環境など
-- リアクティブの探求
+- リアクティビティーの探求
   - ref, reactive, toRefs, readonly など
 - 算出プロパティ（computed）
   - computed
@@ -56,7 +56,7 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 <div class="pt-4 text-sm">
 
-<a href="https://v3.ja.vuejs.org/guide/introduction.html#vue-js-%E3%81%A8%E3%81%AF">
+<a href="https://ja.vuejs.org/guide/introduction.html">
 <carbon:arrow-right class="inline" /> 公式サイト
 </a>
 </div>
@@ -231,14 +231,14 @@ function increment() {
 
 ---
 
-# リアクティブの探求
+# リアクティビティーの探求
 
 <div class="flex gap-4">
 
 <div>
 <video controls loop style="height: 30vh" src="https://v3.ja.vuejs.org/images/reactivity-spreadsheet.mp4"></video>
 
-<a href="https://v3.ja.vuejs.org/guide/reactivity.html#%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B">参考</a>
+<a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">参考</a>
 
 </div>
 
@@ -264,7 +264,7 @@ console.log(sum); // 5のまま（期待は6）
 
 ---
 
-# リアクティブの探求
+# リアクティビティーの探求
 
 <div class="flex gap-4">
 
@@ -300,7 +300,7 @@ console.log(sum); // 3.
 
 ---
 
-# リアクティブの探求（ref によるリアクティブな値の参照）
+# リアクティビティーの探求（ref によるリアクティブな値の参照）
 
 `ref` を使った値を操作する場合、`setup` 関数内では `value` プロパティにアクセスする。
 `template` 内では変数（定数）そのものを参照するだけで値を得られる。
@@ -341,7 +341,7 @@ const sum = computed(() => {
 
 ---
 
-# リアクティブの探求（リアクティブな値をオブジェクトにまとめる）
+# リアクティビティーの探求（リアクティブな値をオブジェクトにまとめる）
 
 リアクティブにしたいデータがオブジェクトの場合、`reactive` を使う
 
@@ -364,7 +364,7 @@ const user = reactive({
 
 ---
 
-# リアクティブの探求（オブジェクトにまとめたリアクティブな値を取り出す）
+# リアクティビティーの探求（オブジェクトにまとめたリアクティブな値を取り出す）
 
 前項の `reactive` だと、分割代入しても値が取り出せない。Vue では `toRefs` を使うことで可能になる。
 
@@ -389,7 +389,7 @@ const { name } = toRefs(user);
 
 ---
 
-# リアクティブの探求（リアクティブな値を読み込み専用にする）
+# リアクティビティーの探求（リアクティブな値を読み込み専用にする）
 
 ```vue
 <template>
@@ -671,7 +671,7 @@ setInterval(() => {
 </template>
 
 <script setup>
-const url = "https://v3.ja.vuejs.org/";
+const url = "https://ja.vuejs.org/";
 </script>
 ```
 
@@ -1908,7 +1908,7 @@ pages/
 
 # Vue + Vue Router と Nuxt 3 の比較（ルーティング）
 
-Vue 3 はテンプレートの最上位に複数要素が書けるようになった https://v3.ja.vuejs.org/guide/migration/fragments.html
+Vue 3 はテンプレートの最上位に複数要素が書ける
 
 例：
 
@@ -2084,7 +2084,7 @@ Vue 固有の記法についての公式なスタイルガイド
 - スタイルガイドに書いてあることを守ると、事前に起こりうる問題に対処することができる
 - [eslint-plugin-vue](https://eslint.vuejs.org/)を使うとスタイルガイドに違反しているか静的にコードを解析・修正できる
 
-[スタイルガイド](https://v3.ja.vuejs.org/style-guide/)
+[スタイルガイド](https://ja.vuejs.org/style-guide/)
 
 ---
 
