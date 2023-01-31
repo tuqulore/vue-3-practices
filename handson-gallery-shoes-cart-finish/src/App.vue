@@ -14,7 +14,6 @@ onMounted(async () => {
   const shoesJson = await fetch("/json/shoes.json");
   shoes.value = await shoesJson.json();
 });
-return { shoes, addCart, cart, showCart };
 </script>
 
 <template>
