@@ -1357,7 +1357,7 @@ function clickHandler() {
 
 <script setup>
 import { ref } from "vue";
-import ChildComponent from "./ChildComponent.vue";
+import ChildComponent from "./components/ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
@@ -1425,7 +1425,7 @@ const title = computed({
 
 <script setup>
 import { ref } from "vue";
-import ChildComponent from "./ChildComponent.vue";
+import ChildComponent from "./components/ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
