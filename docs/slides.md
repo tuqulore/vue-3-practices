@@ -1301,7 +1301,7 @@ const user = ref(props.student);
 </template>
 
 <script setup>
-import ChildComponent from "./ChildComponent.vue";
+import ChildComponent from "./components/ChildComponent.vue";
 
 function clicked(message) {
   alert(message);
