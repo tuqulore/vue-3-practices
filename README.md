@@ -25,6 +25,10 @@ Vue 3 / Nuxt 3 を学習するための
 | 用語に関する補助教材       | [用語集](https://github.com/tuqulore/vue-3-practices/blob/main/TERM.md)                    |
 | 自習時の補助教材           | [ドキュメント](https://github.com/tuqulore/vue-3-practices/blob/main/LEARNING_MATERIAL.md) |
 
+## CodeSandbox Projects
+
+実験的に対応しています。次の URL にアクセスしてください。 https://codesandbox.io/p/github/tuqulore/vue-3-practices/
+
 ## ハンズオン
 
 | 内容                                    | リンク                                                                                                                                                                                                                                                                          |
