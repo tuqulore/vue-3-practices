@@ -1659,6 +1659,8 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 # Nuxt 3 のハンズオン
 
+https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev
+
 - app.vue
 - pages
 - NuxtLink
