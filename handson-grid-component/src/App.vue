@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import DemoGrid from "./components/DemoGrid.vue";
 
-// DemoGrindコンポーネントにプロパティとして渡すデータをリアクティブな値の参照として作成しています
+// DemoGridコンポーネントにプロパティとして渡すデータをリアクティブな値の参照として作成しています
 const searchQuery = ref("");
 const gridColumns = ref(["名前", "戦闘力"]);
 const gridData = ref([

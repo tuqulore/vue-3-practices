@@ -1,0 +1,202 @@
+{
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "yarn install"
+    }
+  ],
+  "tasks": {
+    "handson-fetch-router": {
+      "name": "Start handson-fetch-router",
+      "command": "yarn --cwd handson-fetch-router dev"
+    },
+    "handson-fetch-router-finish": {
+      "name": "Start handson-fetch-router-finish",
+      "command": "yarn --cwd handson-fetch-router-finish dev"
+    },
+    "handson-fetch-router-nuxt-finish": {
+      "name": "Start handson-fetch-router-nuxt-finish",
+      "command": "yarn --cwd handson-fetch-router-nuxt-finish dev"
+    },
+    "handson-gallery-shoes": {
+      "name": "Start handson-gallery-shoes",
+      "command": "yarn --cwd handson-gallery-shoes dev"
+    },
+    "handson-gallery-shoes-cart-finish": {
+      "name": "Start handson-gallery-shoes-cart-finish",
+      "command": "yarn --cwd handson-gallery-shoes-cart-finish dev"
+    },
+    "handson-gallery-shoes-finish": {
+      "name": "Start handson-gallery-shoes-finish",
+      "command": "yarn --cwd handson-gallery-shoes-finish dev"
+    },
+    "handson-grid-component": {
+      "name": "Start handson-grid-component",
+      "command": "yarn --cwd handson-grid-component dev"
+    },
+    "handson-grid-component-finish": {
+      "name": "Start handson-grid-component-finish",
+      "command": "yarn --cwd handson-grid-component-finish dev"
+    },
+    "handson-markdown-editor": {
+      "name": "Start handson-markdown-editor",
+      "command": "yarn --cwd handson-markdown-editor dev"
+    },
+    "handson-markdown-editor-finish": {
+      "name": "Start handson-markdown-editor-finish",
+      "command": "yarn --cwd handson-markdown-editor-finish dev"
+    },
+    "handson-nuxt": {
+      "name": "Start handson-nuxt",
+      "command": "yarn --cwd handson-nuxt dev"
+    },
+    "handson-nuxt-playground": {
+      "name": "Start handson-nuxt-playground",
+      "command": "yarn --cwd handson-nuxt-playground dev"
+    },
+    "handson-vue": {
+      "name": "Start handson-vue",
+      "command": "yarn --cwd handson-vue dev"
+    },
+    "handson-vue-playground": {
+      "name": "Start handson-vue-playground",
+      "command": "yarn --cwd handson-vue-playground dev"
+    },
+    "practice-computed": {
+      "name": "Start practice-computed",
+      "command": "yarn --cwd practice-computed dev"
+    },
+    "practice-computed-answer": {
+      "name": "Start practice-computed-answer",
+      "command": "yarn --cwd practice-computed-answer dev"
+    },
+    "practice-debounce": {
+      "name": "Start practice-debounce",
+      "command": "yarn --cwd practice-debounce dev"
+    },
+    "practice-debounce-answer": {
+      "name": "Start practice-debounce-answer",
+      "command": "yarn --cwd practice-debounce-answer dev"
+    },
+    "practice-emit-event-handling": {
+      "name": "Start practice-emit-event-handling",
+      "command": "yarn --cwd practice-emit-event-handling dev"
+    },
+    "practice-emit-event-handling-answer": {
+      "name": "Start practice-emit-event-handling-answer",
+      "command": "yarn --cwd practice-emit-event-handling-answer dev"
+    },
+    "practice-fetch": {
+      "name": "Start practice-fetch",
+      "command": "yarn --cwd practice-fetch dev"
+    },
+    "practice-fetch-answer": {
+      "name": "Start practice-fetch-answer",
+      "command": "yarn --cwd practice-fetch-answer dev"
+    },
+    "practice-mounted": {
+      "name": "Start practice-mounted",
+      "command": "yarn --cwd practice-mounted dev"
+    },
+    "practice-mounted-answer": {
+      "name": "Start practice-mounted-answer",
+      "command": "yarn --cwd practice-mounted-answer dev"
+    },
+    "practice-mustache-setup": {
+      "name": "Start practice-mustache-setup",
+      "command": "yarn --cwd practice-mustache-setup dev"
+    },
+    "practice-mustache-setup-answer": {
+      "name": "Start practice-mustache-setup-answer",
+      "command": "yarn --cwd practice-mustache-setup-answer dev"
+    },
+    "practice-reactive-class-binding-event-handling": {
+      "name": "Start practice-reactive-class-binding-event-handling",
+      "command": "yarn --cwd practice-reactive-class-binding-event-handling dev"
+    },
+    "practice-reactive-class-binding-event-handling-answer": {
+      "name": "Start practice-reactive-class-binding-event-handling-answer",
+      "command": "yarn --cwd practice-reactive-class-binding-event-handling-answer dev"
+    },
+    "practice-reactive-props-component-v-model": {
+      "name": "Start practice-reactive-props-component-v-model",
+      "command": "yarn --cwd practice-reactive-props-component-v-model dev"
+    },
+    "practice-reactive-props-component-v-model-answer-1": {
+      "name": "Start practice-reactive-props-component-v-model-answer-1",
+      "command": "yarn --cwd practice-reactive-props-component-v-model-answer-1 dev"
+    },
+    "practice-reactive-props-component-v-model-answer-2": {
+      "name": "Start practice-reactive-props-component-v-model-answer-2",
+      "command": "yarn --cwd practice-reactive-props-component-v-model-answer-2 dev"
+    },
+    "practice-reactive-props-component-v-model-answer-3": {
+      "name": "Start practice-reactive-props-component-v-model-answer-3",
+      "command": "yarn --cwd practice-reactive-props-component-v-model-answer-3 dev"
+    },
+    "practice-scoped-css-component": {
+      "name": "Start practice-scoped-css-component",
+      "command": "yarn --cwd practice-scoped-css-component dev"
+    },
+    "practice-scoped-css-component-answer": {
+      "name": "Start practice-scoped-css-component-answer",
+      "command": "yarn --cwd practice-scoped-css-component-answer dev"
+    },
+    "practice-slot": {
+      "name": "Start practice-slot",
+      "command": "yarn --cwd practice-slot dev"
+    },
+    "practice-slot-answer": {
+      "name": "Start practice-slot-answer",
+      "command": "yarn --cwd practice-slot-answer dev"
+    },
+    "practice-style": {
+      "name": "Start practice-style",
+      "command": "yarn --cwd practice-style dev"
+    },
+    "practice-style-answer": {
+      "name": "Start practice-style-answer",
+      "command": "yarn --cwd practice-style-answer dev"
+    },
+    "practice-v-for": {
+      "name": "Start practice-v-for",
+      "command": "yarn --cwd practice-v-for dev"
+    },
+    "practice-v-for-answer": {
+      "name": "Start practice-v-for-answer",
+      "command": "yarn --cwd practice-v-for-answer dev"
+    },
+    "practice-v-if": {
+      "name": "Start practice-v-if",
+      "command": "yarn --cwd practice-v-if dev"
+    },
+    "practice-v-if-answer": {
+      "name": "Start practice-v-if-answer",
+      "command": "yarn --cwd practice-v-if-answer dev"
+    },
+    "practice-v-model": {
+      "name": "Start practice-v-model",
+      "command": "yarn --cwd practice-v-model dev"
+    },
+    "practice-v-model-answer": {
+      "name": "Start practice-v-model-answer",
+      "command": "yarn --cwd practice-v-model-answer dev"
+    },
+    "practice-vue-router": {
+      "name": "Start practice-vue-router",
+      "command": "yarn --cwd practice-vue-router dev"
+    },
+    "practice-vue-router-answer-1": {
+      "name": "Start practice-vue-router-answer-1",
+      "command": "yarn --cwd practice-vue-router-answer-1 dev"
+    },
+    "practice-vue-router-answer-2": {
+      "name": "Start practice-vue-router-answer-2",
+      "command": "yarn --cwd practice-vue-router-answer-2 dev"
+    },
+    "docs": {
+      "name": "Show slides",
+      "command": "yarn --cwd docs slidev"
+    }
+  }
+}

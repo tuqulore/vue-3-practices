@@ -26,7 +26,7 @@ const priceFormat = (num) => {
   // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#Browser_compatibility
 };
 const addCart = () => {
-  context.emit("added-cart", item);
+  emits("added-cart", item);
 };
 </script>
 

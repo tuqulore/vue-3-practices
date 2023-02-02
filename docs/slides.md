@@ -33,7 +33,7 @@ drawings:
 
 - はじめに
   - Composition API, 学習環境など
-- リアクティブの探求
+- リアクティビティーの探求
   - ref, reactive, toRefs, readonly など
 - 算出プロパティ（computed）
   - computed
@@ -56,7 +56,7 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 <div class="pt-4 text-sm">
 
-<a href="https://v3.ja.vuejs.org/guide/introduction.html#vue-js-%E3%81%A8%E3%81%AF">
+<a href="https://ja.vuejs.org/guide/introduction.html">
 <carbon:arrow-right class="inline" /> 公式サイト
 </a>
 </div>
@@ -231,14 +231,14 @@ function increment() {
 
 ---
 
-# リアクティブの探求
+# リアクティビティーの探求
 
 <div class="flex gap-4">
 
 <div>
 <video controls loop style="height: 30vh" src="https://v3.ja.vuejs.org/images/reactivity-spreadsheet.mp4"></video>
 
-<a href="https://v3.ja.vuejs.org/guide/reactivity.html#%E3%83%AA%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%95%E3%82%99%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B">参考</a>
+<a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">参考</a>
 
 </div>
 
@@ -264,7 +264,7 @@ console.log(sum); // 5のまま（期待は6）
 
 ---
 
-# リアクティブの探求
+# リアクティビティーの探求
 
 <div class="flex gap-4">
 
@@ -300,7 +300,7 @@ console.log(sum); // 3.
 
 ---
 
-# リアクティブの探求（ref によるリアクティブな値の参照）
+# リアクティビティーの探求（ref によるリアクティブな値の参照）
 
 `ref` を使った値を操作する場合、`setup` 関数内では `value` プロパティにアクセスする。
 `template` 内では変数（定数）そのものを参照するだけで値を得られる。
@@ -341,7 +341,7 @@ const sum = computed(() => {
 
 ---
 
-# リアクティブの探求（リアクティブな値をオブジェクトにまとめる）
+# リアクティビティーの探求（リアクティブな値をオブジェクトにまとめる）
 
 リアクティブにしたいデータがオブジェクトの場合、`reactive` を使う
 
@@ -364,7 +364,7 @@ const user = reactive({
 
 ---
 
-# リアクティブの探求（オブジェクトにまとめたリアクティブな値を取り出す）
+# リアクティビティーの探求（オブジェクトにまとめたリアクティブな値を取り出す）
 
 前項の `reactive` だと、分割代入しても値が取り出せない。Vue では `toRefs` を使うことで可能になる。
 
@@ -389,7 +389,7 @@ const { name } = toRefs(user);
 
 ---
 
-# リアクティブの探求（リアクティブな値を読み込み専用にする）
+# リアクティビティーの探求（リアクティブな値を読み込み専用にする）
 
 ```vue
 <template>
@@ -671,7 +671,7 @@ setInterval(() => {
 </template>
 
 <script setup>
-const url = "https://v3.ja.vuejs.org/";
+const url = "https://ja.vuejs.org/";
 </script>
 ```
 
@@ -1301,7 +1301,7 @@ const user = ref(props.student);
 </template>
 
 <script setup>
-import ChildComponent from "./ChildComponent.vue";
+import ChildComponent from "./components/ChildComponent.vue";
 
 function clicked(message) {
   alert(message);
@@ -1357,7 +1357,7 @@ function clickHandler() {
 
 <script setup>
 import { ref } from "vue";
-import ChildComponent from "./ChildComponent.vue";
+import ChildComponent from "./components/ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
@@ -1425,7 +1425,7 @@ const title = computed({
 
 <script setup>
 import { ref } from "vue";
-import ChildComponent from "./ChildComponent.vue";
+import ChildComponent from "./components/ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
@@ -1635,7 +1635,7 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-ga
 
 # Nuxt 3
 
-https://v3.nuxtjs.org/guide/concepts/introduction#why-nuxt
+https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 効率的にモダンなウェブアプリケーション開発に必要なライブラリがあらかじめ含まれている（Nuxt 3 を導入すれば自分で別途導入する必要がない）
 
@@ -1889,7 +1889,7 @@ Node.js がセットアップ済みの人はローカルで動かしてみよう
 
 1. 導入済みなので設定不要
 2. ファイル・ディレクトリ構成で定義できる（ファイルベースルーティング）
-3. app.vue は NuxtPage コンポーネントが必要だが app.vue 自体存在しなければ設定不要 https://v3.nuxtjs.org/guide/directory-structure/app
+3. app.vue は NuxtPage コンポーネントが必要だが app.vue 自体存在しなければ設定不要 https://nuxt.com/docs/guide/directory-structure/app
 
 ```
 pages/
@@ -1908,7 +1908,7 @@ pages/
 
 # Vue + Vue Router と Nuxt 3 の比較（ルーティング）
 
-Vue 3 はテンプレートの最上位に複数要素が書けるようになった https://v3.ja.vuejs.org/guide/migration/fragments.html
+Vue 3 はテンプレートの最上位に複数要素が書ける
 
 例：
 
@@ -1966,7 +1966,7 @@ const { data: posts, pending } = await useFetch(
 
 # Vue + Vue Router と Nuxt 3 の比較（自動インポート）
 
-https://v3.nuxtjs.org/guide/concepts/auto-imports
+https://nuxt.com/docs/guide/concepts/auto-imports
 
 以下はインポート不要
 
@@ -2014,7 +2014,7 @@ const { data: posts, pending } = await useFetch(
 
 - リアクティブな値を別途用意する必要がない
 - [Response.json()](https://developer.mozilla.org/ja/docs/Web/API/Response/json)が暗黙的に実行されオブジェクトが得られる
-- データ再取得の関数、取得中の状態値などあると便利なものが用意されている https://v3.nuxtjs.org/api/composables/use-fetch
+- データ再取得の関数、取得中の状態値などあると便利なものが用意されている https://nuxt.com/docs/getting-started/data-fetching
 
 </div>
 
@@ -2026,7 +2026,7 @@ const { data: posts, pending } = await useFetch(
 
 # Vue + Vue Router と Nuxt 3 の比較（データ取得）
 
-https://v3.nuxtjs.org/guide/features/data-fetching
+https://nuxt.com/docs/getting-started/data-fetching
 
 useFetch 以外もある
 
@@ -2060,7 +2060,7 @@ const { pending, data: count } = useLazyAsyncData("count", () =>
   - server ディレクトリで提供する API エンドポイントはオリジン省略可能
   - 上記以外のケース、たとえばアセット（public ディレクトリで提供する静的ファイル）はオリジンが必要
 
-Nuxt 3 の useFetch、$fetch は純粋なクライアント処理でない（サーバー側で内部的に処理される）場合があることが原因 https://v3.nuxtjs.org/guide/features/data-fetching#isomorphic-fetch-and-fetch
+Nuxt 3 の useFetch、$fetch は純粋なクライアント処理でない（サーバー側で内部的に処理される）場合があることが原因 https://nuxt.com/docs/getting-started/data-fetching#isomorphic-fetch-and-fetch
 
 場合によっては（$fetch ではなく） fetch を使うことも検討すること
 
@@ -2084,7 +2084,7 @@ Vue 固有の記法についての公式なスタイルガイド
 - スタイルガイドに書いてあることを守ると、事前に起こりうる問題に対処することができる
 - [eslint-plugin-vue](https://eslint.vuejs.org/)を使うとスタイルガイドに違反しているか静的にコードを解析・修正できる
 
-[スタイルガイド](https://v3.ja.vuejs.org/style-guide/)
+[スタイルガイド](https://ja.vuejs.org/style-guide/)
 
 ---
 
