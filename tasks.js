@@ -14,6 +14,13 @@ async function main() {
       input,
       { name: `Start ${input}`, command: `yarn --cwd ${input} dev` },
     ]);
+    taskEntries.push([
+      "docs",
+      {
+        name: "Show slides",
+        command: "yarn --cwd docs slidev",
+      },
+    ]);
     await writeFile(
       path,
       JSON.stringify(

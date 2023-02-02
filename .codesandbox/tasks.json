@@ -193,6 +193,10 @@
     "practice-vue-router-answer-2": {
       "name": "Start practice-vue-router-answer-2",
       "command": "yarn --cwd practice-vue-router-answer-2 dev"
+    },
+    "docs": {
+      "name": "Show slides",
+      "command": "yarn --cwd docs slidev"
     }
   }
 }
