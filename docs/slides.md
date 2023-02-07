@@ -1659,6 +1659,8 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 # Nuxt 3 のハンズオン
 
+https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev
+
 - app.vue
 - pages
 - NuxtLink
@@ -1855,13 +1857,10 @@ function increment() {
 
 動作は Vue 3 のものと同じ
 
-Node.js がセットアップ済みの人はローカルで動かしてみよう
-
-1. https://github.com/tuqulore/vue-3-practices/ から ZIP をダウンロード
-2. 任意の場所に ZIP を展開
-3. handson-fetch-router-nuxt-finish ディレクトリに移動
-4. `npm install` で NPM パッケージをインストール
-5. `npm run dev` で Nuxt 3 の開発サーバーを起動
+1. https://codesandbox.io/p/github/tuqulore/vue-3-practices/main?file=%2Fhandson-fetch-router-nuxt-finish%2Fpages%2Findex.vue にアクセス
+2. `Start handson-fetch-router-nuxt-finish` というタスクを実行
+3. しばらくして何も変化がないようならブラウザ再読み込み
+4. 右上に講師のアバターアイコンがあるはずなのでそれをクリック
 
 ---
 
