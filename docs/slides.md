@@ -1688,7 +1688,7 @@ Vue 開発環境では App.vue ファイルをルートコンポーネントと�
 
 `<NuxtPage />` コンポーネントの外側は共通レイアウト（画面遷移しても見た目が変わらない部分）になる。ページごとに共通レイアウトを切り替えたい場合は、後述する layouts を使う必要がある。
 
-そもそも共通レイアウトが不要なのであれば、 app.vue を削除することもできる。（この場合、ルートコンポーネントが消えるわけではなく、Nuxt 3によって隠蔽される。）
+そもそも共通レイアウトが不要なのであれば、 app.vue を削除することもできる。（この場合、ルートコンポーネントが消えるわけではなく、Nuxt 3 によって隠蔽される。）
 
 ---
 
@@ -1698,13 +1698,11 @@ pages ディレクトリに `pages/index.vue`, `pages/about.vue` ファイルを
 
 Nuxt ではページを作成するだけでルートを定義することができる。つまり、 Vue Router を導入したときのように手動でルートを定義する必要がない。
 
-
-
 ---
 
 # NuxtLink
 
-コンポーネントで Nav.vue を作成、index と about のリンクナビゲーションを作成する。  
+コンポーネントで Nav.vue を作成、index と about のリンクナビゲーションを作成する。
 
 そしてそのルートを移動する際は HTML の
 
@@ -2118,11 +2116,11 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
 
 <div class="grid grid-cols-2 items-center text-xs font-bold text-gray-500">
   <figure>
-  <img src="sticky-handson.png" class="w-80 mb-4" alt />
+  <img src="/sticky-handson.png" class="w-80 mb-4" alt />
     <figcaption>どこからでも付箋の情報を扱える Composables を使う</figcaption>
   </figure>
   <figure>
-  <img src="fig-sticky-handson.png" class="w-80 border border-gray-200 mb-4" alt />
+  <img src="/fig-sticky-handson.png" class="w-80 border border-gray-200 mb-4" alt />
     <figcaption>
       <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-eqvxvb">まずはサンプルを見てみましょう →</a>
     </figcaption>
@@ -2139,7 +2137,7 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
 
 <p>様々な Vue で使える便利なユーティリティがあります。</p>
 
-<img src="fig-vueuse.png" alt="VueUse" class="h-8/12" />
+<img src="/fig-vueuse.png" alt="VueUse" class="h-8/12" />
 
 <a target="_blank" rel="noopener noreferrer" href="https://vueuse.org/">https://vueuse.org/</a>
 
@@ -2182,21 +2180,21 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
 
 <div class="grid grid-cols-3 gap-6 text-xs">
   <figure>
-    <img src="fig-sticky-remove.png" class="p-1 border mb-2" alt />
+    <img src="/fig-sticky-remove.png" class="p-1 border mb-2" alt />
     <figcaption>
       <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-a1jojw">削除ボタンの追加 →</a>
       </figcaption>
   </figure>
 
   <figure>
-    <img src="fig-sticky-photo.png" class="p-1 border mb-2" alt />
+    <img src="/fig-sticky-photo.png" class="p-1 border mb-2" alt />
     <figcaption>
       <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-7qahec">付箋に画像を貼る →</a>
       </figcaption>
   </figure>
 
   <figure>
-    <img src="fig-sticky-add.png" class="p-1 border mb-2" alt />
+    <img src="/fig-sticky-add.png" class="p-1 border mb-2" alt />
     <figcaption>
       <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-ryc4pc">付箋の追加ボタンを新規コンポーネントで作成 →</a>
       </figcaption>
