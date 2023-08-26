@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "4.0.0",
-    "marked": "4.2.12",
+    "marked": "7.0.5",
     "throttle-debounce": "5.0.0",
     "vite": "4.0.4"
   },
