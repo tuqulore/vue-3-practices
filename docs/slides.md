@@ -1726,9 +1726,9 @@ Nuxt ではページを作成するだけでルートを定義することがで
 `layouts/default.vue`を作成し、`<Nav />` を表示させる。  
 layouts 配下にいくつかのレイアウトコンポーネントを用意し、ページコンポーネントごとに切り替えることもできる。
 
-<div class="flex gap-8">
+## すべてのページがひとつの共通レイアウトで構成する場合
 
-<div>
+個別のレイアウトファイルを用意するまでもなく、 `app.vue` を共通レイアウトページにする。
 
 `app.vue`で共通レイアウトを組む例
 
@@ -1741,9 +1741,21 @@ layouts 配下にいくつかのレイアウトコンポーネントを用意し
 </template>
 ```
 
-`layouts/default.vue`で共通レイアウトを組む例
+---
+
+# layouts
+
+## ページによって異なるレイアウトを用意したい場合
+
+`layouts` ディレクトリに、 レイアウトを定義した Vue ファイルを設置し、各ページで参照する。
+
+<div class="flex gap-8">
+
+<div>
+  <div>
 
 ```vue
+// layouts/default.vue
 <template>
   <div>
     <Nav />
@@ -1752,12 +1764,11 @@ layouts 配下にいくつかのレイアウトコンポーネントを用意し
 </template>
 ```
 
-</div>
-<div>
-
-`layouts/custom.vue`に別の共通レイアウトを組む例
+  </div>
+  <div class="">
 
 ```vue
+// layouts/custom.vue
 <template>
   <div>
     <header>別の共通レイアウト</header>
@@ -1766,17 +1777,43 @@ layouts 配下にいくつかのレイアウトコンポーネントを用意し
 </template>
 ```
 
-ページコンポーネントで custom レイアウトを参照する例
+  </div>
+</div>
+
+<div>
 
 ```vue
+// pages/index.vue
 <template>
   <div>
-    <NuxtLayout name="custom">
-      <!-- ページコンテンツ -->
-    </NuxtLayout>
+    <h1>Home</h1>
   </div>
 </template>
 ```
+
+```vue
+// pages/contact.vue
+<template>
+  <div>
+    <h1>Contact</h1>
+  </div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: "custom",
+});
+</script>
+```
+
+</div>
+
+<div>
+
+Home と About のページは Nav 付きレイアウトを使用。
+Contact ページに Nav はなく、Back to Home のみのリンク付きのレイアウトを使用するサンプル。
+
+[サンプル](https://stackblitz.com/edit/tuqulore-vue-3-practices-7glcep?file=pages%2Fcontact.vue)
 
 </div>
 
