@@ -1646,10 +1646,9 @@ Nuxt ではページを作成するだけでルートを定義することがで
 
 ---
 
-# layouts
+# layouts (デフォルトレイアウト)
 
-`layouts/default.vue`を作成し、`<Nav />` を表示させる。  
-layouts 配下にいくつかのレイアウトコンポーネントを用意し、ページコンポーネントごとに切り替えることもできる。
+`layouts/default.vue`を作成し、`<Nav />` を表示させる。
 
 <div class="flex gap-8">
 
@@ -1666,6 +1665,10 @@ layouts 配下にいくつかのレイアウトコンポーネントを用意し
 </template>
 ```
 
+</div>
+
+<div>
+
 `layouts/default.vue`で共通レイアウトを組む例
 
 ```vue
@@ -1678,9 +1681,21 @@ layouts 配下にいくつかのレイアウトコンポーネントを用意し
 ```
 
 </div>
+
+</div>
+
+同じ見た目になるけどなにがうれしいの？→ レイアウトが切り替えられるようになる
+
+---
+
+# layouts (名前付きレイアウト)
+
+layouts 配下にデフォルト以外のレイアウトコンポーネントを用意し、ページコンポーネントごとに切り替えられることを確認する。
+
+<div class="flex gap-8">
 <div>
 
-`layouts/custom.vue`に別の共通レイアウトを組む例
+`layouts/other-layout.vue`に別の共通レイアウトを組む
 
 ```vue
 <template>
@@ -1691,20 +1706,24 @@ layouts 配下にいくつかのレイアウトコンポーネントを用意し
 </template>
 ```
 
-ページコンポーネントで custom レイアウトを参照する例
+</div>
+<div>
+
+ページコンポーネントで other-layout レイアウトを参照する
 
 ```vue
 <template>
-  <div>
-    <NuxtLayout name="custom">
-      <!-- ページコンテンツ -->
-    </NuxtLayout>
-  </div>
+  <h1>CONTACT</h1>
 </template>
+
+<script setup>
+definePageMeta({
+  layout: "other-layout",
+});
+</script>
 ```
 
 </div>
-
 </div>
 
 ---
