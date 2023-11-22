@@ -237,9 +237,21 @@ function increment() {
 
 <div>
 
-> 最近この用語がプログラミングでよく出てくるようになりましたが、人々がそれについて話すとき、何を意味しているのでしょうか？リアクティビティーとは、宣言的な方法で変化に対応できるようにするプログラミングパラダイムです。よく挙げられる典型的な例として Excel のスプレッドシートが挙げられます
+<blockquote>
+  最近この用語がプログラミングでよく出てくるようになりましたが、人々がそれについて話すとき、何を意味しているのでしょうか？リアクティビティーとは、宣言的な方法で変化に対応できるようにするプログラミングパラダイムです。よく挙げられる典型的な例として Excel のスプレッドシートが挙げられます
+  <footer>
+    <cite>
+      <a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">公式ドキュメント</a>
+    </cite>
+  </footer>
+</blockquote>
 
-<a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">引用元および参考</a>
+<p class="bg-lime-100 pl-4 pr-6 py-3 rounded-lg inline-flex gap-3 items-center">
+  <mdi-lightbulb-on-outline />
+  <span>
+    <a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">公式ドキュメント</a>に表計算風のプログラムがあるので触ってみましょう
+  </span>
+</p>
 
 </div>
 
