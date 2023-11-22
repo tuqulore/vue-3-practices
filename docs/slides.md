@@ -232,12 +232,25 @@ function increment() {
 
 # リアクティビティーの探求
 
-<div class="flex gap-4">
+<div class="flex flex-col gap-4">
 
 <div>
-<video controls loop style="height: 30vh" src="https://v3.ja.vuejs.org/images/reactivity-spreadsheet.mp4"></video>
 
-<a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">参考</a>
+<blockquote>
+  最近この用語がプログラミングでよく出てくるようになりましたが、人々がそれについて話すとき、何を意味しているのでしょうか？リアクティビティーとは、宣言的な方法で変化に対応できるようにするプログラミングパラダイムです。よく挙げられる典型的な例として Excel のスプレッドシートが挙げられます
+  <footer>
+    <cite>
+      <a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">公式ドキュメント</a>
+    </cite>
+  </footer>
+</blockquote>
+
+<p class="bg-lime-100 pl-4 pr-6 py-3 rounded-lg inline-flex gap-3 items-center">
+  <mdi-lightbulb-on-outline />
+  <span>
+    <a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">公式ドキュメント</a>に表計算風のプログラムがあるので触ってみましょう
+  </span>
+</p>
 
 </div>
 
