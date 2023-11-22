@@ -7611,11 +7611,6 @@ uc.micro@^1.0.1, uc.micro@^1.0.5:
   resolved "https://registry.yarnpkg.com/uc.micro/-/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
   integrity sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==
 
-ufo@^0.8.5:
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.8.6.tgz#c0ec89bc0e0c9fa59a683680feb0f28b55ec323b"
-  integrity sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==
-
 ufo@^1.1.2, ufo@^1.2.0, ufo@^1.3.0, ufo@^1.3.1, ufo@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.3.2.tgz#c7d719d0628a1c80c006d2240e0d169f6e3c0496"
@@ -8086,15 +8081,7 @@ vite-plugin-vue-inspector@^4.0.0:
     kolorist "^1.8.0"
     magic-string "^0.30.4"
 
-vite-plugin-vue-server-ref@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-vue-server-ref/-/vite-plugin-vue-server-ref-0.3.0.tgz#25c5ba6a0805b884e6c25f7e61d3cb9a94bd4f50"
-  integrity sha512-Hkb0ad9gI+4NIUzhR3uYxZsCc7QsKGGdyC6I4EEfpD7SvNTXEyPbs7WiYIJXYFi1eoBDnDGdW+mt7QwELWN3XA==
-  dependencies:
-    debug "^4.3.4"
-    ufo "^0.8.5"
-
-vite-plugin-vue-server-ref@^0.3.4:
+vite-plugin-vue-server-ref@0.3.4, vite-plugin-vue-server-ref@^0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/vite-plugin-vue-server-ref/-/vite-plugin-vue-server-ref-0.3.4.tgz#02d85c4299cf3b35bd40fc56565c9a63bc56d9c3"
   integrity sha512-thZVfz+FX4wGMTBvlJFc0tN496XnfSychi50aV9n+FsJqDvJYTCASVrXmdkKM+2Jpu0CUg8YzfCQfJXFgcCgHg==
