@@ -34,7 +34,6 @@ drawings:
 - はじめに
   - Composition API, 学習環境など
 - リアクティビティーの探求
-  - ref, reactive, toRefs, readonly など
 - 算出プロパティ（computed）
   - computed
 - ウォッチャ（watch）
@@ -233,12 +232,25 @@ function increment() {
 
 # リアクティビティーの探求
 
-<div class="flex gap-4">
+<div class="flex flex-col gap-4">
 
 <div>
-<video controls loop style="height: 30vh" src="https://v3.ja.vuejs.org/images/reactivity-spreadsheet.mp4"></video>
 
-<a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">参考</a>
+<blockquote>
+  最近この用語がプログラミングでよく出てくるようになりましたが、人々がそれについて話すとき、何を意味しているのでしょうか？リアクティビティーとは、宣言的な方法で変化に対応できるようにするプログラミングパラダイムです。よく挙げられる典型的な例として Excel のスプレッドシートが挙げられます
+  <footer>
+    <cite>
+      <a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">公式ドキュメント</a>
+    </cite>
+  </footer>
+</blockquote>
+
+<p class="bg-lime-100 pl-4 pr-6 py-3 rounded-lg inline-flex gap-3 items-center">
+  <mdi-lightbulb-on-outline />
+  <span>
+    <a href="https://ja.vuejs.org/guide/extras/reactivity-in-depth.html#what-is-reactivity">公式ドキュメント</a>に表計算風のプログラムがあるので触ってみましょう
+  </span>
+</p>
 
 </div>
 
@@ -338,80 +350,6 @@ const sum = computed(() => {
 <ReactiveSample />
 
 </div>
-
----
-
-# リアクティビティーの探求（リアクティブな値をオブジェクトにまとめる）
-
-リアクティブにしたいデータがオブジェクトの場合、`reactive` を使う
-
-```vue
-<template>
-  <div>
-    <input type="text" v-model="user.name" />
-    {{ user.name }}
-  </div>
-</template>
-
-<script setup>
-import { reactive } from "vue";
-
-const user = reactive({
-  name: "",
-});
-</script>
-```
-
----
-
-# リアクティビティーの探求（オブジェクトにまとめたリアクティブな値を取り出す）
-
-前項の `reactive` だと、分割代入しても値が取り出せない。Vue では `toRefs` を使うことで可能になる。
-
-```vue
-<template>
-  <div>
-    <input type="text" v-model="user.name" />
-    <p>user.name: {{ user.name }}</p>
-    <p>name: {{ name }}</p>
-  </div>
-</template>
-
-<script setup>
-import { reactive, toRefs } from "vue";
-
-const user = reactive({
-  name: "",
-});
-const { name } = toRefs(user);
-</script>
-```
-
----
-
-# リアクティビティーの探求（リアクティブな値を読み込み専用にする）
-
-```vue
-<template>
-  <div>
-    <!-- user.name を変更しようとすると失敗し、警告が表示されます -->
-    <input type="text" v-model="user.name" />
-    <p>user.name: {{ user.name }}</p>
-    <p>name: {{ name }}</p>
-  </div>
-</template>
-
-<script setup>
-import { reactive, toRefs, readonly } from "vue";
-
-const user = readonly(
-  reactive({
-    name: "",
-  })
-);
-const { name } = toRefs(user);
-</script>
-```
 
 ---
 
