@@ -67,6 +67,7 @@ Vue 3 / Nuxt 3 を学習するための
 
 - Chromium 系ブラウザ (推奨)
 - Firefox (ベータサポート)
+- Safari (ベータサポート)
 
 詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
 
