@@ -472,7 +472,11 @@ const randomComputed = computed(() => {
 <template>
   <div>
     <input type="number" v-model="count" />
-    {{ plusOne }}
+    <ol start="0">
+      <li v-for="(history, index) in histories" :key="index">
+        今の値: {{ history[0] }}、前の値: {{ history[1] ?? "なし" }}
+      </li>
+    </ol>
   </div>
 </template>
 
@@ -480,14 +484,9 @@ const randomComputed = computed(() => {
 import { ref, computed, watch } from "vue";
 
 const count = ref(1);
-const plusOne = computed({
-  get: () => count.value + 1,
-  set: (value) => {
-    count.value = value;
-  },
-});
+const histories = ref([[count.value, null]]);
 watch(count, (current, prev) => {
-  console.log(current, prev);
+  histories.value.splice(0, 0, [current, prev]);
 });
 </script>
 ```
