@@ -33,17 +33,13 @@ drawings:
 
 - はじめに
   - Composition API, 学習環境など
-- リアクティビティーの探求
+- リアクティブとは？
 - 算出プロパティ（computed）
-  - computed
 - ウォッチャ（watch）
-  - watch
 - テンプレート構文の説明
   - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model など
 - コンポーネント
   - props, emit, slot など
-- Vue アプリケーション開発に必要な周辺ライブラリ
-  - throttle-debounce, fetch, Vue Router など
 
 ---
 
@@ -51,7 +47,11 @@ drawings:
 
 ## Vue.js とは？
 
-Web アプリケーションにおけるユーザーインターフェイスを構築するための、オープンソースの JavaScript フレームワーク。
+Web アプリケーションにおけるユーザーインターフェイス[^1]を構築するための、オープンソース[^2]の JavaScript フレームワーク[^3]。
+
+[^1]: ユーザーとシステムの接点のこと
+[^2]: [オープンソースライセンス](https://opensource.org/licenses/)を適用していること
+[^3]: 言語仕様以上の書き方の制約を課せられる代わりに、特定の用途に最適化された実装がしやすいライブラリのこと
 
 <div class="pt-4 text-sm">
 
@@ -131,10 +131,7 @@ export default {
     const increment = () => {
       count.value += 1;
     };
-    return {
-      count,
-      increment,
-    };
+    return { count, increment };
   },
 };
 </script>
@@ -143,7 +140,9 @@ export default {
 </div>
 </div>
 
-現状、Vue 関連の記事は Options API で解説されているほうが大多数であり、初学者の方は混乱されるかもしれません。Vue2, 3 どちらでも両 API は使えますが、本講座では今後主流となる Composition API を取り扱います。
+VueはOptions APIとComposition APIの2種類のAPI：アプリケーションを実装（プログラミング）するために用意された決めごとがあります。
+
+[公式ドキュメント](https://ja.vuejs.org/guide/introduction.html#which-to-choose)ではどちらも優劣なくドキュメントが用意されています。本講座はComposition APIだけを取り扱いますが、もし[クラスベーススタイル](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%A9%E3%82%B9%E3%83%99%E3%83%BC%E3%82%B9)の[オブジェクト指向プログラミング](https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)をしたことがあるなら、Options APIはとっつきやすいかもしれません。
 
 ---
 
@@ -198,11 +197,11 @@ function increment() {
 </div>
 </div>
 
-現状 Vue では、簡潔なコードで表現するための支援機能として、シンタックスシュガー（糖衣構文）が提供されることがあります。HTML とも JS とも異なる構文への理解が求められる反面、記述量が減る、コードの複雑さが減るといったメリットがあるので、本講座では積極的に取り扱います。
+現状Vueでは、簡潔なコードで表現するための支援機能として、シンタックスシュガー（糖衣構文）：読み書きを楽にするための書き方が提供されることがあります。HTML とも JS とも異なる構文への理解が求められる反面、記述量が減る、コードの複雑さが減るといったメリットがあるので、本講座では積極的に取り扱います。
 
 ---
 
-# まずは書いてみる
+# まずは書いてみましょう
 
 <div class="flex gap-8">
 
@@ -233,7 +232,7 @@ function increment() {
 
 ---
 
-# リアクティビティーの探求
+# リアクティブとは？
 
 <div class="flex flex-col gap-4">
 
@@ -279,19 +278,24 @@ console.log(sum); // 5のまま（期待は6）
 
 ---
 
-# リアクティビティーの探求
+# リアクティブとは？
 
 <div class="flex gap-4">
 
 <div>
 
-表計算ソフトと同じことをおこなうには
+表計算ソフトと同じことをおこなうには以下ができる必要がある
 
-1. 値が読み込まれたときに追跡する。 例: val1 + val2 は val1 と val2 の両方を読み込む。
-2. 値の変更を検知する。 例: val1 = 3 と入れるとき。
-3. 最初に値を読み込んだコードを再実行する。 例: sum = val1 + val2 を再度実行して、 sum の値を更新する。
+1. 値が読み込まれたときに追跡する。 例: val1 + val2 のとき、式の結果だけでなく  
+   val1 と val2 の値が失われずに読み取れる
+2. 値の変更を検知する。 例: val1 = 2 が val1 = 3 になったと分かる
+3. 最初に値を読み込んだコードを再実行する。 例: val = 3 で  
+   sum = val1 + val2 を再計算する
 
-Vue には 1\. 2\. 3\. のためのしくみがある
+これらができているとき、リアクティビティ（反応性）がある=リアクティブ
+
+Vueにはリアクティビティを提供するAPI：アプリケーションを実装（プログラミング）  
+するために用意された決めごとがあります。
 
 </div>
 
@@ -315,7 +319,7 @@ console.log(sum); // 3.
 
 ---
 
-# リアクティビティーの探求（ref によるリアクティブな値の参照）
+# ref によるリアクティブな値の参照
 
 `ref` を使った値を操作する場合、`setup` 関数内では `value` プロパティにアクセスする。
 `template` 内では変数（定数）そのものを参照するだけで値を得られる。
@@ -378,7 +382,7 @@ const plusOne = computed(() => count.value + 1);
 
 ---
 
-# 算出プロパティ（computed）
+# 読み書きできる算出プロパティ（computed）
 
 `get` `set` 関数を用意することで書込み可能なオブジェクトを作成することができる
 
@@ -424,9 +428,9 @@ function handleClick() {
 <template>
   <p>関数呼び出しの場合</p>
   <ol class="use-methods">
-    <li>{{ randomMethods() }}</li>
-    <li>{{ randomMethods() }}</li>
-    <li>{{ randomMethods() }}</li>
+    <li>{{ randomMethod() }}</li>
+    <li>{{ randomMethod() }}</li>
+    <li>{{ randomMethod() }}</li>
   </ol>
   <p>computedを使った場合</p>
   <ol class="use-computed">
@@ -441,7 +445,7 @@ function handleClick() {
 <script setup>
 import { computed } from "vue";
 
-const randomMethods = () => {
+const randomMethod = () => {
   return Math.random();
 };
 const randomComputed = computed(() => {
@@ -451,7 +455,7 @@ const randomComputed = computed(() => {
 ```
 
 <div>
-  <ComputedMethods />
+  <ComputedMethod />
 </div>
 
 </div>
@@ -492,37 +496,54 @@ watch(count, (current, prev) => {
 
 ---
 
-# ウォッチャ（watch）
+# watch と computed の違い
 
-配列を監視する場合、複数のデータソースを同時に監視できる
+`watch`は値の変化を監視に特化したAPIだが、`computed`は値の変化に応じて値を加工（算出）するためのAPI
 
-<div class="h-sm overflow-y-auto">
+値が変化したタイミングで、変化した値の中身が…
 
-```vue
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    {{ plusOne }}
-  </div>
-</template>
+- 必要→computedを使いましょう
+- 不要→watchを使いましょう
 
-<script setup>
-import { ref, computed, watch } from "vue";
+使用頻度としてはcomputedの方が多いのでcomputedを使いこなせるようになりましょう。
 
-const count = ref(1);
-const plusOne = computed({
-  get: () => count.value + 1,
-  set: (value) => {
-    count.value = value;
-  },
-});
-watch([count, plusOne], (current, prev) => {
-  console.log(current, prev);
-});
-</script>
+---
+
+# さまざまなリアクティビティAPI
+
+<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#reactive">reactive()</a></h2>
+
+```js
+const obj = reactive({ count: 0 }); // 値の作成
+console.log(obj.count); // 値の読み出し
+obj.count = 1; // 値の更新（.valueが不要な点に注意）
 ```
 
-</div>
+<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-utilities.html#torefs">toRefs()</a></h2>
+
+```js
+const obj = reactive({ count: 0 }); // 値の作成
+const { count } = toRefs(obj); // refへの変換
+console.log(count.value); // obj.countと同じ値
+```
+
+<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#readonly">readonly()</a></h2>
+
+```js
+const obj = reactive({ count: 0 }); // 値の作成
+const readonlyObj = readonly(obj); // 読み取り専用の値の作成
+readonlyObj.count = 1; // 値の更新（阻止される）
+```
+
+<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#watcheffect">watchEffect()</a></h2>
+
+```js
+const count = ref(0);
+watchEffect(() => console.log(count.value)); // countが更新される度に実行される
+```
+
+これまで取り上げたものと比べると重要じゃないので、「使いどきがあるかも」くらいに思えればOKです。  
+（ただ、watchEffectは監視対象の指定がいらないのでwatchより便利かも…）
 
 ---
 
