@@ -998,7 +998,7 @@ const message = ref("Hello Vue!");
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1045,7 +1045,7 @@ const message = ref(props.title);
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1096,7 +1096,7 @@ const message = ref(props.count);
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1145,7 +1145,7 @@ props はデフォルト値を設定することもできる
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1195,7 +1195,7 @@ const show = ref(props.isShow);
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1242,7 +1242,7 @@ const user = ref(props.student);
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 
 function clicked(message) {
   alert(message);
@@ -1298,7 +1298,7 @@ function clickHandler() {
 
 <script setup>
 import { ref } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
@@ -1366,7 +1366,7 @@ const title = computed({
 
 <script setup>
 import { ref } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
