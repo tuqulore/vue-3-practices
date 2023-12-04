@@ -1,2 +1,2 @@
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+// https://nuxt.com/docs/getting-started/configuration
 export default defineNuxtConfig({});
