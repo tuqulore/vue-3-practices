@@ -22,7 +22,7 @@ load();
 /**
  * watchEffect 関数によってリアクティブな値に連動した
  * 副作用のある処理を実行することができます
- * 参考: https://v3.ja.vuejs.org/guide/reactivity-computed-watchers.html#watcheffect
+ * 参考: https://ja.vuejs.org/guide/essentials/watchers.html#watcheffect
  */
 watchEffect(() => {
   if (!article.value) return;

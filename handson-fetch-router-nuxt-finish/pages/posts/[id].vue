@@ -1,7 +1,7 @@
 <script setup>
 /**
  * components プロパティによるコンポーネントの登録が省略可能です
- * 参考: https://v3.nuxtjs.org/guide/concepts/auto-imports
+ * 参考: https://nuxt.com/docs/examples/features/auto-imports
  */
 /**
  * useRouteコンポジション関数によって
@@ -11,7 +11,7 @@
 const route = useRoute();
 /**
  * ref関数などのコンポジション関数が省略可能です
- * 参考: https://v3.nuxtjs.org/guide/concepts/auto-imports
+ * 参考: https://nuxt.com/docs/examples/features/auto-imports
  */
 const article = ref(null);
 /**
@@ -19,12 +19,12 @@ const article = ref(null);
  * 必要な記事の取得場所(エンドポイント)を特定しています
  */
 const { data: post, pending } = await useFetch(
-  `http://localhost:3000/wp-json/wp/v2/posts/${route.params.id}.json`,
+  `http://localhost:3000/wp-json/wp/v2/posts/${route.params.id}.json`
 );
 /**
  * watchEffect 関数によってリアクティブな値に連動した
  * 副作用のある処理を実行することができます
- * 参考: https://v3.ja.vuejs.org/guide/reactivity-computed-watchers.html#watcheffect
+ * 参考: https://ja.vuejs.org/guide/essentials/watchers.html#watcheffect
  */
 watchEffect(() => {
   if (!article.value) return;
