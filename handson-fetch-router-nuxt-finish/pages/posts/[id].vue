@@ -19,7 +19,7 @@ const article = ref(null);
  * 必要な記事の取得場所(エンドポイント)を特定しています
  */
 const { data: post, pending } = await useFetch(
-  `http://localhost:3000/wp-json/wp/v2/posts/${route.params.id}.json`
+  `http://localhost:3000/wp-json/wp/v2/posts/${route.params.id}.json`,
 );
 /**
  * watchEffect 関数によってリアクティブな値に連動した
