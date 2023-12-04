@@ -14,7 +14,7 @@ import Component2 from "./components/Component2.vue";
     Component1コンポーネントのvueファイルを開いてください。
     styleタグにscoped属性を付与することで
     Component1の見出しにだけスタイルが適用されます。
-    参考: https://v3.ja.vuejs.org/api/sfc-style.html
+    参考: https://ja.vuejs.org/api/sfc-css-features.html
   -->
 </template>
 

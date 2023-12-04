@@ -27,6 +27,6 @@ const router = VueRouter.createRouter({
 /**
  * アプリケーションインスタンスはコンポーネント、ディレクティブ、プラグインなどをグローバル登録することができます。
  * アプリケーションインスタンスのメソッドはチェーン(単一文での複数のメソッド呼び出し)することができます。
- * 参考: https://v3.ja.vuejs.org/guide/instance.html#%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AE%E4%BD%9C%E6%88%90
+ * 参考: https://ja.vuejs.org/api/application.html#createapp
  */
 createApp(App).use(router).mount("#app");
