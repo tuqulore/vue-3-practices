@@ -1465,9 +1465,60 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 ---
 
+# 後半のハンズオン環境を用意する
+
+<h2 class="!text-base font-bold">前提条件</h2>
+
+- [Active LTSなNode.js](https://nodejs.org/en/about/previous-releases#release-schedule)ランタイムを導入済みであること
+- [VSCode](https://code.visualstudio.com/)のようなターミナルを統合したコードエディターか、それに準じるツール群を導入済みであること
+
+<h2 class="!text-base font-bold !mt-2">手順</h2>
+
+1. リポジトリのソースコードが含まれたZIPファイルをダウンロード https://github.com/tuqulore/vue-3-practices/archive/refs/heads/main.zip
+2. ZIPファイルを展開
+3. 展開して得られたファイル群をFinderやファイルエクスプローラーなどで確認する
+
+```console
+$ tree -L 1 # ファイル群の階層構造を確認するコマンド（例示なので各自実行する必要はありません）
+.
+├── LICENSE
+├── README.md
+├── docs
+├── handson-fetch-router
+├── handson-fetch-router-finish
+├── ...
+├── practice-vue-router-answer-2
+├── renovate.json
+└── yarn.lock
+```
+
+---
+
+# 後半のハンズオン環境を用意する
+
+4. handson-grid-componentディレクトリを  
+   ターミナルかVSCodeなどのターミナルが統合されたコードエディターで開く
+5. ターミナルで `npm install` を実行して動作に必要な[NPMパッケージをインストール](https://docs.npmjs.com/downloading-and-installing-packages-locally)する
+6. ターミナルで `npm run dev` を実行してアプリケーションを起動する
+
+<h2 class="!text-base font-bold !mt-4">確認すること</h2>
+
+- ターミナルに`http://localhost:5174/`のようなURLが表示されること
+- URLをブラウザーで開くと表のようなものが表示されること
+- 適当に`handson-grid-component/src/App.vue`をコードエディターで編集して保存すると  
+  ブラウザーの表示内容が変わること
+- ターミナルでキーボードショートカット`Ctrl + C` (macOS なら`Cmd + C`) を入力すると  
+  アプリケーションが停止すること
+
+次ページ以降はローカル環境でアプリケーションを起動しながら、コードの閲覧と編集する作業が要求されます。
+
+確認がうまくいかなったら申告して今のうちに解消しましょう。
+
+---
+
 # グリッドコンポーネント
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-grid-component?file=src/App.vue&terminal=dev
+handson-grid-componentディレクトリのアプリを起動する
 
 1. どんなアプリか：表にデータを流し込んでカラムで並べ替えできる
 2. コードの説明
@@ -1537,7 +1588,7 @@ const filterFruits = debounce(1000, () => {
 
 # Markdown エディター
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-markdown-editor?file=src/App.vue&terminal=dev
+handson-markdown-editorディレクトリのアプリを起動する
 
 1. どんなアプリか：左カラムに Markdown 記法でテキストを入力すると右カラムに対応する見た目が表示できる
 2. コードの説明
@@ -1547,7 +1598,7 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-ma
 
 # デザインラボの記事ビューアー
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router?file=src/App.vue&terminal=dev
+handson-fetch-routerディレクトリのアプリを起動する
 
 1. どんなアプリか：[デザインラボ](https://design-lab.tuqulore.com/)というサイトと同じ記事データ（JSON）を取得して一覧から選択表示できる
 2. コードの説明（App コンポーネント、PostList コンポーネント）
@@ -1561,7 +1612,7 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fe
 
 # 靴のギャラリー
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes?file=src/App.vue&terminal=dev
+handson-gallery-shoesディレクトリのアプリを起動する
 
 1. どんなアプリか：靴のデータ（JSON）を取得してショッピングサイトらしい見た目で一覧表示できる
 2. JSON から靴のデータを取得しよう（10 分程度）
@@ -1597,7 +1648,7 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 # Nuxt 3 のハンズオン
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev
+handson-nuxt-playgroundディレクトリのアプリを起動する
 
 - app.vue
 - pages
@@ -1810,18 +1861,15 @@ function increment() {
 
 # Vue + Vue Router と Nuxt 3 の比較
 
-デザインラボの記事ビューアーを Nuxt 3 でつくりなおしたもの
+handson-fetch-router-nuxtディレクトリのアプリを起動する
 
-動作は Vue 3 のものと同じ
-
-1. https://codesandbox.io/p/github/tuqulore/vue-3-practices/main?file=%2Fhandson-fetch-router-nuxt-finish%2Fpages%2Findex.vue にアクセス
-2. `Start handson-fetch-router-nuxt-finish` というタスクを実行
-3. しばらくして何も変化がないようならブラウザ再読み込み
-4. 右上に講師のアバターアイコンがあるはずなのでそれをクリック
+デザインラボの記事ビューアーを Nuxt 3 でつくりなおしたもの (動作は Vue 3 のものと同じ)
 
 ---
 
 # Vue + Vue Router と Nuxt 3 の比較（ルーティング）
+
+ルーティングの設定方法が異なる
 
 <div class="flex gap-8">
 
