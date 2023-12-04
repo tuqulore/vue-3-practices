@@ -46,7 +46,10 @@ const addHero = () => {
 
 <style>
 body {
-  font-family: Helvetica Neue, Arial, sans-serif;
+  font-family:
+    Helvetica Neue,
+    Arial,
+    sans-serif;
   font-size: 14px;
   color: #444;
 }

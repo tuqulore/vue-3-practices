@@ -1,9 +1,9 @@
 <template>
-  <div>Counter: {{counter}}</div>
+  <div>Counter: {{ counter }}</div>
 </template>
 
 <script setup>
-import {ref} from "vue";
+import { ref } from "vue";
 
 const counter = ref(10);
 setInterval(() => {

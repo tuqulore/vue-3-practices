@@ -1499,7 +1499,7 @@ const originalFruits = [
 const fruits = ref(originalFruits);
 function filterFruits() {
   fruits.value = originalFruits.filter(
-    (fruit) => fruit.indexOf(message.value) >= 0
+    (fruit) => fruit.indexOf(message.value) >= 0,
   );
 }
 </script>
@@ -1525,7 +1525,7 @@ function filterFruits() {
 ```js
 const filterFruits = debounce(1000, () => {
   fruits.value = originalFruits.filter(
-    (fruit) => fruit.indexOf(message.value) >= 0
+    (fruit) => fruit.indexOf(message.value) >= 0,
   );
 });
 ```
@@ -2000,7 +2000,7 @@ useLazyAsyncData: useLazyFetch の useAsyncData 版
 
 ```js
 const { pending, data: count } = useLazyAsyncData("count", () =>
-  $fetch("/api/count")
+  $fetch("/api/count"),
 );
 ```
 

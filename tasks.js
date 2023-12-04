@@ -29,8 +29,8 @@ async function main() {
           tasks: Object.fromEntries(taskEntries),
         },
         null,
-        2
-      )
+        2,
+      ),
     );
   } catch (error) {
     console.error(error);

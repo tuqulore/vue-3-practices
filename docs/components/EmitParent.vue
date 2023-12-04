@@ -6,5 +6,5 @@ import ChildComponent from "./EmitChild.vue";
 
 function clicked(message) {
   alert(message);
-};
+}
 </script>

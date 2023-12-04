@@ -9,7 +9,7 @@ const props = defineProps({
 });
 // カラムごとに並べ替えの降順昇順を判定するための配列を作成しています
 const sortOrders = reactive(
-  Object.fromEntries(props.columns.map((key) => [key, 1]))
+  Object.fromEntries(props.columns.map((key) => [key, 1])),
 );
 // 並べ替え対象のカラムを指定するためのリアクティブな値の参照を作成しています
 const sortKey = ref("");
@@ -25,8 +25,8 @@ const filterHeroes = (heroes, filterKey) => {
     Object.keys(row).some(
       (key) =>
         // 行[列]の値に対して絞り込みする文字列で検索しています
-        String(row[key]).toLowerCase().indexOf(filterKey) > -1
-    )
+        String(row[key]).toLowerCase().indexOf(filterKey) > -1,
+    ),
   );
 };
 
@@ -44,7 +44,7 @@ const sortHeroes = (heroes, sortKey) => {
 
 // ヒーローを絞り込みしたのち並べ替えした算出プロパティを作成しています
 const filteredHeroes = computed(() =>
-  sortHeroes(filterHeroes(props.heroes, props.filterKey), sortKey.value)
+  sortHeroes(filterHeroes(props.heroes, props.filterKey), sortKey.value),
 );
 // テンプレートのテキスト展開で使用する文字列操作(頭文字を大文字にする)関数を定義しています
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);

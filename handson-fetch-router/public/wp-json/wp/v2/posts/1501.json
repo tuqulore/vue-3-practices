@@ -29,9 +29,15 @@
   "categories": [1],
   "tags": [44],
   "_links": {
-    "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1501" }],
-    "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-    "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+    "self": [
+      { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1501" }
+    ],
+    "collection": [
+      { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+    ],
+    "about": [
+      { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+    ],
     "author": [
       {
         "embeddable": true,
@@ -63,7 +69,9 @@
       }
     ],
     "wp:attachment": [
-      { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1501" }
+      {
+        "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1501"
+      }
     ],
     "wp:term": [
       {
