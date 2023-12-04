@@ -6,7 +6,7 @@ const showDialog = () => {
 /**
  * mountedライフサイクル時に処理を実行する必要があるため
  * onMountedライフサイクルフックを使用します
- * 参考: https://v3.ja.vuejs.org/guide/composition-api-lifecycle-hooks.html
+ * 参考: https://ja.vuejs.org/api/composition-api-lifecycle.html#onmounted
  */
 onMounted(showDialog);
 </script>

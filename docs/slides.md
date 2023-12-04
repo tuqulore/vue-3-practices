@@ -33,17 +33,13 @@ drawings:
 
 - はじめに
   - Composition API, 学習環境など
-- リアクティビティーの探求
+- リアクティブとは？
 - 算出プロパティ（computed）
-  - computed
 - ウォッチャ（watch）
-  - watch
 - テンプレート構文の説明
   - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model など
 - コンポーネント
   - props, emit, slot など
-- Vue アプリケーション開発に必要な周辺ライブラリ
-  - throttle-debounce, fetch, Vue Router など
 
 ---
 
@@ -51,7 +47,11 @@ drawings:
 
 ## Vue.js とは？
 
-Web アプリケーションにおけるユーザーインターフェイスを構築するための、オープンソースの JavaScript フレームワーク。
+Web アプリケーションにおけるユーザーインターフェイス[^1]を構築するための、オープンソース[^2]の JavaScript フレームワーク[^3]。
+
+[^1]: ユーザーとシステムの接点のこと
+[^2]: [オープンソースライセンス](https://opensource.org/licenses/)を適用していること
+[^3]: 言語仕様以上の書き方の制約を課せられる代わりに、特定の用途に最適化された実装がしやすいライブラリのこと
 
 <div class="pt-4 text-sm">
 
@@ -72,22 +72,25 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 ---
 
-# 準備
+# 前半のハンズオン環境を用意する
 
 使用するツールの確認とセットアップ
 
-本講座におけるハンズオン、演習、サンプルの閲覧は [StackBlitz](https://stackblitz.com/) でおこないます。
+本講座におけるハンズオン、演習、サンプルの閲覧は [Vue SFC Playground](https://play.vuejs.org/) でおこないます。
 
-StackBlitz はブラウザ上で動作するオンライン IDE（統合開発環境）です。
+Vue SFC Playgroundはブラウザ上でVueの動作が確認できるオンラインエディターです。
 
 以下をやってみましょう
 
-1. 動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認してブラウザを用意
-2. 用意したブラウザで https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセス
-3. `<template>Hello World!</template>` と書いてみる
-4. 右カラムに `Hello World!` と表示されることを確認
+1. https://play.vuejs.org/ にアクセス
+2. 右カラムの画面にある入力欄へ「Hello World!」以外の文字列を入力する
+3. 右カラムに`Hello World!`以外の文字列が見出しで表示されることを確認
+4. 左カラムの文字列をすべて消す
+5. 右カラムになにも表示されないことを確認
 
-講師は適宜あたらしいハンズオン環境をつくっていきますが、受講者の皆さんは作成したハンズオン環境を（全消しするなど）使いまわしてもらって大丈夫です。
+編集した内容は共有ボタン <mdi-share-variant /> で再現可能なURLとして保存できます。
+
+講師の編集内容もリクエストに応じて適宜共有していきます。
 
 ---
 
@@ -128,10 +131,7 @@ export default {
     const increment = () => {
       count.value += 1;
     };
-    return {
-      count,
-      increment,
-    };
+    return { count, increment };
   },
 };
 </script>
@@ -140,7 +140,9 @@ export default {
 </div>
 </div>
 
-現状、Vue 関連の記事は Options API で解説されているほうが大多数であり、初学者の方は混乱されるかもしれません。Vue2, 3 どちらでも両 API は使えますが、本講座では今後主流となる Composition API を取り扱います。
+VueはOptions APIとComposition APIの2種類のAPI：アプリケーションを実装（プログラミング）するために用意された決めごとがあります。
+
+[公式ドキュメント](https://ja.vuejs.org/guide/introduction.html#which-to-choose)ではどちらも優劣なくドキュメントが用意されています。本講座はComposition APIだけを取り扱いますが、もし[クラスベーススタイル](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%A9%E3%82%B9%E3%83%99%E3%83%BC%E3%82%B9)の[オブジェクト指向プログラミング](https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)をしたことがあるなら、Options APIはとっつきやすいかもしれません。
 
 ---
 
@@ -195,22 +197,15 @@ function increment() {
 </div>
 </div>
 
-現状 Vue では、簡潔なコードで表現するための支援機能として、シンタックスシュガー（糖衣構文）が提供されることがあります。HTML とも JS とも異なる構文への理解が求められる反面、記述量が減る、コードの複雑さが減るといったメリットがあるので、本講座では積極的に取り扱います。
+現状Vueでは、簡潔なコードで表現するための支援機能として、シンタックスシュガー（糖衣構文）：読み書きを楽にするための書き方が提供されることがあります。HTML とも JS とも異なる構文への理解が求められる反面、記述量が減る、コードの複雑さが減るといったメリットがあるので、本講座では積極的に取り扱います。
 
 ---
 
-# まずは書いてみる
+# まずは書いてみましょう
 
 <div class="flex gap-8">
 
 ```vue
-<template>
-  <div>
-    {{ count }}
-    <button @click="increment">+</button>
-  </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -219,6 +214,13 @@ function increment() {
   count.value += 1;
 }
 </script>
+
+<template>
+  <div>
+    {{ count }}
+    <button @click="increment">+</button>
+  </div>
+</template>
 ```
 
 <div>
@@ -230,7 +232,7 @@ function increment() {
 
 ---
 
-# リアクティビティーの探求
+# リアクティブとは？
 
 <div class="flex flex-col gap-4">
 
@@ -276,19 +278,24 @@ console.log(sum); // 5のまま（期待は6）
 
 ---
 
-# リアクティビティーの探求
+# リアクティブとは？
 
 <div class="flex gap-4">
 
 <div>
 
-表計算ソフトと同じことをおこなうには
+表計算ソフトと同じことをおこなうには以下ができる必要がある
 
-1. 値が読み込まれたときに追跡する。 例: val1 + val2 は val1 と val2 の両方を読み込む。
-2. 値の変更を検知する。 例: val1 = 3 と入れるとき。
-3. 最初に値を読み込んだコードを再実行する。 例: sum = val1 + val2 を再度実行して、 sum の値を更新する。
+1. 値が読み込まれたときに追跡する。 例: val1 + val2 のとき、式の結果だけでなく  
+   val1 と val2 の値が失われずに読み取れる
+2. 値の変更を検知する。 例: val1 = 2 が val1 = 3 になったと分かる
+3. 最初に値を読み込んだコードを再実行する。 例: val = 3 で  
+   sum = val1 + val2 を再計算する
 
-Vue には 1\. 2\. 3\. のためのしくみがある
+これらができているとき、リアクティビティ（反応性）がある=リアクティブ
+
+Vueにはリアクティビティを提供するAPI：アプリケーションを実装（プログラミング）  
+するために用意された決めごとがあります。
 
 </div>
 
@@ -312,7 +319,7 @@ console.log(sum); // 3.
 
 ---
 
-# リアクティビティーの探求（ref によるリアクティブな値の参照）
+# ref によるリアクティブな値の参照
 
 `ref` を使った値を操作する場合、`setup` 関数内では `value` プロパティにアクセスする。
 `template` 内では変数（定数）そのものを参照するだけで値を得られる。
@@ -358,38 +365,30 @@ const sum = computed(() => {
 あるリアクティブな値を元に計算結果を返したい場合、`computed` 関数を利用する
 
 ```vue
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    {{ plusOne }}
-  </div>
-</template>
-
 <script setup>
 import { ref, computed } from "vue";
 
 const count = ref(1);
 const plusOne = computed(() => count.value + 1);
 </script>
+
+<template>
+  <div>
+    <input type="number" v-model="count" />
+    {{ plusOne }}
+  </div>
+</template>
 ```
 
 ---
 
-# 算出プロパティ（computed）
+# 読み書きできる算出プロパティ（computed）
 
 `get` `set` 関数を用意することで書込み可能なオブジェクトを作成することができる
 
 <div class="h-sm overflow-y-auto">
 
 ```vue
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    <button @click="handleClick">リセット</button>
-    {{ plusOne }}
-  </div>
-</template>
-
 <script setup>
 import { ref, computed } from "vue";
 
@@ -404,6 +403,14 @@ function handleClick() {
   plusOne.value = 1;
 }
 </script>
+
+<template>
+  <div>
+    <input type="number" v-model="count" />
+    <button @click="handleClick">リセット</button>
+    {{ plusOne }}
+  </div>
+</template>
 ```
 
 </div>
@@ -418,12 +425,25 @@ function handleClick() {
 <div class="flex gap-4">
 
 ```vue
+<script setup>
+import { computed } from "vue";
+
+const randomMethod = () => {
+  return Math.random();
+};
+const randomComputed = computed(() => {
+  return Math.random();
+});
+</script>
+```
+
+```vue
 <template>
   <p>関数呼び出しの場合</p>
   <ol class="use-methods">
-    <li>{{ randomMethods() }}</li>
-    <li>{{ randomMethods() }}</li>
-    <li>{{ randomMethods() }}</li>
+    <li>{{ randomMethod() }}</li>
+    <li>{{ randomMethod() }}</li>
+    <li>{{ randomMethod() }}</li>
   </ol>
   <p>computedを使った場合</p>
   <ol class="use-computed">
@@ -434,21 +454,8 @@ function handleClick() {
 </template>
 ```
 
-```vue
-<script setup>
-import { computed } from "vue";
-
-const randomMethods = () => {
-  return Math.random();
-};
-const randomComputed = computed(() => {
-  return Math.random();
-});
-</script>
-```
-
 <div>
-  <ComputedMethods />
+  <ComputedMethod />
 </div>
 
 </div>
@@ -462,64 +469,80 @@ const randomComputed = computed(() => {
 <div class="h-sm overflow-y-auto">
 
 ```vue
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    {{ plusOne }}
-  </div>
-</template>
-
 <script setup>
 import { ref, computed, watch } from "vue";
 
 const count = ref(1);
-const plusOne = computed({
-  get: () => count.value + 1,
-  set: (value) => {
-    count.value = value;
-  },
-});
+const histories = ref([[count.value, null]]);
 watch(count, (current, prev) => {
-  console.log(current, prev);
+  histories.value.splice(0, 0, [current, prev]);
 });
 </script>
+
+<template>
+  <div>
+    <input type="number" v-model="count" />
+    <ol start="0">
+      <li v-for="(history, index) in histories" :key="index">
+        今の値: {{ history[0] }}、前の値: {{ history[1] ?? "なし" }}
+      </li>
+    </ol>
+  </div>
+</template>
 ```
 
 </div>
 
 ---
 
-# ウォッチャ（watch）
+# watch と computed の違い
 
-配列を監視する場合、複数のデータソースを同時に監視できる
+`watch`は値の変化を監視に特化したAPIだが、`computed`は値の変化に応じて値を加工（算出）するためのAPI
 
-<div class="h-sm overflow-y-auto">
+値が変化したタイミングで、変化した値の中身が…
 
-```vue
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    {{ plusOne }}
-  </div>
-</template>
+- 必要→computedを使いましょう
+- 不要→watchを使いましょう
 
-<script setup>
-import { ref, computed, watch } from "vue";
+使用頻度としてはcomputedの方が多いのでcomputedを使いこなせるようになりましょう。
 
-const count = ref(1);
-const plusOne = computed({
-  get: () => count.value + 1,
-  set: (value) => {
-    count.value = value;
-  },
-});
-watch([count, plusOne], (current, prev) => {
-  console.log(current, prev);
-});
-</script>
+---
+
+# さまざまなリアクティビティAPI
+
+<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#reactive">reactive()</a></h2>
+
+```js
+const obj = reactive({ count: 0 }); // 値の作成
+console.log(obj.count); // 値の読み出し
+obj.count = 1; // 値の更新（.valueが不要な点に注意）
 ```
 
-</div>
+<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-utilities.html#torefs">toRefs()</a></h2>
+
+```js
+const obj = reactive({ count: 0 }); // 値の作成
+const { count } = toRefs(obj); // refへの変換
+console.log(count.value); // obj.countと同じ値
+```
+
+<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#readonly">readonly()</a></h2>
+
+```js
+const obj = reactive({ count: 0 }); // 値の作成
+const readonlyObj = readonly(obj); // 読み取り専用の値の作成
+readonlyObj.count = 1; // 値の更新（阻止される）
+```
+
+<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#watcheffect">watchEffect()</a></h2>
+
+```js
+const count = ref(0);
+watchEffect(() => console.log(count.value)); // countが更新される度に実行される
+```
+
+これまで取り上げたものと比べると重要じゃないので、「使いどきがあるかも」くらいに思えればOKです。  
+（ただ、watchEffectは監視対象の指定がいらないのでwatchより便利かも…）
 
 ---
 
@@ -540,13 +563,13 @@ watch([count, plusOne], (current, prev) => {
 Mustache 構文でテキスト展開できる。JavaScript 式を使用することもできる
 
 ```vue
-<template>
-  <div>Message: {{ msg }}</div>
-</template>
-
 <script setup>
 const msg = "Hello!";
 </script>
+
+<template>
+  <div>Message: {{ msg }}</div>
+</template>
 ```
 
 結果
@@ -564,10 +587,6 @@ counterを1秒ごとに増やしていく
 </p>
 
 ```vue
-<template>
-  <div>Counter: {{ counter }}</div>
-</template>
-
 <script>
 import { ref } from "vue";
 
@@ -576,6 +595,10 @@ setInterval(() => {
   counter.value += 1;
 }, 1000);
 </script>
+
+<template>
+  <div>Counter: {{ counter }}</div>
+</template>
 ```
 
 結果
@@ -604,13 +627,13 @@ setInterval(() => {
 <div>
 
 ```vue
-<template>
-  <a v-bind:href="url"> Vue.js公式サイト </a>
-</template>
-
 <script setup>
 const url = "https://ja.vuejs.org/";
 </script>
+
+<template>
+  <a v-bind:href="url"> Vue.js公式サイト </a>
+</template>
 ```
 
 省略するとこのように書ける
@@ -634,10 +657,6 @@ const url = "https://ja.vuejs.org/";
 <p class="text-xs">オブジェクト構文</p>
 
 ```vue
-<template>
-  <span :class="{ red: red }">Hello World!</span>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -649,6 +668,10 @@ const red = ref(true);
   color: red;
 }
 </style>
+
+<template>
+  <span :class="{ red: red }">Hello World!</span>
+</template>
 ```
 
 </div>
@@ -688,18 +711,18 @@ const red = ref(true);
 <div class="h-60 mb-6 overflow-y-auto">
 
 ```vue
+<script setup>
+import { ref } from "vue";
+
+const counter = ref(0);
+</script>
+
 <template>
   <div>
     <button v-on:click="counter += 1">Add 1</button>
     <p>clicked {{ counter }} times.</p>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const counter = ref(0);
-</script>
 ```
 
 </div>
@@ -717,13 +740,6 @@ const counter = ref(0);
 関数を渡すと複雑な処理が書きやすい
 
 ```vue
-<template>
-  <div>
-    <button @click="increment">Add 1</button>
-    <p>clicked {{ counter }} times.</p>
-  </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -732,6 +748,13 @@ function increment() {
   counter.value += 1;
 }
 </script>
+
+<template>
+  <div>
+    <button @click="increment">Add 1</button>
+    <p>clicked {{ counter }} times.</p>
+  </div>
+</template>
 ```
 
 ---
@@ -741,15 +764,15 @@ function increment() {
 `v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `v-show` は見た目上非表示にするが `v-if` は DOM 要素も取り除く。
 
 ```vue {all|3|8|all}
+<script setup>
+const seen = true;
+</script>
+
 <template>
   <div id="conditional-rendering">
     <span v-if="seen">Now you see me</span>
   </div>
 </template>
-
-<script setup>
-const seen = true;
-</script>
 ```
 
 <arrow v-click="2" x1="350" y1="370" x2="190" y2="310" color="#564" width="3" arrowSize="1" />
@@ -779,19 +802,23 @@ const seen = true;
 <div class="flex gap-4">
 
 ```vue
+<script setup>
+const type = "A";
+</script>
+
 <template>
   <div v-if="type === 'A'">A</div>
   <div v-else-if="type === 'B'">B</div>
   <div v-else-if="type === 'C'">C</div>
   <div v-else>Not A/B/C</div>
 </template>
-
-<script setup>
-const type = "A";
-</script>
 ```
 
 ```vue
+<script setup>
+const ok = true;
+</script>
+
 <template>
   <template v-if="ok">
     <h1>Title</h1>
@@ -799,10 +826,6 @@ const type = "A";
     <p>Paragraph 2</p>
   </template>
 </template>
-
-<script setup>
-const ok = true;
-</script>
 ```
 
 </div>
@@ -816,6 +839,14 @@ const ok = true;
 <div class="flex gap-8">
 
 ```vue
+<script setup>
+const todos = [
+  { text: "Learn JavaScript" },
+  { text: "Learn Vue" },
+  { text: "Build something awesome" },
+];
+</script>
+
 <template>
   <div id="list-rendering">
     <ol>
@@ -825,14 +856,6 @@ const ok = true;
     </ol>
   </div>
 </template>
-
-<script setup>
-const todos = [
-  { text: "Learn JavaScript" },
-  { text: "Learn Vue" },
-  { text: "Build something awesome" },
-];
-</script>
 ```
 
   <div class="flex-shrink">
@@ -856,6 +879,14 @@ const todos = [
 <div class="flex gap-8">
 
 ```vue
+<script setup>
+const todos = [
+  { text: "Learn JavaScript", id: 1 },
+  { text: "Learn Vue", id: 2 },
+  { text: "Build something awesome", id: 3 },
+];
+</script>
+
 <template>
   <div id="list-rendering">
     <ol>
@@ -865,14 +896,6 @@ const todos = [
     </ol>
   </div>
 </template>
-
-<script setup>
-const todos = [
-  { text: "Learn JavaScript", id: 1 },
-  { text: "Learn Vue", id: 2 },
-  { text: "Build something awesome", id: 3 },
-];
-</script>
 ```
 
 <div class="flex-shrink">
@@ -895,6 +918,14 @@ const todos = [
 <div class="flex gap-8">
 
 ```vue{all|4}
+<script setup>
+const todos = [
+  { text: "Learn JavaScript" },
+  { text: "Learn Vue" },
+  { text: "Build something awesome" },
+];
+</script>
+
 <template>
   <div id="list-rendering">
     <ol>
@@ -904,14 +935,6 @@ const todos = [
     </ol>
   </div>
 </template>
-
-<script setup>
-const todos = [
-  { text: "Learn JavaScript" },
-  { text: "Learn Vue" },
-  { text: "Build something awesome" },
-];
-</script>
 ```
 
 <div class="flex-shrink w-110">
@@ -937,18 +960,18 @@ const todos = [
 <div class="flex gap-8">
 
 ```vue
+<script setup>
+import { ref } from "vue";
+
+const message = ref("Hello Vue!");
+</script>
+
 <template>
   <div id="two-way-binding">
     <p>{{ message }}</p>
     <input v-model="message" />
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const message = ref("Hello Vue!");
-</script>
 ```
 
 <div>
@@ -990,13 +1013,13 @@ const message = ref("Hello Vue!");
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
+<script setup>
+import ChildComponent from "./ChildComponent.vue";
+</script>
+
 <template>
   <ChildComponent title="Hello!" />
 </template>
-
-<script setup>
-import ChildComponent from "./components/ChildComponent.vue";
-</script>
 ```
 
 </div>
@@ -1006,10 +1029,6 @@ import ChildComponent from "./components/ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <p>{{ message }}</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1018,6 +1037,10 @@ const props = defineProps({
 });
 const message = ref(props.title);
 </script>
+
+<template>
+  <p>{{ message }}</p>
+</template>
 ```
 
 </div>
@@ -1037,13 +1060,13 @@ const message = ref(props.title);
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue {all|2|all}
+<script setup>
+import ChildComponent from "./ChildComponent.vue";
+</script>
+
 <template>
   <ChildComponent :count="14" />
 </template>
-
-<script setup>
-import ChildComponent from "./components/ChildComponent.vue";
-</script>
 ```
 
 <p class="text-xs">静的な値ですが、これが文字列ではなく JavaScript の式だとVueに伝えるためにはv-bind を使う必要があります</p>
@@ -1055,10 +1078,6 @@ import ChildComponent from "./components/ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <p>{{ message }}</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1067,6 +1086,10 @@ const props = defineProps({
 });
 const message = ref(props.count);
 </script>
+
+<template>
+  <p>{{ message }}</p>
+</template>
 ```
 
 </div>
@@ -1088,13 +1111,13 @@ const message = ref(props.count);
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue {all|2|all}
+<script setup>
+import ChildComponent from "./ChildComponent.vue";
+</script>
+
 <template>
   <ChildComponent :is-show="false" />
 </template>
-
-<script setup>
-import ChildComponent from "./components/ChildComponent.vue";
-</script>
 ```
 
 </div>
@@ -1104,10 +1127,6 @@ import ChildComponent from "./components/ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <p v-if="show">props'is-show'がtrueであれば見れます</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1116,6 +1135,10 @@ const props = defineProps({
 });
 const show = ref(props.isShow);
 </script>
+
+<template>
+  <p v-if="show">props'is-show'がtrueであれば見れます</p>
+</template>
 ```
 
 </div>
@@ -1137,13 +1160,13 @@ props はデフォルト値を設定することもできる
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
+<script setup>
+import ChildComponent from "./ChildComponent.vue";
+</script>
+
 <template>
   <ChildComponent :is-show="false" />
 </template>
-
-<script setup>
-import ChildComponent from "./components/ChildComponent.vue";
-</script>
 ```
 
 </div>
@@ -1153,10 +1176,6 @@ import ChildComponent from "./components/ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue {all|9-12|all}
-<template>
-  <p v-if="show">props'is-show'がtrueであれば見れます</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1168,6 +1187,10 @@ const props = defineProps({
 });
 const show = ref(props.isShow);
 </script>
+
+<template>
+  <p v-if="show">props'is-show'がtrueであれば見れます</p>
+</template>
 ```
 
 </div>
@@ -1187,13 +1210,13 @@ const show = ref(props.isShow);
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
+<script setup>
+import ChildComponent from "./ChildComponent.vue";
+</script>
+
 <template>
   <ChildComponent :student="{ name: 'taro', old: '16' }" />
 </template>
-
-<script setup>
-import ChildComponent from "./components/ChildComponent.vue";
-</script>
 ```
 
 </div>
@@ -1203,10 +1226,6 @@ import ChildComponent from "./components/ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <p>こんにちは、{{ user.name }}さん、{{ user.old }}歳になりましたね</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1215,6 +1234,10 @@ const props = defineProps({
 });
 const user = ref(props.student);
 </script>
+
+<template>
+  <p>こんにちは、{{ user.name }}さん、{{ user.old }}歳になりましたね</p>
+</template>
 ```
 
 </div>
@@ -1234,17 +1257,17 @@ const user = ref(props.student);
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
-<template>
-  <ChildComponent @child-clicked="clicked" />
-</template>
-
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 
 function clicked(message) {
   alert(message);
 }
 </script>
+
+<template>
+  <ChildComponent @child-clicked="clicked" />
+</template>
 ```
 
 </div>
@@ -1254,16 +1277,16 @@ function clicked(message) {
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <button @click="clickHandler">emit !</button>
-</template>
-
 <script setup>
 const emit = defineEmits(["child-clicked"]);
 function clickHandler() {
   emit("child-clicked", "Hello!");
 }
 </script>
+
+<template>
+  <button @click="clickHandler">emit !</button>
+</template>
 ```
 
 </div>
@@ -1288,17 +1311,17 @@ function clickHandler() {
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
+<script setup>
+import { ref } from "vue";
+import ChildComponent from "./ChildComponent.vue";
+
+const title = ref("Hello !");
+</script>
+
 <template>
   <ChildComponent v-model="title" />
   <p>{{ title }}</p>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
-
-const title = ref("Hello !");
-</script>
 ```
 
 </div>
@@ -1310,10 +1333,6 @@ const title = ref("Hello !");
 <div class="h-xs overflow-y-auto">
 
 ```vue
-<template>
-  <input v-model="title" />
-</template>
-
 <script setup>
 import { computed } from "vue";
 
@@ -1328,6 +1347,10 @@ const title = computed({
   },
 });
 </script>
+
+<template>
+  <input v-model="title" />
+</template>
 ```
 
 </div>
@@ -1356,17 +1379,17 @@ const title = computed({
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
+<script setup>
+import { ref } from "vue";
+import ChildComponent from "./ChildComponent.vue";
+
+const title = ref("Hello !");
+</script>
+
 <template>
   <ChildComponent @update:modelValue="title = $event" :modelValue="title" />
   <p>{{ title }}</p>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
-
-const title = ref("Hello !");
-</script>
 ```
 
 </div>
@@ -1465,9 +1488,60 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 ---
 
+# 後半のハンズオン環境を用意する
+
+<h2 class="!text-base font-bold">前提条件</h2>
+
+- [Active LTSなNode.js](https://nodejs.org/en/about/previous-releases#release-schedule)ランタイムを導入済みであること
+- [VSCode](https://code.visualstudio.com/)のようなターミナルを統合したコードエディターか、それに準じるツール群を導入済みであること
+
+<h2 class="!text-base font-bold !mt-2">手順</h2>
+
+1. リポジトリのソースコードが含まれたZIPファイルをダウンロード https://github.com/tuqulore/vue-3-practices/archive/refs/heads/main.zip
+2. ZIPファイルを展開
+3. 展開して得られたファイル群をFinderやファイルエクスプローラーなどで確認する
+
+```console
+$ tree -L 1 # ファイル群の階層構造を確認するコマンド（例示なので各自実行する必要はありません）
+.
+├── LICENSE
+├── README.md
+├── docs
+├── handson-fetch-router
+├── handson-fetch-router-finish
+├── ...
+├── practice-vue-router-answer-2
+├── renovate.json
+└── yarn.lock
+```
+
+---
+
+# 後半のハンズオン環境を用意する
+
+4. handson-grid-componentディレクトリを  
+   ターミナルかVSCodeなどのターミナルが統合されたコードエディターで開く
+5. ターミナルで `npm install` を実行して動作に必要な[NPMパッケージをインストール](https://docs.npmjs.com/downloading-and-installing-packages-locally)する
+6. ターミナルで `npm run dev` を実行してアプリケーションを起動する
+
+<h2 class="!text-base font-bold !mt-4">確認すること</h2>
+
+- ターミナルに`http://localhost:5174/`のようなURLが表示されること
+- URLをブラウザーで開くと表のようなものが表示されること
+- 適当に`handson-grid-component/src/App.vue`をコードエディターで編集して保存すると  
+  ブラウザーの表示内容が変わること
+- ターミナルでキーボードショートカット`Ctrl + C` (macOS なら`Cmd + C`) を入力すると  
+  アプリケーションが停止すること
+
+次ページ以降はローカル環境でアプリケーションを起動しながら、コードの閲覧と編集する作業が要求されます。
+
+確認がうまくいかなったら申告して今のうちに解消しましょう。
+
+---
+
 # グリッドコンポーネント
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-grid-component?file=src/App.vue&terminal=dev
+handson-grid-componentディレクトリのアプリを起動する
 
 1. どんなアプリか：表にデータを流し込んでカラムで並べ替えできる
 2. コードの説明
@@ -1537,7 +1611,7 @@ const filterFruits = debounce(1000, () => {
 
 # Markdown エディター
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-markdown-editor?file=src/App.vue&terminal=dev
+handson-markdown-editorディレクトリのアプリを起動する
 
 1. どんなアプリか：左カラムに Markdown 記法でテキストを入力すると右カラムに対応する見た目が表示できる
 2. コードの説明
@@ -1547,7 +1621,7 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-ma
 
 # デザインラボの記事ビューアー
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router?file=src/App.vue&terminal=dev
+handson-fetch-routerディレクトリのアプリを起動する
 
 1. どんなアプリか：[デザインラボ](https://design-lab.tuqulore.com/)というサイトと同じ記事データ（JSON）を取得して一覧から選択表示できる
 2. コードの説明（App コンポーネント、PostList コンポーネント）
@@ -1561,7 +1635,7 @@ https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fe
 
 # 靴のギャラリー
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes?file=src/App.vue&terminal=dev
+handson-gallery-shoesディレクトリのアプリを起動する
 
 1. どんなアプリか：靴のデータ（JSON）を取得してショッピングサイトらしい見た目で一覧表示できる
 2. JSON から靴のデータを取得しよう（10 分程度）
@@ -1597,7 +1671,7 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 # Nuxt 3 のハンズオン
 
-https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev
+handson-nuxt-playgroundディレクトリのアプリを起動する
 
 - app.vue
 - pages
@@ -1725,15 +1799,15 @@ layouts 配下にデフォルト以外のレイアウトコンポーネントを
 ページコンポーネントで other-layout レイアウトを参照する
 
 ```vue
-<template>
-  <h1>CONTACT</h1>
-</template>
-
 <script setup>
 definePageMeta({
   layout: "other-layout",
 });
 </script>
+
+<template>
+  <h1>CONTACT</h1>
+</template>
 ```
 
 </div>
@@ -1746,6 +1820,10 @@ definePageMeta({
 `server/api`ディレクトリにある`users.js`を確認して、`components/userList.vue`に以下を記述する。
 
 ```vue
+<script setup>
+const { data: users } = await useFetch("/api/users");
+</script>
+
 <template>
   <div>
     <ul>
@@ -1755,10 +1833,6 @@ definePageMeta({
     </ul>
   </div>
 </template>
-
-<script setup>
-const { data: users } = await useFetch("/api/users");
-</script>
 ```
 
 ---
@@ -1789,19 +1863,19 @@ export default () => {
 作成した useCounter コンポジション関数を使用する。
 
 ```vue
-<template>
-  <div>
-    <p>カウント: {{ counter.count }}</p>
-    <p><button @click="increment">increment!</button></p>
-  </div>
-</template>
-
 <script setup>
 const counter = useCounter();
 function increment() {
   counter.increment();
 }
 </script>
+
+<template>
+  <div>
+    <p>カウント: {{ counter.count }}</p>
+    <p><button @click="increment">increment!</button></p>
+  </div>
+</template>
 ```
 
 <arrow v-click="1" x1="400" y1="400" x2="220" y2="300" color="#564" width="3" arrowSize="1" />
@@ -1810,18 +1884,15 @@ function increment() {
 
 # Vue + Vue Router と Nuxt 3 の比較
 
-デザインラボの記事ビューアーを Nuxt 3 でつくりなおしたもの
+handson-fetch-router-nuxtディレクトリのアプリを起動する
 
-動作は Vue 3 のものと同じ
-
-1. https://codesandbox.io/p/github/tuqulore/vue-3-practices/main?file=%2Fhandson-fetch-router-nuxt-finish%2Fpages%2Findex.vue にアクセス
-2. `Start handson-fetch-router-nuxt-finish` というタスクを実行
-3. しばらくして何も変化がないようならブラウザ再読み込み
-4. 右上に講師のアバターアイコンがあるはずなのでそれをクリック
+デザインラボの記事ビューアーを Nuxt 3 でつくりなおしたもの (動作は Vue 3 のものと同じ)
 
 ---
 
 # Vue + Vue Router と Nuxt 3 の比較（ルーティング）
+
+ルーティングの設定方法が異なる
 
 <div class="flex gap-8">
 

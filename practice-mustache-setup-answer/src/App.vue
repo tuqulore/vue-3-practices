@@ -14,7 +14,7 @@ const variable = "test";
   <p>ここに表示されます: {{ variable }}</p>
   <!--
     VueではMustache構文によってテキスト展開をおこなうことができます。
-    参考: https://v3.ja.vuejs.org/guide/template-syntax.html#%E5%B1%95%E9%96%8B
+    参考: https://ja.vuejs.org/guide/essentials/template-syntax.html#text-interpolation
   -->
 </template>
 

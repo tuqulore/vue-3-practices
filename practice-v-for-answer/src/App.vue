@@ -35,7 +35,7 @@ const eras = [
   <ul>
     <!--
       リストレンダリングによって、配列をもとに反復した要素の表示ができます。
-      参考: https://v3.ja.vuejs.org/guide/list.html
+      参考: https://ja.vuejs.org/guide/essentials/list.html
     -->
     <li v-for="era in eras" :key="era.name">
       {{ era.name }}時代は西暦{{

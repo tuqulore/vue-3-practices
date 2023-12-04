@@ -12,7 +12,7 @@ const isVisible = false;
     v-ifディレクティブが使用されています。
     v-if ディレクティブは、ブロックを条件に応じてレンダリングしたい場合に使用されます。
     ブロックは、ディレクティブの式が真を返す場合のみレンダリングされます。
-    引用: https://v3.ja.vuejs.org/guide/conditional.html#v-if
+    引用: https://ja.vuejs.org/guide/essentials/conditional.html
   -->
   <p v-if="isVisible">ここが消えます</p>
 </template>

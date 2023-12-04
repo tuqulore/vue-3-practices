@@ -25,7 +25,7 @@ const message = ref("Hello, World!");
   </ol>
   <!--
     v-modelディレクティブは引数をとることもできます。引数をとらない形に変更しても構いません。
-    参考: https://v3.ja.vuejs.org/guide/component-custom-events.html#v-model-%E3%81%AE%E5%BC%95%E6%95%B0
+    参考: https://ja.vuejs.org/guide/components/v-model.html#v-model-arguments
   -->
   <ReverseButton v-model:text="message" />
   <p>App: {{ message }}</p>
