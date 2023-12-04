@@ -10,7 +10,7 @@
     "vue": "^3.2.33"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "4.5.0",
+    "@vitejs/plugin-vue": "4.5.1",
     "vite": "5.0.5"
   },
   "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
