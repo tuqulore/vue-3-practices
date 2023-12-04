@@ -66,7 +66,7 @@ Vue 3 / Nuxt 3 を学習するための
 以下の環境で動作します。
 
 - Chromium 系ブラウザ (推奨)
-- Firefox (アルファサポート)
+- Firefox (ベータサポート)
 
 詳しくは[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)を参照してください。
 
