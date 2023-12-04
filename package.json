@@ -7,7 +7,7 @@
     "url": "https://github.com/tuqulore/vue-3-practices/issues"
   },
   "engines": {
-    "node": ">=16"
+    "node": "^18 || ^20"
   },
   "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
   "keywords": [
