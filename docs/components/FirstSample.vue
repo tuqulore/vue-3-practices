@@ -1,10 +1,3 @@
-<template>
-  <div class="prose">
-    {{ count }}
-    <button @click="increment">+</button>
-  </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -13,3 +6,10 @@ function increment() {
   count.value += 1;
 }
 </script>
+
+<template>
+  <div class="prose">
+    {{ count }}
+    <button @click="increment">+</button>
+  </div>
+</template>

@@ -1,7 +1,3 @@
-<template>
-  <input v-model="title" />
-</template>
-
 <script setup>
 import { computed } from "vue";
 
@@ -16,3 +12,7 @@ const title = computed({
   },
 });
 </script>
+
+<template>
+  <input v-model="title" />
+</template>
