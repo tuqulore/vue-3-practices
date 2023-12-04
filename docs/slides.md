@@ -206,13 +206,6 @@ function increment() {
 <div class="flex gap-8">
 
 ```vue
-<template>
-  <div>
-    {{ count }}
-    <button @click="increment">+</button>
-  </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -221,6 +214,13 @@ function increment() {
   count.value += 1;
 }
 </script>
+
+<template>
+  <div>
+    {{ count }}
+    <button @click="increment">+</button>
+  </div>
+</template>
 ```
 
 <div>
@@ -365,19 +365,19 @@ const sum = computed(() => {
 あるリアクティブな値を元に計算結果を返したい場合、`computed` 関数を利用する
 
 ```vue
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    {{ plusOne }}
-  </div>
-</template>
-
 <script setup>
 import { ref, computed } from "vue";
 
 const count = ref(1);
 const plusOne = computed(() => count.value + 1);
 </script>
+
+<template>
+  <div>
+    <input type="number" v-model="count" />
+    {{ plusOne }}
+  </div>
+</template>
 ```
 
 ---
@@ -389,14 +389,6 @@ const plusOne = computed(() => count.value + 1);
 <div class="h-sm overflow-y-auto">
 
 ```vue
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    <button @click="handleClick">リセット</button>
-    {{ plusOne }}
-  </div>
-</template>
-
 <script setup>
 import { ref, computed } from "vue";
 
@@ -411,6 +403,14 @@ function handleClick() {
   plusOne.value = 1;
 }
 </script>
+
+<template>
+  <div>
+    <input type="number" v-model="count" />
+    <button @click="handleClick">リセット</button>
+    {{ plusOne }}
+  </div>
+</template>
 ```
 
 </div>
@@ -423,6 +423,19 @@ function handleClick() {
 うまく使い分けるとパフォーマンスの向上に役立てる。
 
 <div class="flex gap-4">
+
+```vue
+<script setup>
+import { computed } from "vue";
+
+const randomMethod = () => {
+  return Math.random();
+};
+const randomComputed = computed(() => {
+  return Math.random();
+});
+</script>
+```
 
 ```vue
 <template>
@@ -441,19 +454,6 @@ function handleClick() {
 </template>
 ```
 
-```vue
-<script setup>
-import { computed } from "vue";
-
-const randomMethod = () => {
-  return Math.random();
-};
-const randomComputed = computed(() => {
-  return Math.random();
-});
-</script>
-```
-
 <div>
   <ComputedMethod />
 </div>
@@ -469,6 +469,16 @@ const randomComputed = computed(() => {
 <div class="h-sm overflow-y-auto">
 
 ```vue
+<script setup>
+import { ref, computed, watch } from "vue";
+
+const count = ref(1);
+const histories = ref([[count.value, null]]);
+watch(count, (current, prev) => {
+  histories.value.splice(0, 0, [current, prev]);
+});
+</script>
+
 <template>
   <div>
     <input type="number" v-model="count" />
@@ -479,16 +489,6 @@ const randomComputed = computed(() => {
     </ol>
   </div>
 </template>
-
-<script setup>
-import { ref, computed, watch } from "vue";
-
-const count = ref(1);
-const histories = ref([[count.value, null]]);
-watch(count, (current, prev) => {
-  histories.value.splice(0, 0, [current, prev]);
-});
-</script>
 ```
 
 </div>
@@ -563,13 +563,13 @@ watchEffect(() => console.log(count.value)); // countが更新される度に実
 Mustache 構文でテキスト展開できる。JavaScript 式を使用することもできる
 
 ```vue
-<template>
-  <div>Message: {{ msg }}</div>
-</template>
-
 <script setup>
 const msg = "Hello!";
 </script>
+
+<template>
+  <div>Message: {{ msg }}</div>
+</template>
 ```
 
 結果
@@ -587,10 +587,6 @@ counterを1秒ごとに増やしていく
 </p>
 
 ```vue
-<template>
-  <div>Counter: {{ counter }}</div>
-</template>
-
 <script>
 import { ref } from "vue";
 
@@ -599,6 +595,10 @@ setInterval(() => {
   counter.value += 1;
 }, 1000);
 </script>
+
+<template>
+  <div>Counter: {{ counter }}</div>
+</template>
 ```
 
 結果
@@ -627,13 +627,13 @@ setInterval(() => {
 <div>
 
 ```vue
-<template>
-  <a v-bind:href="url"> Vue.js公式サイト </a>
-</template>
-
 <script setup>
 const url = "https://ja.vuejs.org/";
 </script>
+
+<template>
+  <a v-bind:href="url"> Vue.js公式サイト </a>
+</template>
 ```
 
 省略するとこのように書ける
@@ -657,10 +657,6 @@ const url = "https://ja.vuejs.org/";
 <p class="text-xs">オブジェクト構文</p>
 
 ```vue
-<template>
-  <span :class="{ red: red }">Hello World!</span>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -672,6 +668,10 @@ const red = ref(true);
   color: red;
 }
 </style>
+
+<template>
+  <span :class="{ red: red }">Hello World!</span>
+</template>
 ```
 
 </div>
@@ -711,18 +711,18 @@ const red = ref(true);
 <div class="h-60 mb-6 overflow-y-auto">
 
 ```vue
+<script setup>
+import { ref } from "vue";
+
+const counter = ref(0);
+</script>
+
 <template>
   <div>
     <button v-on:click="counter += 1">Add 1</button>
     <p>clicked {{ counter }} times.</p>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const counter = ref(0);
-</script>
 ```
 
 </div>
@@ -740,13 +740,6 @@ const counter = ref(0);
 関数を渡すと複雑な処理が書きやすい
 
 ```vue
-<template>
-  <div>
-    <button @click="increment">Add 1</button>
-    <p>clicked {{ counter }} times.</p>
-  </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -755,6 +748,13 @@ function increment() {
   counter.value += 1;
 }
 </script>
+
+<template>
+  <div>
+    <button @click="increment">Add 1</button>
+    <p>clicked {{ counter }} times.</p>
+  </div>
+</template>
 ```
 
 ---
@@ -764,15 +764,15 @@ function increment() {
 `v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `v-show` は見た目上非表示にするが `v-if` は DOM 要素も取り除く。
 
 ```vue {all|3|8|all}
+<script setup>
+const seen = true;
+</script>
+
 <template>
   <div id="conditional-rendering">
     <span v-if="seen">Now you see me</span>
   </div>
 </template>
-
-<script setup>
-const seen = true;
-</script>
 ```
 
 <arrow v-click="2" x1="350" y1="370" x2="190" y2="310" color="#564" width="3" arrowSize="1" />
@@ -802,19 +802,23 @@ const seen = true;
 <div class="flex gap-4">
 
 ```vue
+<script setup>
+const type = "A";
+</script>
+
 <template>
   <div v-if="type === 'A'">A</div>
   <div v-else-if="type === 'B'">B</div>
   <div v-else-if="type === 'C'">C</div>
   <div v-else>Not A/B/C</div>
 </template>
-
-<script setup>
-const type = "A";
-</script>
 ```
 
 ```vue
+<script setup>
+const ok = true;
+</script>
+
 <template>
   <template v-if="ok">
     <h1>Title</h1>
@@ -822,10 +826,6 @@ const type = "A";
     <p>Paragraph 2</p>
   </template>
 </template>
-
-<script setup>
-const ok = true;
-</script>
 ```
 
 </div>
@@ -839,6 +839,14 @@ const ok = true;
 <div class="flex gap-8">
 
 ```vue
+<script setup>
+const todos = [
+  { text: "Learn JavaScript" },
+  { text: "Learn Vue" },
+  { text: "Build something awesome" },
+];
+</script>
+
 <template>
   <div id="list-rendering">
     <ol>
@@ -848,14 +856,6 @@ const ok = true;
     </ol>
   </div>
 </template>
-
-<script setup>
-const todos = [
-  { text: "Learn JavaScript" },
-  { text: "Learn Vue" },
-  { text: "Build something awesome" },
-];
-</script>
 ```
 
   <div class="flex-shrink">
@@ -879,6 +879,14 @@ const todos = [
 <div class="flex gap-8">
 
 ```vue
+<script setup>
+const todos = [
+  { text: "Learn JavaScript", id: 1 },
+  { text: "Learn Vue", id: 2 },
+  { text: "Build something awesome", id: 3 },
+];
+</script>
+
 <template>
   <div id="list-rendering">
     <ol>
@@ -888,14 +896,6 @@ const todos = [
     </ol>
   </div>
 </template>
-
-<script setup>
-const todos = [
-  { text: "Learn JavaScript", id: 1 },
-  { text: "Learn Vue", id: 2 },
-  { text: "Build something awesome", id: 3 },
-];
-</script>
 ```
 
 <div class="flex-shrink">
@@ -918,6 +918,14 @@ const todos = [
 <div class="flex gap-8">
 
 ```vue{all|4}
+<script setup>
+const todos = [
+  { text: "Learn JavaScript" },
+  { text: "Learn Vue" },
+  { text: "Build something awesome" },
+];
+</script>
+
 <template>
   <div id="list-rendering">
     <ol>
@@ -927,14 +935,6 @@ const todos = [
     </ol>
   </div>
 </template>
-
-<script setup>
-const todos = [
-  { text: "Learn JavaScript" },
-  { text: "Learn Vue" },
-  { text: "Build something awesome" },
-];
-</script>
 ```
 
 <div class="flex-shrink w-110">
@@ -960,18 +960,18 @@ const todos = [
 <div class="flex gap-8">
 
 ```vue
+<script setup>
+import { ref } from "vue";
+
+const message = ref("Hello Vue!");
+</script>
+
 <template>
   <div id="two-way-binding">
     <p>{{ message }}</p>
     <input v-model="message" />
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const message = ref("Hello Vue!");
-</script>
 ```
 
 <div>
@@ -1013,13 +1013,13 @@ const message = ref("Hello Vue!");
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
-<template>
-  <ChildComponent title="Hello!" />
-</template>
-
 <script setup>
 import ChildComponent from "./ChildComponent.vue";
 </script>
+
+<template>
+  <ChildComponent title="Hello!" />
+</template>
 ```
 
 </div>
@@ -1029,10 +1029,6 @@ import ChildComponent from "./ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <p>{{ message }}</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1041,6 +1037,10 @@ const props = defineProps({
 });
 const message = ref(props.title);
 </script>
+
+<template>
+  <p>{{ message }}</p>
+</template>
 ```
 
 </div>
@@ -1060,13 +1060,13 @@ const message = ref(props.title);
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue {all|2|all}
-<template>
-  <ChildComponent :count="14" />
-</template>
-
 <script setup>
 import ChildComponent from "./ChildComponent.vue";
 </script>
+
+<template>
+  <ChildComponent :count="14" />
+</template>
 ```
 
 <p class="text-xs">静的な値ですが、これが文字列ではなく JavaScript の式だとVueに伝えるためにはv-bind を使う必要があります</p>
@@ -1078,10 +1078,6 @@ import ChildComponent from "./ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <p>{{ message }}</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1090,6 +1086,10 @@ const props = defineProps({
 });
 const message = ref(props.count);
 </script>
+
+<template>
+  <p>{{ message }}</p>
+</template>
 ```
 
 </div>
@@ -1111,13 +1111,13 @@ const message = ref(props.count);
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue {all|2|all}
-<template>
-  <ChildComponent :is-show="false" />
-</template>
-
 <script setup>
 import ChildComponent from "./ChildComponent.vue";
 </script>
+
+<template>
+  <ChildComponent :is-show="false" />
+</template>
 ```
 
 </div>
@@ -1127,10 +1127,6 @@ import ChildComponent from "./ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <p v-if="show">props'is-show'がtrueであれば見れます</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1139,6 +1135,10 @@ const props = defineProps({
 });
 const show = ref(props.isShow);
 </script>
+
+<template>
+  <p v-if="show">props'is-show'がtrueであれば見れます</p>
+</template>
 ```
 
 </div>
@@ -1160,13 +1160,13 @@ props はデフォルト値を設定することもできる
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
-<template>
-  <ChildComponent :is-show="false" />
-</template>
-
 <script setup>
 import ChildComponent from "./ChildComponent.vue";
 </script>
+
+<template>
+  <ChildComponent :is-show="false" />
+</template>
 ```
 
 </div>
@@ -1176,10 +1176,6 @@ import ChildComponent from "./ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue {all|9-12|all}
-<template>
-  <p v-if="show">props'is-show'がtrueであれば見れます</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1191,6 +1187,10 @@ const props = defineProps({
 });
 const show = ref(props.isShow);
 </script>
+
+<template>
+  <p v-if="show">props'is-show'がtrueであれば見れます</p>
+</template>
 ```
 
 </div>
@@ -1210,13 +1210,13 @@ const show = ref(props.isShow);
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
-<template>
-  <ChildComponent :student="{ name: 'taro', old: '16' }" />
-</template>
-
 <script setup>
 import ChildComponent from "./ChildComponent.vue";
 </script>
+
+<template>
+  <ChildComponent :student="{ name: 'taro', old: '16' }" />
+</template>
 ```
 
 </div>
@@ -1226,10 +1226,6 @@ import ChildComponent from "./ChildComponent.vue";
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <p>こんにちは、{{ user.name }}さん、{{ user.old }}歳になりましたね</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -1238,6 +1234,10 @@ const props = defineProps({
 });
 const user = ref(props.student);
 </script>
+
+<template>
+  <p>こんにちは、{{ user.name }}さん、{{ user.old }}歳になりましたね</p>
+</template>
 ```
 
 </div>
@@ -1257,10 +1257,6 @@ const user = ref(props.student);
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
-<template>
-  <ChildComponent @child-clicked="clicked" />
-</template>
-
 <script setup>
 import ChildComponent from "./ChildComponent.vue";
 
@@ -1268,6 +1264,10 @@ function clicked(message) {
   alert(message);
 }
 </script>
+
+<template>
+  <ChildComponent @child-clicked="clicked" />
+</template>
 ```
 
 </div>
@@ -1277,16 +1277,16 @@ function clicked(message) {
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
 ```vue
-<template>
-  <button @click="clickHandler">emit !</button>
-</template>
-
 <script setup>
 const emit = defineEmits(["child-clicked"]);
 function clickHandler() {
   emit("child-clicked", "Hello!");
 }
 </script>
+
+<template>
+  <button @click="clickHandler">emit !</button>
+</template>
 ```
 
 </div>
@@ -1311,17 +1311,17 @@ function clickHandler() {
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
-<template>
-  <ChildComponent v-model="title" />
-  <p>{{ title }}</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
+
+<template>
+  <ChildComponent v-model="title" />
+  <p>{{ title }}</p>
+</template>
 ```
 
 </div>
@@ -1333,10 +1333,6 @@ const title = ref("Hello !");
 <div class="h-xs overflow-y-auto">
 
 ```vue
-<template>
-  <input v-model="title" />
-</template>
-
 <script setup>
 import { computed } from "vue";
 
@@ -1351,6 +1347,10 @@ const title = computed({
   },
 });
 </script>
+
+<template>
+  <input v-model="title" />
+</template>
 ```
 
 </div>
@@ -1379,17 +1379,17 @@ const title = computed({
 <p class="text-xs">親コンポーネント - App.vue</p>
 
 ```vue
-<template>
-  <ChildComponent @update:modelValue="title = $event" :modelValue="title" />
-  <p>{{ title }}</p>
-</template>
-
 <script setup>
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
+
+<template>
+  <ChildComponent @update:modelValue="title = $event" :modelValue="title" />
+  <p>{{ title }}</p>
+</template>
 ```
 
 </div>
@@ -1799,15 +1799,15 @@ layouts 配下にデフォルト以外のレイアウトコンポーネントを
 ページコンポーネントで other-layout レイアウトを参照する
 
 ```vue
-<template>
-  <h1>CONTACT</h1>
-</template>
-
 <script setup>
 definePageMeta({
   layout: "other-layout",
 });
 </script>
+
+<template>
+  <h1>CONTACT</h1>
+</template>
 ```
 
 </div>
@@ -1820,6 +1820,10 @@ definePageMeta({
 `server/api`ディレクトリにある`users.js`を確認して、`components/userList.vue`に以下を記述する。
 
 ```vue
+<script setup>
+const { data: users } = await useFetch("/api/users");
+</script>
+
 <template>
   <div>
     <ul>
@@ -1829,10 +1833,6 @@ definePageMeta({
     </ul>
   </div>
 </template>
-
-<script setup>
-const { data: users } = await useFetch("/api/users");
-</script>
 ```
 
 ---
@@ -1863,19 +1863,19 @@ export default () => {
 作成した useCounter コンポジション関数を使用する。
 
 ```vue
-<template>
-  <div>
-    <p>カウント: {{ counter.count }}</p>
-    <p><button @click="increment">increment!</button></p>
-  </div>
-</template>
-
 <script setup>
 const counter = useCounter();
 function increment() {
   counter.increment();
 }
 </script>
+
+<template>
+  <div>
+    <p>カウント: {{ counter.count }}</p>
+    <p><button @click="increment">increment!</button></p>
+  </div>
+</template>
 ```
 
 <arrow v-click="1" x1="400" y1="400" x2="220" y2="300" color="#564" width="3" arrowSize="1" />
