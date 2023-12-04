@@ -72,22 +72,25 @@ Web アプリケーションにおけるユーザーインターフェイスを�
 
 ---
 
-# 準備
+# 前半のハンズオン環境を用意する
 
 使用するツールの確認とセットアップ
 
-本講座におけるハンズオン、演習、サンプルの閲覧は [StackBlitz](https://stackblitz.com/) でおこないます。
+本講座におけるハンズオン、演習、サンプルの閲覧は [Vue SFC Playground](https://play.vuejs.org/) でおこないます。
 
-StackBlitz はブラウザ上で動作するオンライン IDE（統合開発環境）です。
+Vue SFC Playgroundはブラウザ上でVueの動作が確認できるオンラインエディターです。
 
 以下をやってみましょう
 
-1. 動作環境を[こちら](https://developer.stackblitz.com/docs/platform/browser-support/)で確認してブラウザを用意
-2. 用意したブラウザで https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-vue?file=src/App.vue&terminal=dev にアクセス
-3. `<template>Hello World!</template>` と書いてみる
-4. 右カラムに `Hello World!` と表示されることを確認
+1. https://play.vuejs.org/ にアクセス
+2. 右カラムの画面にある入力欄へ「Hello World!」以外の文字列を入力する
+3. 右カラムに`Hello World!`以外の文字列が見出しで表示されることを確認
+4. 左カラムの文字列をすべて消す
+5. 右カラムになにも表示されないことを確認
 
-講師は適宜あたらしいハンズオン環境をつくっていきますが、受講者の皆さんは作成したハンズオン環境を（全消しするなど）使いまわしてもらって大丈夫です。
+編集した内容は共有ボタン <mdi-share-variant /> で再現可能なURLとして保存できます。
+
+講師の編集内容もリクエストに応じて適宜共有していきます。
 
 ---
 
@@ -995,7 +998,7 @@ const message = ref("Hello Vue!");
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1042,7 +1045,7 @@ const message = ref(props.title);
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1093,7 +1096,7 @@ const message = ref(props.count);
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1142,7 +1145,7 @@ props はデフォルト値を設定することもできる
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1192,7 +1195,7 @@ const show = ref(props.isShow);
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 </script>
 ```
 
@@ -1239,7 +1242,7 @@ const user = ref(props.student);
 </template>
 
 <script setup>
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 
 function clicked(message) {
   alert(message);
@@ -1295,7 +1298,7 @@ function clickHandler() {
 
 <script setup>
 import { ref } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
@@ -1363,7 +1366,7 @@ const title = computed({
 
 <script setup>
 import { ref } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
+import ChildComponent from "./ChildComponent.vue";
 
 const title = ref("Hello !");
 </script>
