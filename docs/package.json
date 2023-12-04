@@ -3,7 +3,7 @@
   "description": "Vue 3 / Nuxt 3の演習資料",
   "version": "1.0.0",
   "dependencies": {
-    "@slidev/cli": "0.44.0",
+    "@slidev/cli": "0.45.0",
     "@slidev/theme-default": "0.21.2",
     "vite-plugin-vue-server-ref": "0.3.4"
   },
