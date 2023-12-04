@@ -6,7 +6,7 @@ const load = async () => {
    * https://portal.data.metro.tokyo.lg.jp/opendata-api/ にはBase URL、APIエンドポイント、それぞれのAPIエンドポイントで使用可能なパラメータなどがドキュメンテーションされており、それらをページ上で試すこともできます。
    */
   const response = await fetch(
-    "https://api.data.metro.tokyo.lg.jp/v1/Covid19CallCenter?limit=10"
+    "https://api.data.metro.tokyo.lg.jp/v1/Covid19CallCenter?limit=10",
   );
   /**
    * Response.json()メソッドを使用することによって、レスポンスをJSONとして解析しJavaScriptオブジェクトに変換することができます。

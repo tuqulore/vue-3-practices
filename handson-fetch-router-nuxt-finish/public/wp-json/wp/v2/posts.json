@@ -32,9 +32,15 @@
     "categories": [1],
     "tags": [6, 64],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1649" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1649" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -66,7 +72,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1649" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1649"
+        }
       ],
       "wp:term": [
         {
@@ -118,9 +126,15 @@
     "categories": [1],
     "tags": [60, 36, 59, 61],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1595" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1595" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -152,7 +166,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1595" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1595"
+        }
       ],
       "wp:term": [
         {
@@ -204,9 +220,15 @@
     "categories": [1],
     "tags": [56],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1526" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1526" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -238,7 +260,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1526" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1526"
+        }
       ],
       "wp:term": [
         {
@@ -288,9 +312,15 @@
     "categories": [1],
     "tags": [44],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1501" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1501" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -322,7 +352,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1501" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1501"
+        }
       ],
       "wp:term": [
         {
@@ -374,9 +406,15 @@
     "categories": [1],
     "tags": [14, 53, 55, 54],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1469" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1469" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -408,7 +446,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1469" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1469"
+        }
       ],
       "wp:term": [
         {
@@ -460,9 +500,15 @@
     "categories": [1],
     "tags": [51, 52],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1412" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1412" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -494,7 +540,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1412" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1412"
+        }
       ],
       "wp:term": [
         {
@@ -546,9 +594,15 @@
     "categories": [1],
     "tags": [35, 14],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1379" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1379" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -580,7 +634,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1379" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1379"
+        }
       ],
       "wp:term": [
         {
@@ -630,9 +686,15 @@
     "categories": [1],
     "tags": [],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1339" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1339" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -664,7 +726,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1339" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1339"
+        }
       ],
       "wp:term": [
         {
@@ -716,9 +780,15 @@
     "categories": [1],
     "tags": [49],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1306" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1306" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -750,7 +820,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1306" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1306"
+        }
       ],
       "wp:term": [
         {
@@ -802,9 +874,15 @@
     "categories": [1],
     "tags": [47],
     "_links": {
-      "self": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1244" }],
-      "collection": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }],
-      "about": [{ "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }],
+      "self": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts/1244" }
+      ],
+      "collection": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/posts" }
+      ],
+      "about": [
+        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/types/post" }
+      ],
       "author": [
         {
           "embeddable": true,
@@ -836,7 +914,9 @@
         }
       ],
       "wp:attachment": [
-        { "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1244" }
+        {
+          "href": "https://design-lab.tuqulore.com/wp-json/wp/v2/media?parent=1244"
+        }
       ],
       "wp:term": [
         {

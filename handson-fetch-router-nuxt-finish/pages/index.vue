@@ -12,7 +12,7 @@
  * 参考: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
  */
 const { data: posts, pending } = await useFetch(
-  `http://localhost:3000/wp-json/wp/v2/posts.json`
+  `http://localhost:3000/wp-json/wp/v2/posts.json`,
 );
 </script>
 
