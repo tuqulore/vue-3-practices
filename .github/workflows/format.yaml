@@ -14,7 +14,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - uses: ./.github/workflows/setup
-      - if: format
+      - id: format
         run: |
           yarn format
           echo "result=$(git diff --shortstat)" >> $GITHUB_OUTPUT
