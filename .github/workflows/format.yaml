@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.ref }}
       - uses: ./.github/workflows/setup
       - id: format
         run: |
@@ -21,4 +21,4 @@ jobs:
       - if: steps.format.outputs.result != ''
         run: |
           git -c "user.name=github-actions[bot]" -c "user.email=github-actions[bot]@users.noreply.github.com" commit -a -m "ci: format"
-          git push origin HEAD
+          git push origin ${{ github.event.pull_request.head.ref }}
