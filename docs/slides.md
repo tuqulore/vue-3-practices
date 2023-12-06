@@ -766,7 +766,7 @@ function increment() {
 
 `v-if` あるいは `v-show` によって条件に応じてレンダリングする範囲を変更することができる。 `v-show` は見た目上非表示にするが `v-if` は DOM 要素も取り除く。
 
-```vue {all|3|8|all}
+```vue {all|7|2|all}
 <script setup>
 const seen = true;
 </script>
@@ -778,7 +778,7 @@ const seen = true;
 </template>
 ```
 
-<arrow v-click="2" x1="350" y1="370" x2="190" y2="310" color="#564" width="3" arrowSize="1" />
+<arrow v-click="2" x1="400" y1="250" x2="180" y2="200" color="#564" width="3" arrowSize="1" />
 
 ---
 
@@ -920,7 +920,7 @@ const todos = [
 
 <div class="flex gap-8">
 
-```vue{all|4}
+```vue{all|12}
 <script setup>
 const todos = [
   { text: "Learn JavaScript" },
@@ -1062,7 +1062,7 @@ const message = ref(props.title);
 
 <p class="text-xs">親コンポーネント - App.vue</p>
 
-```vue {all|2|all}
+```vue {all|6|all}
 <script setup>
 import ChildComponent from "./ChildComponent.vue";
 </script>
@@ -1099,7 +1099,7 @@ const message = ref(props.count);
 
 </div>
 
-<arrow v-click="1" x1="160" y1="180" x2="185" y2="215" color="#564" width="3" arrowSize="1" />
+<arrow v-click="1" x1="400" y1="340" x2="210" y2="300" color="#564" width="3" arrowSize="1" />
 
 ---
 
@@ -1113,7 +1113,7 @@ const message = ref(props.count);
 
 <p class="text-xs">親コンポーネント - App.vue</p>
 
-```vue {all|2|all}
+```vue {all|6|all}
 <script setup>
 import ChildComponent from "./ChildComponent.vue";
 </script>
@@ -1148,7 +1148,7 @@ const show = ref(props.isShow);
 
 </div>
 
-<arrow v-click="1" x1="160" y1="180" x2="185" y2="215" color="#564" width="3" arrowSize="1" />
+<arrow v-click="1" x1="300" y1="500" x2="200" y2="300" color="#564" width="3" arrowSize="1" />
 
 ---
 
@@ -1178,7 +1178,7 @@ import ChildComponent from "./ChildComponent.vue";
 
 <p class="text-xs">子コンポーネント - ChildComponent.vue</p>
 
-```vue {all|9-12|all}
+```vue {all|5-8|all}
 <script setup>
 import { ref } from "vue";
 
@@ -1881,7 +1881,7 @@ function increment() {
 </template>
 ```
 
-<arrow v-click="1" x1="400" y1="400" x2="220" y2="300" color="#564" width="3" arrowSize="1" />
+<arrow v-click="1" x1="400" y1="270" x2="220" y2="170" color="#564" width="3" arrowSize="1" />
 
 ---
 
