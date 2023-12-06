@@ -476,6 +476,7 @@ const count = ref(1);
 // 今の値とひとつ前の値の配列のリアクティブな値
 const histories = ref([{ current: count.value, prev: null }]);
 watch(count, (current, prev) => {
+  // 配列の先頭に値を追加する
   histories.value.splice(0, 0, { current, prev });
 });
 </script>
