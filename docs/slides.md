@@ -470,18 +470,20 @@ const randomComputed = computed(() => {
 
 ```vue
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref, watch } from "vue";
 
 const count = ref(1);
-const histories = ref([[count.value, null]]);
+// 今の値とひとつ前の値の配列のリアクティブな値
+const histories = ref([{ current: count.value, prev:null }]);
 watch(count, (current, prev) => {
-  histories.value.splice(0, 0, [current, prev]);
+  histories.value.splice(0, 0, { current, prev });
 });
 </script>
 
 <template>
   <div>
     <input type="number" v-model="count" />
+    <h3>値の履歴（nステップ前の値が表示されます）</h3>
     <ol start="0">
       <li v-for="(history, index) in histories" :key="index">
         今の値: {{ history[0] }}、前の値: {{ history[1] ?? "なし" }}
