@@ -487,7 +487,7 @@ watch(count, (current, prev) => {
     <h3>値の履歴（nステップ前の値が表示されます）</h3>
     <ol start="0">
       <li v-for="(history, index) in histories" :key="index">
-        今の値: {{ history[0] }}、前の値: {{ history[1] ?? "なし" }}
+        今の値: {{ history.current }}、前の値: {{ history.prev ?? "なし" }}
       </li>
     </ol>
   </div>
