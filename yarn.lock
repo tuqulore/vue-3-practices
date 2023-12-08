@@ -827,9 +827,9 @@
     "@iconify/types" "*"
 
 "@iconify-json/mdi@^1.1.55":
-  version "1.1.59"
-  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.59.tgz#86e735f052fdcd1c2ce3aa61f241619dc2e35bb2"
-  integrity sha512-p1Lbo5QE+k7YqFtPIUoaeNJfrWoTR4IxMzlgg+K3w/Wy5YPsUh+M9D0L8+m69DX1da4z+e9AfRpG/N4BIxGU9Q==
+  version "1.1.60"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.60.tgz#32e958a22d247b789f5df059a6887a3949469881"
+  integrity sha512-oDb+ilwHIccaX/iHEQxcsd9ULRXi14T8gVrx1XivTkMAmVLGzPD/u9GIFNngvF1P/D0xBx68l2COWwsLlker5Q==
   dependencies:
     "@iconify/types" "*"
 
