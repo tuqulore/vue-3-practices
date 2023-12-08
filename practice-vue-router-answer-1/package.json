@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "4.5.2",
-    "vite": "5.0.6",
+    "vite": "5.0.7",
     "vue-router": "4.2.5"
   },
   "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
