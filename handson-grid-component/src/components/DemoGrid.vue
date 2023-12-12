@@ -18,14 +18,14 @@ const sortKey = ref("");
 const filterHeroes = (heroes, filterKey) => {
   if (!filterKey) return heroes;
   // 絞り込みする文字列を正規化しています
-  filterKey = filterKey.toLowerCase();
+  filterKey = filterKey.normalize();
   // 条件をパスする要素で配列をフィルタリングします
   return heroes.filter((row) =>
     // 行ごとの列名で絞り込みの走査をします
     Object.keys(row).some(
       (column) =>
         // 行[列]の値に対して絞り込みする文字列で検索しています
-        String(row[column]).toLowerCase().indexOf(filterKey) > -1,
+        String(row[column]).normalize().indexOf(filterKey) > -1,
     ),
   );
 };
