@@ -46,8 +46,6 @@ const sortHeroes = (heroes, sortKey) => {
 const filteredHeroes = computed(() =>
   sortHeroes(filterHeroes(props.heroes, props.filterKey), sortKey.value),
 );
-// テンプレートのテキスト展開で使用する文字列操作(頭文字を大文字にする)関数を定義しています
-const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 // テーブルヘッダのClickイベントのハンドリング(並べ替え対象のカラムを更新し並び替えの降順昇順を判定する値を符号反転する)関数を定義しています
 const sortBy = (key) => {
   sortKey.value = key;
@@ -66,7 +64,7 @@ const sortBy = (key) => {
           @click="sortBy(key)"
           :class="{ active: sortKey == key }"
         >
-          {{ capitalize(key) }}
+          {{ key }}
           <span
             class="arrow"
             :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"
