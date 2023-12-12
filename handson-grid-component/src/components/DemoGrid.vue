@@ -9,7 +9,7 @@ const props = defineProps({
 });
 // カラムごとに並べ替えの降順昇順を判定するための配列を作成しています
 const sortOrders = reactive(
-  Object.fromEntries(props.columns.map((key) => [key, 1])),
+  Object.fromEntries(props.columns.map((column) => [column, 1])),
 );
 // 並べ替え対象のカラムを指定するためのリアクティブな値の参照を作成しています
 const sortKey = ref("");
@@ -18,14 +18,14 @@ const sortKey = ref("");
 const filterHeroes = (heroes, filterKey) => {
   if (!filterKey) return heroes;
   // 絞り込みする文字列を正規化しています
-  filterKey = filterKey.toLowerCase();
+  filterKey = filterKey.normalize();
   // 条件をパスする要素で配列をフィルタリングします
   return heroes.filter((row) =>
-    // 行ごとのキー名(≒列名)で絞り込みの走査をします
+    // 行ごとの列名で絞り込みの走査をします
     Object.keys(row).some(
-      (key) =>
+      (column) =>
         // 行[列]の値に対して絞り込みする文字列で検索しています
-        String(row[key]).toLowerCase().indexOf(filterKey) > -1,
+        String(row[column]).normalize().indexOf(filterKey) > -1,
     ),
   );
 };
@@ -34,7 +34,7 @@ const filterHeroes = (heroes, filterKey) => {
 const sortHeroes = (heroes, sortKey) => {
   if (!sortKey) return heroes;
   const order = sortOrders[sortKey];
-  // 並び替えた新しい配列を返しています
+  // 並べ替えた新しい配列を返しています
   return heroes.slice().sort((a, b) => {
     a = a[sortKey];
     b = b[sortKey];
@@ -46,12 +46,10 @@ const sortHeroes = (heroes, sortKey) => {
 const filteredHeroes = computed(() =>
   sortHeroes(filterHeroes(props.heroes, props.filterKey), sortKey.value),
 );
-// テンプレートのテキスト展開で使用する文字列操作(頭文字を大文字にする)関数を定義しています
-const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 // テーブルヘッダのClickイベントのハンドリング(並べ替え対象のカラムを更新し並び替えの降順昇順を判定する値を符号反転する)関数を定義しています
-const sortBy = (key) => {
-  sortKey.value = key;
-  sortOrders[key] = sortOrders[key] * -1;
+const sortBy = (column) => {
+  sortKey.value = column;
+  sortOrders[column] = sortOrders[column] * -1;
 };
 </script>
 
@@ -62,21 +60,21 @@ const sortBy = (key) => {
         <!-- リストレンダリングによってテーブルヘッダ、テーブルボディの要素を列挙しています -->
         <!-- クラスバインディングによって並べ替え対象のカラム(列)がアクティブ(活性)である見た目を動的に反映しています -->
         <th
-          v-for="key in columns"
-          @click="sortBy(key)"
-          :class="{ active: sortKey == key }"
+          v-for="column in columns"
+          @click="sortBy(column)"
+          :class="{ active: sortKey == column }"
         >
-          {{ capitalize(key) }}
+          {{ column }}
           <span
             class="arrow"
-            :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"
+            :class="sortOrders[column] > 0 ? 'asc' : 'dsc'"
           ></span>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="entry in filteredHeroes">
-        <td v-for="key in columns">{{ entry[key] }}</td>
+      <tr v-for="row in filteredHeroes">
+        <td v-for="column in columns">{{ row[column] }}</td>
       </tr>
     </tbody>
   </table>
