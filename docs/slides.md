@@ -1477,7 +1477,7 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 - より具体的な題材でコードを読む・書く
   - グリッドコンポーネント
     - これまで学んだ内容を組み合わせた少し複雑な実装
-  - Markdown エディター
+  - パスワードチェッカー
     - throttle-debounce によるイベント処理の間引き
   - ツクロアデザインラボの記事ビューアー
     - Fetch API による JSON データの取得
@@ -1557,73 +1557,31 @@ handson-grid-componentディレクトリのアプリを起動する
 
 ---
 
-# イベント処理の間引き
+# パスワードチェッカー
 
-throttle, debounce を使うとイベントハンドリング関数の呼び出し頻度を間引くことができる
+handson-password-checkerディレクトリのアプリを起動する
 
-<div class="flex gap-8">
-
-<div class="flex-shrink">
-
-```vue
-<script setup>
-import { debounce } from "throttle-debounce";
-import { ref } from "vue";
-
-const message = ref("");
-const originalFruits = [
-  "orange",
-  "banana",
-  "strawberry",
-  "grape",
-  "watermelon",
-];
-const fruits = ref(originalFruits);
-function filterFruits() {
-  fruits.value = originalFruits.filter(
-    (fruit) => fruit.indexOf(message.value) >= 0,
-  );
-}
-</script>
-```
-
-</div>
-
-<div class="flex-shrink">
-
-```vue
-<template>
-  <input type="text" v-model="message" @input="filterFruits" />
-  <ul>
-    <li v-for="(fruit, index) in fruits" :key="index">
-      {{ fruit }}
-    </li>
-  </ul>
-</template>
-```
-
-次のように書き換えると…？
-
-```js
-const filterFruits = debounce(1000, () => {
-  fruits.value = originalFruits.filter(
-    (fruit) => fruit.indexOf(message.value) >= 0,
-  );
-});
-```
-
-</div>
-</div>
+1. どんなアプリか：パスワードの強度を判定できる
+2. Vue特有な部分を中心にコードを理解する
+   - どうやってパスワードの強度を判定しているのか
+   - どうやってパスワードの強度を視覚化しているのか
+3. 講師と一緒にハンズオン（何をするのか分かったら講師を待たずにすすめてOK）
+   - [throttle-debounce](https://www.npmjs.com/package/throttle-debounce) の debounce を使ってパスワードを入力してから一定時間後にパスワードの強度を判定してみる
+     - props.password を ref 値：propsPassword として取り出す
+     - PasswordChecker内部で管理するリアクティブな値：passwordを定義する
+     - 取り出した値を watch で監視する
+     - watch のコールバック関数に debounce を使用する
+     - props.password を参照している箇所を password.value に差し替える
+   - [throttle-debounce](https://www.npmjs.com/package/throttle-debounce) の throttle を使ってパスワードを入力している際に一定間隔でパスワードの強度を判定してみる
+     - debounce を使用している箇所を throttle に差し替える
 
 ---
 
-# Markdown エディター
+# debounce や throttle がどういう時に必要なのか？
 
-handson-markdown-editorディレクトリのアプリを起動する
-
-1. どんなアプリか：左カラムに Markdown 記法でテキストを入力すると右カラムに対応する見た目が表示できる
-2. コードの説明
-3. 右カラムの見た目が変わる頻度を throttle-debounce で間引いてみよう（20 分程度）
+- [入力イベント](https://developer.mozilla.org/ja/docs/Web/API/InputEvent/data)や[スクロールイベント](https://developer.mozilla.org/ja/docs/Web/API/Element/scroll_event)など短時間で頻繁に発生するイベントに対応する処理を間引くときに使用する
+  - 例：入力イベントのたびにバックエンドサーバーへのHTTPリクエストを送りたくないとき
+  - 例：利用者が入力操作をひととおりおこなったと思われるタイミングまで待ちたいとき
 
 ---
 
