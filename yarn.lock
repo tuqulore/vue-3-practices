@@ -827,9 +827,9 @@
     "@iconify/types" "*"
 
 "@iconify-json/mdi@^1.1.55":
-  version "1.1.61"
-  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.61.tgz#c106df93d042abe1e64f1735df5ced877efeef84"
-  integrity sha512-WCDcJFm4VpE7a5fwesOM5DCLXrMrbYw1isoCtR2XzlJc2CvkrEx1JkfnINtA1Of4cyryfg7KrxKfvoSS0Bn7bQ==
+  version "1.1.62"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.62.tgz#7463662e711463078c51913fa80e3b070c8692b4"
+  integrity sha512-VEfnaIwO++vZ5xUYdbPuB303E1Db29kRfkd+n9dxC0zQQ6fTy4TEI2Q79TYZtEPwiIOWOy8pudTbOv4GLUaziA==
   dependencies:
     "@iconify/types" "*"
 
@@ -5387,11 +5387,6 @@ markdown-it@^13.0.2:
     linkify-it "^4.0.1"
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
-
-marked@11.1.0:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-11.1.0.tgz#f2d12323e80ba8a97cc8262fe7e94fcc007476ab"
-  integrity sha512-fvKJWAPEafVj1dwGwcPI5mBB/0pvViL6NlCbNDG1HOIRwwAU/jeMoFxfbRLuirO1wRH7m4yPvBqD/O1wyWvayw==
 
 mdast-util-from-markdown@^1.3.0:
   version "1.3.1"
