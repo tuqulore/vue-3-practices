@@ -1644,16 +1644,16 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 handson-nuxt-playgroundディレクトリのアプリを起動する
 
-- app.vue
-- pages
-- NuxtLink
-- layouts
+- app.vue ファイル
+- pages ディレクトリ
+- NuxtLink コンポーネント
+- layouts ディレクトリ
 - Data Fetching / server ディレクトリ
-- composables
+- composables ディレクトリ
 
 ---
 
-# app.vue
+# app.vue ファイル
 
 app.vue を開いて中身を確認する。  
 app.vue を削除する。
@@ -1675,7 +1675,7 @@ Vue 開発環境では App.vue ファイルをルートコンポーネントと�
 
 ---
 
-# pages
+# pages ディレクトリ
 
 pages ディレクトリに `pages/index.vue`, `pages/about.vue` ファイルを配置し、複数ページを構成する。
 
@@ -1683,7 +1683,7 @@ Nuxt ではページを作成するだけでルートを定義することがで
 
 ---
 
-# NuxtLink
+# NuxtLink コンポーネント
 
 コンポーネントで Nav.vue を作成、index と about のリンクナビゲーションを作成する。
 
@@ -1808,7 +1808,7 @@ const { data: users } = await useFetch("/api/users");
 
 ---
 
-# composables
+# composables ディレクトリ
 
 `composables/useCounter.js`を作成する。  
 アプリで再利用したいロジックを管理することができる。js ファイルではあるが、Vue コンポーネントで使ってきた関数を使用していることがわかる。
@@ -1829,7 +1829,7 @@ export default () => {
 
 ---
 
-# composables
+# composables ディレクトリ
 
 作成した useCounter コンポジション関数を使用する。
 
@@ -2066,7 +2066,7 @@ Nuxt 3 の useFetch、$fetch は純粋なクライアント処理でない（サ
 
 便利なコンポジション関数を提供しているライブラリ
 
-- スクラッチ（ゼロ）から処理を書くのは車輪の再発明かもしれない
+- スクラッチ：あらゆる処理を自分で書くのは車輪の再発明かもしれない
 - 既製のライブラリを使用することで効率的に開発することができる
 - https://vueuse.org/functions.html をみてみよう
 
