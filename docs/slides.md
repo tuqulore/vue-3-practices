@@ -2058,15 +2058,19 @@ const { pending, data: count } = useLazyAsyncData("count", () =>
 
 # Vue + Vue Router と Nuxt 3 の比較（データ取得）
 
-便利だが素朴に Fetch API を使う場合と意図しない挙動の際が生じる場合がある
+便利だが素朴にFetch APIを使う場合と挙動が異なるので注意が必要
 
-- 同一オリジン（例：`http://localhost:3000`）であっても、オリジンを含めた url で取得先を指定しなければいけない場合がある
-  - server ディレクトリで提供する API エンドポイントはオリジン省略可能
-  - 上記以外のケース、たとえばアセット（public ディレクトリで提供する静的ファイル）はオリジンが必要
+Nuxt 3におけるHTTP APIクライアントは、Fetch APIをラップ：Fetch API使用時便利な処理があらかじめ実装された [ofetch](https://github.com/unjs/ofetch) が使われている。以下重要な点や便利な点を挙げる
 
-Nuxt 3 の useFetch、$fetch は純粋なクライアント処理でない（サーバー側で内部的に処理される）場合があることが原因 https://nuxt.com/docs/getting-started/data-fetching#isomorphic-fetch-and-fetch
+- useFetch は [\$fetch](https://nuxt.com/docs/api/utils/dollarfetch) を使用しており、\$fetch は ofetch と等価
+- レスポンスボディが JSON 形式なら JS オブジェクトにしてくれる
+- 2xx HTTP ステータスでないときエラーを投げてくれる
 
-場合によっては（$fetch ではなく） fetch を使うことも検討すること
+useFetchはサーバーサイドレンダリング（SSR）：データをあらかじめサーバーで取得してブラウザーにレスポンスとして返すとき、取得URLをパスのみ（例：`"/api/count"`）にすると Nuxt が管理するエンドポイント：末端、この場合URLかどうかチェックする。つまり取得先がpagesディレクトリやserverディレクトリで作成したページやAPIエンドポイントである必要がある。
+
+useFetchをSSRで実行しない（serverオプションを`false`にする）こともできる。詳細は公式ドキュメントを参照のこと https://nuxt.com/docs/api/composables/use-fetch
+
+fetchを使うこともできるが、Nuxt 3を使うならuseFetchや$fetchが便利。ただし、SSRの挙動が複雑で意図しない動作時エラーが生じることもあるので注意しよう
 
 ---
 
