@@ -2121,7 +2121,7 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
   <figure>
   <img src="/fig-sticky-handson.png" class="w-80 border border-gray-200 mb-4" alt />
     <figcaption>
-      <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-eqvxvb">まずはサンプルを見てみましょう →</a>
+      handson-sticky ディレクトリのアプリを起動するとこんな画面が表示されます
     </figcaption>
   </figure>
 </div>
