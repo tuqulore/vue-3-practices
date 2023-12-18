@@ -37,11 +37,12 @@ watchEffect(() => {
 
 <template>
   <div>
-    <NuxtLink to="/">記事一覧に戻る</NuxtLink>
+    <NuxtLink to="/"> 記事一覧に戻る </NuxtLink>
     <hr />
     <!--
     条件付きレンダリングによって記事を取得する前後の表示内容を変更しています
   -->
+    <!-- eslint-disable vue/no-v-html -->
     <template v-if="!pending">
       <article ref="article" v-html="post.content.rendered" />
     </template>
