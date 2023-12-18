@@ -2011,7 +2011,7 @@ const load = async () => {
 <script setup>
 （中略）
 const { data: posts, pending } = await useFetch(
-  "http://localhost:3000/wp-json/wp/v2/posts.json"
+  "/wp-json/wp/v2/posts.json"
 );
 （後略）
 ```
