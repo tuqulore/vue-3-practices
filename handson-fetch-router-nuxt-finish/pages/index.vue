@@ -34,9 +34,9 @@ const { data: posts, pending } = await useFetch(
           NuxtではRouterLinkの代わりにNuxtLinkを使います
           参考: https://nuxt.com/docs/api/components/nuxt-link
         -->
-          <NuxtLink :to="`/posts/${post.id}`">{{
-            post.title.rendered
-          }}</NuxtLink>
+          <NuxtLink :to="`/posts/${post.id}`">
+            {{ post.title.rendered }}
+          </NuxtLink>
         </li>
       </ul>
     </template>
