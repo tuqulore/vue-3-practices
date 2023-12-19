@@ -11,8 +11,12 @@ const addSticky = () => {
 <template>
   <div>
     <h1>Top page</h1>
-    <p v-for="sticky in stickies.data">{{ sticky }}</p>
-    <Sticky v-for="sticky in stickies.data" :data="sticky" />
+    <p v-for="(sticky, index) in stickies.data" :key="index">{{ sticky }}</p>
+    <StickyNote
+      v-for="(sticky, index) in stickies.data"
+      :key="index"
+      :data="sticky"
+    />
     <button @click="addSticky">付箋を追加する</button>
     <NuxtLink to="/sub">sub</NuxtLink>
   </div>

@@ -8,6 +8,7 @@ const stickies = useStickies();
 const props = defineProps({
   data: {
     type: Object,
+    required: true,
   },
 });
 
@@ -46,9 +47,9 @@ watch([textContent, bgColor], () => update());
 </script>
 
 <template>
-  <div class="sticky" ref="el" :style="cssStyle">
+  <div ref="el" class="sticky" :style="cssStyle">
     <textarea v-model="textContent" class="textarea"></textarea>
-    <input type="color" v-model="bgColor" />
+    <input v-model="bgColor" type="color" />
   </div>
 </template>
 

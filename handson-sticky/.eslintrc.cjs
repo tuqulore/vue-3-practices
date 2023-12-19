@@ -1,3 +1,6 @@
 module.exports = {
-  extends: ["plugin:vue/vue3-recommended", "prettier"],
+  extends: ["@nuxt/eslint-config", "prettier"],
+  rules: {
+    "no-undef": "warn",
+  },
 };
