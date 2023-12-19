@@ -1,4 +1,4 @@
 // https://nuxt.com/docs/getting-started/configuration
-import { defineNuxtConfig } from "nuxt";
+import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({});
