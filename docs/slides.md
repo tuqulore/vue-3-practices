@@ -1861,7 +1861,7 @@ function increment() {
 
 # Vue + Vue Router と Nuxt 3 の比較
 
-handson-fetch-router-nuxtディレクトリのアプリを起動する
+handson-fetch-router-nuxt-finishディレクトリのアプリを起動する
 
 デザインラボの記事ビューアーを Nuxt 3 でつくりなおしたもの (動作は Vue 3 のものと同じ)
 
