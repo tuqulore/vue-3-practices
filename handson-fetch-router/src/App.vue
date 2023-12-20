@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import { RouterView } from "vue-router";
 import PostList from "./components/PostList.vue";
 </script>

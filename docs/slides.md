@@ -590,7 +590,7 @@ counterを1秒ごとに増やしていく
 </p>
 
 ```vue
-<script>
+<script setup>
 import { ref } from "vue";
 
 const counter = ref(10);
