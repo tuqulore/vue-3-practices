@@ -1822,8 +1822,6 @@ const { data: users } = await useFetch("/api/users");
 アプリで再利用したいロジックを管理することができる。js ファイルではあるが、Vue コンポーネントで使ってきた関数を使用していることがわかる。
 
 ```js
-import { ref, readonly } from "#app";
-
 export default () => {
   const count = ref(0);
   const increment = () => count.value++;
