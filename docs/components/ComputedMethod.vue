@@ -1,20 +1,12 @@
-<script>
+<script setup>
 import { computed } from "vue";
 
-export default {
-  setup() {
-    const randomMethods = () => {
-      return Math.random();
-    };
-    const randomComputed = computed(() => {
-      return Math.random();
-    });
-    return {
-      randomMethods,
-      randomComputed,
-    };
-  },
+const randomMethods = () => {
+  return Math.random();
 };
+const randomComputed = computed(() => {
+  return Math.random();
+});
 </script>
 
 <template>
