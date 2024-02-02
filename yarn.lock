@@ -2112,25 +2112,20 @@
     "@slidev/types" "0.46.3"
     js-yaml "^4.1.0"
 
-"@slidev/theme-default@0.21.2":
-  version "0.21.2"
-  resolved "https://registry.yarnpkg.com/@slidev/theme-default/-/theme-default-0.21.2.tgz#28db9f074cd0b17d19ca6ccd1d4c75db7a24b026"
-  integrity sha512-neUucFs2YrRZZd73QwvLTyRG/o1nerDFUR5t8YAmXVLTMzWfY71flQ6aAhjYf+WjsozYsOHcxi/pZtIzZ4VhTQ==
+"@slidev/theme-default@0.24.0":
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/@slidev/theme-default/-/theme-default-0.24.0.tgz#d7ce8a484c5fc4653d83edb9a59aa5f1970d6fb3"
+  integrity sha512-87XZ5qqWBjnnI6ovp91ctszqkQl/gHxKqVO0wwoaqZ1tGVOHvQqtdDaUvGNcHKyqxZSzUr6iRFP1ltGhJbB7LA==
   dependencies:
-    "@slidev/types" "^0.22.7"
-    codemirror-theme-vars "^0.1.1"
-    prism-theme-vars "^0.2.2"
-    theme-vitesse "^0.1.12"
+    "@slidev/types" "^0.46.3"
+    codemirror-theme-vars "^0.1.2"
+    prism-theme-vars "^0.2.4"
+    theme-vitesse "^0.7.5"
 
-"@slidev/types@0.46.3":
+"@slidev/types@0.46.3", "@slidev/types@^0.46.3":
   version "0.46.3"
   resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.46.3.tgz#a6752354db34cec4538a3883b2bf4b7394e81c6b"
   integrity sha512-jTrKLvYaZLf+XzKEk5PSgyRd95eurW1j3WzZx+1H0SKkpqrwGhWqaoo8edZHmCIXjOGFrBx40Yu4/c+1EYdMdQ==
-
-"@slidev/types@^0.22.7":
-  version "0.22.7"
-  resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.22.7.tgz#abe1c81fedd5db1475428832f65253f95722a6d8"
-  integrity sha512-mCVKQbcGTv6d6n9aHpYNp5U04HF+FMbpY083vqpJ6Folc805BB1Am02eubaW0J6nM+dSOu2dDgPY+kIjs75sAQ==
 
 "@szmarczak/http-timer@^5.0.1":
   version "5.0.1"
@@ -3543,10 +3538,10 @@ cluster-key-slot@^1.1.0:
   resolved "https://registry.yarnpkg.com/cluster-key-slot/-/cluster-key-slot-1.1.2.tgz#88ddaa46906e303b5de30d3153b7d9fe0a0c19ac"
   integrity sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==
 
-codemirror-theme-vars@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/codemirror-theme-vars/-/codemirror-theme-vars-0.1.1.tgz#621d0e15028c896cc54b7dc8c3c4429719cca45a"
-  integrity sha512-Au0Ysn6tUMZB/1Jd5S8g4Or1kZxTuTnNx6MVs9H46Ad7w8IEjkHusH+4oyia/FBcVuAJO4DIlkDnPM8Qnnf1rg==
+codemirror-theme-vars@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/codemirror-theme-vars/-/codemirror-theme-vars-0.1.2.tgz#60db6877d16a400809e919b9bec33d72dbab1dfa"
+  integrity sha512-WTau8X2q58b0SOAY9DO+iQVw8JKVEgyQIqArp2D732tcc+pobbMta3bnVMdQdmgwuvNrOFFr6HoxPRoQOgooFA==
 
 codemirror@^5.65.5:
   version "5.65.11"
@@ -7593,7 +7588,7 @@ pretty-bytes@^6.1.1:
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-6.1.1.tgz#38cd6bb46f47afbf667c202cfc754bffd2016a3b"
   integrity sha512-mQUvGU6aUFQ+rNvTIAcZuWGRT9a6f6Yrg9bHs4ImKF+HZCEK+plBvnAZYSIQztknZF2qnzNtr6F8s0+IuptdlQ==
 
-prism-theme-vars@^0.2.2:
+prism-theme-vars@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/prism-theme-vars/-/prism-theme-vars-0.2.4.tgz#c92b8747a70ced8675538454900f88f08d053558"
   integrity sha512-B3Pht+GCT87sZph7hMRLlCQXzCM0awW7Rhk08RavpqRW4LEQOeqN0uMG4QCWkul2tr8PB61YAOJGUrEW+1uuJA==
@@ -8496,10 +8491,10 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
 
-theme-vitesse@^0.1.12:
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/theme-vitesse/-/theme-vitesse-0.1.14.tgz#e239d44fb0e61b3d0471fc86784b22e8b632dc96"
-  integrity sha512-b5s+Zpfaw5+djoCJ9AEbcTbpiTlLsOvGM9oblDmmWRGWNqg9oXtEYO/uwubwx77novHBI6zNuwZRHKNlAIBo4A==
+theme-vitesse@^0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/theme-vitesse/-/theme-vitesse-0.7.5.tgz#6b88bbbd8f277b8bc92796a3cf0395392a3bdfef"
+  integrity sha512-0Bfl3u+SepyyadK5qjkWlwn6GEB0XLCgoB3Sw0Q7b38DH5wN/9Myj3yHaVzqqWsG+V9/tK85aJQhaHS2nPypow==
 
 throttle-debounce@5.0.0:
   version "5.0.0"
