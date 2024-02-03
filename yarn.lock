@@ -2134,25 +2134,19 @@
     "@slidev/types" "0.47.1"
     js-yaml "^4.1.0"
 
-"@slidev/theme-default@0.24.0":
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/@slidev/theme-default/-/theme-default-0.24.0.tgz#d7ce8a484c5fc4653d83edb9a59aa5f1970d6fb3"
-  integrity sha512-87XZ5qqWBjnnI6ovp91ctszqkQl/gHxKqVO0wwoaqZ1tGVOHvQqtdDaUvGNcHKyqxZSzUr6iRFP1ltGhJbB7LA==
+"@slidev/theme-default@0.25.0":
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/@slidev/theme-default/-/theme-default-0.25.0.tgz#3006e3b20af497a27240091731fc3b056f780b28"
+  integrity sha512-iWvthH1Ny+i6gTwRnEeeU+EiqsHC56UdEO45bqLSNmymRAOWkKUJ/M0o7iahLzHSXsiPu71B7C715WxqjXk2hw==
   dependencies:
-    "@slidev/types" "^0.46.3"
+    "@slidev/types" "^0.47.0"
     codemirror-theme-vars "^0.1.2"
     prism-theme-vars "^0.2.4"
-    theme-vitesse "^0.7.5"
 
-"@slidev/types@0.47.1":
+"@slidev/types@0.47.1", "@slidev/types@^0.47.0":
   version "0.47.1"
   resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.47.1.tgz#12ca8e4cd9ff24d3a44aa9e9806373250af49ab3"
   integrity sha512-sVdU5FICVaSBg+M+IcK57Jif59N2blMwcV+BmkVYclJjilQqBk5z4F2GZZsWV8D2YFsE+ZTDjFVUscpaQ3/9Cw==
-
-"@slidev/types@^0.46.3":
-  version "0.46.3"
-  resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.46.3.tgz#a6752354db34cec4538a3883b2bf4b7394e81c6b"
-  integrity sha512-jTrKLvYaZLf+XzKEk5PSgyRd95eurW1j3WzZx+1H0SKkpqrwGhWqaoo8edZHmCIXjOGFrBx40Yu4/c+1EYdMdQ==
 
 "@szmarczak/http-timer@^5.0.1":
   version "5.0.1"
@@ -8853,11 +8847,6 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
-
-theme-vitesse@^0.7.5:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/theme-vitesse/-/theme-vitesse-0.7.5.tgz#6b88bbbd8f277b8bc92796a3cf0395392a3bdfef"
-  integrity sha512-0Bfl3u+SepyyadK5qjkWlwn6GEB0XLCgoB3Sw0Q7b38DH5wN/9Myj3yHaVzqqWsG+V9/tK85aJQhaHS2nPypow==
 
 throttle-debounce@5.0.0:
   version "5.0.0"
