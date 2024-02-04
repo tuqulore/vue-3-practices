@@ -9506,7 +9506,18 @@ vite-plugin-vue-inspector@^4.0.2:
     kolorist "^1.8.0"
     magic-string "^0.30.4"
 
-vite-plugin-vue-server-ref@0.4.1, vite-plugin-vue-server-ref@^0.4.1:
+vite-plugin-vue-server-ref@0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-vue-server-ref/-/vite-plugin-vue-server-ref-0.4.2.tgz#47b8b27d7b2e65052d2f15bb1931008ea0301f0f"
+  integrity sha512-4TLgVUlAi+etotYbtYZB2NaPCKBw1koh0vY1oNXubo5W0AQ9ag8JlHa0Cm01p6IwH6+ZWMmtT1KDhbe0k6yy1w==
+  dependencies:
+    "@antfu/utils" "^0.7.7"
+    debug "^4.3.4"
+    klona "^2.0.6"
+    mlly "^1.5.0"
+    ufo "^1.3.2"
+
+vite-plugin-vue-server-ref@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/vite-plugin-vue-server-ref/-/vite-plugin-vue-server-ref-0.4.1.tgz#df0181461fb56d78029b92248829d7cca273e0b2"
   integrity sha512-37L4TgqUhz1Zrp7yKyCaWrWXKrIaVYmI/Q9SuOwNjVLf3szYUUSrazlHrud3Cnqo/7/Z5AnPskmW40Rm2gzbtg==
