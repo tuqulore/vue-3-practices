@@ -1397,12 +1397,12 @@
     ws "^8.16.0"
 
 "@nuxt/eslint-config@^0.3.0":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@nuxt/eslint-config/-/eslint-config-0.3.1.tgz#0381e195dd8312942da4a321efffc29010ebde86"
-  integrity sha512-+dCRPXbq+/uB7cZn3HnhaVOyte1t21YHvtMj9MRa0ekAbY/G73DQztPVAnyh6yWaV1RtwvDBN6pf3o1SRRNbyg==
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@nuxt/eslint-config/-/eslint-config-0.3.2.tgz#f12ca7c36d1249e712e731556fd686f469d15483"
+  integrity sha512-yjl/bMORzxNNYPuRPyEVSHMWV/5wJdd16gZ3KF/56JUJ1Y8kMg+PrwZx5GTcau98vv+Hvo21IYqiObRYHIoF/w==
   dependencies:
     "@eslint/js" "^9.0.0"
-    "@nuxt/eslint-plugin" "0.3.1"
+    "@nuxt/eslint-plugin" "0.3.2"
     "@rushstack/eslint-patch" "^1.10.1"
     "@stylistic/eslint-plugin" "^1.7.0"
     "@typescript-eslint/eslint-plugin" "^7.5.0"
@@ -1412,16 +1412,16 @@
     eslint-plugin-import-x "^0.5.0"
     eslint-plugin-jsdoc "^48.2.3"
     eslint-plugin-unicorn "^52.0.0"
-    eslint-plugin-vue "^9.24.0"
+    eslint-plugin-vue "^9.24.1"
     globals "^15.0.0"
     pathe "^1.1.2"
     tslib "^2.6.2"
     vue-eslint-parser "^9.4.2"
 
-"@nuxt/eslint-plugin@0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@nuxt/eslint-plugin/-/eslint-plugin-0.3.1.tgz#f6d543b45e4b0b4ffb48a9d5ecf0bf57c4729474"
-  integrity sha512-TflfVtPm2KNaa/jWCiffpiiiOJVDoS8oE2vAHdbu4BAPWmjonde4DCfrKbaEG4tUVnaOkGio3S1hkNmXllye4w==
+"@nuxt/eslint-plugin@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@nuxt/eslint-plugin/-/eslint-plugin-0.3.2.tgz#276479bc28c7930949388d80b09c50c60390e38d"
+  integrity sha512-SqPW84bcDMcEwEut0zibNrKte2kj9Idjy8xWX0PsW98zGNBG+6NHYzd0TniUWVZ2/viOJTJO0myHqMFOgfb4NA==
   dependencies:
     "@typescript-eslint/types" "^7.5.0"
     "@typescript-eslint/utils" "^7.5.0"
@@ -5165,7 +5165,7 @@ eslint-plugin-unicorn@^52.0.0:
     semver "^7.5.4"
     strip-indent "^3.0.0"
 
-eslint-plugin-vue@^9.19.2, eslint-plugin-vue@^9.24.0:
+eslint-plugin-vue@^9.19.2, eslint-plugin-vue@^9.24.1:
   version "9.24.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-9.24.1.tgz#0d90330c939f9dd2f4c759da5a2ad91dc1c8bac4"
   integrity sha512-wk3SuwmS1pZdcuJlokGYEi/buDOwD6KltvhIZyOnpJ/378dcQ4zchu9PAMbbLAaydCz1iYc5AozszcOOgZIIOg==
