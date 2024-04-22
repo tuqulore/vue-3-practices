@@ -951,10 +951,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@eslint/js@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.0.0.tgz#1a9e4b4c96d8c7886e0110ed310a0135144a1691"
-  integrity sha512-RThY/MnKrhubF6+s1JflwUjPEsnCEmYCWwqa/aRISKWNXGZ9epUwft4bUMM35SdKF9xvBrLydAM1RDHd1Z//ZQ==
+"@eslint/js@^9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.1.1.tgz#eb0f82461d12779bbafc1b5045cde3143d350a8a"
+  integrity sha512-5WoDz3Y19Bg2BnErkZTp0en+c/i9PvgFS7MBe1+m60HjFr0hrphlAGp4yzI7pxpt4xShln4ZyYp4neJm8hmOkQ==
 
 "@fastify/busboy@^2.0.0":
   version "2.1.0"
@@ -1397,12 +1397,12 @@
     ws "^8.16.0"
 
 "@nuxt/eslint-config@^0.3.0":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@nuxt/eslint-config/-/eslint-config-0.3.8.tgz#81a711d95e480ac4044a93397ad0b71e309d6af4"
-  integrity sha512-c65jwXbiRnJIQQqbtASmOIbtKoci7njizZ++n5p00r0065ICUME0h9NsO/s0WRJp3PTxuREzX1Ey/LNaZJoE1w==
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/@nuxt/eslint-config/-/eslint-config-0.3.9.tgz#31f71f2c2fee3d0acf38ab1f99d4bb1da04df667"
+  integrity sha512-/rxuXWRjin8QV5wM2OtNnYtEr02V9ze8TmCXV5ehmuW6PVexA6lQT/D72P0VK4y+JtuW4G3BUlb8pywtNaPtEw==
   dependencies:
-    "@eslint/js" "^9.0.0"
-    "@nuxt/eslint-plugin" "0.3.8"
+    "@eslint/js" "^9.1.1"
+    "@nuxt/eslint-plugin" "0.3.9"
     "@rushstack/eslint-patch" "^1.10.2"
     "@stylistic/eslint-plugin" "^1.7.2"
     "@typescript-eslint/eslint-plugin" "^7.7.0"
@@ -1418,10 +1418,10 @@
     tslib "^2.6.2"
     vue-eslint-parser "^9.4.2"
 
-"@nuxt/eslint-plugin@0.3.8":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@nuxt/eslint-plugin/-/eslint-plugin-0.3.8.tgz#b59dc3cd60fd5412501bb151f9a53caa087ee20f"
-  integrity sha512-j8k8Yu8O4W++SWsyxf60Dv9dWUoTJBP2iJfNblOvJwbzMOrEEY3Oigj9io+54J5TxAAXuyzJ82XZE0D38CXrSg==
+"@nuxt/eslint-plugin@0.3.9":
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/@nuxt/eslint-plugin/-/eslint-plugin-0.3.9.tgz#ba23076dac8755bfc19a5792099af2dc6876dd14"
+  integrity sha512-10aIZfdrgzTGwUkITIAZ+eegJqAS4imSePVBoTwJ2DhL1zQY7BWMiVa60a0P7mt1H1oFZau9W+DSSrmukeObmA==
   dependencies:
     "@typescript-eslint/types" "^7.7.0"
     "@typescript-eslint/utils" "^7.7.0"
