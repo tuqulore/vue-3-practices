@@ -1,0 +1,9 @@
+import{o as n,c as o,k as t,q as i,s as c,A as l,e as s,a6 as e}from"../modules/vue-BgoORXJJ.js";import{I as p}from"./default-4Oalnxd_.js";import{_ as u,bq as a}from"../index-C2rFM3uE.js";import{p as r,u as d,f as m}from"./context-CsPH3H9L.js";import"../modules/shiki-BLmio_L-.js";const _=s("h1",null,"構成を理解しよう",-1),f=s("pre",{class:"shiki shiki-themes vitesse-dark vitesse-light slidev-code",style:{"--shiki-dark":"#dbd7caee","--shiki-light":"#393a34","--shiki-dark-bg":"#121212","--shiki-light-bg":"#ffffff"}},[s("code",{class:"language-"},[s("span",{class:"line"},[s("span",null,"├── components/")]),e(`
+`),s("span",{class:"line"},[s("span",null,"│ ├── StickyNote.vue （付箋単体の情報を格納したコンポーネント）")]),e(`
+`),s("span",{class:"line"},[s("span",null,"├── composables/")]),e(`
+`),s("span",{class:"line"},[s("span",null,"│ ├── useStickies.vue （付箋の状態などをアプリで管理する Composables）")]),e(`
+`),s("span",{class:"line"},[s("span",null,"├── pages/")]),e(`
+`),s("span",{class:"line"},[s("span",null,"│ ├── index.vue （ページ）")]),e(`
+`),s("span",{class:"line"},[s("span",null,"├── app.vue （NuxtPageを使った基本レイアウト）")]),e(`
+`),s("span",{class:"line"},[s("span",null,"├── package.json （今回はuseDraggableが含まれている）")]),e(`
+`),s("span",{class:"line"},[s("span")])])],-1),k=s("div",{class:"text-xs leading-5 my-4"},[s("ul",null,[s("li",null,[s("code",null,"pages/index.vue"),e(" と "),s("code",null,"components/StickyNote.vue"),e(" は同じ "),s("code",null,"composables/useStickies.vue"),e(" を参照していることがわかります")]),s("li",null,[s("code",null,"composables/useStickies.vue"),e(" には現在、3 つの付箋の情報が配列で用意されています")]),s("li",null,[s("code",null,"composables/useStickies.vue"),e(" には現在、"),s("code",null,"add()"),e("と"),s("code",null,"update()"),e("の関数が用意されていて、別々のコンポーネントから呼び出しが可能になっています")])]),s("p",null,"これで付箋の情報を一元管理できることがわかります。")],-1),h={__name:"78",setup(v){return r(a),d(),(g,x)=>(n(),o(p,i(c(l(m)(l(a),77))),{default:t(()=>[_,f,k]),_:1},16))}},B=u(h,[["__file","/@slidev/slides/78.md"]]);export{B as default};
