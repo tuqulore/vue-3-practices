@@ -3027,10 +3027,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/merge-streams/-/merge-streams-2.2.1.tgz#82b5e1e135ef62ef8b522d6e7f43ad360a69f294"
   integrity sha512-255V7MMIKw6aQ43Wbqp9HZ+VHn6acddERTLiiLnlcPLU9PdTq9Aijl12oklAgUEblLWye+vHLzmqBx6f2TGcZw==
 
-"@slidev/cli@0.49.23":
-  version "0.49.23"
-  resolved "https://registry.yarnpkg.com/@slidev/cli/-/cli-0.49.23.tgz#8a25bf8c4a25346da8c5b6e41c5bb01dfe347daa"
-  integrity sha512-hN/XmQuoMqYK48z6pfLolTSF+I/CTvWCGHf7rnAfJbr3sH9u7mwQY3VN5VagSOIoV/qIpq/2f8I4s+/0pINltw==
+"@slidev/cli@0.49.24":
+  version "0.49.24"
+  resolved "https://registry.yarnpkg.com/@slidev/cli/-/cli-0.49.24.tgz#5f7edd4830c2938d40ea311fd12f8772069f2483"
+  integrity sha512-S5GF+iyp1UGOtoUL0rIVvfNR+0YSzkMnBin+HZSVFCHnh1/ZRWZKycwPLb5dCjHc7S/OQ8UKk52maO4kKdELqw==
   dependencies:
     "@antfu/ni" "^0.22.0"
     "@antfu/utils" "^0.7.10"
@@ -3041,9 +3041,9 @@
     "@shikijs/markdown-it" "^1.11.1"
     "@shikijs/twoslash" "^1.11.0"
     "@shikijs/vitepress-twoslash" "^1.11.1"
-    "@slidev/client" "0.49.23"
-    "@slidev/parser" "0.49.23"
-    "@slidev/types" "0.49.23"
+    "@slidev/client" "0.49.24"
+    "@slidev/parser" "0.49.24"
+    "@slidev/types" "0.49.24"
     "@unocss/extractor-mdc" "^0.61.5"
     "@unocss/reset" "^0.61.5"
     "@vitejs/plugin-vue" "^5.0.5"
@@ -3103,10 +3103,10 @@
     vue "^3.4.33"
     yargs "^17.7.2"
 
-"@slidev/client@0.49.23":
-  version "0.49.23"
-  resolved "https://registry.yarnpkg.com/@slidev/client/-/client-0.49.23.tgz#94f20d850dbf682aa6ef0985969788792840f72f"
-  integrity sha512-c/Z0tcmV+/NNibqFGSzXk4vDDRKmUN7XAHOFcheHp1iO16xUA01ic/dDn+crbbBhoeokiDbGfilEWbCihQ87nA==
+"@slidev/client@0.49.24":
+  version "0.49.24"
+  resolved "https://registry.yarnpkg.com/@slidev/client/-/client-0.49.24.tgz#8c60755c20043ce8816b7161e5df8ba5358cb545"
+  integrity sha512-0mKA4A9OPelmT3M8sj5dxeaTsQjMTx7+Zx5XllowI71RZy1BT5KCdgulM84NFkFLfVTcktRyLTgKefrMDe8XPw==
   dependencies:
     "@antfu/utils" "^0.7.10"
     "@iconify-json/carbon" "^1.1.36"
@@ -3114,9 +3114,9 @@
     "@iconify-json/svg-spinners" "^1.1.2"
     "@shikijs/monaco" "^1.11.1"
     "@shikijs/vitepress-twoslash" "^1.11.1"
-    "@slidev/parser" "0.49.23"
+    "@slidev/parser" "0.49.24"
     "@slidev/rough-notation" "^0.1.0"
-    "@slidev/types" "0.49.23"
+    "@slidev/types" "0.49.24"
     "@typescript/ata" "^0.9.6"
     "@unhead/vue" "^1.9.16"
     "@unocss/reset" "^0.61.5"
@@ -3141,13 +3141,13 @@
     vue-router "^4.4.0"
     yaml "^2.4.5"
 
-"@slidev/parser@0.49.23":
-  version "0.49.23"
-  resolved "https://registry.yarnpkg.com/@slidev/parser/-/parser-0.49.23.tgz#bbc809f7d5ea233f9f33222b3f0d3dea50e76451"
-  integrity sha512-YMbEXWA3i2vkK2awFCx/wXmbYGLeHu7krsnGEPkURJhdRvu+LZPmWpq3/+LdlQXRide7BwRdFjHUEObEHXtqnQ==
+"@slidev/parser@0.49.24":
+  version "0.49.24"
+  resolved "https://registry.yarnpkg.com/@slidev/parser/-/parser-0.49.24.tgz#d81934e4dc81bbf56bc50ea0e947372df4900ee7"
+  integrity sha512-UpLU35GlCRzOLpFrA9Wrtb88xIlwCE4DffhJZ8hfTDhqHmbuaEK358f9cF0n4N+urG7XeLAGlPe1yxdB2rDF4A==
   dependencies:
     "@antfu/utils" "^0.7.10"
-    "@slidev/types" "0.49.23"
+    "@slidev/types" "0.49.24"
     yaml "^2.4.5"
 
 "@slidev/rough-notation@^0.1.0":
@@ -3166,10 +3166,10 @@
     codemirror-theme-vars "^0.1.2"
     prism-theme-vars "^0.2.4"
 
-"@slidev/types@0.49.23":
-  version "0.49.23"
-  resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.49.23.tgz#9232dea7cabcf15b91b1213e91845e126143338a"
-  integrity sha512-IgwGKK0nA6iX+gDOvo/n1O1cuR9EXCx4bRjnHUV/C7faeg51TuYwpitoD77if1DOXlPW0eTXeaCVJIkkJoyg5A==
+"@slidev/types@0.49.24":
+  version "0.49.24"
+  resolved "https://registry.yarnpkg.com/@slidev/types/-/types-0.49.24.tgz#a3b344c2abc85fe0eaf956f20802c204bd433ade"
+  integrity sha512-ycV66qMmS/WNX/BSPk+Rh29F7XJR9CaPXCEJxU4NwxPMSe+CPRbp7VJSDF+2eWHAp3qvjSEeig2i6XSGJaBr7Q==
   dependencies:
     "@antfu/utils" "^0.7.10"
     "@shikijs/markdown-it" "^1.11.1"
