@@ -4230,13 +4230,13 @@
     vue-demi ">=0.14.7"
 
 "@vueuse/core@^10.11.0", "@vueuse/core@^10.7.0":
-  version "10.11.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-10.11.0.tgz#b042585a8bf98bb29c177b33999bd0e3fcd9e65d"
-  integrity sha512-x3sD4Mkm7PJ+pcq3HX8PLPBadXCAlSDR/waK87dz0gQE+qJnaaFhc/dZVfJz+IUYzTMVGum2QlR7ImiJQN4s6g==
+  version "10.11.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-10.11.1.tgz#15d2c0b6448d2212235b23a7ba29c27173e0c2c6"
+  integrity sha512-guoy26JQktXPcz+0n3GukWIy/JDNKti9v6VEMu6kV2sYBsWuGiTU8OWdg+ADfUbHg3/3DlqySDe7JmdHrktiww==
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
-    "@vueuse/metadata" "10.11.0"
-    "@vueuse/shared" "10.11.0"
+    "@vueuse/metadata" "10.11.1"
+    "@vueuse/shared" "10.11.1"
     vue-demi ">=0.14.8"
 
 "@vueuse/math@^10.11.0":
@@ -4252,10 +4252,10 @@
   resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-10.10.0.tgz#53e61e9380670e342cbe6e03d852f3319308cb5b"
   integrity sha512-UNAo2sTCAW5ge6OErPEHb5z7NEAg3XcO9Cj7OK45aZXfLLH1QkexDcZD77HBi5zvEiLOm1An+p/4b5K3Worpug==
 
-"@vueuse/metadata@10.11.0":
-  version "10.11.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-10.11.0.tgz#27be47cf115ee98e947a1bfcd0b1b5b35d785fb6"
-  integrity sha512-kQX7l6l8dVWNqlqyN3ePW3KmjCQO3ZMgXuBMddIu83CmucrsBfXlH+JoviYyRBws/yLTQO8g3Pbw+bdIoVm4oQ==
+"@vueuse/metadata@10.11.1":
+  version "10.11.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-10.11.1.tgz#209db7bb5915aa172a87510b6de2ca01cadbd2a7"
+  integrity sha512-IGa5FXd003Ug1qAZmyE8wF3sJ81xGLSqTqtQ6jaVfkeZ4i5kS2mwQF61yhVqojRnenVew5PldLyRgvdl4YYuSw==
 
 "@vueuse/motion@^2.2.3":
   version "2.2.3"
@@ -4282,6 +4282,13 @@
   version "10.11.0"
   resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-10.11.0.tgz#be09262b2c5857069ed3dadd1680f22c4cb6f984"
   integrity sha512-fyNoIXEq3PfX1L3NkNhtVQUSRtqYwJtJg+Bp9rIzculIZWHTkKSysujrOk2J+NrRulLTQH9+3gGSfYLWSEWU1A==
+  dependencies:
+    vue-demi ">=0.14.8"
+
+"@vueuse/shared@10.11.1":
+  version "10.11.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-10.11.1.tgz#62b84e3118ae6e1f3ff38f4fbe71b0c5d0f10938"
+  integrity sha512-LHpC8711VFZlDaYUXEBbFBCQ7GS3dVU9mjOhhMhXP6txTV4EhYQg/KGnQuvt/sPAtoUKq7VVUnL6mVtFoL42sA==
   dependencies:
     vue-demi ">=0.14.8"
 
