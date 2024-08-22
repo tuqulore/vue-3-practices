@@ -2066,12 +2066,12 @@
     ws "^8.17.1"
 
 "@nuxt/eslint-config@^0.5.0":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@nuxt/eslint-config/-/eslint-config-0.5.1.tgz#c00743f4e718cd556bf54f77b602a36578f0e0a2"
-  integrity sha512-Z6JNHe4trtJdte3y5Fy0CueFCris/kEIbDAoY1bYum1EtOFjEhOcx6BWCrkQybzUIfPVel7YgJ4CiG9bkD3plQ==
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@nuxt/eslint-config/-/eslint-config-0.5.2.tgz#cf3f9b899d93e36c4311daa5b26d5153f14f4f84"
+  integrity sha512-InlT4s6dUaO7YGxz0J2yaW3pRiCbIPBH4Mc3OxUPFT5+BYYXASm/Os+Ssc0Ia/UDAjiofLwd0Ov+QforPOeQUg==
   dependencies:
     "@eslint/js" "^9.9.0"
-    "@nuxt/eslint-plugin" "0.5.1"
+    "@nuxt/eslint-plugin" "0.5.2"
     "@rushstack/eslint-patch" "^1.10.4"
     "@stylistic/eslint-plugin" "^2.6.4"
     "@typescript-eslint/eslint-plugin" "^8.1.0"
@@ -2089,10 +2089,10 @@
     tslib "^2.6.3"
     vue-eslint-parser "^9.4.3"
 
-"@nuxt/eslint-plugin@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@nuxt/eslint-plugin/-/eslint-plugin-0.5.1.tgz#1527d0e3799c4e6251332ae7575aa417ba382076"
-  integrity sha512-erJ6bum60DTAy+nCq+oU2ZmG4kat+zhvTPvBEkA9SSnJvrHLSjTzJ/r74rgwPM5yuUfIxtujYQ6BBvwvbCBzXw==
+"@nuxt/eslint-plugin@0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@nuxt/eslint-plugin/-/eslint-plugin-0.5.2.tgz#5f2af8dc998be4d06000a8c12c2331b53e1188b3"
+  integrity sha512-Z7v+mVJp6ertuwyYSU5NQbPzAEjvNDI3W88jcRr6cM94SzlJCJWfgZgZtxumbISGT2SAIO4TqNC++wFxDC5Jgw==
   dependencies:
     "@typescript-eslint/types" "^8.1.0"
     "@typescript-eslint/utils" "^8.1.0"
