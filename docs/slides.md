@@ -663,17 +663,17 @@ const url = "https://ja.vuejs.org/";
 <script setup>
 import { ref } from "vue";
 
-const red = ref(true);
+const isRed = ref(true);
 </script>
 
 <style>
-.red {
+.text-red {
   color: red;
 }
 </style>
 
 <template>
-  <span :class="{ red: red }">Hello World!</span>
+  <span :class="{ 'text-red': isRed }">Hello World!</span>
 </template>
 ```
 
@@ -681,24 +681,10 @@ const red = ref(true);
 
 <div>
 
-<p class="text-xs">配列構文はこのように書ける</p>
+<p class="text-xs">他のクラスと組み合わせることができる</p>
 
 ```html
-<span :class="[red]">Hello World!</span>
-```
-
-<p class="text-xs">組み合わせることもできる</p>
-
-```html
-<span :class="[red, { red }]">Hello World!</span>
-```
-
-<p class="text-xs">スタイル属性にもオブジェクト構文と配列構文がある</p>
-
-```vue
-<template>
-  <span :style="{ color: 'red' }">Hello World!</span>
-</template>
+<span :class="['bg-gray', { 'text-red': isRed }]">Hello World!</span>
 ```
 
 </div>
