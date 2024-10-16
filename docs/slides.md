@@ -1005,6 +1005,14 @@ const message = ref("Hello Vue!");
 
 ---
 
+# コンポーネントとは？
+
+<img src="/whats_component.png" alt="コンポーネントとは？" style="height: 80%; width: auto" />
+
+<a class="text-xs" href="https://play.vuejs.org/#eNp9VV1r1EoY/itDvDkH3MS6Fc6Jq3COeqEXKuplQGaT2WTaJDPMTNrVshfZhVoRBUGoBaWIilZB/LpRxD8ztnrpT/CdSbqb2LV7scy8H8887/O+M1lz/uPcXSmI4zs9GQrKFZJEFfx0kNOMM6HQmQSr84pkaCBYhgLH9fYtJi9wgjzIQ5ZLhUKwo1NoLcgRyoiUOCY+JHz7vP7jxVNdvtDlFvq5ff8uWujubY11eUePb+vxKz35oCc7evzMLMo3erKtJ1/0ZF2PnxrL+K0uXxm7AXhsF191uaHL17p8ose3dAnYL3/svNPlpnVtWuM64MNpDyeBc9QQKiQRfsUNoRxnltru9r3vD96ib58f7W7s7L3fqmNH9p8X/ZTK5CxWNvb4seOLu58+Luw92jixt/ncFD4K8p5XqQZ6wQZE4SnEww6h3lQ53yjTibDCpwLHrAMHeRDT8xoJzlFHSRByQGN3SbIcOmLZQgbLOE2JuMQVBaEDZ1pH4OA0ZasXrE2JgljiNich4fIc+5IcGlvgXBYEFFmBBk59CouYADfjPnf1IhnCeurMWFSkEH2I8wqRLC0Mxyrs/yKPgHYjzrI9b+eK5vE1eW6oSC73izJEZ/IHDozXmUNKn9Htuos2DzoCKjbHc85YV7PKBeMShjUiA5qTy2b3l0U27YGWYx9d6i+RUAHm34e3OaIrKEyxlHVzOxT8gWOdf3Jfvw40FIajQZ468rdYvAIsml7wY5QIMgDnkZYdPDSLkRQhuDhWiaeYV+W7SzyGacOpAtfa2n51rrkOrrkGo1E9jFMoD88IecCoRa8ZmBAcEdHm0azAwAPP+ae2oQ/kKhiwzhAa3kxv3MiDAD3vAJ8WYv0i/SZcA70OAEEamK36G7vZulrNEO1wtq82bKW6kRIE95uTCCzuvEmoRjuiEvJu+GiQkuFJY4kx99GCINlJ2AI7t2otMj1vp/RTFi7bnFUaqcRHi8d4hZEQGieqYejjcDkWDK5oJ2Qpg7fxSLfbrVxMgI4dgSNaSB/9Cz+bBEdXEv+JKE5pnNuqIC0kuSJiVoB7wlRgvw1wcWne6TOlWGYc1j5DtxNSnTEAbTqrNfc+S6N2YD0ljVhJb8JrvVBVabSqu1qFzCmaEGJJcRxF8CbVQs+R4R+ArDDtc2D6edoZ/QJFBZB/">サンプルコード</a>
+
+---
+
 # プロパティを用いた子コンポーネントへのデータの受け渡し
 
 親コンポーネントから子コンポーネントに 文字列 を渡してみる
@@ -2048,7 +2056,7 @@ useLazyAsyncData: useLazyFetch の useAsyncData 版
 
 ```js
 const { pending, data: count } = useLazyAsyncData("count", () =>
-  $fetch("/api/count"),
+  $fetch("/api/count")
 );
 ```
 
