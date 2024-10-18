@@ -690,6 +690,12 @@ const isRed = ref(true);
 <span :class="['bg-gray', { 'text-red': isRed }]">Hello World!</span>
 ```
 
+<p class="text-xs">スタイル属性にもオブジェクト構文と配列構文がある</p>
+
+```vue
+<span :style="{ color: 'red' }">Hello World!</span>
+```
+
 </div>
 
 </div>
