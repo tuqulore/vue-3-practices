@@ -2037,7 +2037,7 @@ useLazyAsyncData: useLazyFetch の useAsyncData 版
 
 ```js
 const { pending, data: count } = useLazyAsyncData("count", () =>
-  $fetch("/api/count")
+  $fetch("/api/count"),
 );
 ```
 
