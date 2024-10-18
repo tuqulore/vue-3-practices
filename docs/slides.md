@@ -670,6 +670,9 @@ const isRed = ref(true);
 .text-red {
   color: red;
 }
+.bg-gray {
+  background-color: #ccc;
+}
 </style>
 
 <template>
@@ -2034,7 +2037,7 @@ useLazyAsyncData: useLazyFetch の useAsyncData 版
 
 ```js
 const { pending, data: count } = useLazyAsyncData("count", () =>
-  $fetch("/api/count"),
+  $fetch("/api/count")
 );
 ```
 
