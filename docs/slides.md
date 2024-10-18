@@ -681,7 +681,7 @@ const isRed = ref(true);
 
 <div>
 
-<p class="text-xs">他のクラスと組み合わせることができる</p>
+<p class="text-xs">配列構文（値の組み合わせに便利）</p>
 
 ```html
 <span :class="['bg-gray', { 'text-red': isRed }]">Hello World!</span>
