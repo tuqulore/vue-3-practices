@@ -1440,6 +1440,10 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 <strong>ChildComponent: </strong>Hello Component
 </div>
 
+<div class="pt-10">
+  <a target="_blank" rel="noopener noreferrer" href="https://ja.vuejs.org/guide/components/slots#named-slots">関連: 名前付きスロットについて（公式サイト）</a>
+</div>
+
 ---
 
 # Vue の基本的な書き方はこれで以上！
@@ -2043,7 +2047,7 @@ useLazyAsyncData: useLazyFetch の useAsyncData 版
 
 ```js
 const { pending, data: count } = useLazyAsyncData("count", () =>
-  $fetch("/api/count"),
+  $fetch("/api/count")
 );
 ```
 
