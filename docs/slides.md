@@ -1300,104 +1300,51 @@ function clickHandler() {
 
 # v-model を用いた親子間コンポーネントのデータの受け渡し
 
-親子で同じ値になるようにバインディングする（コンポーネント間の双方向バインディング）
+自作コンポーネントでも `v-model` を使いたいことがあります。親子で一つのデータを束縛する方法については過去に様々なテクニックがありましたが、 Vue 3.4 からシンプルで便利な`defineModel()`マクロを使うことができるようになりました。[公式サイト](https://ja.vuejs.org/guide/components/v-model)
 
-<div class="flex gap-8">
+<div class="flex gap-x-4">
+<div>
 
-<div class="flex-shrink">
-
-<p class="text-xs">親コンポーネント - App.vue</p>
-
-```vue
-<script setup>
-import { ref } from "vue";
-import ChildComponent from "./ChildComponent.vue";
-
-const title = ref("Hello !");
-</script>
-
-<template>
-  <ChildComponent v-model="title" />
-  <p>{{ title }}</p>
-</template>
-```
-
-</div>
-
-<div class="flex-shrink">
-
-<p class="text-xs">子コンポーネント - ChildComponent.vue</p>
-
-<div class="h-xs overflow-y-auto">
-
-```vue
-<script setup>
-import { computed } from "vue";
-
-const props = defineProps({
-  modelValue: String,
-});
-const emit = defineEmits(["update:modelValue"]);
-const title = computed({
-  get: () => props.modelValue,
-  set: (value) => {
-    emit("update:modelValue", value);
-  },
-});
-</script>
-
-<template>
-  <input v-model="title" />
-</template>
-```
-
-</div>
-
-</div>
-
-<div class="flex-shrink-0">
-<p class="text-xs">実行サンプル</p>
-
-<TwowayParent />
-
-</div>
-
-</div>
-
----
-
-# v-model を用いない親子間コンポーネントのデータの受け渡し
-
-親子で同じ値になるようにバインディングする（コンポーネント間の双方向バインディング）
-
-<div class="flex gap-8">
-
-<div class="flex-shrink">
-
-<p class="text-xs">親コンポーネント - App.vue</p>
+親コンポーネント
 
 ```vue
 <script setup>
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
-
-const title = ref("Hello !");
+const countModel = ref(1);
 </script>
 
 <template>
-  <ChildComponent @update:modelValue="title = $event" :modelValue="title" />
-  <p>{{ title }}</p>
+  <p>countModel: {{ countModel }}</p>
+  <ChildComponent v-model="countModel" />
 </template>
 ```
 
 </div>
 
-- v-model がおこなっていることは v-model を使わなくても実現可能（糖衣構文）
-- 親 → 子：プロパティ
-- 子 → 親：イベント
-- このような状態が双方向バインディング（値を束縛しあっている）
+<div>
+
+子コンポーネント（ChildComponent.vue）
+
+```vue
+<script setup>
+const model = defineModel();
+
+function update() {
+  model.value++;
+}
+</script>
+
+<template>
+  <div><button @click="update">Increment</button> {{ model }}</div>
+</template>
+```
 
 </div>
+
+</div>
+
+[サンプル](https://play.vuejs.org/#eNp9UstOwzAQ/BXLpyIgEYITmIiHOIDEQ8DRl+JsiqljW36ESlH+nbVDWwqlN+/OeHd2Z3t6aW3RRaCnlHnhpA3EQ4i24lq21rhAeuKgIQNpnGkJp8jl9GyFXr9LVV8bDDTosCQV5WY+deCUa2G0D0SYqMO9qUGR81R8crTHNSvH9tgYgwCtVdMAGBFmq/WPU9L362gYWJmkEvZLR3fYJvyc0zWZU1Iil5Wr4vSABo+aGjkrPrzRuIQei+EAAitJBe7RBomaOcW+CUnYVCnzeZdzwUU4WObFO4j5lvyHX6Qcp08OPLgON7HCwtTNIIzwzcsDLPC9AnGEqJC9A3wGb1RMGkfaVdQ1yv7By2pvs1lSz179zSKA9suhktDEHDI/u5uW+N/oa7nHxUn+x/WAW/zr9pZ7Gs3PvqDvNTRSQzZmgvZz3UQtUkcSbY3mTPbGtplfdFMVYX8fu+26FMJq2VXsLYaAdS6EkmKOJzAW5LS61cJBiwpZOXIqvKZvRemU0u/NAxm+AJ7ME/E=)も見てみましょう
 
 ---
 
@@ -2043,7 +1990,7 @@ useLazyAsyncData: useLazyFetch の useAsyncData 版
 
 ```js
 const { pending, data: count } = useLazyAsyncData("count", () =>
-  $fetch("/api/count"),
+  $fetch("/api/count")
 );
 ```
 
