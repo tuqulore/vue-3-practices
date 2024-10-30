@@ -188,9 +188,9 @@ script setup
 import { ref } from "vue";
 
 const count = ref(0);
-function increment() {
+const increment = () => {
   count.value += 1;
-}
+};
 </script>
 ```
 
@@ -2043,7 +2043,7 @@ useLazyAsyncData: useLazyFetch の useAsyncData 版
 
 ```js
 const { pending, data: count } = useLazyAsyncData("count", () =>
-  $fetch("/api/count"),
+  $fetch("/api/count")
 );
 ```
 
