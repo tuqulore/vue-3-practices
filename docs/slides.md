@@ -976,7 +976,7 @@ const message = ref("Hello Vue!");
   <TwoWayBindingSample/>
 
   <p>
-    <a href="https://ja.vuejs.org/guide/essentials/forms#basic-usage" target="_blank" rel="noopener noreferrer">他にも様々はフォーム入力バインディングの例があります（公式ドキュメント）</a>
+    <a href="https://ja.vuejs.org/guide/essentials/forms#basic-usage" target="_blank" rel="noopener noreferrer">他にも様々なフォーム入力バインディングの例があります（公式ドキュメント）</a>
   </p>
 </div>
 
