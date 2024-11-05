@@ -700,7 +700,7 @@ const mySize = 30;
 
 <template>
   <p :style="myColor">テキスト</p>
-  <p :style="[myColor, { 'font-size': mySize + 'px' }]">テキスト</p>
+  <p :style="[myColor, { 'font-size': `${mySize}px` }]">テキスト</p>
 </template>
 ```
 
