@@ -1441,7 +1441,9 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 </div>
 
 <div class="pt-10">
-  <a target="_blank" rel="noopener noreferrer" href="https://ja.vuejs.org/guide/components/slots#named-slots">関連: 名前付きスロットについて（公式サイト）</a>
+  
+  複数のスロットが開けたければ？: <a target="_blank" rel="noopener noreferrer" href="https://ja.vuejs.org/guide/components/slots#named-slots">名前付きスロットについて（公式サイト）</a>
+  
 </div>
 
 ---
