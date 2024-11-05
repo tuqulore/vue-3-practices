@@ -328,17 +328,12 @@ console.log(sum); // 3.
 
 ```vue
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const val1 = ref(2);
 const val2 = ref(3);
-const sum = computed(() => {
-  return val1.value + val2.value;
-});
 </script>
-```
 
-```vue
 <template>
   <div>
     <p>
@@ -349,7 +344,7 @@ const sum = computed(() => {
       val2:
       <input type="number" v-model="val2" />
     </p>
-    <p>sum: {{ sum }}</p>
+    <p>sum: {{ val1 + val2 }}</p>
   </div>
 </template>
 ```
