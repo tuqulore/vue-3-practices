@@ -1435,6 +1435,12 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 <strong>ChildComponent: </strong>Hello Component
 </div>
 
+<div class="pt-10">
+  
+  複数のスロットが開けたければ？: <a target="_blank" rel="noopener noreferrer" href="https://ja.vuejs.org/guide/components/slots#named-slots">名前付きスロットについて（公式サイト）</a>
+  
+</div>
+
 ---
 
 # Vue の基本的な書き方はこれで以上！
