@@ -688,7 +688,15 @@ const isRed = ref(true);
 <p class="text-xs">スタイル属性にもオブジェクト構文と配列構文がある</p>
 
 ```vue
-<span :style="{ color: 'red' }">Hello World!</span>
+<script setup>
+const myColor = { color: "red" };
+const mySize = 30;
+</script>
+
+<template>
+  <p :style="myColor">テキスト</p>
+  <p :style="[myColor, { 'font-size': `${mySize}px` }]">テキスト</p>
+</template>
 ```
 
 </div>
