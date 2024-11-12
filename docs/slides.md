@@ -188,9 +188,9 @@ script setup
 import { ref } from "vue";
 
 const count = ref(0);
-function increment() {
+const increment = () => {
   count.value += 1;
-}
+};
 </script>
 ```
 
@@ -328,17 +328,12 @@ console.log(sum); // 3.
 
 ```vue
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const val1 = ref(2);
 const val2 = ref(3);
-const sum = computed(() => {
-  return val1.value + val2.value;
-});
 </script>
-```
 
-```vue
 <template>
   <div>
     <p>
@@ -349,7 +344,7 @@ const sum = computed(() => {
       val2:
       <input type="number" v-model="val2" />
     </p>
-    <p>sum: {{ sum }}</p>
+    <p>sum: {{ val1 + val2 }}</p>
   </div>
 </template>
 ```
@@ -663,17 +658,20 @@ const url = "https://ja.vuejs.org/";
 <script setup>
 import { ref } from "vue";
 
-const red = ref(true);
+const isRed = ref(true);
 </script>
 
 <style>
-.red {
+.text-red {
   color: red;
+}
+.bg-gray {
+  background-color: #ccc;
 }
 </style>
 
 <template>
-  <span :class="{ red: red }">Hello World!</span>
+  <span :class="{ 'text-red': isRed }">Hello World!</span>
 </template>
 ```
 
@@ -681,23 +679,23 @@ const red = ref(true);
 
 <div>
 
-<p class="text-xs">配列構文はこのように書ける</p>
+<p class="text-xs">配列構文（値の組み合わせに便利）</p>
 
 ```html
-<span :class="[red]">Hello World!</span>
-```
-
-<p class="text-xs">組み合わせることもできる</p>
-
-```html
-<span :class="[red, { red }]">Hello World!</span>
+<span :class="['bg-gray', { 'text-red': isRed }]">Hello World!</span>
 ```
 
 <p class="text-xs">スタイル属性にもオブジェクト構文と配列構文がある</p>
 
 ```vue
+<script setup>
+const myColor = { color: "red" };
+const mySize = 30;
+</script>
+
 <template>
-  <span :style="{ color: 'red' }">Hello World!</span>
+  <p :style="myColor">テキスト</p>
+  <p :style="[myColor, { 'font-size': `${mySize}px` }]">テキスト</p>
 </template>
 ```
 
@@ -979,6 +977,10 @@ const message = ref("Hello Vue!");
 
 <div>
   <TwoWayBindingSample/>
+
+  <p>
+    <a href="https://ja.vuejs.org/guide/essentials/forms#basic-usage" target="_blank" rel="noopener noreferrer">他にも様々なフォーム入力バインディングの例があります（公式ドキュメント）</a>
+  </p>
 </div>
 
 </div>
@@ -1451,6 +1453,12 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 <div class="text-xs">
 <p class="text-xs">結果例</p>
 <strong>ChildComponent: </strong>Hello Component
+</div>
+
+<div class="pt-10">
+  
+  複数のスロットが開けたければ？: <a target="_blank" rel="noopener noreferrer" href="https://ja.vuejs.org/guide/components/slots#named-slots">名前付きスロットについて（公式サイト）</a>
+  
 </div>
 
 ---
