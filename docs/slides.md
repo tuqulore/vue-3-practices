@@ -999,19 +999,26 @@ const message = ref("Hello Vue!");
 
 ---
 
+# コンポーネントとは？
+
+<div class="flex h-full gap-x-8">
+
+  <div class="basis-1/2 pb-8">
+    <img src="/whats_component.png" class="max-h-full object-cover" alt="コンポーネントとは？" />
+  </div>
+  <div class="basis-1/2 flex items-start justify-start">
+    <a class="text-xs whitespace-nowrap" href="https://play.vuejs.org/#eNp9VU9v3EQU/yojcwhItd10UwnMNghKD+FAKwo3S9WsPeudZOyxZsabLas9eFcKQQgkJKQQqShCBZUUCRXopVXVLzNN2mM/Qt+Mvbt2NolPM+/v7733m+ex82mee8OCOIHTlZGguUKSqCLfDDOa5lwodHOA1ZYiKeoLnqLQ8fy5xPiFTpiFWcQzqVAEcnQDjcMMoZRIiRMSgMOr53tvHj3U5SNdHqK3Rz//iNY7p4dTXf6gp9/r6WM9+1/PjvX0D3Mo/9GzIz17oWd7evrQSKZPdPnYyE2A3+zhpS73dfm3Ln/X0+90CbH/enP8ry4PrOrACvcgPmT7dRY6VwygQhIRVNgQynBqoZ0c/fT6lyfo1fMHJ/vHp/8d1rYI4SFWXGylUMI3ghnTgVK5DHzfaLDwqMCZxygW2BNF5udFj9HINAOhiY1B5V3C+gHqYyaJlVgbOfgcK5v72tVrGyfPnq6fPti/fnrwp/GdhFnXr6YA/YcLNDlnYA83hLqLSQSm024MQG6EjjmHDvLBpus3HJwrjpIwmD5NvG3JM5iwrR48eJpTRsTtXFEYXOgs+hI6mDG++4WVKVFUwK3PgEQ758i35cjIQueOINDhIRBioYM+JQSwGfWtu1+SEZwXypTHBQPrS5RfEclZYTBWZp8VWQywG3YW7ZblKc2Sr+WtkSKZnBdlgC4HEjpA15uXlL6E2/E2rB9MBLrYpPs5z6Tifi54LoH8MenTjNwxt/dtZDMeGDkO0O3eNokUxPzg8jHHdIgihqWsh+tS0IeOVV6kvncPYCgMqaE9wI9aP16TQMK1oILnzbF4FTkni6BnwlYcb2hBT9MEBVJEoD4TzLwsr/1gDAbM1AW25vXVjK2D+5C9BaWZeUBwTERDcgZtFW5zPD63SPQJWtMlbBvYIUernVgAmkzaKFbSKKCoOwLKrGZqvOzVMF1/pYBW3HpTtrqN0EqO2mwCpFxGbrWtcVue56fWaoCrVPcZQbAfchKDxOY5y6TqacRUgt992GSMjD42kgTnAVoXJIUbwPEMxypbY+LGVADP4XkFSPBdV5AhEZLUthW1kGFTO3qP8WjHht+lsRoEaONqXqUbEJoMVEPQw9FOIjhsAzfijMNaf6/T6VQqLqDVrsAxLWSAPoLPOkHqagoX1YQZTTLbAHCLSKaIWNbqXa+Khd8a7AiauT2uFE+NYt6EOrqlUt0LaKO7W2PvcRa3DWs6NWwl/RZ+DOtVlaZX9cgrk3OKJsR0FX4sOI5h/S1mstKGD+ch7eIxk990Ju8A3S7eGQ==">サンプルコード</a>
+  </div>
+
+</div>
+
+---
+
 # コンポーネントの基本と構成
 
 親コンポーネントから子コンポーネントが参照されツリー構造になる。最上位はルートコンポーネント（App.vue）
 
 <img src="/components.png" alt="コンポーネントの基本と構成" style="height: 80%; width: auto" />
-
----
-
-# コンポーネントとは？
-
-<img src="/whats_component.png" alt="コンポーネントとは？" style="height: 80%; width: auto" />
-
-<a class="text-xs" href="https://play.vuejs.org/#eNp9VV1r1EoY/itDvDkH3MS6Fc6Jq3COeqEXKuplQGaT2WTaJDPMTNrVshfZhVoRBUGoBaWIilZB/LpRxD8ztnrpT/CdSbqb2LV7scy8H8887/O+M1lz/uPcXSmI4zs9GQrKFZJEFfx0kNOMM6HQmQSr84pkaCBYhgLH9fYtJi9wgjzIQ5ZLhUKwo1NoLcgRyoiUOCY+JHz7vP7jxVNdvtDlFvq5ff8uWujubY11eUePb+vxKz35oCc7evzMLMo3erKtJ1/0ZF2PnxrL+K0uXxm7AXhsF191uaHL17p8ose3dAnYL3/svNPlpnVtWuM64MNpDyeBc9QQKiQRfsUNoRxnltru9r3vD96ib58f7W7s7L3fqmNH9p8X/ZTK5CxWNvb4seOLu58+Luw92jixt/ncFD4K8p5XqQZ6wQZE4SnEww6h3lQ53yjTibDCpwLHrAMHeRDT8xoJzlFHSRByQGN3SbIcOmLZQgbLOE2JuMQVBaEDZ1pH4OA0ZasXrE2JgljiNich4fIc+5IcGlvgXBYEFFmBBk59CouYADfjPnf1IhnCeurMWFSkEH2I8wqRLC0Mxyrs/yKPgHYjzrI9b+eK5vE1eW6oSC73izJEZ/IHDozXmUNKn9Htuos2DzoCKjbHc85YV7PKBeMShjUiA5qTy2b3l0U27YGWYx9d6i+RUAHm34e3OaIrKEyxlHVzOxT8gWOdf3Jfvw40FIajQZ468rdYvAIsml7wY5QIMgDnkZYdPDSLkRQhuDhWiaeYV+W7SzyGacOpAtfa2n51rrkOrrkGo1E9jFMoD88IecCoRa8ZmBAcEdHm0azAwAPP+ae2oQ/kKhiwzhAa3kxv3MiDAD3vAJ8WYv0i/SZcA70OAEEamK36G7vZulrNEO1wtq82bKW6kRIE95uTCCzuvEmoRjuiEvJu+GiQkuFJY4kx99GCINlJ2AI7t2otMj1vp/RTFi7bnFUaqcRHi8d4hZEQGieqYejjcDkWDK5oJ2Qpg7fxSLfbrVxMgI4dgSNaSB/9Cz+bBEdXEv+JKE5pnNuqIC0kuSJiVoB7wlRgvw1wcWne6TOlWGYc1j5DtxNSnTEAbTqrNfc+S6N2YD0ljVhJb8JrvVBVabSqu1qFzCmaEGJJcRxF8CbVQs+R4R+ArDDtc2D6edoZ/QJFBZB/">サンプルコード</a>
 
 ---
 
