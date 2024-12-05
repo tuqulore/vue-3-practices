@@ -791,8 +791,8 @@ const seen = true;
 
 </div>
 
-- コンポーネントをマウントしてからあまり変化しないケースであれば `v-if`を使う
-- コンポーネントをマウントしてから頻繁に変化するケースであれば `v-show`を使う
+- ページを表示した後に変化しないケースであれば `v-if`を使う
+- 何度も表示、非表示を切り替えるするケースであれば `v-show`を使う
 
 ---
 
@@ -989,7 +989,8 @@ const message = ref("Hello Vue!");
 
 # コンポーネント
 
-- コンポーネントの基本と構成
+- コンポーネントとは？
+- コンポーネントの構成
 - プロパティを用いた子コンポーネントへのデータの受け渡し
 - イベント購読を用いた親コンポーネントへのデータの受け渡し
 - v-model を用いた親子間コンポーネントのデータの受け渡し
@@ -1001,24 +1002,82 @@ const message = ref("Hello Vue!");
 
 # コンポーネントとは？
 
-<div class="flex h-full gap-x-8">
+「この部品は、この見た目と振る舞いをしてほしい」を管理する仕組み
 
-  <div class="basis-1/2 pb-8">
-    <img src="/whats_component.png" class="max-h-full object-cover" alt="コンポーネントとは？" />
-  </div>
-  <div class="basis-1/2 flex items-start justify-start">
-    <a class="text-xs whitespace-nowrap" href="https://play.vuejs.org/#eNp9VU9v3EQU/yojcwhItd10UwnMNghKD+FAKwo3S9WsPeudZOyxZsabLas9eFcKQQgkJKQQqShCBZUUCRXopVXVLzNN2mM/Qt+Mvbt2NolPM+/v7733m+ex82mee8OCOIHTlZGguUKSqCLfDDOa5lwodHOA1ZYiKeoLnqLQ8fy5xPiFTpiFWcQzqVAEcnQDjcMMoZRIiRMSgMOr53tvHj3U5SNdHqK3Rz//iNY7p4dTXf6gp9/r6WM9+1/PjvX0D3Mo/9GzIz17oWd7evrQSKZPdPnYyE2A3+zhpS73dfm3Ln/X0+90CbH/enP8ry4PrOrACvcgPmT7dRY6VwygQhIRVNgQynBqoZ0c/fT6lyfo1fMHJ/vHp/8d1rYI4SFWXGylUMI3ghnTgVK5DHzfaLDwqMCZxygW2BNF5udFj9HINAOhiY1B5V3C+gHqYyaJlVgbOfgcK5v72tVrGyfPnq6fPti/fnrwp/GdhFnXr6YA/YcLNDlnYA83hLqLSQSm024MQG6EjjmHDvLBpus3HJwrjpIwmD5NvG3JM5iwrR48eJpTRsTtXFEYXOgs+hI6mDG++4WVKVFUwK3PgEQ758i35cjIQueOINDhIRBioYM+JQSwGfWtu1+SEZwXypTHBQPrS5RfEclZYTBWZp8VWQywG3YW7ZblKc2Sr+WtkSKZnBdlgC4HEjpA15uXlL6E2/E2rB9MBLrYpPs5z6Tifi54LoH8MenTjNwxt/dtZDMeGDkO0O3eNokUxPzg8jHHdIgihqWsh+tS0IeOVV6kvncPYCgMqaE9wI9aP16TQMK1oILnzbF4FTkni6BnwlYcb2hBT9MEBVJEoD4TzLwsr/1gDAbM1AW25vXVjK2D+5C9BaWZeUBwTERDcgZtFW5zPD63SPQJWtMlbBvYIUernVgAmkzaKFbSKKCoOwLKrGZqvOzVMF1/pYBW3HpTtrqN0EqO2mwCpFxGbrWtcVue56fWaoCrVPcZQbAfchKDxOY5y6TqacRUgt992GSMjD42kgTnAVoXJIUbwPEMxypbY+LGVADP4XkFSPBdV5AhEZLUthW1kGFTO3qP8WjHht+lsRoEaONqXqUbEJoMVEPQw9FOIjhsAzfijMNaf6/T6VQqLqDVrsAxLWSAPoLPOkHqagoX1YQZTTLbAHCLSKaIWNbqXa+Khd8a7AiauT2uFE+NYt6EOrqlUt0LaKO7W2PvcRa3DWs6NWwl/RZ+DOtVlaZX9cgrk3OKJsR0FX4sOI5h/S1mstKGD+ch7eIxk990Ju8A3S7eGQ==">サンプルコード</a>
-  </div>
+チャットを例にすると:
+
+![](/chat-component-example-1.png)
+
+<div class="flex gap-12">
+
+<section>
+
+見た目としては…
+
+- だれの発言か分かる名前
+- 顔写真
+- いつの発言か分かるタイムスタンプ
+- 発言の内容
+
+</section>
+<section>
+
+振る舞いとしては…
+
+- 引用できる
+- 返信できる
+- 本文をコピーできる
+- ...
+
+</section>
 
 </div>
 
 ---
 
-# コンポーネントの基本と構成
+# コンポーネントとは？
+
+「この部品は、この見た目と振る舞いをしてほしい」を管理する仕組み
+
+似てるけど微妙に違う見た目はどうする？（たとえば自分以外のチャット）
+
+![](/chat-component-example-2.png)
+
+- コンポーネントにデータを渡す仕組みがある（プロパティ）
+- チャットコンポーネントのプロパティとしては…
+  - 見た目に関するデータはプロパティにできるかも
+  - チャットのデータの識別子だけプロパティにして、  
+    チャットコンポーネント内でチャットのデータを取得することもできるかも
+  - 自分の発言か、自分以外の発言かのフラグをプロパティにしてもいいかも
+- 見た目が違うなら別のコンポーネントとして定義することも考えられる
+- コンポーネント設計次第なので正解はない
+
+---
+
+# コンポーネントとは？
+
+「この部品は、この見た目と振る舞いをしてほしい」を管理する仕組み
+
+似てるけど微妙に違う見た目を並べたいときはどうする？（たとえばチャットの会話）
+
+<div class="flex gap-12">
+
+<img class="h-90" alt="" src="/chat-component-example-3.png">
+
+- コンポーネントにすると見た目と振る舞いを再利用できる
+- [サンプル](https://play.vuejs.org/#eNqlVdtu3EQYfpWRuWiLut4maVFr0gAtvSgStCLlCnMxa092J/F6rJnZTUq0KPaiNC1UFeIijUoJUQ+BBlokhICqog8z3QBX8Aj8M+N47WwSDomUxDP/8fv+wyw6bySJ2+0Qx3MmRcBpIpEgspNM+TFtJ4xLdL6F5UVJ2miGszbyHbe+c6PtfMeP/ThgsZAogHvxJpYYnUXv+zFCi/oPQm0iBG4SD4y3v90Y3PlSpY9Vf131n6n+ssruqf4PKvtepZsqXVPpp2op3b77YPuLFVAbG99efaDST8bOmP+Px17ZXsuM5sdwq5X196rKrql0GW7+fLbuO8dt2I4g3NvJAaEYt00KKvtR9VdU9rBQRAh3sWT8YhuyfI9HWqslZSK8el1LMHcpx7EbUcyxyztxPek0IhrUxzR6bd/LPVExTaIZD0neIfmVURUtoMVEP3lqsLI8uH4zD24NR3lS6Tcq3VDZdcAMyH/7GrBuqiwb3N988fPK4P6WZQv9tf7ZjqsDAP+isqcq++7wgMf3AzyDI7EP4okT/xIx1P65Sn9V6R2VfQ7I1q6hvPxPjBAAbw3WgQhQuafSh6YH4HtVpetqKctb5BGQNriVDW58ZSxuGpU1kP8zTc9VtqX6t1T20+GZmvgfTI2f3o+pEk8vni7/vgnwzbAswSzcVZmdgiejQ3Ljj43bhibgSNMArN7u5+4rNOw/HIcbDYthZCx2AS/PhLb4wI8n63YbwR6CAyybJAJlOCE0GdIuCiIsxFnfMTunJuTVCFaREYNCsbK6tRnGcy1E4+GG8h2QNWgc5kI4163zOniHr8l6KSYcTQQkApaQEG7cUty8RJg3aeyhcU7arwKMXTpT6GX0EfyWdGuSJR4aK/QBsladco47EgLFM7TpzgoWw2o2VpApayc0IvxSIilsXN8p6uc7OIrY/FvmrrR9NDoSzO1xPysW9J3vXOYEOqEL9BUyKGuTACdafGH6HbIA34WwzcKOJvsA4btEsKijc7Rq5zpxCGmX9Ey2F80DQ+PmFXFhQZJY7IDSiQ67x3fgnTl/APRhuhPuSWMHfAKL5Xdqj/fNPloJZ4mAByskMzQml/XpaHXmpiWHHEszc6kxSwJZ6exzjEUEx6PNXRj3jg0fyhbWfJyHOZl720aBBI4eQ2enLKgYd2lTj50bRDRpMMxDd55TSa4A20dNxm6eHni1rXPgtHDIDjq90ZFS16QyPTXw2x7OTmW4WCwxsAKVQ97O5eIRAZCPeJY51zLQKxzscmGXREkKctpuIk/wAMTWh6bVrS4aHRFHsqqit1QxqcZVPq3DwOU4LYJDwks3u3Kz7qYWF8tI0GvoiEphfT6CZ6VAWYTv9aoxR5xKKFFtARq08Fvqh1HryfpIlpO2TIXHvNIA/HVoh2AOrkYbqMIwvBp57Ny2Bz0yjGj970ni8Pu/LELTQsgt2sV2cUgF2F2FJy8iC7DiEGriysJzdSNZXa1SCymHuYLx9qBh52ucdAkXJNe1jYR071S9NyIWzBn38zSULQ+dPJHYcC1Cmy1ZumjgYK7JGWyjWsAiBqP80sTEhBUxDlWocRzSjvDQGfgxRhDaFmg/TDiizdgQAGYBiSXhQ6zuKQu2WPkNBtS3tWCHhNy7aa6cC6CxNp/n3mBRWFXMG6ykK+iHsGnGLErNVV51qxJ0uNBQE0aL5CxaD8Us1vzuyQwhVpTgMIQVVhRuhKvTObsmMUOHhwTUSlaz8VoM6mlz2iNcGOY4Sw9h729iBqTx)
+
+</div>
+
+---
+
+# コンポーネントの構成
 
 親コンポーネントから子コンポーネントが参照されツリー構造になる。最上位はルートコンポーネント（App.vue）
 
-<img src="/components.png" alt="コンポーネントの基本と構成" style="height: 80%; width: auto" />
+<img src="/components.png" alt="コンポーネントの基本と構成" style="height: 60%; width: auto" />
+
+Vue アプリは必ず、Vue コンポーネントのツリー構造で構成される
 
 ---
 
