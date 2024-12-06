@@ -50,7 +50,9 @@ drawings:
 Web アプリケーションにおけるユーザーインターフェイス[^1]を構築するための、オープンソース[^2]の JavaScript フレームワーク[^3]。
 
 [^1]: ユーザーとシステムの接点のこと
+
 [^2]: [オープンソースライセンス](https://opensource.org/licenses/)を適用していること
+
 [^3]: 言語仕様以上の書き方の制約を課せられる代わりに、特定の用途に最適化された実装がしやすいライブラリのこと
 
 <div class="pt-4 text-sm">
@@ -2231,7 +2233,7 @@ useLazyAsyncData: useLazyFetch の useAsyncData 版
 
 ```js
 const { pending, data: count } = useLazyAsyncData("count", () =>
-  $fetch("/api/count")
+  $fetch("/api/count"),
 );
 ```
 
