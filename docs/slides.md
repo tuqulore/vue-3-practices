@@ -1585,7 +1585,7 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
     - あらかじめ用意されたスタイルの適用
 - Nuxt 3 を使う
   - Vue.js 単体を使う場合との違い
-  - useFetch などの Nuxt 3 特有のヘルパー関数の使い方
+  - useFetch などの Nuxt 3 が提供するコンポーザブルの使い方
 
 ---
 
@@ -1750,21 +1750,23 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 handson-nuxt-playgroundディレクトリのアプリを起動する
 
-- app.vue ファイル
-- pages ディレクトリ
-- NuxtLink コンポーネント
-- layouts ディレクトリ
-- Data Fetching / server ディレクトリ
-- composables ディレクトリ
+- ルートコンポーネント（app.vue ファイル）
+- ルート定義（pages ディレクトリ）
+- 画面遷移（NuxtLink コンポーネント）
+- レイアウト定義（layouts ディレクトリ）
+- データ配信（server ディレクトリ）
+- データ取得（useFetch コンポーザブル）
+- ロジック再利用（composables ディレクトリ）
+- グローバルな状態管理（useState コンポーザブル）
 
 ---
 
-# app.vue ファイル
+# ルートコンポーネント（app.vue ファイル）
 
 app.vue を開いて中身を確認する。  
 app.vue を削除する。
 
-Vue 開発環境では App.vue ファイルをルートコンポーネントとして取り扱うことが多いが、Nuxt では app.vue がルートコンポーネントと決められている。ルーティングをおこなう場合、`<NuxtPage />` コンポーネントを挿入する。（Vue Router 導入時に出てきた `<RouterView />` コンポーネントと同じ）
+Vue アプリのルートコンポーネントのファイル名は慣習的に App.vue が多いが、Nuxt では app.vue がルートコンポーネントと決められている。ルーティングをおこなう場合、`<NuxtPage />` コンポーネントを挿入する。（Vue Router 導入時に出てきた `<RouterView />` コンポーネントと同じ）
 
 ```vue
 <template>
@@ -1781,19 +1783,25 @@ Vue 開発環境では App.vue ファイルをルートコンポーネントと�
 
 ---
 
-# pages ディレクトリ
+# ルート定義（pages ディレクトリ）
 
 pages ディレクトリに `pages/index.vue`, `pages/about.vue` ファイルを配置し、複数ページを構成する。
 
-Nuxt ではページを作成するだけでルートを定義することができる。つまり、 Vue Router を導入したときのように手動でルートを定義する必要がない。
+Nuxt では Vue コンポーネントを pages ディレクトリに配置するだけで、ルートを定義することができる。つまり、 Vue Router を導入したときのように手動でルートを定義する必要がない。
+
+```
+└── pages
+    ├── about.vue // -> `/about` ページ
+    └── index.vue // -> `/` ページ
+```
 
 ---
 
-# NuxtLink コンポーネント
+# 画面遷移（NuxtLink コンポーネント）
 
 コンポーネントで Nav.vue を作成、index と about のリンクナビゲーションを作成する。
 
-そしてそのルートを移動する際は HTML の
+ルートを移動する際は HTML 要素の
 
 ```html
 <a href="/about">ABOUT</a>
@@ -1805,12 +1813,19 @@ Nuxt ではページを作成するだけでルートを定義することがで
 <NuxtLink to="/about">ABOUT</NuxtLink>
 ```
 
-と記述してリンクを作成する。  
+と NuxtLink コンポーネントを呼び出してリンクを作成する。  
 ルート外、例えば外部サイトのリンクを貼る場合は従来の`<a>`要素を使うことになる。
+
+なぜ NuxtLink コンポーネントと`a`要素の使い分けが必要なのか：
+
+- NuxtLink（Vue Router）はページの一部を更新（ソフトナビゲーション）して  
+  少ない通信量と表示コストで画面遷移してくれる
+- じゃあ`<a>`要素は何をするの？→ページ全体を取得・表示する（ハードナビゲーション）
+  - イベントも発生する：[ページのライフサイクル: DOMContentLoaded, load, beforeunload, unload](https://ja.javascript.info/onload-ondomcontentloaded)
 
 ---
 
-# layouts (デフォルトレイアウト)
+# レイアウト定義（デフォルトレイアウト）
 
 `layouts/default.vue`を作成し、`<Nav />` を表示させる。
 
@@ -1852,7 +1867,7 @@ Nuxt ではページを作成するだけでルートを定義することがで
 
 ---
 
-# layouts (名前付きレイアウト)
+# レイアウト定義（名前付きレイアウト）
 
 layouts 配下にデフォルト以外のレイアウトコンポーネントを用意し、ページコンポーネントごとに切り替えられることを確認する。
 
@@ -1892,7 +1907,29 @@ definePageMeta({
 
 ---
 
-# Data Fetching / server ディレクトリ
+# データ配信（server ディレクトリ）
+
+`server/api`ディレクトリにある`users.js`が HTTP レスポンスを返していることを確認する
+
+どこかに`<a href="/api/users">/api/users</a>`を書いてアクセスしてみると、`server/api/users.js` が return しているデータが HTTP レスポンスになっていることが分かる。
+
+```json
+[
+  {
+    "name": "北田 由宇",
+    "email": "kitada_yuu@example.com",
+    "pref": "東京都",
+    "city": "府中市"
+  },
+  ...
+]
+```
+
+Nuxt は server ディレクトリが [Nitro](https://nitro.build/) というサーバーフレームワークで動いており、HTTP リクエストハンドリング（HTTP リクエストを受け取ったらどう処理するか）や HTTP レスポンス処理を実装することができる。
+
+---
+
+# データ取得（useFetch コンポーザブル）
 
 `server/api`ディレクトリにある`users.js`を確認して、`components/userList.vue`に以下を記述する。
 
@@ -1912,9 +1949,11 @@ const { data: users } = await useFetch("/api/users");
 </template>
 ```
 
+useFetch コンポーザブルを使うと、便利に HTTP リクエスト・レスポンスを取り扱うことができる。
+
 ---
 
-# composables ディレクトリ
+# ロジック再利用（composables ディレクトリ）
 
 `composables/useCounter.js`を作成する。  
 アプリで再利用したいロジックを管理することができる。js ファイルではあるが、Vue コンポーネントで使ってきた関数を使用していることがわかる。
@@ -1931,11 +1970,17 @@ export default () => {
 };
 ```
 
+コンポーザブルとは？
+
+> Vue アプリケーションの文脈で「コンポーザブル（composable）」とは、Vue の Composition API を活用して状態を持つロジックをカプセル化して再利用するための関数です。
+>
+> _[コンポーザブル | Vue.js](https://ja.vuejs.org/guide/reusability/composables) より引用_
+
 ---
 
-# composables ディレクトリ
+# ロジック再利用（composables ディレクトリ）
 
-作成した useCounter コンポジション関数を使用する。
+作成した useCounter コンポーザブルを使用する。
 
 ```vue
 <script setup>
@@ -1953,7 +1998,33 @@ function increment() {
 </template>
 ```
 
-<arrow v-click="1" x1="400" y1="270" x2="220" y2="170" color="#564" width="3" arrowSize="1" />
+- 数を数えるロジックがコンポーザブルにすることで再利用可能になった。
+- しかし、画面遷移すると数がリセットされる。
+- ref 関数などのリアクティビティ API の値は、Vue コンポーネントが初期化～マウントされている間で保持される。  
+   （参考：[ライフサイクルダイアグラム](https://ja.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram)）
+  <arrow v-click="1" x1="400" y1="270" x2="220" y2="170" color="#564" width="3" arrowSize="1" />
+
+---
+
+# グローバルな状態管理（useState コンポーザブル）
+
+useCounter コンポーザブルの ref 関数を useState コンポーザブルに変更して比較する。
+
+```js {all|2}
+export default () => {
+  const count = useState("counter", () => 0);
+  const increment = () => count.value++;
+
+  return {
+    count: readonly(count),
+    increment,
+  };
+};
+```
+
+- useState コンポーザブルは複数 Vue コンポーネントをまたいで（≒グローバルに）同じ値を読み書きできる。
+- 公式ドキュメント：[useState · Nuxt Composables](https://nuxt.com/docs/api/composables/use-state)
+- Nuxt が提供する便利なコンポーザブルがたくさんあるので、興味があったら https://nuxt.com/docs/api を参照のこと
 
 ---
 
@@ -2073,7 +2144,7 @@ https://nuxt.com/docs/guide/concepts/auto-imports
 - Nuxt 3 が提供する関数、コンポーネント（useFetch、$fetch、NuxtLink など）
 - 今まで使ってきた Composition API 関連の関数（ref、computed など）
 - components ディレクトリに配置された Vue コンポーネント
-- composables ディレクトリに配置されたコンポジション関数
+- composables ディレクトリに配置されたコンポーザブル
 
 ---
 
@@ -2172,7 +2243,7 @@ fetchを使うこともできるが、Nuxt 3を使うならuseFetchや$fetchが�
 
 # VueUse
 
-便利なコンポジション関数を提供しているライブラリ
+便利なコンポーザブルを提供しているライブラリ
 
 - スクラッチ：あらゆる処理を自分で書くのは車輪の再発明かもしれない
 - 既製のライブラリを使用することで効率的に開発することができる
@@ -2259,21 +2330,22 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
 
 ```
 ├── components/
-│ ├── StickyNote.vue （付箋単体の情報を格納したコンポーネント）
+│   └── StickyNote.vue （付箋単体の情報を格納したコンポーネント）
 ├── composables/
-│ ├── useStickies.vue （付箋の状態などをアプリで管理する Composables）
+│   └── useStickies.js （付箋の状態などをアプリで管理する Composables）
 ├── pages/
-│ ├── index.vue （ページ）
+│   └── index.vue （ページ）
 ├── app.vue （NuxtPageを使った基本レイアウト）
-├── package.json （今回はuseDraggableが含まれている）
+└── package.json （今回はuseDraggableが含まれている）
 
 ```
 
 <div class="text-xs leading-5 my-4">
 
-- `pages/index.vue` と `components/StickyNote.vue` は同じ `composables/useStickies.vue` を参照していることがわかります
-- `composables/useStickies.vue` には現在、3 つの付箋の情報が配列で用意されています
-- `composables/useStickies.vue` には現在、`add()`と`update()`の関数が用意されていて、別々のコンポーネントから呼び出しが可能になっています
+- `pages/index.vue` と `components/StickyNote.vue` は同じ `composables/useStickies.js` を参照していることがわかります
+- `composables/useStickies.js` には、3 つの付箋の情報が配列で用意されています
+- `composables/useStickies.js` は useState コンポーザブルを使用しており、付箋の情報が Vue コンポーネントをまたいで共有できます
+- `composables/useStickies.js` には、`add()`と`update()`の関数が用意されていて、別々のコンポーネントから呼び出しが可能になっています
 
 これで付箋の情報を一元管理できることがわかります。
 
