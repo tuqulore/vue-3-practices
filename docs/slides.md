@@ -1381,67 +1381,60 @@ function clickHandler() {
 
 ---
 
-# v-model を用いた親子間コンポーネントのデータの受け渡し
+# プロパティとイベントを併用したデータの受け渡し
 
-親子で同じ値になるようにバインディングする（コンポーネント間の双方向バインディング）
+親と子で同じ値の読み書き（双方向バインディング）ができる。[サンプル](https://play.vuejs.org/#eNqFU01v00AQ/SurPblqFKuCU3CiQpRDOZQKEBeWg+uME7f22tpdp5EsS6SRuMChnBASEgcQIKTyp6wgfgaz6/ojH20Plrw7b968mZ2X0cdJ0p2lQHvUkZ4IEkUkqDQZMB5ESSwUyYgAn+TEF3FEGEUso4/q6HAahONhjAcOXFWgrr1+ryswyrgXc6lI4gq8G8YpJvQ1u3Wwh4zt4BH3BESasU+sPdIfkIxx0s7sztwwhf19TMyr3DQZuwoqYsvTP6807A4GBDa4ksyxy0ngDPCgIEpCpMUTcZJBi6BHsmytmTx3bD054pymSsWcHHph4J33Gd3oitHBvx+/i8VPsn/g2CXY5G2MsxfFYwiNtJrElGKUHJbdrkNaE0CIjZyO3WqAdqiSOCs/mHTPZMzx1c1UGPWwZhCCeJaoAGfJKDanIzrmhmF88dTcKZFCp7r3puCd77g/k3N9x+iJAAlihk9fx5QrJoDadHj04hjm+F8HsZU0RPQdwecg4zDVGkvYk5SPUXYLZ9Qeme0M+OSlHM0VcFk1pYVqZG7wZp31uG9rvZH7oPvQ5OGG4BS31/seA3XIhau86cj3wcNF2XTTze6LOJG4kGPwAw4n+mRlpHngHjlOo1MQJG/8Ypb3xkYmv9vgNcq2SbH8VCyvi+XHYvmuuPxWLP6s3n4vFr9WVx/+fvlaLD4Xl+8Zb+mzWpYz/LVVNitowzRaIAq0lFL+CA/Sel3tZGtPGX3T5AS7nd4qazxODLm1k63TRmvmHL/bTbztzloD+nJ1fbXtS218U8NYvhx5ZfZ1g+X/Aeur6N0=)も見てみましょう
 
-<div class="flex gap-8">
+<div class="flex gap-x-4">
+<div>
 
-<div class="flex-shrink">
-
-<p class="text-xs">親コンポーネント - App.vue</p>
+<p class="text-xs">親コンポーネント</p>
 
 ```vue
 <script setup>
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
-
-const title = ref("Hello !");
+const parentCount = ref(1);
+const parentIncrement = () =>
+  parentCount.value++;
+};
+const updateCount = (countValue) => {
+  parentCount.value = countValue;
+};
 </script>
-
 <template>
-  <ChildComponent v-model="title" />
-  <p>{{ title }}</p>
+  <p>parentCount: {{ parentCount }}</p>
+  <button @click="parentIncrement">親で +1</button>
+  <ChildComponent :modelValue="parentCount" @update:modelValue="updateCount" />
 </template>
 ```
 
 </div>
 
-<div class="flex-shrink">
+<div>
 
-<p class="text-xs">子コンポーネント - ChildComponent.vue</p>
-
-<div class="h-xs overflow-y-auto">
+<p class="text-xs">子コンポーネント（ChildComponent.vue）</p>
 
 ```vue
 <script setup>
-import { computed } from "vue";
-
-const props = defineProps({
-  modelValue: String,
+import { ref, watchEffect } from "vue";
+const props = defineProps({ modelValue: Number });
+const count = ref(props.modelValue);
+// プロパティの値と同期する
+watchEffect(() => {
+  count.value = props.modelValue;
 });
 const emit = defineEmits(["update:modelValue"]);
-const title = computed({
-  get: () => props.modelValue,
-  set: (value) => {
-    emit("update:modelValue", value);
-  },
-});
+const increment = () => {
+  count.value++;
+  emit("update:modelValue", count.value);
+};
 </script>
-
 <template>
-  <input v-model="title" />
+  <button @click="increment">子で +1</button>
+  <p>count: {{ count }}</p>
 </template>
 ```
-
-</div>
-
-</div>
-
-<div class="flex-shrink-0">
-<p class="text-xs">実行サンプル</p>
-
-<TwowayParent />
 
 </div>
 
@@ -1449,38 +1442,57 @@ const title = computed({
 
 ---
 
-# v-model を用いない親子間コンポーネントのデータの受け渡し
+# v-model ディレクティブと defineModel マクロを使ったデータの受け渡し
 
-親子で同じ値になるようにバインディングする（コンポーネント間の双方向バインディング）
+前のページと同じことが短く簡単に書ける。[サンプル](https://play.vuejs.org/#eNp9ks1uEzEQx19l5FOqlF1VcCqbCIh6KBIfAo6+LM4kdeu1LX+ESKs98AY8BUhIPBVC4jE69jbbTZP2sNJ65j/j/3h+LXttbbGJyM5Z5YWTNoDHEO2ca9lY4wK04HAFHaycaYAz0nL2csgurqRaLgwdNOqwExXlfjzdwBnXwmgfwNaOYgsTqWCWuk/OTqjjOHmphcMmdZzB5ARmc2i5hnFlsalVxOmUCjuuq7I3T7bpELCxqg5IJ6jsfFR1Dm27d3/XVWUaFqqvMQSj4ZVQUtzMOHtghLP5/5+//37/BdOzquzFue7BC2yeNWaJamiQr+EMShJX5cgZO2XB08wruS6uvdG0gTwjZ4KaSYXugw2S3oQzcp0yKVcrZb69zbHgIp7u4uIKxc2R+LXfphhnHx16dBtaw5ALtVsjeUvpi8/vcUv/Q5KmiIrUTyQ/oTcqJo+97E3US7I90mW3l5kUqddf/MU2oPa7oZLRpOyyPqOV3vGx0e/tPi9e5DpaPb3iIWpHYO7hEnfMLXElNb5Li5rcoyePQ5eLxrjRN+Jtj7ZDjIamBNC/Pz8OAUqE5isym73DHZX7wHS3ZEZHRw==)も見てみましょう
 
-<div class="flex gap-8">
+<div class="flex gap-x-4">
+<div>
 
-<div class="flex-shrink">
-
-<p class="text-xs">親コンポーネント - App.vue</p>
+<p class="text-xs">親コンポーネント</p>
 
 ```vue
 <script setup>
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
-
-const title = ref("Hello !");
+const parentCount = ref(1);
+const parentIncrement = () =>
+  parentCount.value++;
+};
 </script>
-
 <template>
-  <ChildComponent @update:modelValue="title = $event" :modelValue="title" />
-  <p>{{ title }}</p>
+  <p>parentCount: {{ parentCount }}</p>
+  <button @click="parentIncrement">親で +1</button>
+  <ChildComponent v-model="parentCount" />
 </template>
 ```
 
 </div>
 
-- v-model がおこなっていることは v-model を使わなくても実現可能（糖衣構文）
-- 親 → 子：プロパティ
-- 子 → 親：イベント
-- このような状態が双方向バインディング（値を束縛しあっている）
+<div>
+
+<p class="text-xs">子コンポーネント（ChildComponent.vue）</p>
+
+```vue
+<script setup>
+const count = defineModel();
+const increment = () => {
+  count.value++;
+};
+</script>
+<template>
+  <button @click="increment">子で +1</button>
+  <p>count: {{ count }}</p>
+</template>
+```
 
 </div>
+
+</div>
+
+- v-model: `parentCount` の値を `modelValue` プロパティで渡して `update:modelValue` イベントで受け取る
+- defineModel: `count` の値を `modelValue` プロパティで受け取って `update:modelValue` イベントで渡す
+- 2つ以上の値を v-model と defineModel で受け渡ししたいときは？→[複数の v-model のバインディング](https://ja.vuejs.org/guide/components/v-model#multiple-v-model-bindings)を読もう
 
 ---
 
