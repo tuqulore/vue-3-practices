@@ -7,7 +7,7 @@ runs:
     - name: "Setup Node"
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version-file: 'package.json'
         cache: 'yarn'
     - name: "Install NPM Packages"
       run: yarn install --check-files --frozen-lockfile --non-interactive
