@@ -188,9 +188,9 @@ script setup
 import { ref } from "vue";
 
 const count = ref(0);
-function increment() {
+const increment = () => {
   count.value += 1;
-}
+};
 </script>
 ```
 
@@ -328,17 +328,12 @@ console.log(sum); // 3.
 
 ```vue
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const val1 = ref(2);
 const val2 = ref(3);
-const sum = computed(() => {
-  return val1.value + val2.value;
-});
 </script>
-```
 
-```vue
 <template>
   <div>
     <p>
@@ -349,7 +344,7 @@ const sum = computed(() => {
       val2:
       <input type="number" v-model="val2" />
     </p>
-    <p>sum: {{ sum }}</p>
+    <p>sum: {{ val1 + val2 }}</p>
   </div>
 </template>
 ```
@@ -693,7 +688,15 @@ const isRed = ref(true);
 <p class="text-xs">スタイル属性にもオブジェクト構文と配列構文がある</p>
 
 ```vue
-<span :style="{ color: 'red' }">Hello World!</span>
+<script setup>
+const myColor = { color: "red" };
+const mySize = 30;
+</script>
+
+<template>
+  <p :style="myColor">テキスト</p>
+  <p :style="[myColor, { 'font-size': `${mySize}px` }]">テキスト</p>
+</template>
 ```
 
 </div>
@@ -974,6 +977,10 @@ const message = ref("Hello Vue!");
 
 <div>
   <TwoWayBindingSample/>
+
+  <p>
+    <a href="https://ja.vuejs.org/guide/essentials/forms#basic-usage" target="_blank" rel="noopener noreferrer">他にも様々なフォーム入力バインディングの例があります（公式ドキュメント）</a>
+  </p>
 </div>
 
 </div>
@@ -1438,6 +1445,14 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 <div class="text-xs">
 <p class="text-xs">結果例</p>
 <strong>ChildComponent: </strong>Hello Component
+</div>
+
+<div class="pt-10">
+  
+- 複数のスロットが開けたければ？: [名前付きスロット（公式ドキュメント）](https://ja.vuejs.org/guide/components/slots#named-slots)
+- スロットに子コンポーネントからデータを渡したければ？：[スコープ付きスロット（公式ドキュメント）](https://ja.vuejs.org/guide/components/slots#scoped-slots)
+  - [サンプル](https://play.vuejs.org/#eNqVVm1P21YU/itX3gc2CRIK65csjdRWlfbSrdXWb8ukprYJLo5t2Q4FoUjYLmkoQZTS17GN0TGgsIVK5QNsDH7MxXn51L+w517HjhMIUiWE7j3nOec85+Sccz0jXDWMxGRRFlJC2hJNxbCJJdtFI5PVlIKhmza5bepSUbRvKpZNxky9QAYSyZiMGQ98kdXSycAchrjYcsFQc7aMGyFpSZnkBxzHL2X852V/xaHeDnUPqVdJJyFjRlxvZE4PFprbr6hTG2ls11rrv+HUXN9ubPxD3af1hTnq/EGdTeo8pO4Cdd9TD3+/Uu+Ieov8XKHOHnXeUmeduvPUdcndGNm7hDrbzNYpt1m4T08PZpubW9R5zRw6a9R1ELGPZw6bddNJIwOmIa1D6p5Qd4N6u9Sp+nMIsNRynvMwx8zAqVJnhTuNI2v16iO/9jMYGKZuWHBeP1jn8BoPhCx24InOOpaq2xB9eefbm6wGDPWyUwOW0Ap1F1nsDdjhsNOYP/SP9yO+YXhkUKbObp/kdv090GWe2wFDXJn/R7AgNhjCHaJugVtzEySr/t9P+jjtThoeqnvUfexXwGOZsw9coUIBdV6woMJRT4yPZKJuCWqOnhnp6Itqu7twjnfr5BBL5EpWmCEKGpKUskIEBFRVYjfcLdvUtXxmJkAntFxBJqUS+jqQkyESqiQ56HVF14Agn4Zyw1REZuOXy5/FAiVjkdLx2QmHIskziGXrvmMJex715s9J+OPSxPARUc1ZFhB5U5GGGKgLwoKOns0bsi6MEUG68w9+qy5gby1jhYnq2W2WTnaWxNkqRXLeCuthcdjuYGWJ4vbvwy3qPWIStKJT85de+MdodIxYMPXL2BjNTTb+jVVM31596cnp8SofBrQ35ri7S92FD0eV1os3/onHvFXKrdU3H47me/q2uzODhquvPWv+u1af3UoRv/InW22dqFX/ZK65ie2D5YCoWHNYRnDKZ6zfdLWH8yX1/uKqCmbM35ivr2L6kRsYv7v1TVcHBkT88qJfedt4tv2RXPpXeC8MCzzqtnX63wncRxXrmYKo48MfPp2MvRm4Wva0yo6JqGfJDMPf001JNlPkkjFFLF1VJPKJKIp4gAgxcpKkaHnoho0pLinkzLyipcjl9l1SLISYThFFUxVNHrqn6uIE1zxQJHs8RUaGQ1NbnrKHcqqSh7koa7ZsQlzi7xxnJgwKtiXq2piST9y3dA0PKOeXFUS9YCiqbN7iA2JlhVTAnOlyqqo/+JrLbLMoD4ZycVwWJ86R37emmCwr3DZlSzYn5awQ6WwkJ9uB+sYP34FvTFnA+KhAX6D8Xkb9ioxjALtW1CTQjuE426/4ZwDqese6MWXLmhUmxYgyZInjswI+BK5fkHqH7mjic26HeqKKPd8S53yIoMpYc3glGc4iV8iPzByrRcJPPUjYwkqRgeBBvzowSGLrCfLG/u/11/use1lbPuzA+FJizTI83M4hcDnS4/LaGZet3VeQN9+j03c6mLY/tFC3v9Eef9fP+GMTxV635frjXxrHGxhFhgn5XWb+stpPF35jsfcLrwAegzHdxKbnA6NoUdWyAkkxWVvFrhPydPuWUCQIkt1TKJT+BzLckwU=)を見てみましょう
+  
 </div>
 
 ---
