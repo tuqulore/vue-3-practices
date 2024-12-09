@@ -34,7 +34,7 @@ drawings:
 - はじめに
   - Composition API, 学習環境など
 - リアクティブとは？
-- 算出プロパティ（computed）
+- 算出関数（computed）
 - ウォッチャ（watch）
 - テンプレート構文の説明
   - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model など
@@ -357,9 +357,9 @@ const val2 = ref(3);
 
 ---
 
-# 算出プロパティ（computed）
+# 算出関数（computed）
 
-あるリアクティブな値を元に計算結果を返したい場合、`computed` 関数を利用する
+あるリアクティブな値を元に計算結果を返したいときは、`computed` 関数を使う
 
 ```vue
 <script setup>
@@ -377,47 +377,14 @@ const plusOne = computed(() => count.value + 1);
 </template>
 ```
 
----
-
-# 読み書きできる算出プロパティ（computed）
-
-`get` `set` 関数を用意することで書込み可能なオブジェクトを作成することができる
-
-<div class="h-sm overflow-y-auto">
-
-```vue
-<script setup>
-import { ref, computed } from "vue";
-
-const count = ref(1);
-const plusOne = computed({
-  get: () => count.value + 1,
-  set: (value) => {
-    count.value = value;
-  },
-});
-function handleClick() {
-  plusOne.value = 1;
-}
-</script>
-
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    <button @click="handleClick">リセット</button>
-    {{ plusOne }}
-  </div>
-</template>
-```
-
-</div>
+算出関数の値を上書きしたい！→[書き込み可能な算出関数（公式ドキュメント）](https://ja.vuejs.org/guide/essentials/computed#writable-computed)を読みましょう
 
 ---
 
-# computed と関数呼び出しの違い
+# 関数呼び出しと算出関数（computed）の違い
 
-関数呼び出しは都度呼び出される毎に実行するのに対し、`computed` 内で参照しているリアクティブな値が変更されない限り、`computed` は一度キャッシュされた結果を返す。
-うまく使い分けるとパフォーマンスの向上に役立てる。
+関数呼び出しは都度呼び出される毎に実行されるが、（computed）は `computed` 関数内で参照しているリアクティブな値が変更されない限り、キャッシュされた結果を返す。  
+うまく使い分けるとパフォーマンスの向上に役立てられる。
 
 <div class="flex gap-4">
 
@@ -463,7 +430,7 @@ const randomComputed = computed(() => {
 
 特定のデータを監視し、変更があったときに処理を行える、引数として、新しい値とその前の値を取得できる。
 
-<div class="h-sm overflow-y-auto">
+<div>
 
 ```vue
 <script setup>
@@ -477,17 +444,14 @@ watch(count, (current, prev) => {
   histories.value.splice(0, 0, { current, prev });
 });
 </script>
-
 <template>
-  <div>
-    <input type="number" v-model="count" />
-    <h3>値の履歴（nステップ前の値が表示されます）</h3>
-    <ol start="0">
-      <li v-for="(history, index) in histories" :key="index">
-        今の値: {{ history.current }}、前の値: {{ history.prev ?? "なし" }}
-      </li>
-    </ol>
-  </div>
+  <input type="number" v-model="count" />
+  <h3>値の履歴（nステップ前の値が表示されます）</h3>
+  <ol start="0">
+    <li v-for="(history, index) in histories" :key="index">
+      今の値: {{ history.current }}、前の値: {{ history.prev ?? "なし" }}
+    </li>
+  </ol>
 </template>
 ```
 
@@ -510,7 +474,9 @@ watch(count, (current, prev) => {
 
 # さまざまなリアクティビティAPI
 
-<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#reactive">reactive()</a></h2>
+<div class="text-sm [&>p]:my-0">
+
+[reactive()](https://ja.vuejs.org/api/reactivity-core#reactive)：リアクティブな値をオブジェクトのプロパティにまとめる
 
 ```js
 const obj = reactive({ count: 0 }); // 値の作成
@@ -518,7 +484,7 @@ console.log(obj.count); // 値の読み出し
 obj.count = 1; // 値の更新（.valueが不要な点に注意）
 ```
 
-<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-utilities.html#torefs">toRefs()</a></h2>
+[toRefs()](https://ja.vuejs.org/api/reactivity-utilities.html#torefs)：Reactive オブジェクトを Ref オブジェクトに変換する
 
 ```js
 const obj = reactive({ count: 0 }); // 値の作成
@@ -526,7 +492,7 @@ const { count } = toRefs(obj); // refへの変換
 console.log(count.value); // obj.countと同じ値
 ```
 
-<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#readonly">readonly()</a></h2>
+[readonly()](https://ja.vuejs.org/api/reactivity-core#readonly)：リアクティブな値を書き込みできないようにする
 
 ```js
 const obj = reactive({ count: 0 }); // 値の作成
@@ -534,12 +500,14 @@ const readonlyObj = readonly(obj); // 読み取り専用の値の作成
 readonlyObj.count = 1; // 値の更新（阻止される）
 ```
 
-<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#watcheffect">watchEffect()</a></h2>
+[watchEffect()](https://ja.vuejs.org/api/reactivity-core#watcheffect)：この関数で使われたリアクティブな値をすべて監視するウォッチャ
 
 ```js
 const count = ref(0);
 watchEffect(() => console.log(count.value)); // countが更新される度に実行される
 ```
+
+</div>
 
 これまで取り上げたものと比べると重要じゃないので、「使いどきがあるかも」くらいに思えればOKです。  
 （ただ、watchEffectは監視対象の指定がいらないのでwatchより便利かも…）
