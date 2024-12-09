@@ -219,15 +219,30 @@ function increment() {
 
 <template>
   <div>
-    {{ count }}
+    <p>{{ count }}</p>
     <button @click="increment">+</button>
   </div>
 </template>
+
+<style scoped>
+button {
+  border: 1px solid;
+  padding-inline: 1rem;
+}
+</style>
 ```
 
 <div>
 動作サンプル
-<FirstSample />
+
+<FirstSample class="mb-32" />
+
+- `<script></script>` の中に JavaScript を書く
+- `<template></template>` の中に HTML を書く
+  - `{{}}` の中に JavaScript の値や式が書ける
+- `<style></style>` の中に CSS を書く
+  - `scoped` 属性をつけると、CSS がここの HTML にだけ適用されるようになる
+
 </div>
 
 </div>
