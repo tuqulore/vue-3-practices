@@ -2269,13 +2269,21 @@ fetchを使うこともできるが、Nuxt 3を使うならuseFetchや$fetchが�
 
 # スタイルガイド
 
-Vue 固有の記法についての公式なスタイルガイド
+Vue 固有の記法についての公式のスタイルガイド
 
 - スタイルガイドに書いてあることを守らなくても、動く Vue のコードを書くことはできる
 - スタイルガイドに書いてあることを守ると、事前に起こりうる問題に対処することができる
 - [eslint-plugin-vue](https://eslint.vuejs.org/)を使うとスタイルガイドに違反しているか静的にコードを解析・修正できる
 
 [スタイルガイド](https://ja.vuejs.org/style-guide/)
+
+---
+
+# ツールガイド
+
+Vue の開発で役立ついろいろなツールをみてみよう
+
+[ツールガイド](https://ja.vuejs.org/guide/scaling-up/tooling.html)
 
 ---
 
