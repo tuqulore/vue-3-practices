@@ -2333,7 +2333,7 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
 
 <img src="/fig-vueuse.png" alt="VueUse" class="h-8/12" />
 
-<a target="_blank" rel="noopener noreferrer" href="https://vueuse.org/">https://vueuse.org/</a>
+https://vueuse.org/
 
 <p>
 今回は <a target="_blank" rel="noopener noreferrer" href="https://vueuse.org/core/usedraggable/#usedraggable">useDraggable</a> を使います
