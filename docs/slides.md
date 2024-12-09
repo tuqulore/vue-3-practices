@@ -74,31 +74,49 @@ Web アプリケーションにおけるユーザーインターフェイス[^1]
 
 ---
 
-# 前半のハンズオン環境を用意する
+# ブラウザのハンズオン環境（Vue SFC Playground）を用意する
 
-使用するツールの確認とセットアップ
-
-本講座におけるハンズオン、演習、サンプルの閲覧は [Vue SFC Playground](https://play.vuejs.org/) でおこないます。
+本講座の前半のハンズオンは [Vue SFC Playground](https://play.vuejs.org/) でおこないます。
 
 Vue SFC Playgroundはブラウザ上でVueの動作が確認できるオンラインエディターです。
 
 以下をやってみましょう
 
 1. https://play.vuejs.org/ にアクセス
-2. 右カラムの画面にある入力欄へ「Hello World!」以外の文字列を入力する
+2. 右カラムの画面にある入力欄へ「Hello World!」以外の文字列を入力
 3. 右カラムに`Hello World!`以外の文字列が見出しで表示されることを確認
-4. 左カラムの文字列をすべて消す
-5. 右カラムになにも表示されないことを確認
 
 編集した内容は共有ボタン <mdi-share-variant /> で再現可能なURLとして保存できます。
 
 講師の編集内容もリクエストに応じて適宜共有していきます。
 
+<img class="fixed right-0 bottom-0" src="/vue-sfc-playground-example.png" alt="" width="400">
+
 ---
 
-# 後半のハンズオン環境を用意する（宿題）
+# ブラウザのハンズオン環境（StackBlitz）を用意する
 
-お願い：後半に用意した環境で正常に動作しない時の保険としてあらかじめ用意してください
+本講座の後半のハンズオンは [StackBlitz](https://stackblitz.com/) でおこないます。
+
+StackBlitzはブラウザ上でVueの動作の確認やアプリのビルドができるオンラインIDE（統合開発環境）です。
+
+以下をやってみましょう
+
+1. https://vite.new/vue にアクセス
+2. 右のカラムの画面にある「Count is 0」ボタンをクリックする
+3. ボタンのラベルが「Count is 1」になることを確認
+
+編集した内容は保存が可能です（要GitHubアカウントorサインアップ）
+
+講師の編集内容もリクエストに応じて適宜共有していきます。
+
+<img class="fixed right-0 bottom-0" src="/stackblitz-example.png" alt="" width="400">
+
+---
+
+# Node.jsをお手元にインストールしたハンズオン環境を用意する（宿題）
+
+お願い：ブラウザのハンズオン環境で正常に動作しない時の保険としてあらかじめ用意してください
 
 <h2 class="!text-base font-bold !mt-1">前提条件</h2>
 
@@ -111,7 +129,7 @@ Vue SFC Playgroundはブラウザ上でVueの動作が確認できるオンラ�
 
 ---
 
-# 後半のハンズオン環境を用意する（宿題）
+# Node.jsをお手元にインストールしたハンズオン環境を用意する（宿題）
 
 <h2 class="!text-base font-bold !my-2">手順</h2>
 
@@ -137,7 +155,7 @@ $ tree -L 1 # ファイル群の階層構造を確認するコマンド（例示
 
 ---
 
-# 後半のハンズオン環境を用意する（宿題）
+# Node.jsをお手元にインストールしたハンズオン環境を用意する（宿題）
 
 <h2 class="!text-base font-bold !my-2">確認すること</h2>
 
@@ -1669,7 +1687,7 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 
 # グリッドコンポーネント
 
-handson-grid-componentディレクトリのアプリを起動する
+[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-grid-component?file=src/App.vue&terminal=dev)を開くか、handson-grid-componentディレクトリのアプリを起動する
 
 1. どんなアプリか：表にデータを流し込んでカラムで絞り込んだり並べ替えたりできる
 2. Vue特有な部分を中心にコードを理解する
@@ -1684,7 +1702,7 @@ handson-grid-componentディレクトリのアプリを起動する
 
 # パスワードチェッカー
 
-handson-password-checkerディレクトリのアプリを起動する
+[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-password-checker?file=src/App.vue&terminal=dev)を開くか、handson-password-checkerディレクトリのアプリを起動する
 
 1. どんなアプリか：パスワードの強度を判定できる
 2. Vue特有な部分を中心にコードを理解する
@@ -1712,7 +1730,7 @@ handson-password-checkerディレクトリのアプリを起動する
 
 # デザインラボの記事ビューアー
 
-handson-fetch-routerディレクトリのアプリを起動する
+[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router?file=src/App.vue&terminal=dev)を開くか、handson-fetch-routerディレクトリのアプリを起動する
 
 1. どんなアプリか：[デザインラボ](https://design-lab.tuqulore.com/)というサイトと同じ記事データ（JSON）を取得して一覧から選択表示できる
 2. Vue特有な部分を中心にコードを理解する
@@ -1731,7 +1749,7 @@ handson-fetch-routerディレクトリのアプリを起動する
 
 # 靴のギャラリー
 
-handson-gallery-shoesディレクトリのアプリを起動する
+[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes?file=src/App.vue&terminal=dev)を開くか、handson-gallery-shoesディレクトリのアプリを起動する
 
 1. どんなアプリか：靴のデータ（JSON）を取得してショッピングサイトらしい見た目で一覧表示できる
 2. JSON から靴のデータを取得しよう（10 分程度）
@@ -1775,7 +1793,7 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 # Nuxt 3 のハンズオン
 
-handson-nuxt-playgroundディレクトリのアプリを起動する
+[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev)を開くか、handson-nuxt-playgroundディレクトリのアプリを起動する
 
 - ルートコンポーネント（app.vue ファイル）
 - ルート定義（pages ディレクトリ）
@@ -2057,7 +2075,7 @@ export default () => {
 
 # Vue + Vue Router と Nuxt 3 の比較
 
-handson-fetch-router-nuxt-finishディレクトリのアプリを起動する
+[StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router-nuxt-finish?file=src/App.vue&terminal=dev)を開くか、handson-fetch-router-nuxt-finishディレクトリのアプリを起動する
 
 デザインラボの記事ビューアーを Nuxt 3 でつくりなおしたもの (動作は Vue 3 のものと同じ)
 
@@ -2322,6 +2340,8 @@ Nuxt 3 を使ってウェブアプリケーションをつくっていく準備�
 ---
 
 # 課題 - 付箋アプリをつくってみよう
+
+[StacBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-sticky?file=src/App.vue&terminal=dev)を開くか、handson-stickyディレクトリのアプリを起動する
 
 <div class="text-xs">
 
