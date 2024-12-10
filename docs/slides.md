@@ -34,7 +34,7 @@ drawings:
 - はじめに
   - Composition API, 学習環境など
 - リアクティブとは？
-- 算出関数（computed）
+- 算出プロパティ（computed）
 - ウォッチャ（watch）
 - テンプレート構文の説明
   - mustache, v-bind, v-on, v-if/v-else/v-else-if, v-show, v-for, v-model など
@@ -357,7 +357,7 @@ const val2 = ref(3);
 
 ---
 
-# 算出関数（computed）
+# 算出プロパティ（computed）
 
 あるリアクティブな値を元に計算結果を返したいときは、`computed` 関数を使う
 
@@ -381,9 +381,9 @@ const plusOne = computed(() => count.value + 1);
 
 ---
 
-# 関数呼び出しと算出関数（computed）の違い
+# 関数呼び出しと算出プロパティ（computed）の違い
 
-関数呼び出しは都度呼び出される毎に実行されるが、（computed）は `computed` 関数内で参照しているリアクティブな値が変更されない限り、キャッシュされた結果を返す。  
+関数呼び出しは都度呼び出される毎に実行されるが、算出プロパティ（computed）は `computed` 関数内で参照しているリアクティブな値が変更されない限り、キャッシュされた結果を返す。  
 うまく使い分けるとパフォーマンスの向上に役立てられる。
 
 <div class="flex gap-4">
