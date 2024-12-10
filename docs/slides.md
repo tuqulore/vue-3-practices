@@ -156,19 +156,20 @@ export default {
 ```
 
 </div>
+
+- Options API：ひな形に沿って書く
+  - 「値の定義はここ！（data 関数）」
+  - 「値の操作はここ！（methods 関数）」
+- Composition API：  
+  関心ごと（処理したい対象）に沿って書く
+  - 定数宣言も関数宣言も JavaScript 構文そのまま
+  - どの行に何を書くか自由度が高い
+
 </div>
 
 VueはOptions APIとComposition APIの2種類のAPI：アプリケーションを実装（プログラミング）するために用意された決めごとがあります。
 
 [公式ドキュメント](https://ja.vuejs.org/guide/introduction.html#which-to-choose)ではどちらも優劣なくドキュメントが用意されています。本講座はComposition APIだけを取り扱いますが、もし[クラスベーススタイル](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%A9%E3%82%B9%E3%83%99%E3%83%BC%E3%82%B9)の[オブジェクト指向プログラミング](https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)をしたことがあるなら、Options APIはとっつきやすいかもしれません。
-
----
-
-# Composition API のメリット
-
-Vue の機能ではなく、論理的な関心事でコードをまとめることができる
-
-<img src="/apis.png" class="h-5/6" />
 
 ---
 
