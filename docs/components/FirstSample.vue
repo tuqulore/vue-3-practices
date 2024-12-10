@@ -8,8 +8,15 @@ function increment() {
 </script>
 
 <template>
-  <div class="prose">
-    {{ count }}
+  <div>
+    <p>{{ count }}</p>
     <button @click="increment">+</button>
   </div>
 </template>
+
+<style scoped>
+button {
+  border: 1px solid;
+  padding-inline: 1rem;
+}
+</style>
