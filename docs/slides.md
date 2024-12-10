@@ -33,6 +33,8 @@ drawings:
 
 - はじめに
   - Composition API, 学習環境など
+- 本講座の目標
+- 本稿座のすすめかた
 - リアクティブとは？
 - 算出プロパティ（computed）
 - ウォッチャ（watch）
@@ -47,13 +49,15 @@ drawings:
 
 ## Vue.js とは？
 
-Web アプリケーションにおけるユーザーインターフェイス[^1]を構築するための、オープンソース[^2]の JavaScript フレームワーク[^3]。
+Web アプリケーション[^1]におけるユーザーインターフェイス[^2]を構築するための、オープンソース[^3]の JavaScript フレームワーク[^4]。
 
-[^1]: ユーザーとシステムの接点のこと
+[^1]: 用途に応じて作られ、Web 技術で動作するソフトウェアのこと
 
-[^2]: [オープンソースライセンス](https://opensource.org/licenses/)を適用していること
+[^2]: ユーザー：利用者とシステム：利用される仕組みを形づくる境界のこと
 
-[^3]: 言語仕様以上の書き方の制約を課せられる代わりに、特定の用途に最適化された実装がしやすいライブラリのこと
+[^3]: [オープンソースライセンス](https://opensource.org/licenses/)を適用していること
+
+[^4]: コードをこう書くべし、あるいはコードをこう書くべからず、という約束ごとの集まり
 
 <div class="pt-4 text-sm">
 
@@ -64,9 +68,19 @@ Web アプリケーションにおけるユーザーインターフェイス[^1]
 
 ---
 
-# 本講座のすすめかた
+# 本講座の目標
 
-どのような形式で進行するのかの確認
+講座をすすめていく上でどんな状態になってほしいかというと…
+
+1. リアクティブプログラミングを体感する
+2. コンポーネント駆動開発の一歩を踏み出す
+3. Vueを読み書きできる
+4. VueでWebアプリケーションを作りたくなる
+   - そんなときにNuxt（VueのWebアプリケーションフレームワーク）が便利だと体感する
+
+---
+
+# 本講座のすすめかた
 
 ハンズオン ≒ コードを書いて動かすこと（1 回 10 分程度）をメインに取り組みます。
 
@@ -220,19 +234,20 @@ export default {
 ```
 
 </div>
+
+- Options API：ひな形に沿って書く
+  - 「値の定義はここ！（data 関数）」
+  - 「値の操作はここ！（methods 関数）」
+- Composition API：  
+  関心ごと（処理したい対象）に沿って書く
+  - 定数宣言も関数宣言も JavaScript 構文そのまま
+  - どの行に何を書くか自由度が高い
+
 </div>
 
 VueはOptions APIとComposition APIの2種類のAPI：アプリケーションを実装（プログラミング）するために用意された決めごとがあります。
 
 [公式ドキュメント](https://ja.vuejs.org/guide/introduction.html#which-to-choose)ではどちらも優劣なくドキュメントが用意されています。本講座はComposition APIだけを取り扱いますが、もし[クラスベーススタイル](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%A9%E3%82%B9%E3%83%99%E3%83%BC%E3%82%B9)の[オブジェクト指向プログラミング](https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)をしたことがあるなら、Options APIはとっつきやすいかもしれません。
-
----
-
-# Composition API のメリット
-
-Vue の機能ではなく、論理的な関心事でコードをまとめることができる
-
-<img src="/apis.png" class="h-5/6" />
 
 ---
 
@@ -299,15 +314,30 @@ function increment() {
 
 <template>
   <div>
-    {{ count }}
+    <p>{{ count }}</p>
     <button @click="increment">+</button>
   </div>
 </template>
+
+<style scoped>
+button {
+  border: 1px solid;
+  padding-inline: 1rem;
+}
+</style>
 ```
 
 <div>
 動作サンプル
-<FirstSample />
+
+<FirstSample class="mb-32" />
+
+- `<script></script>` の中に JavaScript を書く
+- `<template></template>` の中に HTML を書く
+  - `{{}}` の中に JavaScript の値や式が書ける
+- `<style></style>` の中に CSS を書く
+  - `scoped` 属性をつけると、CSS がここの HTML にだけ適用されるようになる
+
 </div>
 
 </div>
@@ -439,7 +469,7 @@ const val2 = ref(3);
 
 # 算出プロパティ（computed）
 
-あるリアクティブな値を元に計算結果を返したい場合、`computed` 関数を利用する
+あるリアクティブな値を元に計算結果を返したいときは、`computed` 関数を使う
 
 ```vue
 <script setup>
@@ -457,47 +487,14 @@ const plusOne = computed(() => count.value + 1);
 </template>
 ```
 
----
-
-# 読み書きできる算出プロパティ（computed）
-
-`get` `set` 関数を用意することで書込み可能なオブジェクトを作成することができる
-
-<div class="h-sm overflow-y-auto">
-
-```vue
-<script setup>
-import { ref, computed } from "vue";
-
-const count = ref(1);
-const plusOne = computed({
-  get: () => count.value + 1,
-  set: (value) => {
-    count.value = value;
-  },
-});
-function handleClick() {
-  plusOne.value = 1;
-}
-</script>
-
-<template>
-  <div>
-    <input type="number" v-model="count" />
-    <button @click="handleClick">リセット</button>
-    {{ plusOne }}
-  </div>
-</template>
-```
-
-</div>
+算出関数の値を上書きしたい！→[書き込み可能な算出関数（公式ドキュメント）](https://ja.vuejs.org/guide/essentials/computed#writable-computed)を読みましょう
 
 ---
 
-# computed と関数呼び出しの違い
+# 関数呼び出しと算出プロパティ（computed）の違い
 
-関数呼び出しは都度呼び出される毎に実行するのに対し、`computed` 内で参照しているリアクティブな値が変更されない限り、`computed` は一度キャッシュされた結果を返す。
-うまく使い分けるとパフォーマンスの向上に役立てる。
+関数呼び出しは都度呼び出される毎に実行されるが、算出プロパティ（computed）は `computed` 関数内で参照しているリアクティブな値が変更されない限り、キャッシュされた結果を返す。  
+うまく使い分けるとパフォーマンスの向上に役立てられる。
 
 <div class="flex gap-4">
 
@@ -543,7 +540,7 @@ const randomComputed = computed(() => {
 
 特定のデータを監視し、変更があったときに処理を行える、引数として、新しい値とその前の値を取得できる。
 
-<div class="h-sm overflow-y-auto">
+<div>
 
 ```vue
 <script setup>
@@ -557,17 +554,14 @@ watch(count, (current, prev) => {
   histories.value.splice(0, 0, { current, prev });
 });
 </script>
-
 <template>
-  <div>
-    <input type="number" v-model="count" />
-    <h3>値の履歴（nステップ前の値が表示されます）</h3>
-    <ol start="0">
-      <li v-for="(history, index) in histories" :key="index">
-        今の値: {{ history.current }}、前の値: {{ history.prev ?? "なし" }}
-      </li>
-    </ol>
-  </div>
+  <input type="number" v-model="count" />
+  <h3>値の履歴（nステップ前の値が表示されます）</h3>
+  <ol start="0">
+    <li v-for="(history, index) in histories" :key="index">
+      今の値: {{ history.current }}、前の値: {{ history.prev ?? "なし" }}
+    </li>
+  </ol>
 </template>
 ```
 
@@ -590,7 +584,9 @@ watch(count, (current, prev) => {
 
 # さまざまなリアクティビティAPI
 
-<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#reactive">reactive()</a></h2>
+<div class="text-sm [&>p]:my-0">
+
+[reactive()](https://ja.vuejs.org/api/reactivity-core#reactive)：リアクティブな値をオブジェクトのプロパティにまとめる
 
 ```js
 const obj = reactive({ count: 0 }); // 値の作成
@@ -598,7 +594,7 @@ console.log(obj.count); // 値の読み出し
 obj.count = 1; // 値の更新（.valueが不要な点に注意）
 ```
 
-<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-utilities.html#torefs">toRefs()</a></h2>
+[toRefs()](https://ja.vuejs.org/api/reactivity-utilities.html#torefs)：Reactive オブジェクトを Ref オブジェクトに変換する
 
 ```js
 const obj = reactive({ count: 0 }); // 値の作成
@@ -606,7 +602,7 @@ const { count } = toRefs(obj); // refへの変換
 console.log(count.value); // obj.countと同じ値
 ```
 
-<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#readonly">readonly()</a></h2>
+[readonly()](https://ja.vuejs.org/api/reactivity-core#readonly)：リアクティブな値を書き込みできないようにする
 
 ```js
 const obj = reactive({ count: 0 }); // 値の作成
@@ -614,12 +610,14 @@ const readonlyObj = readonly(obj); // 読み取り専用の値の作成
 readonlyObj.count = 1; // 値の更新（阻止される）
 ```
 
-<h2 class="!text-base font-bold"><a href="https://ja.vuejs.org/api/reactivity-core#watcheffect">watchEffect()</a></h2>
+[watchEffect()](https://ja.vuejs.org/api/reactivity-core#watcheffect)：この関数で使われたリアクティブな値をすべて監視するウォッチャ
 
 ```js
 const count = ref(0);
 watchEffect(() => console.log(count.value)); // countが更新される度に実行される
 ```
+
+</div>
 
 これまで取り上げたものと比べると重要じゃないので、「使いどきがあるかも」くらいに思えればOKです。  
 （ただ、watchEffectは監視対象の指定がいらないのでwatchより便利かも…）
@@ -1651,7 +1649,7 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 - テンプレートの書き方
 - コンポーネントの作り方
 
-ここまでは Vue.js を使うなら必ず知っている必要がある内容
+ここまでは Vue.js を読み書きするなら必ず知っている必要がある内容
 
 引き続き知らない機能がコードに出てくるかもしれないが、学んだことと関連していると感じられたらそれでよい
 
@@ -2322,13 +2320,12 @@ Vue の開発で役立ついろいろなツールをみてみよう
 
 以下を学んできた
 
-- Vue の基本的な書き方
-- Vue アプリケーションのコードを読む・書く
-- Nuxt アプリケーションのコードを読む・書く
+- リアクティブとは？
+- コンポーネントとは？
+- Vue の読み書き
+- Nuxt の読み書き
 
-Nuxt 3 を使ってウェブアプリケーションをつくっていく準備ができた
-
-業務・趣味でウェブアプリケーションを開発していきましょう！
+Vue（とNuxt）でWebアプリケーションを作りたくなりましたか？
 
 学習の目安
 
