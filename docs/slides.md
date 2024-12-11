@@ -1565,7 +1565,7 @@ const increment = () => {
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
 const parentCount = ref(1);
-const parentIncrement = () =>
+const parentIncrement = () => {
   parentCount.value++;
 };
 </script>
