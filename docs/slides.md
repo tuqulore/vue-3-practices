@@ -487,7 +487,7 @@ const plusOne = computed(() => count.value + 1);
 </template>
 ```
 
-算出関数の値を上書きしたい！→[書き込み可能な算出関数（公式ドキュメント）](https://ja.vuejs.org/guide/essentials/computed#writable-computed)を読みましょう
+算出プロパティの値を上書きしたい！→[書き込み可能な算出関数（公式ドキュメント）](https://ja.vuejs.org/guide/essentials/computed#writable-computed)を読みましょう
 
 ---
 
