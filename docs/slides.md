@@ -461,7 +461,13 @@ const val2 = ref(3);
 </template>
 ```
 
+<div>
+
 <ReactiveSample />
+
+https://play.vuejs.org/ で書いてみよう
+
+</div>
 
 </div>
 
@@ -487,7 +493,9 @@ const plusOne = computed(() => count.value + 1);
 </template>
 ```
 
-算出プロパティの値を上書きしたい！→[書き込み可能な算出関数（公式ドキュメント）](https://ja.vuejs.org/guide/essentials/computed#writable-computed)を読みましょう
+https://play.vuejs.org/ で書いてみよう
+
+興味がある人向け：算出プロパティの値を上書きしたい！→[書き込み可能な算出関数（公式ドキュメント）](https://ja.vuejs.org/guide/essentials/computed#writable-computed)を読みましょう
 
 ---
 
@@ -534,13 +542,13 @@ const randomComputed = computed(() => {
 
 </div>
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # ウォッチャ（watch）
 
 特定のデータを監視し、変更があったときに処理を行える、引数として、新しい値とその前の値を取得できる。
-
-<div>
 
 ```vue
 <script setup>
@@ -565,7 +573,7 @@ watch(count, (current, prev) => {
 </template>
 ```
 
-</div>
+https://play.vuejs.org/ で書いてみよう
 
 ---
 
@@ -672,6 +680,8 @@ const msg = "Hello!";
 Message: Hello!
 ```
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # 展開（リアクティブな値を使うと）
@@ -697,9 +707,9 @@ setInterval(() => {
 
 結果
 
-<div>
 <CounterSample />
-</div>
+
+https://play.vuejs.org/ で書いてみよう
 
 ---
 
@@ -737,6 +747,8 @@ const url = "https://ja.vuejs.org/";
 ```html
 <a :href="url"> Vue.js公式サイト </a>
 ```
+
+https://play.vuejs.org/ で書いてみよう
 
 ---
 
@@ -795,6 +807,8 @@ const mySize = 30;
 </template>
 ```
 
+https://play.vuejs.org/ で書いてみよう
+
 </div>
 
 </div>
@@ -830,6 +844,8 @@ const counter = ref(0);
 <button @click="counter += 1">Add 1</button>
 ```
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # イベントハンドリング（関数名を属性値として使う）
@@ -854,6 +870,8 @@ function increment() {
 </template>
 ```
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # 条件付きレンダリング
@@ -873,6 +891,8 @@ const seen = true;
 ```
 
 <arrow v-click="2" x1="400" y1="250" x2="180" y2="200" color="#564" width="3" arrowSize="1" />
+
+https://play.vuejs.org/ で書いてみよう
 
 ---
 
@@ -927,6 +947,8 @@ const ok = true;
 
 </div>
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # リストレンダリング
@@ -955,15 +977,17 @@ const todos = [
 </template>
 ```
 
-  <div class="flex-shrink">
-    <p>結果</p>
-    <ol>
-      <li>Learn JavaScript</li>
-      <li>Learn Vue</li>
-      <li>Build something awesome</li>
-    </ol>
+<div class="flex-shrink">
 
-  </div>
+結果
+
+1. Learn JavaScript
+2. Learn Vue
+3. Build something awesome
+
+https://play.vuejs.org/ で書いてみよう
+
+</div>
 
 </div>
 
@@ -996,12 +1020,15 @@ const todos = [
 ```
 
 <div class="flex-shrink">
-  <p>結果</p>
-  <ol>
-    <li>Learn JavaScript</li>
-    <li>Learn Vue</li>
-    <li>Build something awesome</li>
-  </ol>
+
+結果
+
+1. Learn JavaScript
+2. Learn Vue
+3. Build something awesome
+
+https://play.vuejs.org/ で書いてみよう
+
 </div>
 
 </div>
@@ -1035,12 +1062,13 @@ const todos = [
 ```
 
 <div class="flex-shrink w-110">
-  <p>結果</p>
-  <ol>
-    <li>Learn JavaScript</li>
-    <li>Learn Vue</li>
-    <li>Build something awesome</li>
-  </ol>
+結果
+
+1. Learn JavaScript
+2. Learn Vue
+3. Build something awesome
+
+https://play.vuejs.org/ で書いてみよう
 
 ただし、並び替えることが想定される場合意図しない挙動になる（どこにリストアイテムが移動したのか検知できない）ので注意
 
@@ -1072,11 +1100,13 @@ const message = ref("Hello Vue!");
 ```
 
 <div>
-  <TwoWayBindingSample/>
 
-  <p>
-    <a href="https://ja.vuejs.org/guide/essentials/forms#basic-usage" target="_blank" rel="noopener noreferrer">他にも様々なフォーム入力バインディングの例があります（公式ドキュメント）</a>
-  </p>
+<TwoWayBindingSample/>
+
+https://play.vuejs.org/ で書いてみよう
+
+興味がある人向け：[他にも様々なフォーム入力バインディングの例があります（公式ドキュメント）](https://ja.vuejs.org/guide/essentials/forms#basic-usage)
+
 </div>
 
 </div>
@@ -1237,6 +1267,8 @@ const message = ref(props.title);
 
 </div>
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # プロパティを用いた子コンポーネントへのデータの受け渡し
@@ -1288,6 +1320,8 @@ const message = ref(props.count);
 
 <arrow v-click="1" x1="400" y1="340" x2="210" y2="300" color="#564" width="3" arrowSize="1" />
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # プロパティを用いた子コンポーネントへのデータの受け渡し
@@ -1335,7 +1369,9 @@ const show = ref(props.isShow);
 
 </div>
 
-<arrow v-click="1" x1="300" y1="500" x2="200" y2="300" color="#564" width="3" arrowSize="1" />
+<arrow v-click="1" x1="400" y1="400" x2="200" y2="300" color="#564" width="3" arrowSize="1" />
+
+https://play.vuejs.org/ で書いてみよう
 
 ---
 
@@ -1387,6 +1423,8 @@ const show = ref(props.isShow);
 
 </div>
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # プロパティを用いた子コンポーネントへのデータの受け渡し
@@ -1433,6 +1471,8 @@ const user = ref(props.student);
 </div>
 
 </div>
+
+https://play.vuejs.org/ で書いてみよう
 
 ---
 
@@ -1488,6 +1528,8 @@ function clickHandler() {
 
 </div>
 
+https://play.vuejs.org/ で書いてみよう
+
 ---
 
 # プロパティとイベントを併用したデータの受け渡し
@@ -1517,6 +1559,8 @@ const updateCount = (countValue) => {
   <ChildComponent :modelValue="parentCount" @update:modelValue="updateCount" />
 </template>
 ```
+
+https://play.vuejs.org/ で書いてみよう
 
 </div>
 
@@ -1565,7 +1609,7 @@ const increment = () => {
 import { ref } from "vue";
 import ChildComponent from "./ChildComponent.vue";
 const parentCount = ref(1);
-const parentIncrement = () =>
+const parentIncrement = () => {
   parentCount.value++;
 };
 </script>
@@ -1595,13 +1639,16 @@ const increment = () => {
 </template>
 ```
 
+https://play.vuejs.org/ で書いてみよう
+
 </div>
 
 </div>
 
 - v-model: `parentCount` の値を `modelValue` プロパティで渡して `update:modelValue` イベントで受け取る
 - defineModel: `count` の値を `modelValue` プロパティで受け取って `update:modelValue` イベントで渡す
-- 2つ以上の値を v-model と defineModel で受け渡ししたいときは？→[複数の v-model のバインディング](https://ja.vuejs.org/guide/components/v-model#multiple-v-model-bindings)を読もう
+- 興味がある人向け：2つ以上の値を v-model と defineModel で受け渡ししたい！  
+  →[複数の v-model のバインディング](https://ja.vuejs.org/guide/components/v-model#multiple-v-model-bindings)を読もう
 
 ---
 
@@ -1644,12 +1691,13 @@ slot を使うと、HTML 要素のようにコンポーネントに子要素を�
 <strong>ChildComponent: </strong>Hello Component
 </div>
 
-<div class="pt-10">
-  
-- 複数のスロットが開けたければ？: [名前付きスロット（公式ドキュメント）](https://ja.vuejs.org/guide/components/slots#named-slots)
-- スロットに子コンポーネントからデータを渡したければ？：[スコープ付きスロット（公式ドキュメント）](https://ja.vuejs.org/guide/components/slots#scoped-slots)
-  - [サンプル](https://play.vuejs.org/#eNqVVm1P21YU/itX3gc2CRIK65csjdRWlfbSrdXWb8ukprYJLo5t2Q4FoUjYLmkoQZTS17GN0TGgsIVK5QNsDH7MxXn51L+w517HjhMIUiWE7j3nOec85+Sccz0jXDWMxGRRFlJC2hJNxbCJJdtFI5PVlIKhmza5bepSUbRvKpZNxky9QAYSyZiMGQ98kdXSycAchrjYcsFQc7aMGyFpSZnkBxzHL2X852V/xaHeDnUPqVdJJyFjRlxvZE4PFprbr6hTG2ls11rrv+HUXN9ubPxD3af1hTnq/EGdTeo8pO4Cdd9TD3+/Uu+Ieov8XKHOHnXeUmeduvPUdcndGNm7hDrbzNYpt1m4T08PZpubW9R5zRw6a9R1ELGPZw6bddNJIwOmIa1D6p5Qd4N6u9Sp+nMIsNRynvMwx8zAqVJnhTuNI2v16iO/9jMYGKZuWHBeP1jn8BoPhCx24InOOpaq2xB9eefbm6wGDPWyUwOW0Ap1F1nsDdjhsNOYP/SP9yO+YXhkUKbObp/kdv090GWe2wFDXJn/R7AgNhjCHaJugVtzEySr/t9P+jjtThoeqnvUfexXwGOZsw9coUIBdV6woMJRT4yPZKJuCWqOnhnp6Itqu7twjnfr5BBL5EpWmCEKGpKUskIEBFRVYjfcLdvUtXxmJkAntFxBJqUS+jqQkyESqiQ56HVF14Agn4Zyw1REZuOXy5/FAiVjkdLx2QmHIskziGXrvmMJex715s9J+OPSxPARUc1ZFhB5U5GGGKgLwoKOns0bsi6MEUG68w9+qy5gby1jhYnq2W2WTnaWxNkqRXLeCuthcdjuYGWJ4vbvwy3qPWIStKJT85de+MdodIxYMPXL2BjNTTb+jVVM31596cnp8SofBrQ35ri7S92FD0eV1os3/onHvFXKrdU3H47me/q2uzODhquvPWv+u1af3UoRv/InW22dqFX/ZK65ie2D5YCoWHNYRnDKZ6zfdLWH8yX1/uKqCmbM35ivr2L6kRsYv7v1TVcHBkT88qJfedt4tv2RXPpXeC8MCzzqtnX63wncRxXrmYKo48MfPp2MvRm4Wva0yo6JqGfJDMPf001JNlPkkjFFLF1VJPKJKIp4gAgxcpKkaHnoho0pLinkzLyipcjl9l1SLISYThFFUxVNHrqn6uIE1zxQJHs8RUaGQ1NbnrKHcqqSh7koa7ZsQlzi7xxnJgwKtiXq2piST9y3dA0PKOeXFUS9YCiqbN7iA2JlhVTAnOlyqqo/+JrLbLMoD4ZycVwWJ86R37emmCwr3DZlSzYn5awQ6WwkJ9uB+sYP34FvTFnA+KhAX6D8Xkb9ioxjALtW1CTQjuE426/4ZwDqese6MWXLmhUmxYgyZInjswI+BK5fkHqH7mjic26HeqKKPd8S53yIoMpYc3glGc4iV8iPzByrRcJPPUjYwkqRgeBBvzowSGLrCfLG/u/11/use1lbPuzA+FJizTI83M4hcDnS4/LaGZet3VeQN9+j03c6mLY/tFC3v9Eef9fP+GMTxV635frjXxrHGxhFhgn5XWb+stpPF35jsfcLrwAegzHdxKbnA6NoUdWyAkkxWVvFrhPydPuWUCQIkt1TKJT+BzLckwU=)を見てみましょう
-  
+<div class="pt-2">
+
+https://play.vuejs.org/ で書いてみよう
+
+- 興味がある人向け：複数のスロットが開けたければ？→[名前付きスロット（公式ドキュメント）](https://ja.vuejs.org/guide/components/slots#named-slots)
+- 興味がある人向け：スロットに子コンポーネントからデータを渡したければ？→[スコープ付きスロット（公式ドキュメント）](https://ja.vuejs.org/guide/components/slots#scoped-slots) ＆ [サンプル](https://play.vuejs.org/#eNqVVm1P21YU/itX3gc2CRIK65csjdRWlfbSrdXWb8ukprYJLo5t2Q4FoUjYLmkoQZTS17GN0TGgsIVK5QNsDH7MxXn51L+w517HjhMIUiWE7j3nOec85+Sccz0jXDWMxGRRFlJC2hJNxbCJJdtFI5PVlIKhmza5bepSUbRvKpZNxky9QAYSyZiMGQ98kdXSycAchrjYcsFQc7aMGyFpSZnkBxzHL2X852V/xaHeDnUPqVdJJyFjRlxvZE4PFprbr6hTG2ls11rrv+HUXN9ubPxD3af1hTnq/EGdTeo8pO4Cdd9TD3+/Uu+Ieov8XKHOHnXeUmeduvPUdcndGNm7hDrbzNYpt1m4T08PZpubW9R5zRw6a9R1ELGPZw6bddNJIwOmIa1D6p5Qd4N6u9Sp+nMIsNRynvMwx8zAqVJnhTuNI2v16iO/9jMYGKZuWHBeP1jn8BoPhCx24InOOpaq2xB9eefbm6wGDPWyUwOW0Ap1F1nsDdjhsNOYP/SP9yO+YXhkUKbObp/kdv090GWe2wFDXJn/R7AgNhjCHaJugVtzEySr/t9P+jjtThoeqnvUfexXwGOZsw9coUIBdV6woMJRT4yPZKJuCWqOnhnp6Itqu7twjnfr5BBL5EpWmCEKGpKUskIEBFRVYjfcLdvUtXxmJkAntFxBJqUS+jqQkyESqiQ56HVF14Agn4Zyw1REZuOXy5/FAiVjkdLx2QmHIskziGXrvmMJex715s9J+OPSxPARUc1ZFhB5U5GGGKgLwoKOns0bsi6MEUG68w9+qy5gby1jhYnq2W2WTnaWxNkqRXLeCuthcdjuYGWJ4vbvwy3qPWIStKJT85de+MdodIxYMPXL2BjNTTb+jVVM31596cnp8SofBrQ35ri7S92FD0eV1os3/onHvFXKrdU3H47me/q2uzODhquvPWv+u1af3UoRv/InW22dqFX/ZK65ie2D5YCoWHNYRnDKZ6zfdLWH8yX1/uKqCmbM35ivr2L6kRsYv7v1TVcHBkT88qJfedt4tv2RXPpXeC8MCzzqtnX63wncRxXrmYKo48MfPp2MvRm4Wva0yo6JqGfJDMPf001JNlPkkjFFLF1VJPKJKIp4gAgxcpKkaHnoho0pLinkzLyipcjl9l1SLISYThFFUxVNHrqn6uIE1zxQJHs8RUaGQ1NbnrKHcqqSh7koa7ZsQlzi7xxnJgwKtiXq2piST9y3dA0PKOeXFUS9YCiqbN7iA2JlhVTAnOlyqqo/+JrLbLMoD4ZycVwWJ86R37emmCwr3DZlSzYn5awQ6WwkJ9uB+sYP34FvTFnA+KhAX6D8Xkb9ioxjALtW1CTQjuE426/4ZwDqese6MWXLmhUmxYgyZInjswI+BK5fkHqH7mjic26HeqKKPd8S53yIoMpYc3glGc4iV8iPzByrRcJPPUjYwkqRgeBBvzowSGLrCfLG/u/11/use1lbPuzA+FJizTI83M4hcDnS4/LaGZet3VeQN9+j03c6mLY/tFC3v9Eef9fP+GMTxV635frjXxrHGxhFhgn5XWb+stpPF35jsfcLrwAegzHdxKbnA6NoUdWyAkkxWVvFrhPydPuWUCQIkt1TKJT+BzLckwU=)を見てみましょう
+
 </div>
 
 ---
