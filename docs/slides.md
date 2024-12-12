@@ -1774,6 +1774,55 @@ https://play.vuejs.org/ で書いてみよう
 
 ---
 
+# コンポーザブル
+
+コンポーザブルとは？
+
+> Vue アプリケーションの文脈で「コンポーザブル（composable）」とは、Vue の Composition API を活用して状態を持つロジックをカプセル化して再利用するための関数です。
+>
+> _[コンポーザブル | Vue.js](https://ja.vuejs.org/guide/reusability/composables) より引用_
+
+<div class="mb-4" />
+
+- コンポーザブル自体は純粋な JavaScript 関数
+- コンポーザブルを書くファイルも JavaScript (拡張子 .js) ファイル
+- 関数名は必ず use~ から始まる (どれがコンポーザブルか見分けやすくするため)
+- リアクティビティ API (ref, computed, watch, ...) も使える
+- Vue コンポーネントからロジック (振る舞いのためのコード) だけを別のファイルに分割できる
+
+---
+
+# コンポーザブルを使うときの注意
+
+コンポーザブルの引数への値の渡しかたによっては**リアクティビティが失われてしまう（！）**
+
+このうちいくつが `props.hoge` のリアクティビティを保って useComposable() に値を渡せるでしょうか…？
+
+1. <v-click>NG: </v-click>`useComposable(props.hoge)`
+2. <v-click>OK: </v-click>`const hoge = toRef(props, "hoge"); useComposable(hoge)`
+3. <v-click>OK: </v-click>`const { hoge } = toRefs(props); useComposable(hoge)`
+4. <v-click>NG: </v-click>`const hoge = ref(props.hoge); useComposable(hoge)`
+5. <v-click>OK: </v-click>`useComposable(() => props.hoge)`
+
+<v-click>
+
+props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/get#%E8%A7%A3%E8%AA%AC)にしてコンポーザブルに渡す**こと！
+
+4\. は hoge のリアクティブな値が渡せているけど props.hoge と値は同期されない  
+`ref(props.hoge)` で props.hoge とのリアクティビティが失われるため
+
+</v-click>
+
+<v-click>
+
+コンポーザブルでは受け取った引数をどう参照すればいい？.valueつけないとだめ？→[toValue()](https://ja.vuejs.org/api/reactivity-utilities#tovalue)を使おう
+
+興味がある人向け：[慣例とベストプラクティス](https://ja.vuejs.org/guide/reusability/composables.html#conventions-and-best-practices)を読もう！
+
+</v-click>
+
+---
+
 # パスワードチェッカー
 
 [StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-password-checker?file=src/App.vue&terminal=dev)を開くか、handson-password-checkerディレクトリのアプリを起動する
@@ -2088,12 +2137,6 @@ export default () => {
   };
 };
 ```
-
-コンポーザブルとは？
-
-> Vue アプリケーションの文脈で「コンポーザブル（composable）」とは、Vue の Composition API を活用して状態を持つロジックをカプセル化して再利用するための関数です。
->
-> _[コンポーザブル | Vue.js](https://ja.vuejs.org/guide/reusability/composables) より引用_
 
 ---
 
