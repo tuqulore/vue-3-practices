@@ -1742,8 +1742,8 @@ https://play.vuejs.org/ で書いてみよう
 これから学ぶ内容の確認
 
 - より具体的な題材でコードを読む・書く
-  - グリッドコンポーネント
-    - これまで学んだ内容を組み合わせた少し複雑な実装
+  - データテーブル
+    - これまでのおさらいとコンポーザブル
   - パスワードチェッカー
     - throttle-debounce によるイベント処理の間引き
   - ツクロアデザインラボの記事ビューアー
@@ -1758,18 +1758,68 @@ https://play.vuejs.org/ で書いてみよう
 
 ---
 
-# グリッドコンポーネント
+# データテーブル
 
-[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-grid-component?file=src/App.vue&terminal=dev)を開くか、handson-grid-componentディレクトリのアプリを起動する
+[データテーブルの Vue SFC Playground](https://play.vuejs.org/#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) を開く
 
 1. どんなアプリか：表にデータを流し込んでカラムで絞り込んだり並べ替えたりできる
 2. Vue特有な部分を中心にコードを理解する
    - どうやって絞り込んでいるのか
    - どうやって並べ替えているのか
    - どうやって絞り込んだり並べ替えたものを表示しているのか
+   - どうやってコンポーザブルに値を渡しているのか
 3. 講師と一緒にハンズオン（何をするのか分かったら講師を待たずにすすめてOK）
    - 列を追加してみる
    - 動的に行を追加できるようにしてみる
+
+---
+
+# コンポーザブル
+
+コンポーザブルとは？
+
+> Vue アプリケーションの文脈で「コンポーザブル（composable）」とは、Vue の Composition API を活用して状態を持つロジックをカプセル化して再利用するための関数です。
+>
+> _[コンポーザブル | Vue.js](https://ja.vuejs.org/guide/reusability/composables) より引用_
+
+<div class="mb-4" />
+
+- コンポーザブル自体は純粋な JavaScript 関数
+- コンポーザブルを書くファイルも JavaScript (拡張子 .js) ファイル
+- 関数名は必ず use~ から始まる (どれがコンポーザブルか見分けやすくするため)
+- リアクティビティ API (ref, computed, watch, ...) も使える
+- Vue コンポーネントからロジック (振る舞いのためのコード) だけを別のファイルに分割できる
+
+---
+
+# コンポーザブルを使うときの注意
+
+コンポーザブルの引数への値の渡しかたによっては**リアクティビティが失われてしまう（！）**
+
+このうちいくつが `props.hoge` のリアクティビティを保って useComposable() に値を渡せるでしょうか…？
+
+1. <v-click>NG: </v-click>`useComposable(props.hoge)`
+2. <v-click>OK: </v-click>`const hoge = toRef(props, "hoge"); useComposable(hoge)`
+3. <v-click>OK: </v-click>`const { hoge } = toRefs(props); useComposable(hoge)`
+4. <v-click>NG: </v-click>`const hoge = ref(props.hoge); useComposable(hoge)`
+5. <v-click>OK: </v-click>`useComposable(() => props.hoge)`
+
+<v-click>
+
+props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/get#%E8%A7%A3%E8%AA%AC)にしてコンポーザブルに渡す**こと！
+
+4\. は hoge のリアクティブな値が渡せているけど props.hoge と値は同期されない  
+`ref(props.hoge)` で props.hoge とのリアクティビティが失われるため
+
+</v-click>
+
+<v-click>
+
+コンポーザブルでは受け取った引数をどう参照すればいい？.valueつけないとだめ？→[toValue()](https://ja.vuejs.org/api/reactivity-utilities#tovalue)を使おう
+
+興味がある人向け：[慣例とベストプラクティス](https://ja.vuejs.org/guide/reusability/composables.html#conventions-and-best-practices)を読もう！
+
+</v-click>
 
 ---
 
@@ -2087,12 +2137,6 @@ export default () => {
   };
 };
 ```
-
-コンポーザブルとは？
-
-> Vue アプリケーションの文脈で「コンポーザブル（composable）」とは、Vue の Composition API を活用して状態を持つロジックをカプセル化して再利用するための関数です。
->
-> _[コンポーザブル | Vue.js](https://ja.vuejs.org/guide/reusability/composables) より引用_
 
 ---
 
