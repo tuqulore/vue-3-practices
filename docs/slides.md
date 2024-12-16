@@ -1222,6 +1222,41 @@ Vue アプリは必ず、Vue コンポーネントのツリー構造で構成さ
 
 ---
 
+# コンポーネントの構成
+
+Vue コンポーネントは .vue ファイル（Single File Component：単一ファイルコンポーネント）と1対1対応する
+
+<div class="flex gap-4 mb-4 items-center">
+
+```vue
+<script>
+// ここに JavaScript を書く
+</script>
+
+<template>
+  <!-- ここに Vue テンプレートを書く -->
+</template>
+
+<style>
+/* ここに CSS を書く */
+</style>
+```
+
+- script / template / style 要素はどの順番でも書いても同じ結果になる
+- script / template（トップレベル）要素は最大1つまで書ける
+- style 要素は2つ以上書ける（あまりやることはない）
+- `<script setup>` `<style scoped>` のように属性をつけることがある
+- .vue ファイルに複数のコンポーネントを定義することはできない[^proposal-9852]
+
+</div>
+
+- 興味ある人向け：[SFC 構文仕様](https://ja.vuejs.org/api/sfc-spec.html)
+- 興味ある人向け：[SFC CSS 機能](https://ja.vuejs.org/api/sfc-css-features.html)
+
+[^proposal-9852]: [Proposal: Multiple components in .vue files · Issue #9852 · vuejs/vue](https://github.com/vuejs/vue/issues/9852)
+
+---
+
 # プロパティを用いた子コンポーネントへのデータの受け渡し
 
 親コンポーネントから子コンポーネントに 文字列 を渡してみる
