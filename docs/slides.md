@@ -1912,6 +1912,7 @@ props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://d
 1. どんなアプリか：靴のデータ（JSON）を取得してショッピングサイトらしい見た目で一覧表示できる
 2. JSON から靴のデータを取得しよう（10 分程度）
 3. 取得した靴のデータをあらかじめ用意されたスタイルで表示しよう（20 分程度）
+4. スコープ付きスロットを使った[応用例](https://stackblitz.com/edit/tuqulore-vue-3-practices-de8aybet)を見て、見た目とロジックの分離について学習してみよう
 
 <img class="pt-2" src="/handson-gallery-shoes-finish.png" width="400">
 
