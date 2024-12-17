@@ -1780,7 +1780,7 @@ https://play.vuejs.org/ で書いてみよう
   - データテーブル
     - これまでのおさらいとコンポーザブル
   - パスワードチェッカー
-    - throttle-debounce によるイベント処理の間引き
+    - VueUse の useThrottleFn / useDebounceFn によるイベント処理の間引き
   - ツクロアデザインラボの記事ビューアー
     - Fetch API による JSON データの取得
     - Vue Router による画面遷移
@@ -1861,28 +1861,53 @@ props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://d
 
 # パスワードチェッカー
 
-[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-password-checker?file=src/App.vue&terminal=dev)を開くか、handson-password-checkerディレクトリのアプリを起動する
+[パスワードチェッカーの Vue SFC Playground](https://play.vuejs.org/#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) を開く
 
 1. どんなアプリか：パスワードの強度を判定できる
 2. Vue特有な部分を中心にコードを理解する
    - どうやってパスワードの強度を判定しているのか
    - どうやってパスワードの強度を視覚化しているのか
 3. 講師と一緒にハンズオン（何をするのか分かったら講師を待たずにすすめてOK）
-   - [throttle-debounce](https://www.npmjs.com/package/throttle-debounce) の debounce を使ってパスワードを入力してから一定時間後にパスワードの強度を判定してみる
-     - props.password を ref 値：propsPassword として取り出す
-     - PasswordChecker内部で管理するリアクティブな値：passwordを定義する
-     - 取り出した値を watch で監視する
-     - watch のコールバック関数に debounce を使用する
-     - props.password を参照している箇所を password.value に差し替える
-   - [throttle-debounce](https://www.npmjs.com/package/throttle-debounce) の throttle を使ってパスワードを入力している際に一定間隔でパスワードの強度を判定してみる
-     - debounce を使用している箇所を throttle に差し替える
+   - [useThrottleFn()](https://vueuse.org/shared/useThrottleFn/) を使ってパスワードを入力中の一定間隔でパスワードの強度を判定してみる
+   - [useDebounceFn()](https://vueuse.org/shared/useDebounceFn/) を使ってパスワードを入力してから一定時間後にパスワードの強度を判定してみる
+
+---
+
+# throttle とは？
+
+[Debounce vs Throttle: Definitive Visual Guide - kettanaito.com](https://kettanaito.com/blog/debounce-vs-throttle) をみよう
+
+![](/throttle.png)
+
+- 用語説明: https://developer.mozilla.org/ja/docs/Glossary/Throttle
+- 一定間隔で処理を実行する
+  - 最初の呼び出しが発生する->先頭 (leading edge)
+  - 前回の呼び出しから一定時間経過していない呼び出しは無視する
+  - 前回の呼び出しから一定時間経過した呼び出しを実行する
+  - 最後の呼び出しから一定時間経過する->末尾 (trailing edge)
+- 先頭と末尾の扱いは実装による (useThrottleFn は leading / trailing オプションを有効にするとそれぞれ必ず実行する)
+
+---
+
+# debounce とは？
+
+[Debounce vs Throttle: Definitive Visual Guide - kettanaito.com](https://kettanaito.com/blog/debounce-vs-throttle) をみよう
+
+![](/debounce.png)
+
+- 用語説明: https://developer.mozilla.org/ja/docs/Glossary/Debounce
+- 一定時間経過したら処理を実行する
+  - 最初の呼び出しが発生する->先頭 (leading edge)
+  - 前回の呼び出しから一定時間経過していない呼び出しは無視する
+  - 最後の呼び出しから一定時間経過した呼び出しを実行する->末尾 (trailing edge)
+- 先頭の扱いは実装による (useThrottleFn は先頭は実行しない)
 
 ---
 
 # debounce や throttle がどういう時に必要なのか？
 
 - [入力イベント](https://developer.mozilla.org/ja/docs/Web/API/InputEvent/data)や[スクロールイベント](https://developer.mozilla.org/ja/docs/Web/API/Element/scroll_event)など短時間で頻繁に発生するイベントに対応する処理を間引くときに使用する
-  - 例：入力イベントのたびにバックエンドサーバーへのHTTPリクエストを送りたくないとき
+  - 例：入力イベントのたびにHTTPリクエストを送りたくないとき
   - 例：利用者が入力操作をひととおりおこなったと思われるタイミングまで待ちたいとき
 
 ---
