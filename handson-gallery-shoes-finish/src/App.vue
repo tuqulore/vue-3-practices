@@ -1,10 +1,11 @@
 <script setup>
-import { ref, onMounted } from "vue";
-const shoes = ref([]);
-onMounted(async () => {
-  const shoesJson = await fetch("/json/shoes.json");
-  shoes.value = await shoesJson.json();
-});
+import { ref } from "vue";
+const shoesData = ref([]);
+const load = async () => {
+  const response = await fetch("/json/shoes.json");
+  shoesData.value = await response.json();
+};
+load();
 const priceFormat = (num) => {
   return num.toLocaleString();
   // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#Browser_compatibility
@@ -13,7 +14,7 @@ const priceFormat = (num) => {
 
 <template>
   <div class="card-wrapper">
-    <div class="card" v-for="item in shoes.shoes">
+    <div v-for="(item, index) in shoesData.shoes" :key="index" class="card">
       <img
         class="thumbnail"
         :src="'/img/items/' + item.photoFileName"
