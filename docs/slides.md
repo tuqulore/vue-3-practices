@@ -1850,9 +1850,10 @@ props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://d
 
 <v-click>
 
-コンポーザブルでは受け取った引数をどう参照すればいい？.valueつけないとだめ？→[toValue()](https://ja.vuejs.org/api/reactivity-utilities#tovalue)を使おう
-
-興味がある人向け：[慣例とベストプラクティス](https://ja.vuejs.org/guide/reusability/composables.html#conventions-and-best-practices)を読もう！
+- コンポーザブルでは受け取った引数をどう参照すればいい？.valueつけないとだめ？→[toValue()](https://ja.vuejs.org/api/reactivity-utilities#tovalue)を使おう
+- 興味がある人向け：[慣例とベストプラクティス](https://ja.vuejs.org/guide/reusability/composables.html#conventions-and-best-practices)を読もう！
+- 興味がある人向け：非同期処理はコンポーザブルでどう扱えばいい？→[非同期の状態の例](https://ja.vuejs.org/guide/reusability/composables#async-state-example)をみよう！
+  - コンポーザブルは同期関数にする必要があるので、[Promise チェーン](https://ja.javascript.info/promise-chaining)を使おう
 
 </v-click>
 
