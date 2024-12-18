@@ -2490,6 +2490,9 @@ Vue 固有の記法についての公式のスタイルガイド
 - スタイルガイドに書いてあることを守らなくても、動く Vue のコードを書くことはできる
 - スタイルガイドに書いてあることを守ると、事前に起こりうる問題に対処することができる
 - [eslint-plugin-vue](https://eslint.vuejs.org/)を使うとスタイルガイドに違反しているか静的にコードを解析・修正できる
+- Nuxt は [Nuxt ESLint](https://eslint.nuxt.com/) を使おう！
+  - 自動インポートを使っても未定義の値を使っている ([no-undef](https://eslint.org/docs/latest/rules/no-undef)) と ESLint に怒られない！
+  - その他 Nuxt 専用のルールが適用される
 
 [スタイルガイド](https://ja.vuejs.org/style-guide/)
 
