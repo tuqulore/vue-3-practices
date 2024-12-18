@@ -1953,27 +1953,29 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 効率的にモダンなウェブアプリケーション開発に必要なライブラリがあらかじめ含まれている（Nuxt 3 を導入すれば自分で別途導入する必要がない）
 
 1. [Vue.js](https://vuejs.org/)： リアクティビティを備えたコンポーネント単位での UI の実装ができる
-2. [Webpack](https://webpack.js.org/) と [Vite](https://vitejs.dev/)
+2. [Vite](https://vitejs.dev/)
    - 開発時ページの再読み込みなしでブラウザが実行するコードを差し替えてくれる
    - 本番環境での動作に必要なコードをバンドリング：まとめてくれる
-3. [esbuild](https://esbuild.github.io/)：レガシーなブラウザーをサポートしつつも最新の JavaScript 文法が書ける
-4. [h3](https://github.com/unjs/h3)：Nuxt 3 が提供するWebサーバーにあたるものを担当している
-   - 開発サーバー：開発時に起動して動作確認できるサーバー
-   - サーバーサイドレンダリング：Vueの描画結果（HTML/JS）をブラウザーではなくサーバーで用意する機能
-   - API サーバー：ブラウザーから問い合わせて必要なデータを返すサーバー
-5. [vue-router](https://router.vuejs.org/)：ルーティング（画面遷移処理）の実装ができる
+3. [esbuild](https://esbuild.github.io/)：最新の JavaScript 文法で開発しながら古いブラウザーでも動くコードが生成できる
+4. [vue-router](https://router.vuejs.org/)：ルーティング（画面遷移処理）の実装ができる
+5. その他たくさんの [UnJS](https://unjs.io/packages) パッケージライブラリ：小さくて便利なライブラリ群が使われている
+   - 例えば…
+     - [h3](https://unjs.io/packages/h3)：HTTP フレームワーク
+     - [nitro](https://unjs.io/packages/nitro)：Webサーバー
+     - [citty](https://unjs.io/packages/citty)：CLI（コマンドラインインターフェース）ビルダー
+     - [jiti](https://unjs.io/packages/jiti)：Node.jsで[TypeScript](https://www.typescriptlang.org/)と[ESM](https://nodejs.org/api/esm.html#modules-ecmascript-modules)をサポートするためのツール
 
 ---
 
 # Nuxt 3 を使うと開発者にとってうれしいこと
 
 1. Vue.js が導入済み：Nuxt を導入すれば Vue.js の導入が不要
-2. Vue コンポーネント等の import を省略できる
+2. Vue コンポーネント等モジュールの import を省略できる
 3. pages ディレクトリに .vue ファイルを作成するだけで HTML ページができる：  
-   ルート定義をコードとして書かなくてすむ
-4. server ディレクトリにバックエンド側の処理が書ける：  
-   API サーバーが必要なアプリも Nuxt 3 だけでつくることができる
-5. Nuxt 3 は 2022 年 11 月にはじめて安定版がリリースされ、2023年10月に 3.8 がリリースされた：  
+   Vue Router のルート定義をコードとして書かなくてすむ
+4. server ディレクトリにさまざまなHTTPリクエスト・レスポンスの処理が書ける：  
+   さまざまな（HTML/JS/CSS以外の）データを配信するサーバーが必要なアプリも Nuxt 3 だけでつくることができる
+5. Nuxt 3 は 2022 年 11 月にはじめて安定版がリリースされ、年に数回[リリースのお知らせ記事](https://nuxt.com/blog)が書かれる：  
    安定版がリリースされる程度に安定しており、活発に開発されている
 
 ---
