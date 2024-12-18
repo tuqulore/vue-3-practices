@@ -1,11 +1,11 @@
 <script setup>
-import Component1 from "./components/Component1.vue";
-import Component2 from "./components/Component2.vue";
+import ComponentOne from "./components/ComponentOne.vue";
+import ComponentTwo from "./components/ComponentTwo.vue";
 </script>
 
 <template>
-  <Component1 />
-  <Component2 />
+  <ComponentOne />
+  <ComponentTwo />
   <p>ふたつのコンポーネントの見出しが同じ大きさになっています。</p>
   <p>
     テンプレートとスタイルを変更することなく、片方のコンポーネントの見出しが元の（コンポーネントのスタイルが適用されていない）文字の大きさになるようにしてください。

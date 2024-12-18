@@ -17,7 +17,7 @@
 <script setup>
 import { ref } from "vue";
 const props = defineProps({
-  shoesData: Object,
+  shoesData: { type: Object, required: true },
 });
 const emits = defineEmits(["added-cart"]);
 const item = ref(props.shoesData);

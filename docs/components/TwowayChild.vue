@@ -2,7 +2,7 @@
 import { computed } from "vue";
 
 const props = defineProps({
-  modelValue: String,
+  modelValue: { type: String, required: true },
 });
 const emit = defineEmits(["update:modelValue"]);
 const title = computed({
