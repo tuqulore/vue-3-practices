@@ -1789,9 +1789,9 @@ https://play.vuejs.org/ で書いてみよう
   - 靴のギャラリー
     - 画像の取得と表示
     - あらかじめ用意されたスタイルの適用
-- Nuxt 3 を使う
+- Nuxt を使う
   - Vue.js 単体を使う場合との違い
-  - useFetch などの Nuxt 3 が提供するコンポーザブルの使い方
+  - useFetch などの Nuxt が提供するコンポーザブルの使い方
 
 ---
 
@@ -1946,11 +1946,11 @@ props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://d
 
 ---
 
-# Nuxt 3 の特徴
+# Nuxt の特徴
 
 https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
-効率的にモダンなウェブアプリケーション開発に必要なライブラリがあらかじめ含まれている（Nuxt 3 を導入すれば自分で別途導入する必要がない）
+効率的にモダンなウェブアプリケーション開発に必要なライブラリがあらかじめ含まれている（Nuxt を導入すれば自分で別途導入する必要がない）
 
 1. [Vue.js](https://vuejs.org/)： リアクティビティを備えたコンポーネント単位での UI の実装ができる
 2. [Vite](https://vitejs.dev/)
@@ -1967,20 +1967,20 @@ https://nuxt.com/docs/getting-started/introduction#what-is-nuxt
 
 ---
 
-# Nuxt 3 を使うと開発者にとってうれしいこと
+# Nuxt を使うと開発者にとってうれしいこと
 
 1. Vue.js が導入済み：Nuxt を導入すれば Vue.js の導入が不要
 2. Vue コンポーネント等モジュールの import を省略できる
 3. pages ディレクトリに .vue ファイルを作成するだけで HTML ページができる：  
    Vue Router のルート定義をコードとして書かなくてすむ
 4. server ディレクトリにさまざまなHTTPリクエスト・レスポンスの処理が書ける：  
-   さまざまな（HTML/JS/CSS以外の）データを配信するサーバーが必要なアプリも Nuxt 3 だけでつくることができる
-5. Nuxt 3 は 2022 年 11 月にはじめて安定版がリリースされ、年に数回[リリースのお知らせ記事](https://nuxt.com/blog)が書かれる：  
+   さまざまな（HTML/JS/CSS以外の）データを配信するサーバーが必要なアプリも Nuxt だけでつくることができる
+5. Nuxt は 2022 年 11 月にはじめて安定版がリリースされ、年に数回[リリースのお知らせ記事](https://nuxt.com/blog)が書かれる：  
    安定版がリリースされる程度に安定しており、活発に開発されている
 
 ---
 
-# Nuxt 3 のハンズオン
+# Nuxt のハンズオン
 
 [StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev)を開くか、handson-nuxt-playgroundディレクトリのアプリを起動する
 
@@ -2013,7 +2013,7 @@ Vue アプリのルートコンポーネントのファイル名は慣習的に 
 
 `<NuxtPage />` コンポーネントの外側は共通レイアウト（画面遷移しても見た目が変わらない部分）になる。ページごとに共通レイアウトを切り替えたい場合は、後述する layouts を使う必要がある。
 
-そもそも共通レイアウトが不要なのであれば、 app.vue を削除することもできる。（この場合、ルートコンポーネントが消えるわけではなく、Nuxt 3 によって隠蔽される。）
+そもそも共通レイアウトが不要なのであれば、 app.vue を削除することもできる。（この場合、ルートコンポーネントが消えるわけではなく、Nuxt によって隠蔽される。）
 
 ---
 
@@ -2256,15 +2256,15 @@ export default () => {
 
 ---
 
-# Vue + Vue Router と Nuxt 3 の比較
+# Vue + Vue Router と Nuxt の比較
 
 [StackBlitz](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router-nuxt-finish?file=src/App.vue&terminal=dev)を開くか、handson-fetch-router-nuxt-finishディレクトリのアプリを起動する
 
-デザインラボの記事ビューアーを Nuxt 3 でつくりなおしたもの (動作は Vue 3 のものと同じ)
+デザインラボの記事ビューアーを Nuxt でつくりなおしたもの (動作は Vue 3 のものと同じ)
 
 ---
 
-# Vue + Vue Router と Nuxt 3 の比較（ルーティング）
+# Vue + Vue Router と Nuxt の比較（ルーティング）
 
 ルーティングの設定方法が異なる
 
@@ -2282,7 +2282,7 @@ export default () => {
 
 <div>
 
-<p class="text-xs">Nuxt 3</p>
+<p class="text-xs">Nuxt</p>
 
 <div class="h-xs overflow-y-auto">
 
@@ -2305,7 +2305,7 @@ pages/
 
 ---
 
-# Vue + Vue Router と Nuxt 3 の比較（ルーティング）
+# Vue + Vue Router と Nuxt の比較（ルーティング）
 
 Vue 3 はテンプレートの最上位に複数要素が書ける
 
@@ -2318,7 +2318,7 @@ Vue 3 はテンプレートの最上位に複数要素が書ける
 </template>
 ```
 
-しかし、Nuxt 3 の pages ディレクトリに配置する Vue コンポーネントに限っては、Nuxt 3 の制約としてテンプレートの最上位はひとつまでの要素しか書けない
+しかし、Nuxt の pages ディレクトリに配置する Vue コンポーネントに限っては、Nuxt の制約としてテンプレートの最上位はひとつまでの要素しか書けない
 
 > Pages must have a single root element to allow route transitions between pages. (HTML comments are considered elements as well.)
 
@@ -2326,7 +2326,7 @@ https://nuxt.com/docs/guide/directory-structure/pages
 
 ---
 
-# Vue + Vue Router と Nuxt 3 の比較（自動インポート）
+# Vue + Vue Router と Nuxt の比較（自動インポート）
 
 <div class="flex gap-8">
 
@@ -2347,7 +2347,7 @@ const posts = ref(null);
 
 <div>
 
-<p class="text-xs">Nuxt 3 - pages/index.vue</p>
+<p class="text-xs">Nuxt - pages/index.vue</p>
 
 ```vue
 <script setup>
@@ -2363,20 +2363,20 @@ const { data: posts, pending } = await useFetch(
 
 ---
 
-# Vue + Vue Router と Nuxt 3 の比較（自動インポート）
+# Vue + Vue Router と Nuxt の比較（自動インポート）
 
 https://nuxt.com/docs/guide/concepts/auto-imports
 
 以下はインポート不要
 
-- Nuxt 3 が提供する関数、コンポーネント（useFetch、$fetch、NuxtLink など）
+- Nuxt が提供する関数、コンポーネント（useFetch、$fetch、NuxtLink など）
 - 今まで使ってきた Composition API 関連の関数（ref、computed など）
 - components ディレクトリに配置された Vue コンポーネント
 - composables ディレクトリに配置されたコンポーザブル
 
 ---
 
-# Vue + Vue Router と Nuxt 3 の比較（データ取得）
+# Vue + Vue Router と Nuxt の比較（データ取得）
 
 <div class="flex gap-8">
 
@@ -2398,7 +2398,7 @@ const load = async () => {
 
 <div>
 
-<p class="text-xs">Nuxt 3 - pages/index.vue</p>
+<p class="text-xs">Nuxt - pages/index.vue</p>
 
 <div class="h-xs overflow-y-auto">
 
@@ -2423,7 +2423,7 @@ const { data: posts, pending } = await useFetch(
 
 ---
 
-# Vue + Vue Router と Nuxt 3 の比較（データ取得）
+# Vue + Vue Router と Nuxt の比較（データ取得）
 
 https://nuxt.com/docs/getting-started/data-fetching
 
@@ -2451,11 +2451,11 @@ const { pending, data: count } = useLazyAsyncData("count", () =>
 
 ---
 
-# Vue + Vue Router と Nuxt 3 の比較（データ取得）
+# Vue + Vue Router と Nuxt の比較（データ取得）
 
 便利だが素朴にFetch APIを使う場合と挙動が異なるので注意が必要
 
-Nuxt 3におけるHTTP APIクライアントは、Fetch APIをラップ：Fetch API使用時便利な処理があらかじめ実装された [ofetch](https://github.com/unjs/ofetch) が使われている。以下重要な点や便利な点を挙げる
+NuxtにおけるHTTP APIクライアントは、Fetch APIをラップ：Fetch API使用時便利な処理があらかじめ実装された [ofetch](https://github.com/unjs/ofetch) が使われている。以下重要な点や便利な点を挙げる
 
 - useFetch は [\$fetch](https://nuxt.com/docs/api/utils/dollarfetch) を使用しており、\$fetch は ofetch と等価
 - レスポンスボディが JSON 形式なら JS オブジェクトにしてくれる
@@ -2465,7 +2465,7 @@ useFetchはサーバーサイドレンダリング（SSR）：データをあら
 
 useFetchをSSRで実行しない（serverオプションを`false`にする）こともできる。詳細は公式ドキュメントを参照のこと https://nuxt.com/docs/api/composables/use-fetch
 
-fetchを使うこともできるが、Nuxt 3を使うならuseFetchや$fetchが便利。ただし、SSRの挙動が複雑で意図しない動作時エラーが生じることもあるので注意しよう
+fetchを使うこともできるが、Nuxtを使うならuseFetchや$fetchが便利。ただし、SSRの挙動が複雑で意図しない動作時エラーが生じることもあるので注意しよう
 
 ---
 
@@ -2499,7 +2499,7 @@ Vue の開発で役立ついろいろなツールをみてみよう
 
 ---
 
-# Vue 3 と Nuxt 3 の説明はこれで以上！
+# Vue 3 と Nuxt の説明はこれで以上！
 
 おつかれさまでした
 

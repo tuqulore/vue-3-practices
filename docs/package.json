@@ -1,6 +1,6 @@
 {
   "name": "vue-3-practices-docs",
-  "description": "Vue 3 / Nuxt 3の演習資料",
+  "description": "Vue 3 / Nuxt の演習資料",
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
