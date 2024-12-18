@@ -2371,8 +2371,12 @@ https://nuxt.com/docs/guide/concepts/auto-imports
 
 - Nuxt が提供する関数、コンポーネント（useFetch、$fetch、NuxtLink など）
 - 今まで使ってきた Composition API 関連の関数（ref、computed など）
-- components ディレクトリに配置された Vue コンポーネント
-- composables ディレクトリに配置されたコンポーザブル
+- [components](https://nuxt.com/docs/guide/directory-structure/components) ディレクトリに配置された Vue コンポーネント
+- [composables](https://nuxt.com/docs/guide/directory-structure/composables) ディレクトリに配置されたコンポーザブル
+- [utils](https://nuxt.com/docs/guide/directory-structure/utils), [server/utils](https://nuxt.com/docs/guide/directory-structure/server#server-utilities), [shared](https://nuxt.com/docs/guide/directory-structure/shared) ディレクトリに配置された JavaScript モジュール
+
+興味がある人向け：インポートしたモジュールがテキストエディターの[Ctrl+クリック](https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition)で辿れないのは困る…  
+-> これを使いましょう https://nuxt.com/docs/guide/concepts/auto-imports#explicit-imports
 
 ---
 
