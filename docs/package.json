@@ -2,6 +2,7 @@
   "name": "vue-3-practices-docs",
   "description": "Vue 3 / Nuxt 3の演習資料",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
     "@slidev/cli": "0.49.29",
     "@slidev/theme-default": "0.25.0",
