@@ -1222,6 +1222,41 @@ Vue アプリは必ず、Vue コンポーネントのツリー構造で構成さ
 
 ---
 
+# コンポーネントの構成
+
+Vue コンポーネントは .vue ファイル（Single File Component：単一ファイルコンポーネント）と1対1対応する
+
+<div class="flex gap-4 mb-4 items-center">
+
+```vue
+<script>
+// ここに JavaScript を書く
+</script>
+
+<template>
+  <!-- ここに Vue テンプレートを書く -->
+</template>
+
+<style>
+/* ここに CSS を書く */
+</style>
+```
+
+- script / template / style 要素はどの順番でも書いても同じ結果になる
+- script / template（トップレベル）要素は最大1つまで書ける
+- style 要素は2つ以上書ける（あまりやることはない）
+- `<script setup>` `<style scoped>` のように属性をつけることがある
+- .vue ファイルに複数のコンポーネントを定義することはできない[^proposal-9852]
+
+</div>
+
+- 興味ある人向け：[SFC 構文仕様](https://ja.vuejs.org/api/sfc-spec.html)
+- 興味ある人向け：[SFC CSS 機能](https://ja.vuejs.org/api/sfc-css-features.html)
+
+[^proposal-9852]: [Proposal: Multiple components in .vue files · Issue #9852 · vuejs/vue](https://github.com/vuejs/vue/issues/9852)
+
+---
+
 # プロパティを用いた子コンポーネントへのデータの受け渡し
 
 親コンポーネントから子コンポーネントに 文字列 を渡してみる
@@ -1742,10 +1777,10 @@ https://play.vuejs.org/ で書いてみよう
 これから学ぶ内容の確認
 
 - より具体的な題材でコードを読む・書く
-  - グリッドコンポーネント
-    - これまで学んだ内容を組み合わせた少し複雑な実装
+  - データテーブル
+    - これまでのおさらいとコンポーザブル
   - パスワードチェッカー
-    - throttle-debounce によるイベント処理の間引き
+    - VueUse の useThrottleFn / useDebounceFn によるイベント処理の間引き
   - ツクロアデザインラボの記事ビューアー
     - Fetch API による JSON データの取得
     - Vue Router による画面遷移
@@ -1758,45 +1793,121 @@ https://play.vuejs.org/ で書いてみよう
 
 ---
 
-# グリッドコンポーネント
+# データテーブル
 
-[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-grid-component?file=src/App.vue&terminal=dev)を開くか、handson-grid-componentディレクトリのアプリを起動する
+[データテーブルの Vue SFC Playground](https://play.vuejs.org/#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) を開く
 
 1. どんなアプリか：表にデータを流し込んでカラムで絞り込んだり並べ替えたりできる
 2. Vue特有な部分を中心にコードを理解する
    - どうやって絞り込んでいるのか
    - どうやって並べ替えているのか
    - どうやって絞り込んだり並べ替えたものを表示しているのか
+   - どうやってコンポーザブルに値を渡しているのか
 3. 講師と一緒にハンズオン（何をするのか分かったら講師を待たずにすすめてOK）
    - 列を追加してみる
    - 動的に行を追加できるようにしてみる
 
 ---
 
+# コンポーザブル
+
+コンポーザブルとは？
+
+> Vue アプリケーションの文脈で「コンポーザブル（composable）」とは、Vue の Composition API を活用して状態を持つロジックをカプセル化して再利用するための関数です。
+>
+> _[コンポーザブル | Vue.js](https://ja.vuejs.org/guide/reusability/composables) より引用_
+
+<div class="mb-4" />
+
+- コンポーザブル自体は純粋な JavaScript 関数
+- コンポーザブルを書くファイルも JavaScript (拡張子 .js) ファイル
+- 関数名は必ず use~ から始まる (どれがコンポーザブルか見分けやすくするため)
+- リアクティビティ API (ref, computed, watch, ...) も使える
+- Vue コンポーネントからロジック (振る舞いのためのコード) だけを別のファイルに分割できる
+
+---
+
+# コンポーザブルを使うときの注意
+
+コンポーザブルの引数への値の渡しかたによっては**リアクティビティが失われてしまう（！）**
+
+このうちいくつが `props.hoge` のリアクティビティを保って useComposable() に値を渡せるでしょうか…？
+
+1. <v-click>NG: </v-click>`useComposable(props.hoge)`
+2. <v-click>OK: </v-click>`const hoge = toRef(props, "hoge"); useComposable(hoge)`
+3. <v-click>OK: </v-click>`const { hoge } = toRefs(props); useComposable(hoge)`
+4. <v-click>NG: </v-click>`const hoge = ref(props.hoge); useComposable(hoge)`
+5. <v-click>OK: </v-click>`useComposable(() => props.hoge)`
+
+<v-click>
+
+props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/get#%E8%A7%A3%E8%AA%AC)にしてコンポーザブルに渡す**こと！
+
+4\. は hoge のリアクティブな値が渡せているけど props.hoge と値は同期されない  
+`ref(props.hoge)` で props.hoge とのリアクティビティが失われるため
+
+</v-click>
+
+<v-click>
+
+- コンポーザブルでは受け取った引数をどう参照すればいい？.valueつけないとだめ？→[toValue()](https://ja.vuejs.org/api/reactivity-utilities#tovalue)を使おう
+- 興味がある人向け：[慣例とベストプラクティス](https://ja.vuejs.org/guide/reusability/composables.html#conventions-and-best-practices)を読もう！
+- 興味がある人向け：非同期処理はコンポーザブルでどう扱えばいい？→[非同期の状態の例](https://ja.vuejs.org/guide/reusability/composables#async-state-example)をみよう！
+  - コンポーザブルは同期関数にする必要があるので、[Promise チェーン](https://ja.javascript.info/promise-chaining)を使おう
+
+</v-click>
+
+---
+
 # パスワードチェッカー
 
-[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-password-checker?file=src/App.vue&terminal=dev)を開くか、handson-password-checkerディレクトリのアプリを起動する
+[パスワードチェッカーの Vue SFC Playground](https://play.vuejs.org/#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) を開く
 
 1. どんなアプリか：パスワードの強度を判定できる
 2. Vue特有な部分を中心にコードを理解する
    - どうやってパスワードの強度を判定しているのか
    - どうやってパスワードの強度を視覚化しているのか
 3. 講師と一緒にハンズオン（何をするのか分かったら講師を待たずにすすめてOK）
-   - [throttle-debounce](https://www.npmjs.com/package/throttle-debounce) の debounce を使ってパスワードを入力してから一定時間後にパスワードの強度を判定してみる
-     - props.password を ref 値：propsPassword として取り出す
-     - PasswordChecker内部で管理するリアクティブな値：passwordを定義する
-     - 取り出した値を watch で監視する
-     - watch のコールバック関数に debounce を使用する
-     - props.password を参照している箇所を password.value に差し替える
-   - [throttle-debounce](https://www.npmjs.com/package/throttle-debounce) の throttle を使ってパスワードを入力している際に一定間隔でパスワードの強度を判定してみる
-     - debounce を使用している箇所を throttle に差し替える
+   - [useThrottleFn()](https://vueuse.org/shared/useThrottleFn/) を使ってパスワードを入力中の一定間隔でパスワードの強度を判定してみる
+   - [useDebounceFn()](https://vueuse.org/shared/useDebounceFn/) を使ってパスワードを入力してから一定時間後にパスワードの強度を判定してみる
+
+---
+
+# throttle とは？
+
+[Debounce vs Throttle: Definitive Visual Guide - kettanaito.com](https://kettanaito.com/blog/debounce-vs-throttle) をみよう
+
+![](/throttle.png)
+
+- 用語説明: https://developer.mozilla.org/ja/docs/Glossary/Throttle
+- 一定間隔で処理を実行する
+  - 最初の呼び出しが発生する->先頭 (leading edge)
+  - 前回の呼び出しから一定時間経過していない呼び出しは無視する
+  - 前回の呼び出しから一定時間経過した呼び出しを実行する
+  - 最後の呼び出しから一定時間経過する->末尾 (trailing edge)
+- 先頭と末尾の扱いは実装による (useThrottleFn は leading / trailing オプションを有効にするとそれぞれ必ず実行する)
+
+---
+
+# debounce とは？
+
+[Debounce vs Throttle: Definitive Visual Guide - kettanaito.com](https://kettanaito.com/blog/debounce-vs-throttle) をみよう
+
+![](/debounce.png)
+
+- 用語説明: https://developer.mozilla.org/ja/docs/Glossary/Debounce
+- 一定時間経過したら処理を実行する
+  - 最初の呼び出しが発生する->先頭 (leading edge)
+  - 前回の呼び出しから一定時間経過していない呼び出しは無視する
+  - 最後の呼び出しから一定時間経過した呼び出しを実行する->末尾 (trailing edge)
+- 先頭の扱いは実装による (useThrottleFn は先頭は実行しない)
 
 ---
 
 # debounce や throttle がどういう時に必要なのか？
 
 - [入力イベント](https://developer.mozilla.org/ja/docs/Web/API/InputEvent/data)や[スクロールイベント](https://developer.mozilla.org/ja/docs/Web/API/Element/scroll_event)など短時間で頻繁に発生するイベントに対応する処理を間引くときに使用する
-  - 例：入力イベントのたびにバックエンドサーバーへのHTTPリクエストを送りたくないとき
+  - 例：入力イベントのたびにHTTPリクエストを送りたくないとき
   - 例：利用者が入力操作をひととおりおこなったと思われるタイミングまで待ちたいとき
 
 ---
@@ -1813,7 +1924,7 @@ https://play.vuejs.org/ で書いてみよう
    - ルートを定義
    - Vue プラグインとして Vue アプリケーションインスタンスに登録
    - 画面が切り替わるようコンポーネントへの差し替え
-   - 画面遷移を補足できるコンポーネントへの差し替え
+   - 画面遷移を捕捉できるコンポーネントへの差し替え
 4. Vue特有な部分を中心にコードを理解する
    - Vue Router がなにをしているのか
    - PostDetail コンポーネントがなにをしているのか
@@ -1827,6 +1938,7 @@ https://play.vuejs.org/ で書いてみよう
 1. どんなアプリか：靴のデータ（JSON）を取得してショッピングサイトらしい見た目で一覧表示できる
 2. JSON から靴のデータを取得しよう（10 分程度）
 3. 取得した靴のデータをあらかじめ用意されたスタイルで表示しよう（20 分程度）
+4. スコープ付きスロットを使った[応用例](https://stackblitz.com/edit/tuqulore-vue-3-practices-de8aybet)を見て、見た目とロジックの分離について学習してみよう
 
 <img class="pt-2" src="/handson-gallery-shoes-finish.png" width="400">
 
@@ -2087,12 +2199,6 @@ export default () => {
   };
 };
 ```
-
-コンポーザブルとは？
-
-> Vue アプリケーションの文脈で「コンポーザブル（composable）」とは、Vue の Composition API を活用して状態を持つロジックをカプセル化して再利用するための関数です。
->
-> _[コンポーザブル | Vue.js](https://ja.vuejs.org/guide/reusability/composables) より引用_
 
 ---
 

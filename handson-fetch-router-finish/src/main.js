@@ -32,5 +32,6 @@ const router = VueRouter.createRouter({
 /**
  * 作成したルーターのインスタンスをVueアプリケーションインスタンスに
  * プラグインとしてインストールしています
+ * 参考: https://ja.vuejs.org/api/application.html#createapp
  */
 createApp(App).use(router).mount("#app");

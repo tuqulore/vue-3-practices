@@ -26,6 +26,13 @@ load();
  */
 watchEffect(() => {
   if (!article.value) return;
+  /**
+   * 記事中の画像に crossOrigin 属性をつけて
+   * StackBlitz 等で動作する本アプリにおける
+   * http://design-lab.tuqulore.com から配信される画像
+   * に対する CORS (オリジン間リソース共有) の通信方法を指定しています
+   * 参考: https://developer.mozilla.org/ja/docs/Web/HTML/Attributes/crossorigin
+   */
   const imgs = article.value.getElementsByTagName("img");
   for (const img of imgs) {
     img.crossOrigin = "anonymous";
@@ -40,6 +47,10 @@ watchEffect(() => {
     条件付きレンダリングによって記事を取得する前後の表示内容を変更しています
   -->
   <template v-if="post">
+    <!--
+      テンプレート参照により記事の HTML で生成される DOM にアクセスします
+      参考: https://ja.vuejs.org/guide/essentials/template-refs
+    -->
     <article ref="article" v-html="post.content.rendered" />
   </template>
   <p v-else>loading...</p>
