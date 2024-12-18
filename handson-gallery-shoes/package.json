@@ -30,6 +30,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "lint": "eslint --fix .",
     "preview": "vite preview"
   }
 }

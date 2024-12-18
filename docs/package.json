@@ -12,6 +12,7 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
+    "lint": "eslint --fix .",
     "export": "slidev export"
   },
   "devDependencies": {

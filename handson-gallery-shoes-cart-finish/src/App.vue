@@ -1,19 +1,20 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import ShoesCard from "./components/ShoesCard.vue";
 import ShoppingCart from "./components/ShoppingCart.vue";
 import CartIcon from "./components/CartIcon.vue";
 
-const shoes = ref([]);
+const shoesData = ref([]);
 const cart = ref([]);
 const showCart = ref(false);
 const addCart = (item) => {
   cart.value.push(item.value);
 };
-onMounted(async () => {
-  const shoesJson = await fetch("/json/shoes.json");
-  shoes.value = await shoesJson.json();
-});
+const load = async () => {
+  const response = await fetch("/json/shoes.json");
+  shoesData.value = await response.json();
+};
+load();
 </script>
 
 <template>
@@ -21,13 +22,13 @@ onMounted(async () => {
     <h1>ショッピング</h1>
     <button @click="showCart = !showCart"><CartIcon />{{ cart.length }}</button>
   </header>
-  <ShoppingCart v-if="showCart" :_items="cart" />
+  <ShoppingCart v-if="showCart" :items="cart" />
   <div class="card-wrapper">
     <ShoesCard
-      v-for="item in shoes.shoes"
-      :shoesData="item"
-      @added-cart="addCart"
+      v-for="item in shoesData.shoes"
       :key="item.id"
+      :shoes-data="item"
+      @added-cart="addCart"
     />
   </div>
 </template>

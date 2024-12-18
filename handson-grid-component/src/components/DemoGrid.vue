@@ -3,9 +3,9 @@ import { ref, reactive, computed } from "vue";
 
 const props = defineProps({
   // Appコンポーネントから渡されるプロパティはこの箇所のプロパティの定義と対応しています
-  heroes: Array,
-  columns: Array,
-  filterKey: String,
+  heroes: { type: Array, required: true },
+  columns: { type: Array, required: true },
+  filterKey: { type: String, required: true },
 });
 // カラムごとに並べ替えの降順昇順を判定するための配列を作成しています
 const sortOrders = reactive(
@@ -60,9 +60,10 @@ const sortBy = (column) => {
         <!-- リストレンダリングによってテーブルヘッダ、テーブルボディの要素を列挙しています -->
         <!-- クラスバインディングによって並べ替え対象のカラム(列)がアクティブ(活性)である見た目を動的に反映しています -->
         <th
-          v-for="column in columns"
-          @click="sortBy(column)"
+          v-for="(column, index) in columns"
+          :key="index"
           :class="{ active: sortKey == column }"
+          @click="sortBy(column)"
         >
           {{ column }}
           <span
@@ -73,8 +74,10 @@ const sortBy = (column) => {
       </tr>
     </thead>
     <tbody>
-      <tr v-for="row in filteredHeroes">
-        <td v-for="column in columns">{{ row[column] }}</td>
+      <tr v-for="(row, rowIndex) in filteredHeroes" :key="rowIndex">
+        <td v-for="(column, columnIndex) in columns" :key="columnIndex">
+          {{ row[column] }}
+        </td>
       </tr>
     </tbody>
   </table>

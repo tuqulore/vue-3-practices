@@ -1,7 +1,7 @@
 <template>
   <div class="shopping-cart__container">
     <div class="shopping-items">
-      <div class="shopping-item" v-for="(item, index) in items">
+      <div v-for="(item, index) in items" :key="index" class="shopping-item">
         <img
           class="thumbnail"
           :src="'/img/items/' + item.photoFileName"
@@ -24,10 +24,10 @@
 </template>
 
 <script setup>
-import { computed } from "@vue/reactivity";
+import { computed } from "vue";
 import { ref } from "vue";
-const props = defineProps({ _items: Array });
-const items = ref(props._items);
+const props = defineProps({ items: { type: Array, required: true } });
+const items = ref(props.items);
 const priceFormat = (num) => {
   return num.toLocaleString();
 };
