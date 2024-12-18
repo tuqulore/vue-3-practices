@@ -6,6 +6,7 @@
   "bugs": {
     "url": "https://github.com/tuqulore/vue-3-practices/issues"
   },
+  "type": "module",
   "devDependencies": {
     "@nuxt/eslint": "0.7.3",
     "@nuxt/eslint-config": "^0.7.0",

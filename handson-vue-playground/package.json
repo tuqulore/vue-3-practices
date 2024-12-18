@@ -6,6 +6,7 @@
   "bugs": {
     "url": "https://github.com/tuqulore/vue-3-practices/issues"
   },
+  "type": "module",
   "dependencies": {
     "vue": "^3.2.33",
     "vue-router": "4"

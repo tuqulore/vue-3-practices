@@ -27,6 +27,7 @@
     "handson*",
     "practice*"
   ],
+  "type": "module",
   "devDependencies": {
     "@lerna-lite/cli": "^3.10.1",
     "@lerna-lite/run": "^3.10.1",
