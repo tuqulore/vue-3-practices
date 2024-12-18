@@ -1,5 +1,5 @@
 <script setup>
-import ComponentOne from "./components/Component1.vue";
+import ComponentOne from "./components/ComponentOne.vue";
 </script>
 
 <template>

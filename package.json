@@ -33,6 +33,7 @@
     "prettier": "^3.1.0"
   },
   "scripts": {
+    "build": "lerna run build --no-bail",
     "format": "prettier --write .",
     "lint": "lerna run lint --no-bail"
   }
