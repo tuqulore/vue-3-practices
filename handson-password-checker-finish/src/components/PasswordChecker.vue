@@ -2,24 +2,24 @@
 import { ref, toRefs, watch, computed } from "vue";
 import { debounce } from "throttle-debounce";
 const props = defineProps({
-  password: String,
+  password: { type: String, required: true },
 });
 // プロパティからリアクティブな値としてpasswordだけを取り出す
-const { password: propsPassword } = toRefs(props);
-const password = ref("");
+const { password } = toRefs(props);
+const deouncedPassword = ref("");
 // props.passwordを監視して変更を間引く
 watch(
-  propsPassword,
+  password,
   debounce(1000, () => {
-    password.value = propsPassword.value;
+    deouncedPassword.value = propsPassword.value;
   }),
 );
 // 検査する項目
 const inspection = computed(() => ({
-  length: password.value.length,
-  includeAlphabet: password.value.match(/[a-zA-Z]/),
-  includeNumber: password.value.match(/[0-9]/),
-  includeOther: password.value.match(/[^a-zA-Z0-9]/),
+  length: deouncedPassword.value.length,
+  includeAlphabet: deouncedPassword.value.match(/[a-zA-Z]/),
+  includeNumber: deouncedPassword.value.match(/[0-9]/),
+  includeOther: deouncedPassword.value.match(/[^a-zA-Z0-9]/),
 }));
 // パスワード強度
 const passwordStrength = computed(() => {

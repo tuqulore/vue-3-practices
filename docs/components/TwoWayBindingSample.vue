@@ -7,6 +7,6 @@ const message = ref("Hello Vue!");
 <template>
   <div id="two-way-binding">
     <p>{{ message }}</p>
-    <input class="text-black p-1" v-model="message" />
+    <input v-model="message" class="text-black p-1" />
   </div>
 </template>

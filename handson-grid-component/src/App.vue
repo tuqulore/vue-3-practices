@@ -22,7 +22,7 @@ const gridData = ref([
       DOMイベント(input、update)に対して凝った入力ハンドリング(debounceの導入など)が必要になったら
       v-bind、v-onで書き換えてイベントハンドラー関数を用意するとよいでしょう
     -->
-    <input name="query" v-model="searchQuery" />
+    <input v-model="searchQuery" name="query" />
   </form>
   <DemoGrid
     :heroes="gridData"

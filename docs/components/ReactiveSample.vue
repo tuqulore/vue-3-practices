@@ -12,11 +12,11 @@ const sum = computed(() => {
   <div>
     <p>
       val1:
-      <input class="text-black p-1" type="number" v-model="val1" />
+      <input v-model="val1" class="text-black p-1" type="number" />
     </p>
     <p>
       val2:
-      <input class="text-black p-1" type="number" v-model="val2" />
+      <input v-model="val2" class="text-black p-1" type="number" />
     </p>
     <p>sum: {{ sum }}</p>
   </div>
