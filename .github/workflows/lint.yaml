@@ -9,4 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/setup
+      - run: yarn build
       - run: yarn lint
