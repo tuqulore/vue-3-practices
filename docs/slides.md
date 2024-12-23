@@ -750,7 +750,7 @@ const url = "https://ja.vuejs.org/";
 
 https://play.vuejs.org/ で書いてみよう
 
-興味がある人向け：たくさんの省略記法があるので https://ja.vuejs.org/api/built-in-directives#v-bind の例をみてね
+興味がある人向け：たくさんの省略記法があるので https://ja.vuejs.org/api/built-in-directives#v-bind の例をみてみましょう
 
 ---
 
