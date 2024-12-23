@@ -1,6 +1,6 @@
 # vue-3-practices
 
-Vue 3 / Nuxt 3 を学習するための[スライド](#スライド)と[ハンズオン](#ハンズオン)と[演習](#演習)を用意したリポジトリです。
+Vue 3 / Nuxt を学習するための[スライド](#スライド)と[ハンズオン](#ハンズオン)と[演習](#演習)を用意したリポジトリです。
 
 ## スケジュール
 
@@ -9,7 +9,7 @@ Vue 3 / Nuxt 3 を学習するための[スライド](#スライド)と[ハン�
 1. Vue 3 のハンズオン (6 時間)
 2. Vue 3 周辺ライブラリのハンズオン (2 時間)
 3. Vue 3 サンプルアプリケーションのハンズオン (4 時間)
-4. Nuxt 3 のハンズオン (4 時間)
+4. Nuxt のハンズオン (4 時間)
 
 ## スライド
 
@@ -19,7 +19,7 @@ https://tuqulore.github.io/vue-3-practices/
 
 | 内容                                    | リンク                                                                                                                                                                                                                                                                      |
 | :-------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nuxt 3 を触ってみよう                   | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev)                                                                                                                                       |
+| Nuxt を触ってみよう                     | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-nuxt-playground?file=app.vue&terminal=dev)                                                                                                                                       |
 | デザインラボの記事ビューアー            | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router?file=src/App.vue&terminal=dev) [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router-finish?file=src/App.vue&terminal=dev)   |
 | デザインラボの記事ビューアー（Nuxt 版） | [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-fetch-router-nuxt-finish?file=src/App.vue&terminal=dev)                                                                                                                                     |
 | 靴のギャラリー                          | [ハンズオン](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes?file=src/App.vue&terminal=dev) [完成](https://stackblitz.com/github/tuqulore/vue-3-practices/tree/main/handson-gallery-shoes-finish?file=src/App.vue&terminal=dev) |
@@ -64,4 +64,4 @@ MIT ライセンスで提供されています。
 
 ### ドキュメント
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/tuqulore/vue-3-practices" property="cc:attributionName" rel="cc:attributionURL">tuqulore Inc.</a> 作『<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Vue 3 / Nuxt 3 の教材集 </span>』は<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>で提供されています。
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/tuqulore/vue-3-practices" property="cc:attributionName" rel="cc:attributionURL">tuqulore Inc.</a> 作『<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Vue 3 / Nuxt の教材集 </span>』は<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>で提供されています。

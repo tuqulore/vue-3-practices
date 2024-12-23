@@ -1,4 +1,4 @@
-# Nuxt 3 Minimal Starter
+# Nuxt Minimal Starter
 
 Look at the [nuxt 3 documentation](https://nuxt.com) to learn more.
 
