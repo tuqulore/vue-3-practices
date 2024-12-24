@@ -3169,13 +3169,13 @@
     vue-demi ">=0.14.7"
 
 "@vueuse/core@^12.0.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-12.1.0.tgz#9855946112c2762483577bfbf5f8fd7406e5bcf8"
-  integrity sha512-uoAhT3cnDtG/UuhgKxO6fXPCtW2F8axmKGaHWeHdV3YhsbSILxi2ATURbSkAmdQwgzI6jOpJarfVfGXCl78v5g==
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-12.2.0.tgz#dc708892b2b796f21929dc3aa83d27a6d87a0033"
+  integrity sha512-jksyNu+5EGwggNkRWd6xX+8qBkYbmrwdFQMgCABsz+wq8bKF6w3soPFLB8vocFp3wFIzn0OYkSPM9JP+AFKwsg==
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
-    "@vueuse/metadata" "12.1.0"
-    "@vueuse/shared" "12.1.0"
+    "@vueuse/metadata" "12.2.0"
+    "@vueuse/shared" "12.2.0"
     vue "^3.5.13"
 
 "@vueuse/math@^12.0.0":
@@ -3191,10 +3191,10 @@
   resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-10.10.0.tgz#53e61e9380670e342cbe6e03d852f3319308cb5b"
   integrity sha512-UNAo2sTCAW5ge6OErPEHb5z7NEAg3XcO9Cj7OK45aZXfLLH1QkexDcZD77HBi5zvEiLOm1An+p/4b5K3Worpug==
 
-"@vueuse/metadata@12.1.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-12.1.0.tgz#104504feebe8294a7fe6fcd0856b0efb9c159273"
-  integrity sha512-XxU3sYdOhqKLO+LbreHzMqklCjs/rdRQcZGtu/AHPTXb2No/GUBVFJr/JruUB1NPWG26F8mr+c55P4YG6nMzcQ==
+"@vueuse/metadata@12.2.0":
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-12.2.0.tgz#446ed1e0900d0133a2d63924fa854892f0a2b2a9"
+  integrity sha512-x6zynZtTh1l52m0y8d/EgzpshnMjg8cNZ2KWoncJ62Z5qPSGoc4FUunmMVrrRM/I/5542rTEY89CGftngZvrkQ==
 
 "@vueuse/motion@^2.2.6":
   version "2.2.6"
@@ -3224,10 +3224,10 @@
   dependencies:
     vue "^3.5.13"
 
-"@vueuse/shared@12.1.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-12.1.0.tgz#0c5eaf955d23fa69853a3f20abc83f749e911ad4"
-  integrity sha512-tnuYb6Rp9dwMjsi/gukNeE+En3RFOfzrnVZX1vwbvq7+MbCkBNnXFvKgMGPlo1TQxgVd46D3NYwhBmM8Ioxd2A==
+"@vueuse/shared@12.2.0":
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-12.2.0.tgz#495eed20416d4975ea2570d3087db4eebcb92252"
+  integrity sha512-SRr4AZwv/giS+EmyA1ZIzn3/iALjjnWAGaBNmoDTMEob9JwQaevAocuaMDnPAvU7Z35Y5g3CFRusCWgp1gVJ3Q==
   dependencies:
     vue "^3.5.13"
 
