@@ -11,10 +11,10 @@ const addSticky = () => {
 <template>
   <div>
     <h1>Top page</h1>
-    <p v-for="(sticky, index) in stickies.data" :key="index">{{ sticky }}</p>
+    <p v-for="sticky in stickies.data" :key="sticky.id">{{ sticky }}</p>
     <StickyNote
-      v-for="(sticky, index) in stickies.data"
-      :key="index"
+      v-for="sticky in stickies.data"
+      :key="sticky.id"
       :data="sticky"
     />
     <button @click="addSticky">付箋を追加する</button>

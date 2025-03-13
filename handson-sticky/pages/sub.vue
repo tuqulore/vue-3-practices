@@ -13,8 +13,8 @@ const addSticky = () => {
     <h1>Sub page</h1>
     <p>ここはサブページです</p>
     <StickyNote
-      v-for="(sticky, index) in stickies.data"
-      :key="index"
+      v-for="sticky in stickies.data"
+      :key="sticky.id"
       :data="sticky"
     />
     <button @click="addSticky">付箋を追加する</button>
