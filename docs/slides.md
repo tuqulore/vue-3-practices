@@ -2530,7 +2530,7 @@ Vue（とNuxt）でWebアプリケーションを作りたくなりましたか�
 
 # 課題 - 付箋アプリをつくってみよう
 
-[StacBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-sticky?file=src/App.vue&terminal=dev)を開くか、handson-stickyディレクトリのアプリを起動する
+[StackBlitz](https://stackblitz.com/fork/github/tuqulore/vue-3-practices/tree/main/handson-sticky?file=src/App.vue&terminal=dev)を開くか、handson-stickyディレクトリのアプリを起動する
 
 <div class="text-xs">
 
