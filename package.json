@@ -29,8 +29,8 @@
   ],
   "type": "module",
   "devDependencies": {
-    "@lerna-lite/cli": "^3.10.1",
-    "@lerna-lite/run": "^3.10.1",
+    "@lerna-lite/cli": "^4.0.0",
+    "@lerna-lite/run": "^4.0.0",
     "prettier": "^3.1.0",
     "yarn-deduplicate": "^6.0.2"
   },
