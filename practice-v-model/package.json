@@ -11,12 +11,12 @@
   },
   "type": "module",
   "devDependencies": {
-    "@vitejs/plugin-vue": "5.2.4",
+    "@vitejs/plugin-vue": "6.0.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-vue": "^10.0.0",
     "prettier": "^3.1.1",
-    "vite": "6.3.5"
+    "vite": "7.0.0"
   },
   "homepage": "https://github.com/tuqulore/vue-3-practices#readme",
   "keywords": [
