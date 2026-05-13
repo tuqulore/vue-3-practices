@@ -1,0 +1,1 @@
+import{B as e,x as t}from"../modules/shiki-DPYB8Ecm.js";import{t as n}from"../_plugin-vue_export-helper-1r9tKl2A.js";var r={},i={class:`w-1px opacity-10 bg-current m-1 lg:m-2`};function a(n,r){return e(),t(`div`,i)}var o=n(r,[[`render`,a]]);export{o as t};
