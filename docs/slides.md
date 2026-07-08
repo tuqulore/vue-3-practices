@@ -2229,7 +2229,7 @@ function increment() {
 - 数を数えるロジックがコンポーザブルにすることで再利用可能になった。
 - しかし、画面遷移すると数がリセットされる。
 - ref 関数などのリアクティビティ API の値は、Vue コンポーネントが初期化～マウントされている間で保持される。  
-   （参考：[ライフサイクルダイアグラム](https://ja.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram)）
+  （参考：[ライフサイクルダイアグラム](https://ja.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram)）
   <arrow v-click="1" x1="400" y1="270" x2="220" y2="170" color="#564" width="3" arrowSize="1" />
 
 ---
