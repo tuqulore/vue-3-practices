@@ -21,7 +21,7 @@ drawings:
 ---
 
 <div class="text-center">
-<img src="/logo.svg" alt="Vue" style="width: 100px;" class="inline mb-4" />
+<img src="./images/logo.svg" alt="Vue" style="width: 100px;" class="inline mb-4" />
 
 <h1 class="!text-5xl">Vue3 Practices</h1>
 
@@ -104,7 +104,7 @@ Vue SFC Playgroundはブラウザ上でVueの動作が確認できるオンラ�
 
 講師の編集内容もリクエストに応じて適宜共有していきます。
 
-<img class="fixed right-0 bottom-0" src="/vue-sfc-playground-example.png" alt="" width="400">
+<img class="fixed right-0 bottom-0" src="./images/vue-sfc-playground-example.png" alt="" width="400">
 
 ---
 
@@ -124,7 +124,7 @@ StackBlitzはブラウザ上でVueの動作の確認やアプリのビルドが�
 
 講師の編集内容もリクエストに応じて適宜共有していきます。
 
-<img class="fixed right-0 bottom-0" src="/stackblitz-example.png" alt="" width="400">
+<img class="fixed right-0 bottom-0" src="./images/stackblitz-example.png" alt="" width="400">
 
 ---
 
@@ -182,9 +182,9 @@ $ tree -L 1 # ファイル群の階層構造を確認するコマンド（例示
 
 <div class="flex gap-2">
 
-<img src="/vscode-example.png" alt="" width="300">
+<img src="./images/vscode-example.png" alt="" width="300">
 
-<img src="/grid-component-example.png" alt="" width="300">
+<img src="./images/grid-component-example.png" alt="" width="300">
 
 </div>
 
@@ -1149,7 +1149,7 @@ https://play.vuejs.org/ で書いてみよう
 
 チャットを例にすると:
 
-![](/chat-component-example-1.png)
+![](./images/chat-component-example-1.png)
 
 <div class="flex gap-12">
 
@@ -1184,7 +1184,7 @@ https://play.vuejs.org/ で書いてみよう
 
 似てるけど微妙に違う見た目はどうする？（たとえば自分以外のチャット）
 
-![](/chat-component-example-2.png)
+![](./images/chat-component-example-2.png)
 
 - コンポーネントにデータを渡す仕組みがある（プロパティ）
 - チャットコンポーネントのプロパティとしては…
@@ -1205,7 +1205,7 @@ https://play.vuejs.org/ で書いてみよう
 
 <div class="flex gap-12">
 
-<img class="h-90" alt="" src="/chat-component-example-3.png">
+<img class="h-90" alt="" src="./images/chat-component-example-3.png">
 
 - コンポーネントにすると見た目と振る舞いを再利用できる
 - [サンプル](https://play.vuejs.org/#eNqlVdtu3EQYfpWRuWiLut4maVFr0gAtvSgStCLlCnMxa092J/F6rJnZTUq0KPaiNC1UFeIijUoJUQ+BBlokhICqog8z3QBX8Aj8M+N47WwSDomUxDP/8fv+wyw6bySJ2+0Qx3MmRcBpIpEgspNM+TFtJ4xLdL6F5UVJ2miGszbyHbe+c6PtfMeP/ThgsZAogHvxJpYYnUXv+zFCi/oPQm0iBG4SD4y3v90Y3PlSpY9Vf131n6n+ssruqf4PKvtepZsqXVPpp2op3b77YPuLFVAbG99efaDST8bOmP+Px17ZXsuM5sdwq5X196rKrql0GW7+fLbuO8dt2I4g3NvJAaEYt00KKvtR9VdU9rBQRAh3sWT8YhuyfI9HWqslZSK8el1LMHcpx7EbUcyxyztxPek0IhrUxzR6bd/LPVExTaIZD0neIfmVURUtoMVEP3lqsLI8uH4zD24NR3lS6Tcq3VDZdcAMyH/7GrBuqiwb3N988fPK4P6WZQv9tf7ZjqsDAP+isqcq++7wgMf3AzyDI7EP4okT/xIx1P65Sn9V6R2VfQ7I1q6hvPxPjBAAbw3WgQhQuafSh6YH4HtVpetqKctb5BGQNriVDW58ZSxuGpU1kP8zTc9VtqX6t1T20+GZmvgfTI2f3o+pEk8vni7/vgnwzbAswSzcVZmdgiejQ3Ljj43bhibgSNMArN7u5+4rNOw/HIcbDYthZCx2AS/PhLb4wI8n63YbwR6CAyybJAJlOCE0GdIuCiIsxFnfMTunJuTVCFaREYNCsbK6tRnGcy1E4+GG8h2QNWgc5kI4163zOniHr8l6KSYcTQQkApaQEG7cUty8RJg3aeyhcU7arwKMXTpT6GX0EfyWdGuSJR4aK/QBsladco47EgLFM7TpzgoWw2o2VpApayc0IvxSIilsXN8p6uc7OIrY/FvmrrR9NDoSzO1xPysW9J3vXOYEOqEL9BUyKGuTACdafGH6HbIA34WwzcKOJvsA4btEsKijc7Rq5zpxCGmX9Ey2F80DQ+PmFXFhQZJY7IDSiQ67x3fgnTl/APRhuhPuSWMHfAKL5Xdqj/fNPloJZ4mAByskMzQml/XpaHXmpiWHHEszc6kxSwJZ6exzjEUEx6PNXRj3jg0fyhbWfJyHOZl720aBBI4eQ2enLKgYd2lTj50bRDRpMMxDd55TSa4A20dNxm6eHni1rXPgtHDIDjq90ZFS16QyPTXw2x7OTmW4WCwxsAKVQ97O5eIRAZCPeJY51zLQKxzscmGXREkKctpuIk/wAMTWh6bVrS4aHRFHsqqit1QxqcZVPq3DwOU4LYJDwks3u3Kz7qYWF8tI0GvoiEphfT6CZ6VAWYTv9aoxR5xKKFFtARq08Fvqh1HryfpIlpO2TIXHvNIA/HVoh2AOrkYbqMIwvBp57Ny2Bz0yjGj970ni8Pu/LELTQsgt2sV2cUgF2F2FJy8iC7DiEGriysJzdSNZXa1SCymHuYLx9qBh52ucdAkXJNe1jYR071S9NyIWzBn38zSULQ+dPJHYcC1Cmy1ZumjgYK7JGWyjWsAiBqP80sTEhBUxDlWocRzSjvDQGfgxRhDaFmg/TDiizdgQAGYBiSXhQ6zuKQu2WPkNBtS3tWCHhNy7aa6cC6CxNp/n3mBRWFXMG6ykK+iHsGnGLErNVV51qxJ0uNBQE0aL5CxaD8Us1vzuyQwhVpTgMIQVVhRuhKvTObsmMUOHhwTUSlaz8VoM6mlz2iNcGOY4Sw9h729iBqTx)
@@ -1218,7 +1218,7 @@ https://play.vuejs.org/ で書いてみよう
 
 親コンポーネントから子コンポーネントが参照されツリー構造になる。最上位はルートコンポーネント（App.vue）
 
-<img src="/components.png" alt="コンポーネントの基本と構成" style="height: 60%; width: auto" />
+<img src="./images/components.png" alt="コンポーネントの基本と構成" style="height: 60%; width: auto" />
 
 Vue アプリは必ず、Vue コンポーネントのツリー構造で構成される
 
@@ -1879,7 +1879,7 @@ props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://d
 
 [Debounce vs Throttle: Definitive Visual Guide - kettanaito.com](https://kettanaito.com/blog/debounce-vs-throttle) をみよう
 
-![](/throttle.png)
+![](./images/throttle.png)
 
 - 用語説明: https://developer.mozilla.org/ja/docs/Glossary/Throttle
 - 一定間隔で処理を実行する
@@ -1895,7 +1895,7 @@ props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://d
 
 [Debounce vs Throttle: Definitive Visual Guide - kettanaito.com](https://kettanaito.com/blog/debounce-vs-throttle) をみよう
 
-![](/debounce.png)
+![](./images/debounce.png)
 
 - 用語説明: https://developer.mozilla.org/ja/docs/Glossary/Debounce
 - 一定時間経過したら処理を実行する
@@ -1942,7 +1942,7 @@ props や reactive() の値は **必ず Ref 型か[ゲッター関数](https://d
 3. 取得した靴のデータをあらかじめ用意されたスタイルで表示しよう（20 分程度）
 4. スコープ付きスロットを使った[応用例](https://stackblitz.com/edit/tuqulore-vue-3-practices-de8aybet)を見て、見た目とロジックの分離について学習してみよう
 
-<img class="pt-2" src="/handson-gallery-shoes-finish.png" width="400">
+<img class="pt-2" src="./images/handson-gallery-shoes-finish.png" width="400">
 
 ---
 
@@ -2538,11 +2538,11 @@ Vue（とNuxt）でWebアプリケーションを作りたくなりましたか�
 
 <div class="grid grid-cols-2 items-center text-xs font-bold text-gray-500">
   <figure>
-  <img src="/sticky-handson.png" class="w-80 mb-4" alt />
+  <img src="./images/sticky-handson.png" class="w-80 mb-4" alt />
     <figcaption>どこからでも付箋の情報を扱える Composables を使う</figcaption>
   </figure>
   <figure>
-  <img src="/fig-sticky-handson.png" class="w-80 border border-gray-200 mb-4" alt />
+  <img src="./images/fig-sticky-handson.png" class="w-80 border border-gray-200 mb-4" alt />
     <figcaption>
       handson-sticky ディレクトリのアプリを起動するとこんな画面が表示されます
     </figcaption>
@@ -2559,7 +2559,7 @@ Vue（とNuxt）でWebアプリケーションを作りたくなりましたか�
 
 <p>様々な Vue で使える便利なユーティリティがあります。</p>
 
-<img src="/fig-vueuse.png" alt="VueUse" class="h-8/12" />
+<img src="./images/fig-vueuse.png" alt="VueUse" class="h-8/12" />
 
 https://vueuse.org/
 
@@ -2603,21 +2603,21 @@ https://vueuse.org/
 
 <div class="grid grid-cols-3 gap-6 text-xs">
   <figure>
-    <img src="/fig-sticky-remove.png" class="p-1 border mb-2" alt />
+    <img src="./images/fig-sticky-remove.png" class="p-1 border mb-2" alt />
     <figcaption>
       <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-a1jojw">削除ボタンの追加 →</a>
       </figcaption>
   </figure>
 
   <figure>
-    <img src="/fig-sticky-photo.png" class="p-1 border mb-2" alt />
+    <img src="./images/fig-sticky-photo.png" class="p-1 border mb-2" alt />
     <figcaption>
       <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-7qahec">付箋に画像を貼る →</a>
       </figcaption>
   </figure>
 
   <figure>
-    <img src="/fig-sticky-add.png" class="p-1 border mb-2" alt />
+    <img src="./images/fig-sticky-add.png" class="p-1 border mb-2" alt />
     <figcaption>
       <a target="_blank" rel="noopener noreferrer" href="https://stackblitz.com/edit/nuxt-starter-ryc4pc">付箋の追加ボタンを新規コンポーネントで作成 →</a>
       </figcaption>
