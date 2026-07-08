@@ -25,6 +25,7 @@ jobs:
           path: ./docs/dist
 
   deploy:
+    needs: build
     permissions:
       pages: write
       id-token: write
